@@ -1,0 +1,29 @@
+﻿.formBody {
+    margin: 50px;
+}
+
+.formButton {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #ED1C24;
+    border: 0;
+    padding: 10px;
+    margin: 25px;
+    width: 300px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    align-content: center;
+}
+
+    .formButton:hover, .form button:active, .form button:focus {
+        background: #ED1C24;
+    }
+
+.errorMessage {
+    padding: 5px;
+    margin: 25px;
+}
