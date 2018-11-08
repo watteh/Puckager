@@ -7,11 +7,13 @@
         <h1>DGF</h1>
         <p>DGF Hockey is a recruit rating and reporting website, keeping tabs on the best hockey talents throughout Canada.</p>
         <br />
-        <h3>Staff Members</h3>
+        <h3>Development Team</h3>
         <br />
-        <p>David Gwyn - </p>
-         <br />
-        <p>Xavier Biggs -</p>
-         <br />
+        <p>Yayun Yang - Lead Developer</p>
+        <p>Heeyeong Kim - Lead Developer</p>
+        <p>Ryan Watson - Lead Developer</p>
+        <p>Minseok Choi - Lead Developer</p>
+        <p>Semy Jin - Lead Developer</p>
+        <p>David Gwyn - Lead Developer</p>
     </div>
 </asp:Content>

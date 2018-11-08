@@ -96,7 +96,7 @@ namespace DGFScouting
         }
 
 
-        // AddRecruit() takes elevem arguments, connects to the database, attempts to enter new record into Recruit table and returns bool
+        // AddRecruit() takes thirteen arguments, connects to the database, attempts to enter new record into Recruit table and returns bool
         public static bool AddRecruit(string firstName, string lastName, string contactNumber, string emailAddress, int birthyear, int graduationYear, string currentTeam, int jerseyNumber, string position, string mothersName, string fathersName, string recruitStatus, string dateAdded)
         {
             string query = string.Format(@"Insert into Recruit (FirstName, LastName, ContactNumber, EmailAddress, BirthYear, GraduationYear, CurrentTeam, JerseyNumber, Position, MothersName, FathersName, Status, DateAdded)
