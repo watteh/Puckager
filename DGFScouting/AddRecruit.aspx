@@ -99,7 +99,7 @@
             </div>
             <div class="col-4">
                 <!-- Validation to check the field is only contains number and range is between 1 - 99 -->
-                <asp:RegularExpressionValidator ID="RegularExpressionValidatorJerseyNumber" ControlToValidate="txtBoxJerseyNumber" runat="server" ErrorMessage="*Numeric values only" Display="Dynamic" CssClass="alert alert-danger small font-weight-bold text-center errorMessage" role="alert" ValidationExpression="^(\d{4})(\d{4})?$"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidatorJerseyNumber" ControlToValidate="txtBoxJerseyNumber" runat="server" ErrorMessage="*Numeric values only (1-99)" Display="Dynamic" CssClass="alert alert-danger small font-weight-bold text-center errorMessage" role="alert" ValidationExpression="^(\d{2})?$"></asp:RegularExpressionValidator>
                 <asp:RangeValidator ID="RangeValidatorJerseyNumber" ControlToValidate="txtBoxJerseyNumber" runat="server" ErrorMessage="*Range must be tween 1 and 99" MaximumValue="99" MinimumValue="1" Display="Dynamic" CssClass="alert alert-danger small font-weight-bold text-center errorMessage" role="alert"></asp:RangeValidator>
             </div>
         </div>

@@ -36,11 +36,11 @@ namespace DGFScouting
                     var emailAddress = txtBoxEmailAddress.Text.Trim();
                     var birthYear = Convert.ToInt32(txtBoxBirthYear.Text.Trim());
                     var graduationYear = Convert.ToInt32(txtBoxGradYear.Text.Trim());
-                    var currentTeam = "Null";
+                    var currentTeam = txtBoxCurrentTeam.Text.Trim();
                     var position = dropdownPosition.SelectedItem.Text.Trim();
-                    var mothersName = "Null";
-                    var fathersName = "Null";
-                    var recruitStatus = "Null";
+                    var mothersName = txtBoxMothersName.Text.Trim();
+                    var fathersName = txtBoxFathersName.Text.Trim();
+                    var recruitStatus = dropdownStatus.SelectedItem.Text.Trim();
                     var dateAdded = Convert.ToString(DateTime.Today);
 
                     // Attempt to add a recruit to the database from the data entered by the user into the form
