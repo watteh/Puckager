@@ -220,6 +220,69 @@ namespace DGFScouting {
         protected global::System.Web.UI.WebControls.RangeValidator RangeValidatorGradYear;
         
         /// <summary>
+        /// lblCurrentTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCurrentTeam;
+        
+        /// <summary>
+        /// txtBoxCurrentTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBoxCurrentTeam;
+        
+        /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        
+        /// <summary>
+        /// lblJerseyNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblJerseyNumber;
+        
+        /// <summary>
+        /// txtBoxJerseyNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBoxJerseyNumber;
+        
+        /// <summary>
+        /// RegularExpressionValidatorJerseyNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorJerseyNumber;
+        
+        /// <summary>
+        /// RangeValidatorJerseyNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator RangeValidatorJerseyNumber;
+        
+        /// <summary>
         /// lblPosition control.
         /// </summary>
         /// <remarks>
@@ -238,49 +301,76 @@ namespace DGFScouting {
         protected global::System.Web.UI.WebControls.DropDownList dropdownPosition;
         
         /// <summary>
-        /// lblRating control.
+        /// lblMothersName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRating;
+        protected global::System.Web.UI.WebControls.Label lblMothersName;
         
         /// <summary>
-        /// txtBoxRating control.
+        /// txtBoxMothersName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBoxRating;
+        protected global::System.Web.UI.WebControls.TextBox txtBoxMothersName;
         
         /// <summary>
-        /// RegularExpressionValidatorRating control.
+        /// RegularExpressionValidatorMothersName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorRating;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorMothersName;
         
         /// <summary>
-        /// lblNotes control.
+        /// lblFathersName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNotes;
+        protected global::System.Web.UI.WebControls.Label lblFathersName;
         
         /// <summary>
-        /// txtBoxNotes control.
+        /// txtBoxFathersName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBoxNotes;
+        protected global::System.Web.UI.WebControls.TextBox txtBoxFathersName;
+        
+        /// <summary>
+        /// RegularExpressionValidatorFathersName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorFathersName;
+        
+        /// <summary>
+        /// lblStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStatus;
+        
+        /// <summary>
+        /// dropdownStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdownStatus;
         
         /// <summary>
         /// btnAddRecruit control.
