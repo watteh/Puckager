@@ -41,7 +41,7 @@
                     <asp:TextBox ID="txtBoxPhoneNumber" CssClass="form-control" placeholder="(905) 999-1234" runat="server"></asp:TextBox>
             </div>
             <div class="col-4">
-                    <!-- REGEX validation to check format is (905) 999 9999 -->
+                    <!-- REGEX validation to check format is (905) 999-9999 -->
                     <asp:RegularExpressionValidator ID="RegularExpressionValidatorPhoneNumber" ControlToValidate="txtBoxPhoneNumber" runat="server" ErrorMessage="*Format must be (999) 999-9999" Display="Dynamic" CssClass="alert alert-danger small font-weight-bold text-center errorMessage" role="alert" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"></asp:RegularExpressionValidator>
             </div>
         </div>

@@ -37,6 +37,7 @@ namespace DGFScouting
                     var birthYear = Convert.ToInt32(txtBoxBirthYear.Text.Trim());
                     var graduationYear = Convert.ToInt32(txtBoxGradYear.Text.Trim());
                     var currentTeam = txtBoxCurrentTeam.Text.Trim();
+                    var jerseyNumber = Convert.ToInt32(txtBoxJerseyNumber.Text.Trim());
                     var position = dropdownPosition.SelectedItem.Text.Trim();
                     var mothersName = txtBoxMothersName.Text.Trim();
                     var fathersName = txtBoxFathersName.Text.Trim();
@@ -44,7 +45,7 @@ namespace DGFScouting
                     var dateAdded = Convert.ToString(DateTime.Today);
 
                     // Attempt to add a recruit to the database from the data entered by the user into the form
-                    var addRecruit = ConnectionClass.AddRecruit(firstName, lastName, contactNumber, emailAddress, birthYear, graduationYear, currentTeam, position, mothersName, fathersName, recruitStatus, dateAdded);
+                    var addRecruit = ConnectionClass.AddRecruit(firstName, lastName, contactNumber, emailAddress, birthYear, graduationYear, currentTeam, jerseyNumber, position, mothersName, fathersName, recruitStatus, dateAdded);
 
                     // Display different messages to the user to let them know whether the recruit was added to the database successfully
                     if (addRecruit)
