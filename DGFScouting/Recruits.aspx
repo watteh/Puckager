@@ -18,18 +18,21 @@
         <div class="col-md.12">
             <h4>Recruits</h4>
                 <div class="table-responsive">
-                    <table id="recruitTabe" class="table table-bordered table-striped">
+                    <table id="recruitTable" class="table table-bordered table-striped">
                         <thead>
-                            <th>ID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th class="auto-style1">Phone Number</th>
-                            <th class="auto-style2">Email Address</th>
-                            <th>Birth Year</th>
-                            <th>Graduation Year</th>
-                            <th>Position</th>
-                            <th>Rating</th>
-                            <th>Notes</th>
+                            <th style="text-align: center">ID</th>
+                            <th style="text-align: center">First Name</th>
+                            <th style="text-align: center">Last Name</th>
+                            <th style="text-align: center">Contact Number</th>
+                            <th style="text-align: center">Email Address</th>
+                            <th style="text-align: center">Birth Year</th>
+                            <th style="text-align: center">Graduation Year</th>
+                            <th style="text-align: center">Current Team</th>
+                            <th style="text-align: center">Jersey #</th>
+                            <th style="text-align: center">Position</th>
+                            <th style="text-align: center">Mother</th>
+                            <th style="text-align: center">Father</th>
+                            <th style="text-align: center">Status</th>
                         </thead>
                         
                         <tbody>
@@ -40,13 +43,16 @@
                                 <td><%#Eval("RecruitID") %></td>
                                 <td><%#Eval("FirstName") %></td>
                                 <td><%#Eval("LastName") %></td>
-                                <td><%#Eval("PhoneNumber") %></td>
+                                <td><%#Eval("ContactNumber") %></td>
                                 <td><%#Eval("EmailAddress") %></td>
                                 <td><%#Eval("BirthYear") %></td>
                                 <td><%#Eval("GraduationYear") %></td>
+                                <td><%#Eval("CurrentTeam") %></td>
+                                <td><%#Eval("JerseyNumber") %></td>
                                 <td><%#Eval("Position") %></td>
-                                <td><%#Eval("RecruitRating") %></td>
-                                <td><%#Eval("Notes") %></td>
+                                <td><%#Eval("MothersName") %></td>
+                                <td><%#Eval("FathersName") %></td>
+                                <td><%#Eval("Status") %></td>
                             </tr>
                 
                             </ItemTemplate>

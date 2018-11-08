@@ -18,7 +18,7 @@ namespace DGFScouting
         static ConnectionClass()
         {
             // Update this string
-            cn = new SqlConnection(@"Data Source=DESKTOP-P96N1IO\SQLEXPRESS;initial Catalog=Puckager;Integrated Security=true;");
+            cn = new SqlConnection(@"Data Source=THEGWYNS-PC\SQLEXPRESS;initial Catalog=Puckager;Integrated Security=true;");
         }
 
         // ValidateUser() takes two arguments, connects to the database, attempts to validate entered credentials in Account table and returns integer
