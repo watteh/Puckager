@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 
 namespace DGFScouting
 {
@@ -18,7 +19,7 @@ namespace DGFScouting
         static ConnectionClass()
         {
             // Update this string
-            cn = new SqlConnection(@"Data Source=THEGWYNS-PC\SQLEXPRESS;initial Catalog=Puckager;Integrated Security=true;");
+            cn = new SqlConnection(@"Data Source=PC-ELLIEKIM;initial Catalog=Puckager;Integrated Security=true;");
         }
 
         // ValidateUser() takes two arguments, connects to the database, attempts to validate entered credentials in Account table and returns integer
@@ -92,9 +93,7 @@ namespace DGFScouting
             {
                 throw new Exception(ex.Message);
             }
-            
         }
-
 
         // AddRecruit() takes thirteen arguments, connects to the database, attempts to enter new record into Recruit table and returns bool
         public static bool AddRecruit(string firstName, string lastName, string contactNumber, string emailAddress, int birthyear, int graduationYear, string currentTeam, int jerseyNumber, string position, string mothersName, string fathersName, string recruitStatus, string dateAdded)
@@ -121,4 +120,53 @@ namespace DGFScouting
                 cn.Close();
             }
         }
-    }}
+
+        // 11/08/18_Heeyeong Kim
+        // SearchRecruits() takes three argument, connects to the database, retrieves search results and return DataTable object
+        public static DataTable SearchRecruits(string name, int birthYear, string position)
+        {
+           
+            try
+            {
+                string query = "SELECT * FROM Recruit";
+                if (!name.Equals("") || birthYear != 0 || !position.Equals("--Select--"))
+                {
+                     query = "SELECT * FROM Recruit WHERE";
+
+                    if (!name.Equals(""))
+                    {
+                        query += " CONCAT(FirstName, LastName) LIKE '%" + name + "%'";
+                    }
+                    if (birthYear != 0)
+                    {
+                        if (!name.Equals(""))
+                        {
+                            query += " AND ";
+                        }
+                        query += " BirthYear=" + birthYear;
+                    }
+                    if (!position.Equals("--Select--"))
+                    {
+                        if (!name.Equals("") || birthYear != 0)
+                        {
+                            query += " AND ";
+                        }
+                        query += " Position='" + position + "'";
+                    }
+                }
+
+                SqlDataAdapter sda = new SqlDataAdapter(query, cn);
+                DataTable dt = new DataTable();
+
+                sda.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+    }
+}
