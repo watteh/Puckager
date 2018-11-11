@@ -156,7 +156,7 @@
                         <asp:Label ID="LastNameLabel" runat="server" Text='<%# Eval("LastName") %>' />
                     </td>
                     <td>
-                        <asp:Label ID="PhoneNumberLabel" runat="server" Text='<%# Eval("PhoneNumber") %>' />
+                        <asp:Label ID="PhoneNumberLabel" runat="server" Text='<%# Eval("ContactNumber") %>' />
                     </td>
                     <td>
                         <asp:Label ID="EmailAddressLabel" runat="server" Text='<%# Eval("EmailAddress") %>' />

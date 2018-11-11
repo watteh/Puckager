@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_DGFScouting.Master" AutoEventWireup="true" CodeBehind="Recruits.aspx.cs" Inherits="DGFScouting.Recruit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_DGFScouting.Master" AutoEventWireup="true" CodeBehind="Recruits.aspx.cs" Inherits="DGFScouting.Recruit" EnableEventValidation="True" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
@@ -83,6 +83,7 @@
                             <th style="text-align: center">Mother</th>
                             <th style="text-align: center">Father</th>
                             <th style="text-align: center">Status</th>
+                            <th></th> <!-- Empty cell above Edit Button  / Note by Yayun Yang(Kim)-->
                         </thead>
 
                         <tbody>
@@ -103,6 +104,7 @@
                                         <td><%#Eval("MothersName") %></td>
                                         <td><%#Eval("FathersName") %></td>
                                         <td><%#Eval("Status") %></td>
+                                        <td><a href="EditRecruits.aspx?id=<%#Eval("RecruitID") %>">Edit</a></td> <!-- Redirect to edit recruit page-->
                                     </tr>
 
                                 </ItemTemplate>
