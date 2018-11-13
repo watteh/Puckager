@@ -78,6 +78,7 @@
     <Content Include="css\bootstrap.css.map" />
     <Content Include="css\bootstrap.min.css.map" />
     <Content Include="css\RegisterForm.css" />
+    <Content Include="EditRecruits.aspx" />
     <Content Include="js\bootstrap.bundle.js.map" />
     <Content Include="js\bootstrap.bundle.min.js.map" />
     <Content Include="js\bootstrap.js.map" />
@@ -152,6 +153,13 @@
     <Compile Include="Accounts.aspx.designer.cs">
       <DependentUpon>Accounts.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EditRecruits.aspx.cs">
+      <DependentUpon>EditRecruits.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditRecruits.aspx.designer.cs">
+      <DependentUpon>EditRecruits.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -167,6 +175,7 @@
       <DependentUpon>Master_DGFScouting.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecruitClass.cs" />
     <Compile Include="RecruitDetails.aspx.cs">
       <DependentUpon>RecruitDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
