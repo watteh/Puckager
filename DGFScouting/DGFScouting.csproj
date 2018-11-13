@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
+    <Content Include="AddAccount.aspx" />
     <Content Include="AddRecruit.aspx" />
     <Content Include="css\.DS_Store" />
     <Content Include="css\AddRecruit.css" />
@@ -83,6 +84,7 @@
     <Content Include="js\bootstrap.js.map" />
     <Content Include="js\bootstrap.min.js.map" />
     <Content Include="js\Login.js" />
+    <Content Include="Accounts.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="Master_DGFScouting.Master" />
     <None Include="packages.config" />
@@ -110,6 +112,8 @@
     <Content Include="RecruitDetails.aspx" />
     <Content Include="Recruits.aspx" />
     <Content Include="RegisterAccount.aspx" />
+    <Content Include="UpdateAccount.aspx" />
+    <Content Include="ViewAccount.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -119,6 +123,13 @@
     </Compile>
     <Compile Include="AboutUs.aspx.designer.cs">
       <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddAccount.aspx.cs">
+      <DependentUpon>AddAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddAccount.aspx.designer.cs">
+      <DependentUpon>AddAccount.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddRecruit.aspx.cs">
       <DependentUpon>AddRecruit.aspx</DependentUpon>
@@ -134,6 +145,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts.aspx.cs">
+      <DependentUpon>Accounts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Accounts.aspx.designer.cs">
+      <DependentUpon>Accounts.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditRecruits.aspx.cs">
       <DependentUpon>EditRecruits.aspx</DependentUpon>
@@ -178,6 +196,21 @@
     </Compile>
     <Compile Include="RegisterAccount.aspx.designer.cs">
       <DependentUpon>RegisterAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateAccount.aspx.cs">
+      <DependentUpon>UpdateAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateAccount.aspx.designer.cs">
+      <DependentUpon>UpdateAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utility.cs" />
+    <Compile Include="ViewAccount.aspx.cs">
+      <DependentUpon>ViewAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewAccount.aspx.designer.cs">
+      <DependentUpon>ViewAccount.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <PropertyGroup>

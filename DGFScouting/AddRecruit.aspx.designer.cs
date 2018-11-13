@@ -265,22 +265,22 @@ namespace DGFScouting {
         protected global::System.Web.UI.WebControls.TextBox txtBoxJerseyNumber;
         
         /// <summary>
-        /// RegularExpressionValidator2 control.
+        /// RegularExpressionValidatorJerseyNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorJerseyNumber;
         
         /// <summary>
-        /// RangeValidator1 control.
+        /// RangeValidatorJerseyNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator1;
+        protected global::System.Web.UI.WebControls.RangeValidator RangeValidatorJerseyNumber;
         
         /// <summary>
         /// lblPosition control.

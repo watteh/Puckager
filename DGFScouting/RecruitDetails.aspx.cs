@@ -20,7 +20,7 @@ namespace DGFScouting
         // ConnectionClass() contains database connection to local SQLExpress database
         public static void connection()
         {
-            cn = new SqlConnection(@"Data Source = DESKTOP-0E9HL0F\SQLEXPRESS2017; Initial Catalog = PuckagerDB; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            cn = new SqlConnection(@"Data Source=DESKTOP-7TNBVBD;Initial Catalog=Puckager;Integrated Security=True");
             cn.Open();
 
         }

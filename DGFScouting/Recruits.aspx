@@ -70,20 +70,23 @@
                 <div class="table-responsive">
                     <table id="recruitTable" class="table table-bordered table-striped">
                         <thead>
-                            <th style="text-align: center">ID</th>
-                            <th style="text-align: center">First Name</th>
-                            <th style="text-align: center">Last Name</th>
-                            <th style="text-align: center">Contact Number</th>
-                            <th style="text-align: center">Email Address</th>
-                            <th style="text-align: center">Birth Year</th>
-                            <th style="text-align: center">Graduation Year</th>
-                            <th style="text-align: center">Current Team</th>
-                            <th style="text-align: center">Jersey #</th>
-                            <th style="text-align: center">Position</th>
-                            <th style="text-align: center">Mother</th>
-                            <th style="text-align: center">Father</th>
-                            <th style="text-align: center">Status</th>
-                            <th></th> <!-- Empty cell above Edit Button  / Note by Yayun Yang(Kim)-->
+                            <tr>
+                                <th style="text-align: center">ID</th>
+                                <th style="text-align: center">First Name</th>
+                                <th style="text-align: center">Last Name</th>
+                                <th style="text-align: center">Contact Number</th>
+                                <th style="text-align: center">Email Address</th>
+                                <th style="text-align: center">Birth Year</th>
+                                <th style="text-align: center">Graduation Year</th>
+                                <th style="text-align: center">Current Team</th>
+                                <th style="text-align: center">Jersey #</th>
+                                <th style="text-align: center">Position</th>
+                                <th style="text-align: center">Mother</th>
+                                <th style="text-align: center">Father</th>
+                                <th style="text-align: center">Status</th>
+                                <th></th>
+                                <!-- Empty cell above Edit Button  / Note by Yayun Yang(Kim)-->
+                            </tr>
                         </thead>
 
                         <tbody>
@@ -104,7 +107,8 @@
                                         <td><%#Eval("MothersName") %></td>
                                         <td><%#Eval("FathersName") %></td>
                                         <td><%#Eval("Status") %></td>
-                                        <td><a href="EditRecruits.aspx?id=<%#Eval("RecruitID") %>">Edit</a></td> <!-- Redirect to edit recruit page-->
+                                        <td><a href="EditRecruits.aspx?id=<%#Eval("RecruitID") %>">Edit</a></td>
+                                        <!-- Redirect to edit recruit page-->
                                     </tr>
 
                                 </ItemTemplate>
