@@ -8,6 +8,7 @@ namespace DGFScouting
 {
     public class Utility
     {
+        // 11/11/18 Minseok Choi
         public static string ConvertToPasswordFormat(string password)
         {
             int numOfLetters = password.Length;
@@ -19,6 +20,7 @@ namespace DGFScouting
             return sb.ToString();
         }
 
+        // 11/11/18 Minseok Choi
         public static AccountType ConvertStringToAccountType(string sAccountType)
         {
             AccountType accountType = new AccountType();

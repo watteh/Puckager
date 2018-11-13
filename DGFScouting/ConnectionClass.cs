@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 
 namespace DGFScouting
 {
@@ -96,6 +97,7 @@ namespace DGFScouting
             }
         }
 
+        // 11/11/18 Minseok Choi
         // DisplayAccounts() takes one argument, connects to the database, retrieves Recruit table and fills the ListView object
         public static void DisplayAccounts(System.Web.UI.WebControls.ListView listView)
         {
@@ -116,6 +118,7 @@ namespace DGFScouting
 
         }
 
+        // 11/11/18 Minseok Choi
         // AddRecruit() takes thirteen arguments, connects to the database, attempts to enter new record into Recruit table and returns bool
         public static bool AddRecruit(string firstName, string lastName, string contactNumber, string emailAddress, int birthyear, int graduationYear, string currentTeam, int jerseyNumber, string position, string mothersName, string fathersName, string recruitStatus, string dateAdded)
         {
@@ -140,6 +143,8 @@ namespace DGFScouting
             }
         }
 
+        // 11/11/18 Minseok Choi
+        // Returns Account's properties through out string parameters
         public static bool GetAccount(string accountID, out string username, out string password, out string emailAddress, out string accountType)
         {
             bool isSucceeded = false;
@@ -175,6 +180,7 @@ namespace DGFScouting
             return isSucceeded;
         }
 
+        // 11/11/18 Minseok Choi
         // AddAccount() takes four arguments, connects to the database, attempts to enter new record into Account table and returns bool
         public static bool AddAccount(string username, string password, string emailaddress, AccountType accountType)
         {
@@ -207,6 +213,8 @@ namespace DGFScouting
             return isSucceeded;
         }
 
+        // 11/11/18 Minseok Choi
+        // Update an Account in DB
         public static bool UpdateAccount(string accountId, string username, string password, string emailaddress, AccountType accountType)
         {
             // if there's the same username in DB, throw an exception
@@ -256,6 +264,8 @@ namespace DGFScouting
             return isSuccess;
         }
 
+        // 11/11/18 Minseok Choi
+        // Delete an Account in DB
         public static bool DeleteAccount(string accountID)
         {
             string deleteQuery = string.Format(@"DELETE Account WHERE AccountID = {0}", accountID);
@@ -276,6 +286,7 @@ namespace DGFScouting
             return isSucceeded;
         }
 
+        // 11/11/18 Minseok Choi
         /// <summary>
         /// If the username exists in DB, return true, otherwise return false
         /// </summary>
@@ -337,6 +348,53 @@ namespace DGFScouting
                 cn.Close();
             }
             return accountType;
+        }
+
+        // 11/08/18_Heeyeong Kim
+        // SearchRecruits() takes three argument, connects to the database, retrieves search results and return DataTable object
+        public static DataTable SearchRecruits(string name, int birthYear, string position)
+        {
+
+            try
+            {
+                string query = "SELECT * FROM Recruit";
+                if (!name.Equals("") || birthYear != 0 || !position.Equals("--Select--"))
+                {
+                    query = "SELECT * FROM Recruit WHERE";
+
+                    if (!name.Equals(""))
+                    {
+                        query += " CONCAT(FirstName, LastName) LIKE '%" + name + "%'";
+                    }
+                    if (birthYear != 0)
+                    {
+                        if (!name.Equals(""))
+                        {
+                            query += " AND ";
+                        }
+                        query += " BirthYear=" + birthYear;
+                    }
+                    if (!position.Equals("--Select--"))
+                    {
+                        if (!name.Equals("") || birthYear != 0)
+                        {
+                            query += " AND ";
+                        }
+                        query += " Position='" + position + "'";
+                    }
+                }
+
+                SqlDataAdapter sda = new SqlDataAdapter(query, cn);
+                DataTable dt = new DataTable();
+
+                sda.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
     }
