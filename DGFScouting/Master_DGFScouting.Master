@@ -30,8 +30,9 @@
                 <div class="navbar-nav">
                   <a id="menuRecruits" class="nav-item nav-link" href="Recruits.aspx">Recruits <span class="sr-only">(current)</span></a>
                   <a id="menuAddRecruit" class="nav-item nav-link" href="AddRecruit.aspx">Add Recruit</a>
-                  <a id="menuRecruitDetail" class="nav-item nav-link" href="RecruitDetails.aspx">Recruit Details</a>
-                  <a id="menuLogout" class="nav-item nav-link" href="Logout.aspx">Logout</a>
+                  <a id="menuRecruitDetail" class="nav-item nav-link" href="RecruitDetails.aspx" >Recruit Details</a>
+                  <a id="menuAccounts" class="nav-item nav-link" href="Accounts.aspx" visible="false" runat="server">Accounts</a>
+                  <a id="menuLogout" class="nav-item nav-link float-right" href="Logout.aspx">Logout</a>
                 </div>
               </div>
           </nav>

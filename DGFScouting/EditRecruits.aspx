@@ -1,14 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_DGFScouting.Master" AutoEventWireup="true" CodeBehind="AddRecruit.aspx.cs" Inherits="DGFScouting.AddRecruit" UnobtrusiveValidationMode="None" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_DGFScouting.Master" AutoEventWireup="true" CodeBehind="EditRecruits.aspx.cs" Inherits="DGFScouting.EditRecruits" EnableEventValidation="True" UnobtrusiveValidationMode="None" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
     <div class="container-fluid">
-
         <asp:Label ID="lblLoggedInUser" runat="server" Text=""></asp:Label>
-
         <div class="formBody">
 
             <div class="form-group row">
@@ -18,7 +14,6 @@
                 </div>
                 <div class="col-4">
                     <!-- Validation to check the field is not null and that it only contains alpha characters -->
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorFirstName" ControlToValidate="txtBoxFirstName" runat="server" ErrorMessage="*First Name is required" Display="Dynamic" CssClass="alert alert-danger small font-weight-bold text-center errorMessage" role="alert"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidatorFirstNme" ControlToValidate="txtBoxFirstName" runat="server" ErrorMessage="*Uppercase and lowercase letters only" Display="Dynamic" CssClass="alert alert-danger small font-weight-bold text-center errorMessage" role="alert" ValidationExpression="^[a-zA-Z ]*$"></asp:RegularExpressionValidator>
                 </div>
             </div>
@@ -30,8 +25,7 @@
                 </div>
                 <div class="col-4">
                     <!-- Validation to check the field is not null and that it only contains alpha characters -->
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorLastName" ControlToValidate="txtBoxLastName" runat="server" ErrorMessage="*Last Name is required" Display="Dynamic" CssClass="alert alert-danger small font-weight-bold text-center errorMessage" role="alert"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidatorLastName" ControlToValidate="txtBoxLastName" runat="server" ErrorMessage="*Uppercase and lowercase letters only" Display="Dynamic" CssClass="alert alert-danger small font-weight-bold text-center errorMessage" role="alert" ValidationExpression="^[a-zA-Z ]*$"></asp:RegularExpressionValidator>
+                     <asp:RegularExpressionValidator ID="RegularExpressionValidatorLastName" ControlToValidate="txtBoxLastName" runat="server" ErrorMessage="*Uppercase and lowercase letters only" Display="Dynamic" CssClass="alert alert-danger small font-weight-bold text-center errorMessage" role="alert" ValidationExpression="^[a-zA-Z ]*$"></asp:RegularExpressionValidator>
                 </div>
             </div>
 
@@ -99,8 +93,8 @@
                 </div>
                 <div class="col-4">
                     <!-- Validation to check the field is only contains number and range is between 1 - 99 -->
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidatorJerseyNumber" ControlToValidate="txtBoxJerseyNumber" runat="server" ErrorMessage="*Numeric values only (1-99)" Display="Dynamic" CssClass="alert alert-danger small font-weight-bold text-center errorMessage" role="alert" ValidationExpression="^(\d{2})?$"></asp:RegularExpressionValidator>
-                    <asp:RangeValidator ID="RangeValidatorJerseyNumber" ControlToValidate="txtBoxJerseyNumber" runat="server" ErrorMessage="*Range must be tween 1 and 99" MaximumValue="99" MinimumValue="1" Display="Dynamic" CssClass="alert alert-danger small font-weight-bold text-center errorMessage" role="alert"></asp:RangeValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ControlToValidate="txtBoxJerseyNumber" runat="server" ErrorMessage="*Numeric values only (1-99)" Display="Dynamic" CssClass="alert alert-danger small font-weight-bold text-center errorMessage" role="alert" ValidationExpression="^(\d?[1-9]|[1-9]0)$"></asp:RegularExpressionValidator>
+                    <asp:RangeValidator ID="RangeValidator1" ControlToValidate="txtBoxJerseyNumber" runat="server" ErrorMessage="*Range must between 1 and 99" MaximumValue="99" MinimumValue="1" Display="Dynamic" CssClass="alert alert-danger small font-weight-bold text-center errorMessage" role="alert"></asp:RangeValidator>
                 </div>
             </div>
 
@@ -150,9 +144,8 @@
             </div>
         </div>
 
-        <asp:Button ID="btnAddRecruit" runat="server" Text="Add Recruit" CssClass="formButton" OnClick="btnAddRecruit_Click" />
-        <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="formButton" OnClientClick="this.form.reset();return false;" />
-        <asp:Label ID="lblAddRecruitError" runat="server" Text="Error: Recruit not added to the database" CssClass="alert alert-danger small font-weight-bold text-center" role="alert"></asp:Label>
-
+        <asp:Button ID="BtnEditRecruit" runat="server" Text="Save" CssClass="formButton" OnClick="BtnEditRecruit_Click" />
+        <asp:Button ID="BtnCancel" runat="server" Text="Cancel" CssClass="formButton" OnClick="BtnCancel_Click" />
+        <asp:Label ID="lblEditRecruitError" runat="server" Text="Error: Failed to save to the database" CssClass="alert alert-danger small font-weight-bold text-center" role="alert"></asp:Label>
     </div>
 </asp:Content>
