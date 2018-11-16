@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -53,19 +54,30 @@ namespace DGFScouting
                 if (birthYear.Equals("--Select--")) birthYear = null;
                 int birth = Convert.ToInt32(birthYear);
 
-                // Call SearchRecruits and retrieve data from database
-                DataTable dt = ConnectionClass.SearchRecruits(name, birth, position);
-
-                // If there is no result, error message shows up
-                if (dt != null)
+                if (!name.Equals("") && !Regex.IsMatch(name, @"^[a-zA-Z]+$"))
                 {
-                    listViewRecruit.DataSource = dt;
+                    lblSearchRecruitError.Text = "Uppercase and lowercase letters only";
+                    if (!lblSearchRecruitError.Visible) lblSearchRecruitError.Visible = true;
+                    listViewRecruit.DataSource = null;
                     listViewRecruit.DataBind();
+                    return;
                 }
                 else
                 {
-                    lblSearchRecruitError.Text = "Recruit Not Found";
-                    lblSearchRecruitError.Visible = true;
+                    // Call SearchRecruits and retrieve data from database
+                    DataTable dt = ConnectionClass.SearchRecruits(name, birth, position);
+
+                    // If there is no result, error message shows up
+                    if (dt != null)
+                    {
+                        listViewRecruit.DataSource = dt;
+                        listViewRecruit.DataBind();
+                    }
+                    else
+                    {
+                        lblSearchRecruitError.Text = "Recruit Not Found";
+                        if (!lblSearchRecruitError.Visible) lblSearchRecruitError.Visible = true;
+                    }
                 }
             }
         }

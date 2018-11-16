@@ -125,7 +125,6 @@ namespace DGFScouting
         // SearchRecruits() takes three argument, connects to the database, retrieves search results and return DataTable object
         public static DataTable SearchRecruits(string name, int birthYear, string position)
         {
-           
             try
             {
                 string query = "SELECT * FROM Recruit";
