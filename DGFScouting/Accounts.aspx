@@ -32,8 +32,9 @@
                                         <td><%#Eval("EmailAddress") %></td>
                                         <td><%# DGFScouting.Utility.ConvertStringToAccountType(Eval("AccountType").ToString()) %></td>
                                         <td>
-                                            <asp:Button runat="server" Text="Update" CssClass="btn btn-block btn-primary" CommandName="updateAccount" CommandArgument='<%#Eval("AccountID") %>'/>
-                                            <asp:Button runat="server" Text="Delete" CssClass="btn btn-block btn-danger" CommandName="deleteAccount" CommandArgument='<%#Eval("AccountID") %>'/>
+                                            <asp:Button runat="server" Text="Update" CssClass="btn btn-block btn-primary" CommandName="updateAccount" CommandArgument='<%#Eval("AccountID") %>' />
+                                            <asp:Button runat="server" Text="Delete" CssClass="btn btn-block btn-danger" CommandName="deleteAccount" CommandArgument='<%#Eval("AccountID") %>' OnClientClick='<%# Eval("UserName", @"return confirm(""Delete the Account {0}?"")" ) %>' />
+
                                         </td>
                                     </tr>
                                 </ItemTemplate>
