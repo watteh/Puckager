@@ -60,7 +60,6 @@ namespace DGFScouting
                     if (!lblSearchRecruitError.Visible) lblSearchRecruitError.Visible = true;
                     listViewRecruit.DataSource = null;
                     listViewRecruit.DataBind();
-                    return;
                 }
                 else
                 {
