@@ -57,27 +57,26 @@ namespace DGFScouting
                 if (!name.Equals("") && !Regex.IsMatch(name, @"^[a-zA-Z]+$"))
                 {
                     lblSearchRecruitError.Text = "Uppercase and lowercase letters only";
-                    if (!lblSearchRecruitError.Visible) lblSearchRecruitError.Visible = true;
+                    lblSearchRecruitError.Visible = true;
                     listViewRecruit.DataSource = null;
                     listViewRecruit.DataBind();
                     return;
                 }
-                else
-                {
-                    // Call SearchRecruits and retrieve data from database
-                    DataTable dt = ConnectionClass.SearchRecruits(name, birth, position);
 
-                    // If there is no result, error message shows up
-                    if (dt != null)
-                    {
-                        listViewRecruit.DataSource = dt;
-                        listViewRecruit.DataBind();
-                    }
-                    else
+                // Call SearchRecruits and retrieve data from database
+                DataTable dt = ConnectionClass.SearchRecruits(name, birth, position);
+
+                // If there is no result, error message shows up
+                if (dt != null)
+                {
+                    if (dt.Rows.Count == 0)
                     {
                         lblSearchRecruitError.Text = "Recruit Not Found";
-                        if (!lblSearchRecruitError.Visible) lblSearchRecruitError.Visible = true;
+                        lblSearchRecruitError.Visible = true;
                     }
+
+                    listViewRecruit.DataSource = dt;
+                    listViewRecruit.DataBind();
                 }
             }
         }
