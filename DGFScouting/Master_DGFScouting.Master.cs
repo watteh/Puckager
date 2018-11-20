@@ -11,7 +11,11 @@ namespace DGFScouting
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // display accounts menu when the logged in user type is admin
+            if (Session["accountType"].ToString() == AccountType.Admin.ToString())
+            {
+                menuAccounts.Visible = true;
+            }
         }
     }
 }

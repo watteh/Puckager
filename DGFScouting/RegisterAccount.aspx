@@ -9,8 +9,7 @@
     <link href="css/RegisterForm.css" rel="stylesheet" />
 </head>
 <body>
-    <form id="form1" runat="server">
-        
+    <form id="form1" runat="server">        
         <div class="login-page">
             <div class="form">
                 <div class="register-form">

@@ -10,7 +10,7 @@
 namespace DGFScouting {
     
     
-    public partial class AddRecruit {
+    public partial class EditRecruits {
         
         /// <summary>
         /// lblLoggedInUser control.
@@ -40,15 +40,6 @@ namespace DGFScouting {
         protected global::System.Web.UI.WebControls.TextBox txtBoxFirstName;
         
         /// <summary>
-        /// RequiredFieldValidatorFirstName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorFirstName;
-        
-        /// <summary>
         /// RegularExpressionValidatorFirstNme control.
         /// </summary>
         /// <remarks>
@@ -74,15 +65,6 @@ namespace DGFScouting {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBoxLastName;
-        
-        /// <summary>
-        /// RequiredFieldValidatorLastName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorLastName;
         
         /// <summary>
         /// RegularExpressionValidatorLastName control.
@@ -265,22 +247,22 @@ namespace DGFScouting {
         protected global::System.Web.UI.WebControls.TextBox txtBoxJerseyNumber;
         
         /// <summary>
-        /// RegularExpressionValidatorJerseyNumber control.
+        /// RegularExpressionValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorJerseyNumber;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
         
         /// <summary>
-        /// RangeValidatorJerseyNumber control.
+        /// RangeValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator RangeValidatorJerseyNumber;
+        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator1;
         
         /// <summary>
         /// lblPosition control.
@@ -373,30 +355,30 @@ namespace DGFScouting {
         protected global::System.Web.UI.WebControls.DropDownList dropdownStatus;
         
         /// <summary>
-        /// btnAddRecruit control.
+        /// BtnEditRecruit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddRecruit;
+        protected global::System.Web.UI.WebControls.Button BtnEditRecruit;
         
         /// <summary>
-        /// btnClear control.
+        /// BtnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClear;
+        protected global::System.Web.UI.WebControls.Button BtnCancel;
         
         /// <summary>
-        /// lblAddRecruitError control.
+        /// lblEditRecruitError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddRecruitError;
+        protected global::System.Web.UI.WebControls.Label lblEditRecruitError;
     }
 }

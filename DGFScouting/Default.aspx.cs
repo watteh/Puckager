@@ -24,10 +24,13 @@ namespace DGFScouting
                 var password = txtBoxLoginPassword.Text.Trim();
 
                 var verifyCredentials = ConnectionClass.ValidateUser(username, password);
+                var accountType = ConnectionClass.GetUserAccountType(username, password);
 
                 if (verifyCredentials == 1)
                 {
                     Session["username"] = txtBoxLoginUserName.Text.Trim();
+                    Session["accountType"] = accountType;
+
                     Response.Redirect("Recruits.aspx");
                 }
 
