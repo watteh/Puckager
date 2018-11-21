@@ -114,6 +114,7 @@
     <Content Include="RegisterAccount.aspx" />
     <Content Include="UpdateAccount.aspx" />
     <Content Include="ViewAccount.aspx" />
+    <Content Include="ViewRecruit.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -211,6 +212,13 @@
     </Compile>
     <Compile Include="ViewAccount.aspx.designer.cs">
       <DependentUpon>ViewAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewRecruit.aspx.cs">
+      <DependentUpon>ViewRecruit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewRecruit.aspx.designer.cs">
+      <DependentUpon>ViewRecruit.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <PropertyGroup>

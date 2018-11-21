@@ -85,14 +85,17 @@
                                 <th style="text-align: center">Father</th>
                                 <th style="text-align: center">Status</th>
                                 <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
                                 <!-- Empty cell above Edit Button  / Note by Yayun Yang(Kim)-->
+                                <!-- Added 3 empty th for add/view/delete buttons (RW - 11-21-18) -->
                             </tr>
                         </thead>
 
                         <tbody>
                             <asp:ListView ID="ListViewRecruits" runat="server">
                                 <ItemTemplate>
-
                                     <tr class="table table-bordered table-striped">
                                         <td><%#Eval("RecruitID") %></td>
                                         <td><%#Eval("FirstName") %></td>
@@ -107,13 +110,15 @@
                                         <td><%#Eval("MothersName") %></td>
                                         <td><%#Eval("FathersName") %></td>
                                         <td><%#Eval("Status") %></td>
+                                        <td><a href="AddReport.aspx?id=<%#Eval("RecruitID") %>">Add</a></td>
+                                        <td><a href="ViewRecruit.aspx?id=<%#Eval("RecruitID") %>">View</a></td>
                                         <td><a href="EditRecruits.aspx?id=<%#Eval("RecruitID") %>">Edit</a></td>
+                                        <td><a>Delete</a></td>
                                         <!-- Redirect to edit recruit page-->
+                                        <!-- added Add, view, and delete buttons -->
                                     </tr>
-
                                 </ItemTemplate>
                             </asp:ListView>
-
                         </tbody>
                     </table>
                 </div>
