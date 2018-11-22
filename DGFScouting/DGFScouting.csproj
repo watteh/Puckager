@@ -79,6 +79,7 @@
     <Content Include="css\bootstrap.min.css.map" />
     <Content Include="css\RegisterForm.css" />
     <Content Include="EditRecruits.aspx" />
+    <Content Include="GoalieScoutingReport.aspx" />
     <Content Include="js\bootstrap.bundle.js.map" />
     <Content Include="js\bootstrap.bundle.min.js.map" />
     <Content Include="js\bootstrap.js.map" />
@@ -160,6 +161,13 @@
     </Compile>
     <Compile Include="EditRecruits.aspx.designer.cs">
       <DependentUpon>EditRecruits.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GoalieScoutingReport.aspx.cs">
+      <DependentUpon>GoalieScoutingReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GoalieScoutingReport.aspx.designer.cs">
+      <DependentUpon>GoalieScoutingReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
