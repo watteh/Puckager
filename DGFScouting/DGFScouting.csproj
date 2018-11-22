@@ -79,6 +79,7 @@
     <Content Include="css\bootstrap.min.css.map" />
     <Content Include="css\RegisterForm.css" />
     <Content Include="EditRecruits.aspx" />
+    <Content Include="GoalieScoutingReport.aspx" />
     <Content Include="js\bootstrap.bundle.js.map" />
     <Content Include="js\bootstrap.bundle.min.js.map" />
     <Content Include="js\bootstrap.js.map" />
@@ -114,6 +115,7 @@
     <Content Include="RegisterAccount.aspx" />
     <Content Include="UpdateAccount.aspx" />
     <Content Include="ViewAccount.aspx" />
+    <Content Include="ViewRecruit.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +161,13 @@
     </Compile>
     <Compile Include="EditRecruits.aspx.designer.cs">
       <DependentUpon>EditRecruits.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GoalieScoutingReport.aspx.cs">
+      <DependentUpon>GoalieScoutingReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GoalieScoutingReport.aspx.designer.cs">
+      <DependentUpon>GoalieScoutingReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
@@ -211,6 +220,13 @@
     </Compile>
     <Compile Include="ViewAccount.aspx.designer.cs">
       <DependentUpon>ViewAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewRecruit.aspx.cs">
+      <DependentUpon>ViewRecruit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewRecruit.aspx.designer.cs">
+      <DependentUpon>ViewRecruit.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <PropertyGroup>
