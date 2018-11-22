@@ -1,11 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_DGFScouting.Master" AutoEventWireup="true" CodeBehind="GoalieScoutingReport.aspx.cs" Inherits="DGFScouting.GoalieScoutingReport" UnobtrusiveValidationMode="None" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_DGFScouting.Master" AutoEventWireup="true" CodeBehind="PlayerScoutingReport.aspx.cs" Inherits="DGFScouting.PlayerScoutingReport" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<div class="container-fluid">
+    <div class="container-fluid">
 
     <asp:Label ID="lblLoggedInUser" runat="server" Text=""></asp:Label>
 
@@ -46,9 +44,9 @@
         </div>
 
         <div class="form-group row">
-            <asp:Label ID="lblAgilitySpeed" for="txtAgilitySpeed" CssClass="col-2 col-form-label" runat="server" Text="Agility & Speed:"></asp:Label>
+            <asp:Label ID="lblIndividualOffesiveSkills" for="txtIndividualOffesiveSkills" CssClass="col-2 col-form-label" runat="server" Text="Individual Offensive Skills:"></asp:Label>
                 <div class="col-3">
-                    <asp:dropdownlist ID="dropdownAgilitySpeed" type="text" CssClass="form-control" runat="server">
+                    <asp:dropdownlist ID="dropdownIndividualOffesiveSkills" type="text" CssClass="form-control" runat="server">
                         <asp:ListItem Selected="True" Value="1">1</asp:ListItem>
                         <asp:ListItem Value="2">2</asp:ListItem>
                         <asp:ListItem Value="3">3</asp:ListItem>
@@ -59,9 +57,35 @@
         </div>
 
         <div class="form-group row">
-            <asp:Label ID="lblTrafficReboundControl" for="txtTrafficReboundControl" CssClass="col-2 col-form-label" runat="server" Text="Traffic & Rebound Control:"></asp:Label>
+            <asp:Label ID="lblIndividualDefensiveSkills" for="txtIndividualDefensiveSkills" CssClass="col-2 col-form-label" runat="server" Text="Individual Defensive Skills:"></asp:Label>
                 <div class="col-3">
-                    <asp:dropdownlist ID="dropdownTrafficReboundControl" type="text" CssClass="form-control" runat="server">
+                    <asp:dropdownlist ID="dropdownIndividualDefensiveSkills" type="text" CssClass="form-control" runat="server">
+                        <asp:ListItem Selected="True" Value="1">1</asp:ListItem>
+                        <asp:ListItem Value="2">2</asp:ListItem>
+                        <asp:ListItem Value="3">3</asp:ListItem>
+                        <asp:ListItem Value="4">4</asp:ListItem>
+                        <asp:ListItem Value="5">5</asp:ListItem>
+                    </asp:dropdownlist>
+                </div>
+        </div>
+
+        <div class="form-group row">
+            <asp:Label ID="lblOffensiveTeamPlay" for="txtOffensiveTeamPlay" CssClass="col-2 col-form-label" runat="server" Text="Offensive Team Play:"></asp:Label>
+                <div class="col-3">
+                    <asp:dropdownlist ID="dropdownOffensiveTeamPlay" type="text" CssClass="form-control" runat="server">
+                        <asp:ListItem Selected="True" Value="1">1</asp:ListItem>
+                        <asp:ListItem Value="2">2</asp:ListItem>
+                        <asp:ListItem Value="3">3</asp:ListItem>
+                        <asp:ListItem Value="4">4</asp:ListItem>
+                        <asp:ListItem Value="5">5</asp:ListItem>
+                    </asp:dropdownlist>
+                </div>
+        </div>
+
+        <div class="form-group row">
+            <asp:Label ID="lblDefensiveTeamPlay" for="txtDefensiveTeamPlay" CssClass="col-2 col-form-label" runat="server" Text="Defensive Team Play:"></asp:Label>
+                <div class="col-3">
+                    <asp:dropdownlist ID="dropdownDefensiveTeamPlay" type="text" CssClass="form-control" runat="server">
                         <asp:ListItem Selected="True" Value="1">1</asp:ListItem>
                         <asp:ListItem Value="2">2</asp:ListItem>
                         <asp:ListItem Value="3">3</asp:ListItem>
@@ -85,9 +109,9 @@
         </div>
 
         <div class="form-group row">
-            <asp:Label ID="lblStrengthFitness" for="txtStrengthFitness" CssClass="col-2 col-form-label" runat="server" Text="Strength & Fitness:"></asp:Label>
+            <asp:Label ID="lblStrengthPower" for="txtStrengthPower" CssClass="col-2 col-form-label" runat="server" Text="Strength Power:"></asp:Label>
                 <div class="col-3">
-                    <asp:dropdownlist ID="dropdownStrengthFitness" type="text" CssClass="form-control" runat="server">
+                    <asp:dropdownlist ID="dropdownStrengthPower" type="text" CssClass="form-control" runat="server">
                         <asp:ListItem Selected="True" Value="1">1</asp:ListItem>
                         <asp:ListItem Value="2">2</asp:ListItem>
                         <asp:ListItem Value="3">3</asp:ListItem>
@@ -98,22 +122,9 @@
         </div>
 
         <div class="form-group row">
-            <asp:Label ID="lblMentalToughness" for="txtMentalToughness" CssClass="col-2 col-form-label" runat="server" Text="Mental Toughness:"></asp:Label>
+            <asp:Label ID="lblWorkEthic" for="txtWorkEthic" CssClass="col-2 col-form-label" runat="server" Text="Work Ethic:"></asp:Label>
                 <div class="col-3">
-                    <asp:dropdownlist ID="dropdownMentalToughness" type="text" CssClass="form-control" runat="server">
-                        <asp:ListItem Selected="True" Value="1">1</asp:ListItem>
-                        <asp:ListItem Value="2">2</asp:ListItem>
-                        <asp:ListItem Value="3">3</asp:ListItem>
-                        <asp:ListItem Value="4">4</asp:ListItem>
-                        <asp:ListItem Value="5">5</asp:ListItem>
-                    </asp:dropdownlist>
-                </div>
-        </div>
-
-        <div class="form-group row">
-            <asp:Label ID="lblBattleMentality" for="txtBattleMentality" CssClass="col-2 col-form-label" runat="server" Text="Battle Mentality:"></asp:Label>
-                <div class="col-3">
-                    <asp:dropdownlist ID="dropdownBattleMentality" type="text" CssClass="form-control" runat="server">
+                    <asp:dropdownlist ID="dropdownWorkEthic" type="text" CssClass="form-control" runat="server">
                         <asp:ListItem Selected="True" Value="1">1</asp:ListItem>
                         <asp:ListItem Value="2">2</asp:ListItem>
                         <asp:ListItem Value="3">3</asp:ListItem>

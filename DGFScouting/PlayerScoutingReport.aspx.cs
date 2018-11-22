@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace DGFScouting
 {
-    public partial class GoalieScoutingReport : System.Web.UI.Page
+    public partial class PlayerScoutingReport : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
