@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace DGFScouting
 {
+    // Coded by Ryan Watson 11-22-18
     public partial class ViewRecruit : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -22,18 +23,20 @@ namespace DGFScouting
             //load selected recruit information as the hint of the textboxes through a RecruitClass object.
             RecruitClass recruit = ConnectionClass.DisplayRecruit(id);
 
-            lblRecruitFirstName.Attributes.Add("Text", recruit.FirstName);
-            lblRecruitLastName.Attributes.Add("Text", recruit.LastName);
-            lblRecruitPhoneNumber.Attributes.Add("Text", recruit.ContactNumber);
-            lblRecruitEmailAddress.Attributes.Add("Text", recruit.EmailAddress);
-            lblRecruitBirthYear.Attributes.Add("Text", recruit.Birthyear.ToString());
-            lblRecruitGradYear.Attributes.Add("Text", recruit.GraduationYear.ToString());
-            lblRecruitCurrentTeam.Attributes.Add("Text", recruit.CurrentTeam);
-            lblRecruitJerseyNumber.Attributes.Add("Text", recruit.JerseyNumber.ToString());
-            lblRecruitPosition.Attributes.Add("Text", recruit.Position.ToString());
-            lblRecruitMothersName.Attributes.Add("Text", recruit.MothersName);
-            lblRecruitFathersName.Attributes.Add("Text", recruit.FathersName);
-            lblRecruitStatus.Attributes.Add("Text", recruit.Status.ToString());
+            lblRecruitFirstName.Text = recruit.FirstName;
+            lblRecruitLastName.Text = recruit.LastName;
+            lblRecruitPhoneNumber.Text = recruit.ContactNumber;
+            lblRecruitEmailAddress.Text = recruit.EmailAddress;
+            lblRecruitBirthYear.Text = recruit.Birthyear.ToString();
+            lblRecruitGradYear.Text = recruit.GraduationYear.ToString();
+            lblRecruitCurrentTeam.Text = recruit.CurrentTeam;
+            lblRecruitJerseyNumber.Text = recruit.JerseyNumber.ToString();
+            lblRecruitPosition.Text = recruit.Position.ToString();
+            lblRecruitMothersName.Text = recruit.MothersName;
+            lblRecruitFathersName.Text = recruit.FathersName;
+            lblRecruitStatus.Text = recruit.Status.ToString();
+            //lblRecruitFirstName.DataBind();
+            //lblRecruitFirstName.Attributes["Text"] = recruit.FirstName.ToString();
         }
 
         protected void BtnBack_Click(object sender, EventArgs e)

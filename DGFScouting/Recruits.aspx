@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_DGFScouting.Master" AutoEventWireup="true" CodeBehind="Recruits.aspx.cs" Inherits="DGFScouting.Recruit" EnableEventValidation="True" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
+<%--    <style type="text/css">
         .auto-style1 {
             width: 194px;
         }
@@ -9,10 +9,10 @@
         .auto-style2 {
             width: 166px;
         }
-    </style>
+    </style>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container-fluid">
+    <div <%--class="container-fluid"--%>>
         <asp:Label ID="lblLoggedInUser" runat="server" Text=""></asp:Label>
     </div>
 
@@ -54,13 +54,9 @@
                 </tr>
                 <!-- Not Found Message -->
                 <asp:Label ID="lblSearchRecruitError" runat="server" CssClass="alert alert-danger small font-weight-bold text-center" role="alert"></asp:Label>
-                <br />
                 <!-- Exception Message -->
                 <asp:Label ID="lblExceptionError" runat="server" CssClass="alert alert-danger small font-weight-bold text-center" role="alert"></asp:Label>
             </table>
-
-
-
         </div>
     </div>
     <div class="container">
