@@ -19,7 +19,7 @@ namespace DGFScouting
         static ConnectionClass()
         {
             // Update this string
-            cn = new SqlConnection(@"Data Source = THEGWYNS-PC\SQLEXPRESS; Initial Catalog = Puckager; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            cn = new SqlConnection(@"Data Source = PC-ELLIEKIM; Initial Catalog = Puckager; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
         }
 
         // ValidateUser() takes two arguments, connects to the database, attempts to validate entered credentials in Account table and returns integer
@@ -386,6 +386,24 @@ namespace DGFScouting
                 SqlDataAdapter sda = new SqlDataAdapter(query, cn);
                 DataTable dt = new DataTable();
 
+                sda.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        // 11/22/18_Heeyeong Kim
+        public static DataTable DisplayReport(System.Web.UI.WebControls.ListView listView, int id, string table)
+        {
+            try
+            {
+                string query = string.Format(@"SELECT * FROM " +  table + " WHERE RecruitID=" + id);
+                SqlDataAdapter sda = new SqlDataAdapter(query, cn);
+                DataTable dt = new DataTable();
                 sda.Fill(dt);
 
                 return dt;

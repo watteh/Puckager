@@ -58,9 +58,6 @@
                 <!-- Exception Message -->
                 <asp:Label ID="lblExceptionError" runat="server" CssClass="alert alert-danger small font-weight-bold text-center" role="alert"></asp:Label>
             </table>
-
-
-
         </div>
     </div>
     <div class="container">
