@@ -19,7 +19,7 @@ namespace DGFScouting
         static ConnectionClass()
         {
             // Update this string
-            cn = new SqlConnection(@"Data Source = THEGWYNS-PC\SQLEXPRESS; Initial Catalog = Puckager; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            cn = new SqlConnection(@"Data Source = DESKTOP-7TNBVBD; Initial Catalog = Puckager; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
         }
 
         // ValidateUser() takes two arguments, connects to the database, attempts to validate entered credentials in Account table and returns integer
@@ -97,28 +97,7 @@ namespace DGFScouting
             }
         }
 
-        // 11/11/18 Minseok Choi
-        // DisplayAccounts() takes one argument, connects to the database, retrieves Recruit table and fills the ListView object
-        public static void DisplayAccounts(System.Web.UI.WebControls.ListView listView)
-        {
-            try
-            {
-                string query = "Select * from Account";
-                SqlDataAdapter sda = new SqlDataAdapter(query, cn);
 
-                DataTable dt = new DataTable();
-                listView.DataSource = dt;
-                sda.Fill(dt);
-                listView.DataBind();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-
-        }
-
-        // 11/11/18 Minseok Choi
         // AddRecruit() takes thirteen arguments, connects to the database, attempts to enter new record into Recruit table and returns bool
         public static bool AddRecruit(string firstName, string lastName, string contactNumber, string emailAddress, int birthyear, int graduationYear, string currentTeam, int jerseyNumber, string position, string mothersName, string fathersName, string recruitStatus, string dateAdded)
         {
@@ -144,7 +123,40 @@ namespace DGFScouting
         }
 
         // 11/11/18 Minseok Choi
-        // Returns Account's properties through out string parameters
+        /// <summary>
+        /// DisplayAccounts() takes 1 argument, connects to the database, retrieves Recruit table and fills the ListView object
+        /// </summary>
+        /// <param name="listView"></param>
+        public static void DisplayAccounts(System.Web.UI.WebControls.ListView listView)
+        {
+            try
+            {
+                string query = "Select * from Account";
+                SqlDataAdapter sda = new SqlDataAdapter(query, cn);
+
+                DataTable dt = new DataTable();
+                listView.DataSource = dt;
+                sda.Fill(dt);
+                listView.DataBind();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+
+        // 11/11/18 Minseok Choi
+        /// <summary>
+        /// GetAccount() takes 5 arguments, connects to the database, attempts to return the specified account properties through out string params
+        /// </summary>
+        /// <param name="accountID"></param>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="emailAddress"></param>
+        /// <param name="accountType"></param>
+        /// <returns></returns>
         public static bool GetAccount(string accountID, out string username, out string password, out string emailAddress, out string accountType)
         {
             bool isSucceeded = false;
@@ -173,15 +185,21 @@ namespace DGFScouting
             finally
             {
                 sda.Close();
+                cn.Close();
             }
-
-            cn.Close();
 
             return isSucceeded;
         }
 
         // 11/11/18 Minseok Choi
-        // AddAccount() takes four arguments, connects to the database, attempts to enter new record into Account table and returns bool
+        /// <summary>
+        /// AddAccount() takes 4 arguments, connects to the database, attempts to enter new record into Account table and returns bool
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="emailaddress"></param>
+        /// <param name="accountType"></param>
+        /// <returns></returns>
         public static bool AddAccount(string username, string password, string emailaddress, AccountType accountType)
         {
             // if there's the same username in DB, throw an exception
@@ -215,6 +233,15 @@ namespace DGFScouting
 
         // 11/11/18 Minseok Choi
         // Update an Account in DB
+        /// <summary>
+        /// UpdateAccount() takes 5 argument, connects to the database, update an existing account with the given params
+        /// </summary>
+        /// <param name="accountId"></param>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="emailaddress"></param>
+        /// <param name="accountType"></param>
+        /// <returns></returns>
         public static bool UpdateAccount(string accountId, string username, string password, string emailaddress, AccountType accountType)
         {
             // if there's the same username in DB, throw an exception
@@ -234,7 +261,7 @@ namespace DGFScouting
                 }
 
                 // check whether username will not be changed
-                if(crtUserName != username)
+                if (crtUserName != username)
                 {
                     throw new Exception("The same user name already exists");
                 }
@@ -266,6 +293,11 @@ namespace DGFScouting
 
         // 11/11/18 Minseok Choi
         // Delete an Account in DB
+        /// <summary>
+        /// DeleteAccount() takes 1 string type argument for an AccountID
+        /// </summary>
+        /// <param name="accountID"></param>
+        /// <returns></returns>
         public static bool DeleteAccount(string accountID)
         {
             string deleteQuery = string.Format(@"DELETE Account WHERE AccountID = {0}", accountID);
@@ -323,12 +355,16 @@ namespace DGFScouting
                 return false;
         }
 
-        // ValidateUser() takes two arguments, connects to the database, attempts to validate entered credentials in Account table and returns integer
-        public static AccountType GetUserAccountType(string userName, string password)
+        // 11/24/18 Minseok Choi
+        public static bool GetUserIdAndAccountType(string userName, string password, out string userId, out string accountType)
         {
-            string query = "SELECT AccountType FROM Account WHERE username=@username AND password=@password";
+            bool isSucceeded = false;
+            userId = "";
+            accountType = ""; // default
+
+
+            string query = "SELECT AccountID, AccountType FROM Account WHERE username=@username AND password=@password";
             cmd = new SqlCommand(query, cn);
-            AccountType accountType = new AccountType();
 
             try
             {
@@ -336,19 +372,21 @@ namespace DGFScouting
                 cmd.Parameters.AddWithValue("@username", userName);
                 cmd.Parameters.AddWithValue("@password", password);
 
-                var sAccountType = cmd.ExecuteScalar().ToString();
-                accountType = (AccountType)Convert.ToInt32(cmd.ExecuteScalar());
-            }
-            catch
-            {
-                accountType = AccountType.None;
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    userId = reader[0].ToString();
+                    accountType = reader[1].ToString();
+                    isSucceeded = true;
+                }
             }
             finally
             {
                 cn.Close();
             }
-            return accountType;
+            return isSucceeded;
         }
+
 
         // 11/08/18_Heeyeong Kim
         // SearchRecruits() takes three argument, connects to the database, retrieves search results and return DataTable object
@@ -465,6 +503,142 @@ namespace DGFScouting
             }
             return recruit;
         }
+
+        // 11/23/2018
+        /// <summary>
+        /// get a recruit's firstName and lastName with their recruitId
+        /// </summary>
+        /// <param name="recruitId"></param>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <returns></returns>
+        public static bool GetRecruitName(string recruitId, out string firstName, out string lastName)
+        {
+            bool isSucceeded = false;
+            firstName = "";
+            lastName = "";
+
+            string query = string.Format(@"SELECT * FROM Recruit WHERE RecruitID = '{0}'", recruitId);
+            cmd = new SqlCommand(query, cn);
+
+            cn.Open();
+            SqlDataReader sda;
+            sda = cmd.ExecuteReader();
+
+            try
+            {
+                if (sda.Read())
+                {
+                    firstName = sda[1].ToString();
+                    lastName = sda[2].ToString();
+                }
+            }
+            finally
+            {
+                sda.Close();
+            }
+
+            cn.Close();
+
+            return isSucceeded;
+        }
+
+
+        // 11/11/23 Minseok Choi
+        /// <summary>
+        /// AddGoalieScoutingReport() takes 12 arguments, connects to the database, attempts to enter new record into PlayerScoutingReport table and returns bool
+        /// </summary>
+        /// <param name="recruitId"></param>
+        /// <param name="accountId"></param>
+        /// <param name="skating"></param>
+        /// <param name="individualOffensiveSkills"></param>
+        /// <param name="individualDefensiveSkills"></param>
+        /// <param name="offensiveTeamPlay"></param>
+        /// <param name="defensiveTeamPlay"></param>
+        /// <param name="hockeySense"></param>
+        /// <param name="strengthPower"></param>
+        /// <param name="workEthic"></param>
+        /// <param name="overallRanking"></param>
+        /// <param name="notes"></param>
+        /// <returns></returns>
+        public static bool AddPlayerScoutingReport(string recruitId, string accountId, string skating, string individualOffensiveSkills,
+            string individualDefensiveSkills, string offensiveTeamPlay, string defensiveTeamPlay, string hockeySense, string strengthPower,
+            string workEthic, string overallRanking, string notes)
+        {
+            string addQuery = string.Format(@"INSERT INTO PlayerScoutingReport (
+                RecruitID, AccountID, Skating, IndividualOffensiveSkills, IndividualDefensiveSkills, OffensiveTeamPlay,
+                DefensiveTeamPlay, HockeySense, StrengthPower, WorkEthic, OverallRanking, Notes, ScoutingReportDate) 
+                VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}');",
+                recruitId, accountId, skating, individualOffensiveSkills, individualDefensiveSkills, offensiveTeamPlay,
+                defensiveTeamPlay, hockeySense, strengthPower, workEthic, overallRanking, notes, DateTime.Today);
+
+            cmd = new SqlCommand(addQuery, cn);
+            bool isSucceeded = false;
+
+            try
+            {
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                isSucceeded = true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return isSucceeded;
+        }
+
+        /// <summary>
+        /// AddGoalieScoutingReport() takes 12 arguments, connects to the database, attempts to enter new record into GoalieScoutingReport table and returns bool
+        /// </summary>
+        /// <param name="recruitId"></param>
+        /// <param name="accountId"></param>
+        /// <param name="skating"></param>
+        /// <param name="agilitySpeed"></param>
+        /// <param name="trafficReboundControl"></param>
+        /// <param name="hockeySense"></param>
+        /// <param name="strengthFitness"></param>
+        /// <param name="mentalToughness"></param>
+        /// <param name="battleMentality"></param>
+        /// <param name="overallRanking"></param>
+        /// <param name="notes"></param>
+        /// <returns></returns>
+        public static bool AddGoalieScoutingReport(string recruitId, string accountId, string skating, string agilitySpeed,
+            string trafficReboundControl, string hockeySense, string strengthFitness, string mentalToughness,
+            string battleMentality, string overallRanking, string notes)
+        {
+            string addQuery = string.Format(@"INSERT INTO GoalieScoutingReport (
+                RecruitID, AccountID, Skating, AgilitySpeed, TrafficReboundControl, HockeySense, StrengthFitness,
+                MentalToughness, BattleMentality, OverallRanking, Notes, ScoutingReportDate) 
+                VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}');",
+                recruitId, accountId, skating, agilitySpeed, trafficReboundControl, hockeySense, strengthFitness,
+                mentalToughness, battleMentality, overallRanking, notes, DateTime.Today);
+
+            cmd = new SqlCommand(addQuery, cn);
+            bool isSucceeded = false;
+
+            try
+            {
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                isSucceeded = true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return isSucceeded;
+        }
+
+
 
     }
 

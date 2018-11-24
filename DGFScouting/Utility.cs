@@ -20,7 +20,7 @@ namespace DGFScouting
             return sb.ToString();
         }
 
-        // 11/11/18 Minseok Choi
+        // 11/11/23 Minseok Choi
         public static AccountType ConvertStringToAccountType(string sAccountType)
         {
             AccountType accountType = new AccountType();
@@ -39,6 +39,10 @@ namespace DGFScouting
                 case "scout":
                     accountType = AccountType.Scout;
                     break;
+                case "4":
+                case "scheduler":
+                    accountType = AccountType.Scheduler;
+                    break;
                 default:
                     accountType = AccountType.None;
                     break;
@@ -51,6 +55,7 @@ namespace DGFScouting
         None = 0,
         Admin = 1,
         Coach = 2,
-        Scout = 3
+        Scout = 3,
+        Scheduler = 4
     }
 }

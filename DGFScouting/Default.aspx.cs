@@ -24,12 +24,14 @@ namespace DGFScouting
                 var password = txtBoxLoginPassword.Text.Trim();
 
                 var verifyCredentials = ConnectionClass.ValidateUser(username, password);
-                var accountType = ConnectionClass.GetUserAccountType(username, password);
 
-                if (verifyCredentials == 1)
+                bool isGettingUserInfoSucceded = ConnectionClass.GetUserIdAndAccountType(username, password, out string userId, out string accountType);
+
+                if (verifyCredentials == 1 && isGettingUserInfoSucceded == true)
                 {
                     Session["username"] = txtBoxLoginUserName.Text.Trim();
-                    Session["accountType"] = accountType;
+                    Session["userId"] = userId;
+                    Session["accountType"] = Utility.ConvertStringToAccountType(accountType).ToString();
 
                     Response.Redirect("Recruits.aspx");
                 }
@@ -43,7 +45,7 @@ namespace DGFScouting
             catch (Exception ex)
             {
                 lblLoginError.Text = ex.Message;
-                lblLoginError.Visible = true;                
+                lblLoginError.Visible = true;
             }
         }
     }
