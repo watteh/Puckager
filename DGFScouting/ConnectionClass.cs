@@ -466,14 +466,16 @@ namespace DGFScouting
         // 11/11/18_Yayun Yang (Kim)
         //DisplayRecruit() takes 1 arguement, connects to the database, retrieves 1 row of Recruit table of selected RecruitID, and returns RecruitClass object.
         public static RecruitClass DisplayRecruit(int id)
-        {
+        {      
             RecruitClass recruit = new RecruitClass();
-            string query = string.Format(@"SELECT * FROM Recruit WHERE RecruitID=" + id);
-
+            string query = "SELECT * FROM Recruit WHERE RecruitID=@Id";
+            //SqlDataAdapter sda = new SqlDataAdapter(query, cn);
             cmd = new SqlCommand(query, cn);
             try
             {
                 cn.Open();
+                cmd.Parameters.AddWithValue("@Id", id);
+
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
