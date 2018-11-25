@@ -93,7 +93,7 @@
         </div>
 
         <div class="form-group row">
-            <asp:Label ID="lblCreateDate" for="txtCreateDate" CssClass="col-2 col-form-label" runat="server" Text="Created date: "></asp:Label>
+            <asp:Label ID="lblCreateDate" for="txtCreateDate" CssClass="col-2 col-form-label" runat="server" Text="Last Modified Date: "></asp:Label>
             <div class="col-3">
                 <asp:Label ID="lblCreateDateData" runat="server" Width="500px"></asp:Label>
             </div>
