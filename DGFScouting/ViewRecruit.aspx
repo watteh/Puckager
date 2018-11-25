@@ -102,82 +102,90 @@
     <%-- 11/22/2018_HeeyeongKim --%>
     <div class="container">
         <asp:MultiView ID="reportView" runat="server">
-            <asp:View ID="emptyView" runat="server"/>
+            <asp:View ID="emptyView" runat="server" />
             <asp:View ID="goalie" runat="server">
                 <label><b>Reports</b></label>
                 <table id="goalieTable" class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th style="text-align: center">Skating</th>
-                                <th style="text-align: center">AgilitySpeed</th>
-                                <th style="text-align: center">TrafficReboundControl</th>
-                                <th style="text-align: center">HockeySense</th>
-                                <th style="text-align: center">StrengthFitness</th>
-                                <th style="text-align: center">MentalToughness</th>
-                                <th style="text-align: center">BattleMentality</th>
-                                <th style="text-align: center">OverallRanking</th>
-                                <th style="text-align: center">Notes</th>
-                                <th style="text-align: center">ScoutingReportDate</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <asp:ListView ID="ListViewGoalieReport" runat="server">
-                                <ItemTemplate>
-                                    <tr class="table table-bordered table-striped">
-                                        <td><%#Eval("Skating") %></td>
-                                        <td><%#Eval("AgilitySpeed") %></td>
-                                        <td><%#Eval("TrafficReboundControl") %></td>
-                                        <td><%#Eval("HockeySense") %></td>
-                                        <td><%#Eval("StrengthFitness") %></td>
-                                        <td><%#Eval("MentalToughness") %></td>
-                                        <td><%#Eval("BattleMentality") %></td>
-                                        <td><%#Eval("OverallRanking") %></td>
-                                        <td><%#Eval("Notes") %></td>
-                                        <td><%#Eval("ScoutingReportDate") %></td>
-                                    </tr>
-                                </ItemTemplate>
-                            </asp:ListView>
-                        </tbody>
-                    </table>
+                    <thead>
+                        <tr>
+                            <th style="text-align: center">Skating</th>
+                            <th style="text-align: center">AgilitySpeed</th>
+                            <th style="text-align: center">TrafficReboundControl</th>
+                            <th style="text-align: center">HockeySense</th>
+                            <th style="text-align: center">StrengthFitness</th>
+                            <th style="text-align: center">MentalToughness</th>
+                            <th style="text-align: center">BattleMentality</th>
+                            <th style="text-align: center">OverallRanking</th>
+                            <th style="text-align: center">Notes</th>
+                            <th style="text-align: center">ScoutingReportDate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <asp:ListView ID="ListViewGoalieReport" runat="server">
+                            <ItemTemplate>
+                                <tr class="table table-bordered table-striped">
+                                    <td><%#Eval("Skating") %></td>
+                                    <td><%#Eval("AgilitySpeed") %></td>
+                                    <td><%#Eval("TrafficReboundControl") %></td>
+                                    <td><%#Eval("HockeySense") %></td>
+                                    <td><%#Eval("StrengthFitness") %></td>
+                                    <td><%#Eval("MentalToughness") %></td>
+                                    <td><%#Eval("BattleMentality") %></td>
+                                    <td><%#Eval("OverallRanking") %></td>
+                                    <td><%#Eval("Notes") %></td>
+                                    <td><%#Eval("ScoutingReportDate") %></td>
+
+                                    
+                                    <td id="viewGoalie"><a href="ViewGoalieScoutingReport.aspx?id=<%#Eval("GoalieScoutingReportID") %>">View</a></td>
+                                    <td id="editGoalie"><a href="EditGoalieReport.aspx?id=<%#Eval("GoalieScoutingReportID") %>">Edit</a></td>
+
+                                </tr>
+                            </ItemTemplate>
+                        </asp:ListView>
+                    </tbody>
+                </table>
             </asp:View>
             <asp:View ID="player" runat="server">
                 <label><b>Reports</b></label>
                 <table id="playerTable" class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th style="text-align: center">Skating</th>
-                                <th style="text-align: center">IndividualOffensiveSkills</th>
-                                <th style="text-align: center">IndividualDefensiveSkills</th>
-                                <th style="text-align: center">OffensiveTeamPlay</th>
-                                <th style="text-align: center">DefensiveTeamPlay</th>
-                                <th style="text-align: center">HockeySense</th>
-                                <th style="text-align: center">StrengthPower</th>
-                                <th style="text-align: center">WorkEthic</th>
-                                <th style="text-align: center">OverallRanking</th>
-                                <th style="text-align: center">Notes</th>
-                                <th style="text-align: center">ScoutingReportDate</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <asp:ListView ID="ListViewPlayerReport" runat="server">
-                                <ItemTemplate>
-                                    <tr class="table table-bordered table-striped">
-                                        <td><%#Eval("Skating") %></td>
-                                        <td><%#Eval("IndividualOffensiveSkills") %></td>
-                                        <td><%#Eval("IndividualDefensiveSkills") %></td>
-                                        <td><%#Eval("OffensiveTeamPlay") %></td>
-                                        <td><%#Eval("DefensiveTeamPlay") %></td>
-                                        <td><%#Eval("HockeySense") %></td>
-                                        <td><%#Eval("StrengthPower") %></td>
-                                        <td><%#Eval("WorkEthic") %></td>
-                                        <td><%#Eval("OverallRanking") %></td>
-                                        <td><%#Eval("Notes") %></td>
-                                        <td><%#Eval("ScoutingReportDate") %></td>
-                                    </tr>
-                                </ItemTemplate>
-                            </asp:ListView>
-                        </tbody>
-                    </table>
+                    <thead>
+                        <tr>
+                            <th style="text-align: center">Skating</th>
+                            <th style="text-align: center">IndividualOffensiveSkills</th>
+                            <th style="text-align: center">IndividualDefensiveSkills</th>
+                            <th style="text-align: center">OffensiveTeamPlay</th>
+                            <th style="text-align: center">DefensiveTeamPlay</th>
+                            <th style="text-align: center">HockeySense</th>
+                            <th style="text-align: center">StrengthPower</th>
+                            <th style="text-align: center">WorkEthic</th>
+                            <th style="text-align: center">OverallRanking</th>
+                            <th style="text-align: center">Notes</th>
+                            <th style="text-align: center">ScoutingReportDate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <asp:ListView ID="ListViewPlayerReport" runat="server">
+                            <ItemTemplate>
+                                <tr class="table table-bordered table-striped">
+                                    <td><%#Eval("Skating") %></td>
+                                    <td><%#Eval("IndividualOffensiveSkills") %></td>
+                                    <td><%#Eval("IndividualDefensiveSkills") %></td>
+                                    <td><%#Eval("OffensiveTeamPlay") %></td>
+                                    <td><%#Eval("DefensiveTeamPlay") %></td>
+                                    <td><%#Eval("HockeySense") %></td>
+                                    <td><%#Eval("StrengthPower") %></td>
+                                    <td><%#Eval("WorkEthic") %></td>
+                                    <td><%#Eval("OverallRanking") %></td>
+                                    <td><%#Eval("Notes") %></td>
+                                    <td><%#Eval("ScoutingReportDate") %></td>
+
+                                    <td id="viewPlayer"><a href="ViewPlayerScoutingReport.aspx?id=<%#Eval("PlayerScoutingReportID") %>">View</a></td>
+                                    <td id="editPlayer"><a href="EditPlayerReport.aspx?id=<%#Eval("PlayerScoutingReportID") %>">Edit</a></td>
+                                </tr>
+                            </ItemTemplate>
+                        </asp:ListView>
+                    </tbody>
+                </table>
             </asp:View>
         </asp:MultiView>
     </div>

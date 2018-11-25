@@ -19,7 +19,7 @@ namespace DGFScouting
         static ConnectionClass()
         {
             // Update this string
-            cn = new SqlConnection(@"Data Source = PC-ELLIEKIM; Initial Catalog = Puckager; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            cn = new SqlConnection(@"Data Source=DESKTOP-0E9HL0F\SQLEXPRESS2017;Initial Catalog=PuckagerDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
 
         // ValidateUser() takes two arguments, connects to the database, attempts to validate entered credentials in Account table and returns integer
@@ -439,7 +439,7 @@ namespace DGFScouting
         {
             try
             {
-                string query = string.Format(@"SELECT * FROM " +  table + " WHERE RecruitID=" + id);
+                string query = string.Format(@"SELECT * FROM " + table + " WHERE RecruitID=" + id);
                 SqlDataAdapter sda = new SqlDataAdapter(query, cn);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -484,7 +484,7 @@ namespace DGFScouting
         // 11/11/18_Yayun Yang (Kim)
         //DisplayRecruit() takes 1 arguement, connects to the database, retrieves 1 row of Recruit table of selected RecruitID, and returns RecruitClass object.
         public static RecruitClass DisplayRecruit(int id)
-        {      
+        {
             RecruitClass recruit = new RecruitClass();
             string query = "SELECT * FROM Recruit WHERE RecruitID=@Id";
             //SqlDataAdapter sda = new SqlDataAdapter(query, cn);
@@ -658,6 +658,101 @@ namespace DGFScouting
             return isSucceeded;
         }
 
+        // 11/25/18_Yayun Yang (Kim)
+        //DisplayGoalieReport takes one argument - the goalie report id, and connects to the database, retrieves 1 row  of GoalieScoutingReport table, 
+        //returns an GoalieReport obejct
+        public static GoalieReport DisplayGoalieReport(string reportId)
+        {
+            GoalieReport goalieReport = new GoalieReport();
+            string query = "SELECT * FROM GoalieScoutingReport WHERE GoalieScoutingReportID=@id";
+            cmd = new SqlCommand(query, cn);
+
+            try
+            {
+                cmd.Parameters.AddWithValue("@id", reportId);
+                cn.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    goalieReport.RecruitId = Convert.ToInt32(reader[1]);
+                    goalieReport.AccountId = Convert.ToInt32(reader[2]);
+                    goalieReport.Skating = Convert.ToInt32(reader[3]);
+                    goalieReport.AgilitySpeed = Convert.ToInt32(reader[4]);
+                    goalieReport.TrafficReboundControl = Convert.ToInt32(reader[5]);
+                    goalieReport.HockeySense = Convert.ToInt32(reader[6]);
+                    goalieReport.StrengthFitness = Convert.ToInt32(reader[7]);
+                    goalieReport.MentalToughness = Convert.ToInt32(reader[8]);
+                    goalieReport.BattleMentality = Convert.ToInt32(reader[9]);
+                    goalieReport.OverallRanking = Convert.ToInt32(reader[10]);
+                    goalieReport.Notes = reader[11].ToString();
+                    goalieReport.ScoutingReportDate = Convert.ToDateTime(reader[12]);
+
+                }
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+            return goalieReport;
+        }
+
+        // 11/25/18_Yayun Yang (Kim)
+        //DisplayGoalieReport takes one argument - the player report id, and connects to the database, retrieves 1 row  of PlayerScoutingReport table, 
+        //returns an GoalieReport obejct
+        public static PlayerReport DisplayPlayerReport(string reportId)
+        {
+            PlayerReport player = new PlayerReport();
+
+            string query = "SELECT * FROM PlayerScoutingReport WHERE PlayerScoutingReportID=@id";
+            cmd = new SqlCommand(query, cn);
+
+            try
+            {
+                cmd.Parameters.AddWithValue("@id", reportId);
+                cn.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    player.RecruitId = Convert.ToInt32(reader[1]);
+                    player.AccountId = Convert.ToInt32(reader[2]);
+                    player.Skating = Convert.ToInt32(reader[3]);
+                    player.IndividualOffensiveSkills = Convert.ToInt32(reader[4]);
+                    player.IndividualDefensiveSkills = Convert.ToInt32(reader[5]);
+                    player.OffensiveTeamPlay = Convert.ToInt32(reader[6]);
+                    player.DefensiveTeamPlay = Convert.ToInt32(reader[7]);
+                    player.HockeySense = Convert.ToInt32(reader[8]);
+                    player.StrengthPower = Convert.ToInt32(reader[9]);
+                    player.WorkEthic = Convert.ToInt32(reader[10]);
+                    player.OverallRanking = Convert.ToInt32(reader[11]);
+                    player.Notes = reader[12].ToString();
+                    player.ScoutingReportDate = Convert.ToDateTime(reader[13]);
+
+                }
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+            return player;
+        }
 
 
     }

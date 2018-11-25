@@ -20,7 +20,7 @@ namespace DGFScouting
 
             lblLoggedInUser.Text = "Welcome, " + Session["username"];
             int id = Convert.ToInt32(Request.QueryString["id"]);
-            int accountType = Convert.ToInt32(Session["accountType"]);
+            //int accountType = Convert.ToInt32(Session["accountType"]);
 
             //load selected recruit information as the hint of the textboxes through a RecruitClass object.
             RecruitClass recruit = ConnectionClass.DisplayRecruit(id);
