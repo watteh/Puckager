@@ -238,6 +238,60 @@ namespace DGFScouting {
         protected global::System.Web.UI.WebControls.Label lblRecruitStatus;
         
         /// <summary>
+        /// reportView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.MultiView reportView;
+        
+        /// <summary>
+        /// emptyView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View emptyView;
+        
+        /// <summary>
+        /// goalie control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View goalie;
+        
+        /// <summary>
+        /// ListViewGoalieReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView ListViewGoalieReport;
+        
+        /// <summary>
+        /// player control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View player;
+        
+        /// <summary>
+        /// ListViewPlayerReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView ListViewPlayerReport;
+        
+        /// <summary>
         /// BtnBack control.
         /// </summary>
         /// <remarks>
