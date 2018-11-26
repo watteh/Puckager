@@ -106,7 +106,11 @@
                                         <td><%#Eval("MothersName") %></td>
                                         <td><%#Eval("FathersName") %></td>
                                         <td><%#Eval("Status") %></td>
-                                        <td><a href="AddReport.aspx?id=<%#Eval("RecruitID") %>">Add</a></td>
+                                        <td>
+                                            <asp:LinkButton runat="server" PostBackUrl='<%# GetAddScoutingReportPostBackUrl(Eval("RecruitID").ToString(), Eval("Position").ToString()) %>' >Add</asp:LinkButton>
+<%--                                            <asp:LinkButton runat="server" PostBackUrl='GoalieScoutingReport.aspx?id=<%#Eval("RecruitID") %>' Visible='<%# GetAddScoutingReportPostBackUrl(Eval("Position").ToString()) %>' >Add</asp:LinkButton>
+                                            <asp:LinkButton runat="server" PostBackUrl='PlayerScoutingReport.aspx?id=<%#Eval("RecruitID") %>' Visible='<%# !GetAddScoutingReportPostBackUrl(Eval("Position").ToString()) %>' >Add</asp:LinkButton>
+                                        --%></td>
                                         <td><a href="ViewRecruit.aspx?id=<%#Eval("RecruitID") %>">View</a></td>
                                         <td><a href="EditRecruits.aspx?id=<%#Eval("RecruitID") %>">Edit</a></td>
                                         <td><a>Delete</a></td>

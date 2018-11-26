@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -35,7 +34,7 @@ namespace DGFScouting
             lblExceptionError.Visible = false;
             // Create variable to store ListView object, call DisplayRecruits and use listViewRecruits as argument
             var listViewRecruits = ListViewRecruits;
-            ConnectionClass.DisplayRecruits(listViewRecruits);            
+            ConnectionClass.DisplayRecruits(listViewRecruits);
         }
 
         // 11/08/18_Heeyeong Kim
@@ -78,6 +77,20 @@ namespace DGFScouting
                     listViewRecruit.DataSource = dt;
                     listViewRecruit.DataBind();
                 }
+            }
+        }
+
+        // 11/23/18_Minseok Choi
+        // Return url upto a recruit's position and add recruitId as param to the url
+        protected string GetAddScoutingReportPostBackUrl(string recruitId, string position)
+        {
+            if (position == "Goalie")
+            {
+                return "GoalieScoutingReport.aspx?id=" + recruitId;
+            }
+            else
+            {
+                return "PlayerScoutingReport.aspx?id=" + recruitId;
             }
         }
     }
