@@ -10,7 +10,7 @@
 namespace DGFScouting {
     
     
-    public partial class ViewRecruit {
+    public partial class ViewPlayerScoutingReport {
         
         /// <summary>
         /// lblLoggedInUser control.
@@ -22,6 +22,24 @@ namespace DGFScouting {
         protected global::System.Web.UI.WebControls.Label lblLoggedInUser;
         
         /// <summary>
+        /// lblRecruitID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRecruitID;
+        
+        /// <summary>
+        /// lblRecruitIDData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRecruitIDData;
+        
+        /// <summary>
         /// lblFirstName control.
         /// </summary>
         /// <remarks>
@@ -31,13 +49,13 @@ namespace DGFScouting {
         protected global::System.Web.UI.WebControls.Label lblFirstName;
         
         /// <summary>
-        /// lblRecruitFirstName control.
+        /// lblFirstNameData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRecruitFirstName;
+        protected global::System.Web.UI.WebControls.Label lblFirstNameData;
         
         /// <summary>
         /// lblLastName control.
@@ -49,247 +67,211 @@ namespace DGFScouting {
         protected global::System.Web.UI.WebControls.Label lblLastName;
         
         /// <summary>
-        /// lblRecruitLastName control.
+        /// lblLastNameData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRecruitLastName;
+        protected global::System.Web.UI.WebControls.Label lblLastNameData;
         
         /// <summary>
-        /// lblPhoneNumber control.
+        /// lblSkating control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPhoneNumber;
+        protected global::System.Web.UI.WebControls.Label lblSkating;
         
         /// <summary>
-        /// lblRecruitPhoneNumber control.
+        /// lblSkatingData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRecruitPhoneNumber;
+        protected global::System.Web.UI.WebControls.Label lblSkatingData;
         
         /// <summary>
-        /// lblEmailAddress control.
+        /// lblIndividualOffesiveSkills control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmailAddress;
+        protected global::System.Web.UI.WebControls.Label lblIndividualOffesiveSkills;
         
         /// <summary>
-        /// lblRecruitEmailAddress control.
+        /// lblIndividualOffesiveSkillsData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRecruitEmailAddress;
+        protected global::System.Web.UI.WebControls.Label lblIndividualOffesiveSkillsData;
         
         /// <summary>
-        /// lblBirthYear control.
+        /// lblIndividualDefensiveSkills control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBirthYear;
+        protected global::System.Web.UI.WebControls.Label lblIndividualDefensiveSkills;
         
         /// <summary>
-        /// lblRecruitBirthYear control.
+        /// lblIndividualDefensiveSkillsData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRecruitBirthYear;
+        protected global::System.Web.UI.WebControls.Label lblIndividualDefensiveSkillsData;
         
         /// <summary>
-        /// lblGradYear control.
+        /// lblOffensiveTeamPlay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGradYear;
+        protected global::System.Web.UI.WebControls.Label lblOffensiveTeamPlay;
         
         /// <summary>
-        /// lblRecruitGradYear control.
+        /// lblOffensiveTeamPlayData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRecruitGradYear;
+        protected global::System.Web.UI.WebControls.Label lblOffensiveTeamPlayData;
         
         /// <summary>
-        /// lblCurrentTeam control.
+        /// lblDefensiveTeamPlay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCurrentTeam;
+        protected global::System.Web.UI.WebControls.Label lblDefensiveTeamPlay;
         
         /// <summary>
-        /// lblRecruitCurrentTeam control.
+        /// lblDefensiveTeamPlayData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRecruitCurrentTeam;
+        protected global::System.Web.UI.WebControls.Label lblDefensiveTeamPlayData;
         
         /// <summary>
-        /// lblJerseyNumber control.
+        /// lblHockeySense control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblJerseyNumber;
+        protected global::System.Web.UI.WebControls.Label lblHockeySense;
         
         /// <summary>
-        /// lblRecruitJerseyNumber control.
+        /// lblHockeySenseData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRecruitJerseyNumber;
+        protected global::System.Web.UI.WebControls.Label lblHockeySenseData;
         
         /// <summary>
-        /// lblPosition control.
+        /// lblStrengthPower control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPosition;
+        protected global::System.Web.UI.WebControls.Label lblStrengthPower;
         
         /// <summary>
-        /// lblRecruitPosition control.
+        /// lblStrengthPowerData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRecruitPosition;
+        protected global::System.Web.UI.WebControls.Label lblStrengthPowerData;
         
         /// <summary>
-        /// lblMothersName control.
+        /// lblWorkEthic control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMothersName;
+        protected global::System.Web.UI.WebControls.Label lblWorkEthic;
         
         /// <summary>
-        /// lblRecruitMothersName control.
+        /// lblWorkEthicData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRecruitMothersName;
+        protected global::System.Web.UI.WebControls.Label lblWorkEthicData;
         
         /// <summary>
-        /// lblFathersName control.
+        /// lblOverallRanking control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFathersName;
+        protected global::System.Web.UI.WebControls.Label lblOverallRanking;
         
         /// <summary>
-        /// lblRecruitFathersName control.
+        /// lblOverallRankingData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRecruitFathersName;
+        protected global::System.Web.UI.WebControls.Label lblOverallRankingData;
         
         /// <summary>
-        /// lblStatus control.
+        /// lblNotes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStatus;
+        protected global::System.Web.UI.WebControls.Label lblNotes;
         
         /// <summary>
-        /// lblRecruitStatus control.
+        /// lblNotesData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRecruitStatus;
+        protected global::System.Web.UI.WebControls.Label lblNotesData;
         
         /// <summary>
-        /// reportView control.
+        /// lblCreateDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.MultiView reportView;
+        protected global::System.Web.UI.WebControls.Label lblCreateDate;
         
         /// <summary>
-        /// emptyView control.
+        /// lblCreateDateData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View emptyView;
-        
-        /// <summary>
-        /// goalie control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.View goalie;
-        
-        /// <summary>
-        /// ListViewGoalieReport control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListViewGoalieReport;
-        
-        /// <summary>
-        /// player control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.View player;
-        
-        /// <summary>
-        /// ListViewPlayerReport control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListViewPlayerReport;
+        protected global::System.Web.UI.WebControls.Label lblCreateDateData;
         
         /// <summary>
         /// BtnBack control.
@@ -299,14 +281,5 @@ namespace DGFScouting {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnBack;
-        
-        /// <summary>
-        /// BtnDelete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnDelete;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -19,11 +20,21 @@ namespace DGFScouting
                     Response.Redirect("Default.aspx");
                 }
 
+<<<<<<< HEAD
                 lblLoggedInUser.Text = "Welcome, " + Session["username"];
                 int id = Convert.ToInt32(Request.QueryString["id"]);
 
                 //load selected recruit information as the hint of the textboxes through a RecruitClass object.
                 RecruitClass recruit = ConnectionClass.DisplayRecruit(id);
+=======
+            lblLoggedInUser.Text = "Welcome, " + Session["username"];
+            int id = Convert.ToInt32(Request.QueryString["id"]);
+            //int accountType = Convert.ToInt32(Session["accountType"]);
+
+            //load selected recruit information as the hint of the textboxes through a RecruitClass object.
+            RecruitClass recruit = ConnectionClass.DisplayRecruit(id);
+            DisplayReportList(id, recruit.Position);
+>>>>>>> origin/SyLarY
 
                 lblRecruitFirstName.Text = recruit.FirstName;
                 lblRecruitLastName.Text = recruit.LastName;
@@ -46,6 +57,7 @@ namespace DGFScouting
         {
             Response.Redirect("Recruits.aspx");
         }
+<<<<<<< HEAD
         protected void BtnDelete_Click(object sender, EventArgs e)
         {
             //string recruitID = e.CommandArgument.ToString();
@@ -53,6 +65,41 @@ namespace DGFScouting
 
             ConnectionClass.DeleteRecruit(recruitID);
             Response.Redirect("Recruits.aspx");
+=======
+
+        // 11/22/18_HeeyeongKim
+        // Multiview Index
+        // 0: Empty
+        // 1: Goalie Report
+        // 2: Player Report
+        protected void DisplayReportList(int id, string position)
+        {
+            var listview = ListViewGoalieReport;
+            string tableName;
+
+            if (position.Equals("Goalie"))
+            {
+                tableName = "GoalieScoutingReport";
+                reportView.ActiveViewIndex = 1;
+            }
+            else
+            {
+                listview = ListViewPlayerReport;
+                tableName = "PlayerScoutingReport";
+                reportView.ActiveViewIndex = 2;
+            }
+
+            DataTable dt = ConnectionClass.DisplayReport(listview, id, tableName);
+            if (dt.Rows.Count == 0)
+            {
+                reportView.ActiveViewIndex = 0;
+            }
+            else
+            {
+                listview.DataSource = dt;
+                listview.DataBind();
+            }
+>>>>>>> origin/SyLarY
         }
     }
 }
