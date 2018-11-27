@@ -19,11 +19,7 @@ namespace DGFScouting
         static ConnectionClass()
         {
             // Update this string
-<<<<<<< HEAD
-            cn = new SqlConnection(@"Data Source = ENVY\SQLEXPRESS02; Initial Catalog = Puckager; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
-=======
-            cn = new SqlConnection(@"Data Source=DESKTOP-0E9HL0F\SQLEXPRESS2017;Initial Catalog=PuckagerDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
->>>>>>> origin/SyLarY
+            cn = new SqlConnection(@"Data Source = DESKTOP-7TNBVBD; Initial Catalog = Puckager; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
         }
 
         // ValidateUser() takes two arguments, connects to the database, attempts to validate entered credentials in Account table and returns integer
@@ -459,13 +455,13 @@ namespace DGFScouting
 
         // 11/11/18_Yayun Yang (Kim)
         // EditRecruit() takes 14 arguments, connects to the database, attempts to update existed record and returns bool
-        public static bool EditRecruit(int id, string firstName, string lastName, string contactNumber, string emailAddress, int birthyear, int graduationYear, 
+        public static bool EditRecruit(int id, string firstName, string lastName, string contactNumber, string emailAddress, int birthyear, int graduationYear,
             string currentTeam, int jerseyNumber, string position, string mothersName, string fathersName, string recruitStatus, string dateAdded)
         {
             string query = string.Format(@"Update Recruit SET FirstName='{1}', LastName='{2}', ContactNumber='{3}', EmailAddress='{4}', 
                                             BirthYear='{5}', GraduationYear='{6}', CurrentTeam='{7}', JerseyNumber='{8}', Position='{9}', 
                                             MothersName='{10}', FathersName='{11}', Status='{12}', DateAdded='{13}' WHERE RecruitID = {0}",
-                                        id, firstName, lastName, contactNumber, emailAddress, birthyear, graduationYear, currentTeam, jerseyNumber, 
+                                        id, firstName, lastName, contactNumber, emailAddress, birthyear, graduationYear, currentTeam, jerseyNumber,
                                         position, mothersName, fathersName, recruitStatus, dateAdded);
 
             cmd = new SqlCommand(query, cn);
@@ -761,10 +757,33 @@ namespace DGFScouting
             return player;
         }
 
+
+
+        // 25/11/18 Gabriele
+        //Takes a single argument, the recruitID, and deletes that recruit
+        public static bool DeleteRecruit(string recruitID)
+        {
+            string deleteQuery = string.Format(@"DELETE Recruit WHERE RecruitID = {0}", recruitID);
+            cmd = new SqlCommand(deleteQuery, cn);
+
+            bool isSucceeded = false;
+            try
+            {
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                isSucceeded = true;
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return isSucceeded;
+        }
+
         // 11/25/18_Yayun Yang (Kim)
         //EditGoalieReport takes 10 argument, and connects to the database, updates 1 row  of GoalieScoutingReport table
         //returns a bool
-        public static bool EditGoalieReport(string reportId, string skating, string agilitySpeed, string trafficReboundControl, string hockeySense, 
+        public static bool EditGoalieReport(string reportId, string skating, string agilitySpeed, string trafficReboundControl, string hockeySense,
                                             string strengthFitness, string mentalToughness, string battleMentality, string overallRanking, string notes)
         {
             bool isSucceeded = false;
@@ -772,8 +791,8 @@ namespace DGFScouting
                                             TrafficReboundControl = '{2}', HockeySense = '{3}', StrengthFitness = '{4}', MentalToughness = '{5}', 
                                             BattleMentality = '{6}', OverallRanking = '{7}', Notes =  '{8}', ScoutingReportDate = '{9}' 
                                             WHERE GoalieScoutingReportID = '{10}'",
-                                        skating, agilitySpeed, trafficReboundControl, hockeySense, strengthFitness, mentalToughness, 
-                                        battleMentality, overallRanking, notes, DateTime.Today,reportId);
+                                        skating, agilitySpeed, trafficReboundControl, hockeySense, strengthFitness, mentalToughness,
+                                        battleMentality, overallRanking, notes, DateTime.Today, reportId);
 
             cmd = new SqlCommand(addQuery, cn);
 
@@ -796,17 +815,8 @@ namespace DGFScouting
         }
 
 
-<<<<<<< HEAD
-        // 25/11/18 Gabriele
-        //Takes a single argument, the recruitID, and deletes that recruit
-        public static bool DeleteRecruit(string recruitID)
-        {
-            string deleteQuery = string.Format(@"DELETE Recruit WHERE RecruitID = {0}", recruitID);
-            cmd = new SqlCommand(deleteQuery, cn);
 
-            bool isSucceeded = false;
 
-=======
         // 11/25/18_Yayun Yang (Kim)
         //EditGoalieReport takes 10 argument, and connects to the database, updates 1 row  of GoalieScoutingReport table
         //returns a bool
@@ -818,31 +828,28 @@ namespace DGFScouting
                                             OffensiveTeamPlay = '{2}', DefensiveTeamPlay = '{4}', HockeySense = '{5}', StrengthPower = '{6}', WorkEthic = '{7}', 
                                             OverallRanking = '{8}', Notes =  '{9}', ScoutingReportDate = '{10}' WHERE PlayerScoutingReportID = '{11}'",
                                         skating, individualOffensiveSkills, individualDefensiveSkills, offensiveTeamPlay, defensiveTeamPlay,
-                                        hockeySense, strengthPower, workEthic, overallRanking, notes, DateTime.Today,reportId);
+                                        hockeySense, strengthPower, workEthic, overallRanking, notes, DateTime.Today, reportId);
 
             cmd = new SqlCommand(addQuery, cn);
             bool isSucceeded = false;
 
->>>>>>> origin/SyLarY
             try
             {
                 cn.Open();
                 cmd.ExecuteNonQuery();
                 isSucceeded = true;
             }
-<<<<<<< HEAD
-=======
             catch (Exception e)
             {
                 throw e;
             }
->>>>>>> origin/SyLarY
             finally
             {
                 cn.Close();
             }
             return isSucceeded;
         }
-    }
 
+
+    }
 }

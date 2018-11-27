@@ -1,23 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_DGFScouting.Master" AutoEventWireup="true" CodeBehind="ViewRecruit.aspx.cs" Inherits="DGFScouting.ViewRecruit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<<<<<<< HEAD
-    <script type="text/javascript" lang="javascript" >  
-        function confirm_delete()
-        {
-          if (confirm("Are you sure you want to delete?")==true)
-            return true;
-          else
-            return false;
+    <script type="text/javascript" lang="javascript">  
+        function confirm_delete() {
+            if (confirm("Are you sure you want to delete?") == true)
+                return true;
+            else
+                return false;
         }
-    </script> 
-=======
+    </script>
     <style type="text/css">
         .auto-style1 {
             width: 354px;
         }
     </style>
->>>>>>> origin/SyLarY
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- Coded by Ryan Watson 11-22-18 -->
@@ -109,17 +105,6 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-        <%--Gabriele 25/11/18--%>
-        <div class ="row">
-            <asp:Button ID="BtnBack" runat="server" Text="Back" CssClass="formButton" OnClick="BtnBack_Click" /> <%-- RW --%>
-            <%--<asp:Button ID="BtnDelete" runat="server" Text="Delete" CssClass="formButton" OnClick="BtnDelete_Click" />--%>
-            <asp:Button ID="BtnDelete" runat="server" Text="Delete" CssClass="formButton" OnClick="BtnDelete_Click" OnClientClick="return confirm_delete()" />
-            <%--TODO: placeholders for addReport & update buttons--%>
-            <%--<asp:Button ID="Update" runat="server" Text="Update" CssClass="formButton" OnClick="BtnUpdate_Click" />--%>
-            <%--<asp:Button ID="AddReport" runat="server" Text="AddReport" CssClass="formButton" OnClick="BtnAddReport_Click" />--%>
-        </div>
-=======
     </div>
 
     <%-- 11/22/2018_HeeyeongKim --%>
@@ -158,7 +143,7 @@
                                     <td><%#Eval("Notes") %></td>
                                     <td><%#Eval("ScoutingReportDate") %></td>
 
-                                    
+
                                     <td id="viewGoalie"><a href="ViewGoalieScoutingReport.aspx?id=<%#Eval("GoalieScoutingReportID") %>">View</a></td>
                                     <td id="editGoalie"><a href="EditGoalieReport.aspx?id=<%#Eval("GoalieScoutingReportID") %>">Edit</a></td>
 
@@ -211,8 +196,15 @@
                 </table>
             </asp:View>
         </asp:MultiView>
->>>>>>> origin/SyLarY
     </div>
-
-    <asp:Button ID="BtnBack" runat="server" Text="Back" CssClass="formButton" OnClick="BtnBack_Click" />
+    <%--Gabriele 25/11/18--%>
+    <div class="row">
+        <asp:Button ID="BtnBack" runat="server" Text="Back" CssClass="formButton" OnClick="BtnBack_Click" />
+        <%-- RW --%>
+        <%--<asp:Button ID="BtnDelete" runat="server" Text="Delete" CssClass="formButton" OnClick="BtnDelete_Click" />--%>
+        <asp:Button ID="BtnDelete" runat="server" Text="Delete" CssClass="formButton" OnClick="BtnDelete_Click" OnClientClick="return confirm_delete()" />
+        <%--TODO: placeholders for addReport & update buttons--%>
+        <%--<asp:Button ID="Update" runat="server" Text="Update" CssClass="formButton" OnClick="BtnUpdate_Click" />--%>
+        <%--<asp:Button ID="AddReport" runat="server" Text="AddReport" CssClass="formButton" OnClick="BtnAddReport_Click" />--%>
+    </div>
 </asp:Content>

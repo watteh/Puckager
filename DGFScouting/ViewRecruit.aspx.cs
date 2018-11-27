@@ -20,21 +20,14 @@ namespace DGFScouting
                     Response.Redirect("Default.aspx");
                 }
 
-<<<<<<< HEAD
                 lblLoggedInUser.Text = "Welcome, " + Session["username"];
                 int id = Convert.ToInt32(Request.QueryString["id"]);
+                //int accountType = Convert.ToInt32(Session["accountType"]);
 
                 //load selected recruit information as the hint of the textboxes through a RecruitClass object.
                 RecruitClass recruit = ConnectionClass.DisplayRecruit(id);
-=======
-            lblLoggedInUser.Text = "Welcome, " + Session["username"];
-            int id = Convert.ToInt32(Request.QueryString["id"]);
-            //int accountType = Convert.ToInt32(Session["accountType"]);
+                DisplayReportList(id, recruit.Position);
 
-            //load selected recruit information as the hint of the textboxes through a RecruitClass object.
-            RecruitClass recruit = ConnectionClass.DisplayRecruit(id);
-            DisplayReportList(id, recruit.Position);
->>>>>>> origin/SyLarY
 
                 lblRecruitFirstName.Text = recruit.FirstName;
                 lblRecruitLastName.Text = recruit.LastName;
@@ -57,7 +50,7 @@ namespace DGFScouting
         {
             Response.Redirect("Recruits.aspx");
         }
-<<<<<<< HEAD
+
         protected void BtnDelete_Click(object sender, EventArgs e)
         {
             //string recruitID = e.CommandArgument.ToString();
@@ -65,7 +58,7 @@ namespace DGFScouting
 
             ConnectionClass.DeleteRecruit(recruitID);
             Response.Redirect("Recruits.aspx");
-=======
+        }
 
         // 11/22/18_HeeyeongKim
         // Multiview Index
@@ -99,7 +92,6 @@ namespace DGFScouting
                 listview.DataSource = dt;
                 listview.DataBind();
             }
->>>>>>> origin/SyLarY
         }
     }
 }

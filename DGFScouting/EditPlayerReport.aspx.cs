@@ -12,36 +12,39 @@ namespace DGFScouting
         PlayerReport player;
         RecruitClass recruit;
         protected void Page_Load(object sender, EventArgs e)
-        {
-            if (Session["username"] == null)
+        {            // Only work when the page is initialized
+            if (!IsPostBack)
             {
-                Response.Redirect("Default.aspx");
+                if (Session["username"] == null)
+                {
+                    Response.Redirect("Default.aspx");
+                }
+
+                lblLoggedInUser.Text = "Welcome, " + Session["username"];
+
+                lblEditReportError.Visible = false;
+                lblEditReportError.CssClass = "alert alert-danger small font-weight-bold text-center";
+                string reportId = Request.QueryString["id"];
+
+
+                player = ConnectionClass.DisplayPlayerReport(reportId);
+                recruit = ConnectionClass.DisplayRecruit(player.RecruitId);
+
+                //pollute control with recruit information
+                lblRecruitIDData.Text = player.RecruitId.ToString();
+                lblFirstNameData.Text = recruit.FirstName;
+                lblLastNameData.Text = recruit.LastName;
+                dropdownSkating.SelectedValue = player.Skating.ToString();
+                dropdownIndividualOffesiveSkills.SelectedValue = player.IndividualOffensiveSkills.ToString();
+                dropdownIndividualDefensiveSkills.SelectedValue = player.IndividualDefensiveSkills.ToString();
+                dropdownOffensiveTeamPlay.SelectedValue = player.OffensiveTeamPlay.ToString();
+                dropdownDefensiveTeamPlay.SelectedValue = player.DefensiveTeamPlay.ToString();
+                dropdownHockeySense.SelectedValue = player.HockeySense.ToString();
+                dropdownStrengthPower.SelectedValue = player.StrengthPower.ToString();
+                dropdownWorkEthic.SelectedValue = player.WorkEthic.ToString();
+                dropdownOverallRanking.SelectedValue = player.OverallRanking.ToString();
+                txtNotes.Text = player.Notes;
             }
-
-            lblLoggedInUser.Text = "Welcome, " + Session["username"];
-
-            lblEditReportError.Visible = false;
-            lblEditReportError.CssClass = "alert alert-danger small font-weight-bold text-center";
-            string reportId = Request.QueryString["id"];
-
-
-            player = ConnectionClass.DisplayPlayerReport(reportId);
-            recruit = ConnectionClass.DisplayRecruit(player.RecruitId);
-
-            //pollute control with recruit information
-            lblRecruitIDData.Text = player.RecruitId.ToString();
-            lblFirstNameData.Text = recruit.FirstName;
-            lblLastNameData.Text = recruit.LastName;
-            dropdownSkating.SelectedValue = player.Skating.ToString();
-            dropdownIndividualOffesiveSkills.SelectedValue = player.IndividualOffensiveSkills.ToString();
-            dropdownIndividualDefensiveSkills.SelectedValue = player.IndividualDefensiveSkills.ToString();
-            dropdownOffensiveTeamPlay.SelectedValue = player.OffensiveTeamPlay.ToString();
-            dropdownDefensiveTeamPlay.SelectedValue = player.DefensiveTeamPlay.ToString();
-            dropdownHockeySense.SelectedValue = player.HockeySense.ToString();
-            dropdownStrengthPower.SelectedValue = player.StrengthPower.ToString();
-            dropdownWorkEthic.SelectedValue = player.WorkEthic.ToString();
-            dropdownOverallRanking.SelectedValue = player.OverallRanking.ToString();
-            txtNotes.Text = player.Notes;
         }
 
         protected void BtnEditReport_Click(object sender, EventArgs e)
@@ -81,7 +84,7 @@ namespace DGFScouting
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblEditReportError.Text += "\n" + ex.Message;
                 lblEditReportError.Visible = true;
