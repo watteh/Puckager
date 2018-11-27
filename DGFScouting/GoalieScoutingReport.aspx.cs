@@ -28,6 +28,7 @@ namespace DGFScouting
 
             // set values in the name labels
             ConnectionClass.GetRecruitName(recruitId, out string firstName, out string lastName);
+            lblRecruitIDData.Text = recruitId;
             lblFirstNameData.Text = firstName;
             lblLastNameData.Text = lastName;
         }
