@@ -12,35 +12,46 @@ namespace DGFScouting
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["username"] == null)
+            if (!Page.IsPostBack)
             {
-                Response.Redirect("Default.aspx");
+                if (Session["username"] == null)
+                {
+                    Response.Redirect("Default.aspx");
+                }
+
+                lblLoggedInUser.Text = "Welcome, " + Session["username"];
+                int id = Convert.ToInt32(Request.QueryString["id"]);
+
+                //load selected recruit information as the hint of the textboxes through a RecruitClass object.
+                RecruitClass recruit = ConnectionClass.DisplayRecruit(id);
+
+                lblRecruitFirstName.Text = recruit.FirstName;
+                lblRecruitLastName.Text = recruit.LastName;
+                lblRecruitPhoneNumber.Text = recruit.ContactNumber;
+                lblRecruitEmailAddress.Text = recruit.EmailAddress;
+                lblRecruitBirthYear.Text = recruit.Birthyear.ToString();
+                lblRecruitGradYear.Text = recruit.GraduationYear.ToString();
+                lblRecruitCurrentTeam.Text = recruit.CurrentTeam;
+                lblRecruitJerseyNumber.Text = recruit.JerseyNumber.ToString();
+                lblRecruitPosition.Text = recruit.Position.ToString();
+                lblRecruitMothersName.Text = recruit.MothersName;
+                lblRecruitFathersName.Text = recruit.FathersName;
+                lblRecruitStatus.Text = recruit.Status.ToString();
+                //lblRecruitFirstName.DataBind();
+                //lblRecruitFirstName.Attributes["Text"] = recruit.FirstName.ToString();
             }
-
-            lblLoggedInUser.Text = "Welcome, " + Session["username"];
-            int id = Convert.ToInt32(Request.QueryString["id"]);
-
-            //load selected recruit information as the hint of the textboxes through a RecruitClass object.
-            RecruitClass recruit = ConnectionClass.DisplayRecruit(id);
-
-            lblRecruitFirstName.Text = recruit.FirstName;
-            lblRecruitLastName.Text = recruit.LastName;
-            lblRecruitPhoneNumber.Text = recruit.ContactNumber;
-            lblRecruitEmailAddress.Text = recruit.EmailAddress;
-            lblRecruitBirthYear.Text = recruit.Birthyear.ToString();
-            lblRecruitGradYear.Text = recruit.GraduationYear.ToString();
-            lblRecruitCurrentTeam.Text = recruit.CurrentTeam;
-            lblRecruitJerseyNumber.Text = recruit.JerseyNumber.ToString();
-            lblRecruitPosition.Text = recruit.Position.ToString();
-            lblRecruitMothersName.Text = recruit.MothersName;
-            lblRecruitFathersName.Text = recruit.FathersName;
-            lblRecruitStatus.Text = recruit.Status.ToString();
-            //lblRecruitFirstName.DataBind();
-            //lblRecruitFirstName.Attributes["Text"] = recruit.FirstName.ToString();
         }
 
         protected void BtnBack_Click(object sender, EventArgs e)
         {
+            Response.Redirect("Recruits.aspx");
+        }
+        protected void BtnDelete_Click(object sender, EventArgs e)
+        {
+            //string recruitID = e.CommandArgument.ToString();
+            string recruitID = Request.QueryString["id"];
+
+            ConnectionClass.DeleteRecruit(recruitID);
             Response.Redirect("Recruits.aspx");
         }
     }

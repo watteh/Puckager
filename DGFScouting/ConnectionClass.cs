@@ -19,7 +19,7 @@ namespace DGFScouting
         static ConnectionClass()
         {
             // Update this string
-            cn = new SqlConnection(@"Data Source = DESKTOP-7TNBVBD; Initial Catalog = Puckager; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            cn = new SqlConnection(@"Data Source = ENVY\SQLEXPRESS02; Initial Catalog = Puckager; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
         }
 
         // ValidateUser() takes two arguments, connects to the database, attempts to validate entered credentials in Account table and returns integer
@@ -641,7 +641,27 @@ namespace DGFScouting
         }
 
 
+        // 25/11/18 Gabriele
+        //Takes a single argument, the recruitID, and deletes that recruit
+        public static bool DeleteRecruit(string recruitID)
+        {
+            string deleteQuery = string.Format(@"DELETE Recruit WHERE RecruitID = {0}", recruitID);
+            cmd = new SqlCommand(deleteQuery, cn);
 
+            bool isSucceeded = false;
+
+            try
+            {
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                isSucceeded = true;
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return isSucceeded;
+        }
     }
 
 }

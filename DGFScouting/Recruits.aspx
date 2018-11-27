@@ -10,6 +10,11 @@
             width: 166px;
         }
     </style>--%>
+    <style type="text/css">
+        .auto-style1 {
+            width: 8px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div <%--class="container-fluid"--%>>
@@ -82,7 +87,7 @@
                                 <th style="text-align: center">Status</th>
                                 <th></th>
                                 <th></th>
-                                <th></th>
+                                <th class="auto-style1"></th>
                                 <th></th>
                                 <!-- Empty cell above Edit Button  / Note by Yayun Yang(Kim)-->
                                 <!-- Added 3 empty th for add/view/delete buttons (RW - 11-21-18) -->
@@ -90,7 +95,7 @@
                         </thead>
 
                         <tbody>
-                            <asp:ListView ID="ListViewRecruits" runat="server">
+                            <asp:ListView ID="ListViewRecruits" runat="server" OnItemCommand="ListViewRecruits_deleteRecruit">
                                 <ItemTemplate>
                                     <tr class="table table-bordered table-striped">
                                         <td><%#Eval("RecruitID") %></td>
@@ -109,13 +114,16 @@
                                         <td>
                                             <asp:LinkButton runat="server" PostBackUrl='<%# GetAddScoutingReportPostBackUrl(Eval("RecruitID").ToString(), Eval("Position").ToString()) %>' >Add</asp:LinkButton>
 <%--                                            <asp:LinkButton runat="server" PostBackUrl='GoalieScoutingReport.aspx?id=<%#Eval("RecruitID") %>' Visible='<%# GetAddScoutingReportPostBackUrl(Eval("Position").ToString()) %>' >Add</asp:LinkButton>
-                                            <asp:LinkButton runat="server" PostBackUrl='PlayerScoutingReport.aspx?id=<%#Eval("RecruitID") %>' Visible='<%# !GetAddScoutingReportPostBackUrl(Eval("Position").ToString()) %>' >Add</asp:LinkButton>
+                                            <asp:LinkButton runat="server" PostBackUrl='PlayerScoutingReport.aspx?id=<%#Eval("RecruitID") %>' Visible='<%# !GetAddScoutingReportPostBackUrl(Eval("Position").ToString()) %>' >Add</asp:LinkButton>  
                                         --%></td>
                                         <td><a href="ViewRecruit.aspx?id=<%#Eval("RecruitID") %>">View</a></td>
-                                        <td><a href="EditRecruits.aspx?id=<%#Eval("RecruitID") %>">Edit</a></td>
-                                        <td><a>Delete</a></td>
-                                        <!-- Redirect to edit recruit page-->
+                                        <td><a href="EditRecruits.aspx?id=<%#Eval("RecruitID") %>">Edit</a></td><!-- Redirect to edit recruit page-->
+                                        <%--<td>Delete</td>--%>
+                                        <td>
+                                            <asp:Button runat="server" Text="Delete" CssClass="btn btn-block btn-danger" CommandName="deleteRecruit" CommandArgument='<%#Eval("RecruitID") %>' OnClientClick='<%# Eval("FirstName", @"return confirm(""Delete recruit {0}?"")" ) %>' />
+                                        </td>
                                         <!-- added Add, view, and delete buttons -->
+                                        <!--added aspButton for delete functionality-->
                                     </tr>
                                 </ItemTemplate>
                             </asp:ListView>
