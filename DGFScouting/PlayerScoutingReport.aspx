@@ -158,6 +158,7 @@
 
         <asp:Button ID="btnAddScoutingReport" runat="server" Text="Add Scouting Report" CssClass="formButton" OnClick="btnAddScoutingReport_Click" />
         <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="formButton" OnClientClick="this.form.reset();return false;" />
+        <asp:Button ID="btnBack" runat="server" Text="Back" CssClass="formButton" OnClick="btnBack_Click" />
         <asp:Label ID="lblAddScoutingReportError" runat="server" Text="Error: Scouting Report not added to the database" CssClass="alert alert-danger small font-weight-bold text-center" role="alert"></asp:Label>
 
     </div>

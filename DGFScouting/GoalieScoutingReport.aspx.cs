@@ -33,6 +33,12 @@ namespace DGFScouting
             lblLastNameData.Text = lastName;
         }
 
+        // Added by Ryan Watson 11/28/2018
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Recruits.aspx");
+        }
+
         // 11/23/18 Minseok Choi
         // retrieve user inputs for adding a scouting report and add a new report in the database
         protected void btnAddScoutingReport_Click(object sender, EventArgs e)
