@@ -15,6 +15,10 @@ namespace DGFScouting
             // Only work when the page is initialized
             if (!IsPostBack)
             {
+                //checks and updates accountType every initialization
+                ConnectionClass.GetAccountType(Convert.ToString(Session["userID"]), out string accountTyp);
+                Session["accountType"] = Utility.ConvertStringToAccountType(accountTyp).ToString();
+
                 // only Admin allowed
                 if ((Session["accountType"] == null || Session["accountType"].ToString() != AccountType.Admin.ToString()) || Session["accountID"] == null)
                 {
