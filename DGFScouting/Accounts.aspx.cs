@@ -16,6 +16,10 @@ namespace DGFScouting
             // Only work when the page is initialized
             if (!IsPostBack)
             {
+                //checks and updates accountType every initialization
+                ConnectionClass.GetAccountType(Convert.ToString(Session["userID"]), out string accountType);
+                Session["accountType"] = Utility.ConvertStringToAccountType(accountType).ToString();
+
                 // only Admin allowed
                 if (Session["accountType"] == null || Session["accountType"].ToString() != AccountType.Admin.ToString())
                 {
@@ -27,7 +31,7 @@ namespace DGFScouting
                 ConnectionClass.DisplayAccounts(listViewAccounts);
             }
         }
-
+        
         protected void ListViewAccounts_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
             string accountID = e.CommandArgument.ToString();

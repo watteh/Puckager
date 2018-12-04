@@ -19,7 +19,7 @@ namespace DGFScouting
         static ConnectionClass()
         {
             // Update this string
-            cn = new SqlConnection(@"Data Source = DESKTOP-P96N1IO\SQLEXPRESS; Initial Catalog = Puckager; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            cn = new SqlConnection(@"Data Source = ENVY\SQLEXPRESS02; Initial Catalog = Puckager; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
         }
 
         // ValidateUser() takes two arguments, connects to the database, attempts to validate entered credentials in Account table and returns integer
@@ -842,6 +842,106 @@ namespace DGFScouting
             catch (Exception e)
             {
                 throw e;
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return isSucceeded;
+        }
+
+        //04/12/18 Gabrile
+        //Takes two argument, the recruitID and position,determines which table to used based on position then deletes any report with the matching recruitID
+        public static bool DeleteReport(string recruitID, string position)
+        {
+
+            string deleteQuery;
+            if (position == "Goalie")
+            {
+                deleteQuery = string.Format(@"DELETE GoalieScoutingReport WHERE RecruitID = {0}", recruitID);
+            }
+            else
+            {
+                deleteQuery = string.Format(@"DELETE PlayerScoutingReport WHERE RecruitID = {0}", recruitID);
+            }
+
+            cmd = new SqlCommand(deleteQuery, cn);
+
+            bool isSucceeded = false;
+            try
+            {
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                isSucceeded = true;
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return isSucceeded;
+        }
+
+        //Convinience method to get recruit details from databse
+        public static RecruitClass GetRecruit(int id)
+        {
+            RecruitClass recruit = new RecruitClass();
+            string query = "SELECT * FROM Recruit WHERE RecruitID=@Id";
+            //SqlDataAdapter sda = new SqlDataAdapter(query, cn);
+            cmd = new SqlCommand(query, cn);
+            try
+            {
+                cn.Open();
+                cmd.Parameters.AddWithValue("@Id", id);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    recruit.FirstName = reader[1].ToString();
+                    recruit.LastName = reader[2].ToString();
+                    recruit.ContactNumber = reader[3].ToString();
+                    recruit.EmailAddress = reader[4].ToString();
+                    recruit.Birthyear = Convert.ToInt32(reader[5]);
+                    recruit.GraduationYear = Convert.ToInt32(reader[6]);
+                    recruit.CurrentTeam = reader[7].ToString();
+                    recruit.JerseyNumber = Convert.ToInt32(reader[8]);
+                    recruit.Position = reader[9].ToString();
+                    recruit.MothersName = reader[10].ToString();
+                    recruit.FathersName = reader[11].ToString();
+                    recruit.Status = reader[12].ToString();
+                    recruit.DateAdded = Convert.ToDateTime(reader[13]);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return recruit;
+        }
+
+        //COnvinience method to get the accounttype, based on accountID
+        public static bool GetAccountType(string accountID, out string accountType)
+        {
+            bool isSucceeded = false;
+            accountType = ""; 
+
+            string query = string.Format("SELECT AccountType FROM Account WHERE AccountID = {0}",accountID);
+            cmd = new SqlCommand(query, cn);
+
+            try
+            {
+                cn.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    accountType = reader[0].ToString();
+                    isSucceeded = true;
+                }
             }
             finally
             {

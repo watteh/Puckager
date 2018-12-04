@@ -99,16 +99,30 @@ namespace DGFScouting
 
 
         // 25/11/18 Gabriele
+        //UPDATE: Gabriele 4/12/18 - to also delete scouting reports for all recruits when applicable
         protected void ListViewRecruits_deleteRecruit(object sender, ListViewCommandEventArgs e)
         {
             string recruitID = e.CommandArgument.ToString();
+            RecruitClass recruit = ConnectionClass.GetRecruit(Convert.ToInt32(recruitID));
+            string position = recruit.Position;
 
-            if (e.CommandName == "deleteRecruit")
+
+            try
             {
-                ConnectionClass.DeleteRecruit(recruitID);
-                Page.Response.Redirect(Page.Request.Url.ToString(), true);
+                ConnectionClass.DeleteReport(recruitID, position);
             }
-
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                if (e.CommandName == "deleteRecruit")
+                {
+                    ConnectionClass.DeleteRecruit(recruitID);
+                    Page.Response.Redirect(Page.Request.Url.ToString(), true);
+                }
+            }
         }
 
     }

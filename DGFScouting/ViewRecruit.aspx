@@ -199,9 +199,7 @@
     </div>
     <%--Gabriele 25/11/18--%>
     <div class="row">
-        <asp:Button ID="BtnBack" runat="server" Text="Back" CssClass="formButton" OnClick="BtnBack_Click" />
-        <%-- RW --%>
-        <%--<asp:Button ID="BtnDelete" runat="server" Text="Delete" CssClass="formButton" OnClick="BtnDelete_Click" />--%>
+        <asp:Button ID="BtnBack" runat="server" Text="Back" CssClass="formButton" OnClick="BtnBack_Click" /><%-- RW's --%>
         <asp:Button ID="BtnDelete" runat="server" Text="Delete" CssClass="formButton" OnClick="BtnDelete_Click" OnClientClick="return confirm_delete()" />
         <%--TODO: placeholders for addReport & update buttons--%>
         <%--<asp:Button ID="Update" runat="server" Text="Update" CssClass="formButton" OnClick="BtnUpdate_Click" />--%>

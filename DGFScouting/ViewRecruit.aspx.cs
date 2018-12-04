@@ -50,14 +50,27 @@ namespace DGFScouting
         {
             Response.Redirect("Recruits.aspx");
         }
-
+        //Gabriele 25/11/18
+        //UPDATE: Gabriele 4/12/18 - to also delete scouting reports for all recruits when applicable
         protected void BtnDelete_Click(object sender, EventArgs e)
         {
-            //string recruitID = e.CommandArgument.ToString();
             string recruitID = Request.QueryString["id"];
+            RecruitClass recruit = ConnectionClass.GetRecruit(Convert.ToInt32(recruitID));
+            string position = recruit.Position;
 
-            ConnectionClass.DeleteRecruit(recruitID);
-            Response.Redirect("Recruits.aspx");
+            try
+            {
+                ConnectionClass.DeleteReport(recruitID, position);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                ConnectionClass.DeleteRecruit(recruitID);
+                Response.Redirect("Recruits.aspx");
+            }
         }
 
         // 11/22/18_HeeyeongKim
