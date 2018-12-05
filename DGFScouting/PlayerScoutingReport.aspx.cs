@@ -17,7 +17,9 @@ namespace DGFScouting
 
             // check username, recruitId and accountType valid
             if (Session["username"] == null || String.IsNullOrEmpty(recruitId) ||
-                Session["accountType"] == null || Session["accountType"].ToString() != AccountType.Coach.ToString())
+                Session["accountType"] == null
+                || !(Session["accountType"].ToString() == AccountType.Coach.ToString()
+                || Session["accountType"].ToString() == AccountType.Scout.ToString()))
             {
                 Response.Redirect("Recruits.aspx");
             }

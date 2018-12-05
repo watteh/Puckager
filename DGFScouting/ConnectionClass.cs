@@ -19,7 +19,7 @@ namespace DGFScouting
         static ConnectionClass()
         {
             // Update this string
-            cn = new SqlConnection(@"Data Source = ENVY\SQLEXPRESS02; Initial Catalog = Puckager; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            cn = new SqlConnection(@"Data Source = DESKTOP-7TNBVBD; Initial Catalog = Puckager; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
         }
 
         // ValidateUser() takes two arguments, connects to the database, attempts to validate entered credentials in Account table and returns integer
