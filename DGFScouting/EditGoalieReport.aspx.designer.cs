@@ -10,7 +10,7 @@
 namespace DGFScouting {
     
     
-    public partial class PlayerScoutingReport {
+    public partial class EditGoalieReport {
         
         /// <summary>
         /// lblLoggedInUser control.
@@ -94,76 +94,40 @@ namespace DGFScouting {
         protected global::System.Web.UI.WebControls.DropDownList dropdownSkating;
         
         /// <summary>
-        /// lblIndividualOffesiveSkills control.
+        /// lblAgilitySpeed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIndividualOffesiveSkills;
+        protected global::System.Web.UI.WebControls.Label lblAgilitySpeed;
         
         /// <summary>
-        /// dropdownIndividualOffesiveSkills control.
+        /// dropdownAgilitySpeed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropdownIndividualOffesiveSkills;
+        protected global::System.Web.UI.WebControls.DropDownList dropdownAgilitySpeed;
         
         /// <summary>
-        /// lblIndividualDefensiveSkills control.
+        /// lblTrafficReboundControl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIndividualDefensiveSkills;
+        protected global::System.Web.UI.WebControls.Label lblTrafficReboundControl;
         
         /// <summary>
-        /// dropdownIndividualDefensiveSkills control.
+        /// dropdownTrafficReboundControl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropdownIndividualDefensiveSkills;
-        
-        /// <summary>
-        /// lblOffensiveTeamPlay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOffensiveTeamPlay;
-        
-        /// <summary>
-        /// dropdownOffensiveTeamPlay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropdownOffensiveTeamPlay;
-        
-        /// <summary>
-        /// lblDefensiveTeamPlay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDefensiveTeamPlay;
-        
-        /// <summary>
-        /// dropdownDefensiveTeamPlay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropdownDefensiveTeamPlay;
+        protected global::System.Web.UI.WebControls.DropDownList dropdownTrafficReboundControl;
         
         /// <summary>
         /// lblHockeySense control.
@@ -184,40 +148,58 @@ namespace DGFScouting {
         protected global::System.Web.UI.WebControls.DropDownList dropdownHockeySense;
         
         /// <summary>
-        /// lblStrengthPower control.
+        /// lblStrengthFitness control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStrengthPower;
+        protected global::System.Web.UI.WebControls.Label lblStrengthFitness;
         
         /// <summary>
-        /// dropdownStrengthPower control.
+        /// dropdownStrengthFitness control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropdownStrengthPower;
+        protected global::System.Web.UI.WebControls.DropDownList dropdownStrengthFitness;
         
         /// <summary>
-        /// lblWorkEthic control.
+        /// lblMentalToughness control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWorkEthic;
+        protected global::System.Web.UI.WebControls.Label lblMentalToughness;
         
         /// <summary>
-        /// dropdownWorkEthic control.
+        /// dropdownMentalToughness control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropdownWorkEthic;
+        protected global::System.Web.UI.WebControls.DropDownList dropdownMentalToughness;
+        
+        /// <summary>
+        /// lblBattleMentality control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBattleMentality;
+        
+        /// <summary>
+        /// dropdownBattleMentality control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdownBattleMentality;
         
         /// <summary>
         /// lblOverallRanking control.
@@ -256,39 +238,30 @@ namespace DGFScouting {
         protected global::System.Web.UI.WebControls.TextBox txtNotes;
         
         /// <summary>
-        /// btnAddScoutingReport control.
+        /// BtnEditReport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddScoutingReport;
+        protected global::System.Web.UI.WebControls.Button BtnEditReport;
         
         /// <summary>
-        /// btnClear control.
+        /// BtnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClear;
+        protected global::System.Web.UI.WebControls.Button BtnCancel;
         
         /// <summary>
-        /// btnBack control.
+        /// lblEditReportError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBack;
-        
-        /// <summary>
-        /// lblAddScoutingReportError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddScoutingReportError;
+        protected global::System.Web.UI.WebControls.Label lblEditReportError;
     }
 }

@@ -1,11 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_DGFScouting.Master" AutoEventWireup="true" CodeBehind="GoalieScoutingReport.aspx.cs" Inherits="DGFScouting.GoalieScoutingReport" UnobtrusiveValidationMode="None" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_DGFScouting.Master" AutoEventWireup="true" CodeBehind="EditGoalieReport.aspx.cs" Inherits="DGFScouting.EditGoalieReport" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <div class="container-fluid">
+     <div class="container-fluid">
 
         <asp:Label ID="lblLoggedInUser" runat="server" Text=""></asp:Label>
 
@@ -142,13 +139,10 @@
                     <asp:TextBox ID="txtNotes" runat="server" TextMode="MultiLine" Width="500px"></asp:TextBox>
                 </div>
             </div>
+
+            <asp:Button ID="BtnEditReport" runat="server" Text="Save" CssClass="formButton" OnClick="BtnEditReport_Click" />
+        <asp:Button ID="BtnCancel" runat="server" Text="Cancel" CssClass="formButton" OnClick="BtnCancel_Click" />
+        <asp:Label ID="lblEditReportError" runat="server" Text="Error: Failed to save to the database" CssClass="alert alert-danger small font-weight-bold text-center" role="alert"></asp:Label>
+   </div>
         </div>
-
-        <asp:Button ID="btnAddScoutingReport" runat="server" Text="Add Scouting Report" CssClass="formButton" OnClick="btnAddScoutingReport_Click" />
-        <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="formButton" OnClientClick="this.form.reset();return false;" />
-        <asp:Button ID="btnBack" runat="server" Text="Back" CssClass="formButton" OnClick="btnBack_Click" />
-        <asp:Label ID="lblAddScoutingReportError" runat="server" Text="Error: Scouting Report not added to the database" CssClass="alert alert-danger small font-weight-bold text-center" role="alert"></asp:Label>
-
-    </div>
-
 </asp:Content>

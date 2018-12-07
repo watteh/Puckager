@@ -434,14 +434,35 @@ namespace DGFScouting
             }
         }
 
+        // 11/22/18_Heeyeong Kim
+        public static DataTable DisplayReport(System.Web.UI.WebControls.ListView listView, int id, string table)
+        {
+            try
+            {
+                string query = string.Format(@"SELECT * FROM " + table + " WHERE RecruitID=" + id);
+                SqlDataAdapter sda = new SqlDataAdapter(query, cn);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
 
         // 11/11/18_Yayun Yang (Kim)
         // EditRecruit() takes 14 arguments, connects to the database, attempts to update existed record and returns bool
-        public static bool EditRecruit(int id, string firstName, string lastName, string contactNumber, string emailAddress, int birthyear, int graduationYear, string currentTeam, int jerseyNumber, string position, string mothersName, string fathersName, string recruitStatus, string dateAdded)
+        public static bool EditRecruit(int id, string firstName, string lastName, string contactNumber, string emailAddress, int birthyear, int graduationYear,
+            string currentTeam, int jerseyNumber, string position, string mothersName, string fathersName, string recruitStatus, string dateAdded)
         {
-            string query = string.Format(@"Update Recruit SET FirstName='{1}', LastName='{2}', ContactNumber='{3}', EmailAddress='{4}', BirthYear='{5}', GraduationYear='{6}', CurrentTeam='{7}', 
-                                            JerseyNumber='{8}', Position='{9}', MothersName='{10}', FathersName='{11}', Status='{12}', DateAdded='{13}' WHERE RecruitID = {0}",
-                                        id, firstName, lastName, contactNumber, emailAddress, birthyear, graduationYear, currentTeam, jerseyNumber, position, mothersName, fathersName, recruitStatus, dateAdded);
+            string query = string.Format(@"Update Recruit SET FirstName='{1}', LastName='{2}', ContactNumber='{3}', EmailAddress='{4}', 
+                                            BirthYear='{5}', GraduationYear='{6}', CurrentTeam='{7}', JerseyNumber='{8}', Position='{9}', 
+                                            MothersName='{10}', FathersName='{11}', Status='{12}', DateAdded='{13}' WHERE RecruitID = {0}",
+                                        id, firstName, lastName, contactNumber, emailAddress, birthyear, graduationYear, currentTeam, jerseyNumber,
+                                        position, mothersName, fathersName, recruitStatus, dateAdded);
 
             cmd = new SqlCommand(query, cn);
 
@@ -466,7 +487,7 @@ namespace DGFScouting
         // 11/11/18_Yayun Yang (Kim)
         //DisplayRecruit() takes 1 arguement, connects to the database, retrieves 1 row of Recruit table of selected RecruitID, and returns RecruitClass object.
         public static RecruitClass DisplayRecruit(int id)
-        {      
+        {
             RecruitClass recruit = new RecruitClass();
             string query = "SELECT * FROM Recruit WHERE RecruitID=@Id";
             //SqlDataAdapter sda = new SqlDataAdapter(query, cn);
@@ -640,8 +661,295 @@ namespace DGFScouting
             return isSucceeded;
         }
 
+        // 11/25/18_Yayun Yang (Kim)
+        //DisplayGoalieReport takes one argument - the goalie report id, and connects to the database, retrieves 1 row  of GoalieScoutingReport table, 
+        //returns an GoalieReport obejct
+        public static GoalieReport DisplayGoalieReport(string reportId)
+        {
+            GoalieReport goalieReport = new GoalieReport();
+            string query = "SELECT * FROM GoalieScoutingReport WHERE GoalieScoutingReportID=@id";
+            cmd = new SqlCommand(query, cn);
+
+            try
+            {
+                cmd.Parameters.AddWithValue("@id", reportId);
+                cn.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    goalieReport.RecruitId = Convert.ToInt32(reader[1]);
+                    goalieReport.AccountId = Convert.ToInt32(reader[2]);
+                    goalieReport.Skating = Convert.ToInt32(reader[3]);
+                    goalieReport.AgilitySpeed = Convert.ToInt32(reader[4]);
+                    goalieReport.TrafficReboundControl = Convert.ToInt32(reader[5]);
+                    goalieReport.HockeySense = Convert.ToInt32(reader[6]);
+                    goalieReport.StrengthFitness = Convert.ToInt32(reader[7]);
+                    goalieReport.MentalToughness = Convert.ToInt32(reader[8]);
+                    goalieReport.BattleMentality = Convert.ToInt32(reader[9]);
+                    goalieReport.OverallRanking = Convert.ToInt32(reader[10]);
+                    goalieReport.Notes = reader[11].ToString();
+                    goalieReport.ScoutingReportDate = Convert.ToDateTime(reader[12]);
+
+                }
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+            return goalieReport;
+        }
+
+        // 11/25/18_Yayun Yang (Kim)
+        //DisplayGoalieReport takes one argument - the player report id, and connects to the database, retrieves 1 row  of PlayerScoutingReport table, 
+        //returns an GoalieReport obejct
+        public static PlayerReport DisplayPlayerReport(string reportId)
+        {
+            PlayerReport player = new PlayerReport();
+
+            string query = "SELECT * FROM PlayerScoutingReport WHERE PlayerScoutingReportID=@id";
+            cmd = new SqlCommand(query, cn);
+
+            try
+            {
+                cmd.Parameters.AddWithValue("@id", reportId);
+                cn.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    player.RecruitId = Convert.ToInt32(reader[1]);
+                    player.AccountId = Convert.ToInt32(reader[2]);
+                    player.Skating = Convert.ToInt32(reader[3]);
+                    player.IndividualOffensiveSkills = Convert.ToInt32(reader[4]);
+                    player.IndividualDefensiveSkills = Convert.ToInt32(reader[5]);
+                    player.OffensiveTeamPlay = Convert.ToInt32(reader[6]);
+                    player.DefensiveTeamPlay = Convert.ToInt32(reader[7]);
+                    player.HockeySense = Convert.ToInt32(reader[8]);
+                    player.StrengthPower = Convert.ToInt32(reader[9]);
+                    player.WorkEthic = Convert.ToInt32(reader[10]);
+                    player.OverallRanking = Convert.ToInt32(reader[11]);
+                    player.Notes = reader[12].ToString();
+                    player.ScoutingReportDate = Convert.ToDateTime(reader[13]);
+
+                }
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+            return player;
+        }
+
+
+
+        // 25/11/18 Gabriele
+        //Takes a single argument, the recruitID, and deletes that recruit
+        public static bool DeleteRecruit(string recruitID)
+        {
+            string deleteQuery = string.Format(@"DELETE Recruit WHERE RecruitID = {0}", recruitID);
+            cmd = new SqlCommand(deleteQuery, cn);
+
+            bool isSucceeded = false;
+            try
+            {
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                isSucceeded = true;
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return isSucceeded;
+        }
+
+        // 11/25/18_Yayun Yang (Kim)
+        //EditGoalieReport takes 10 argument, and connects to the database, updates 1 row  of GoalieScoutingReport table
+        //returns a bool
+        public static bool EditGoalieReport(string reportId, string skating, string agilitySpeed, string trafficReboundControl, string hockeySense,
+                                            string strengthFitness, string mentalToughness, string battleMentality, string overallRanking, string notes)
+        {
+            bool isSucceeded = false;
+            string addQuery = string.Format(@"UPDATE GoalieScoutingReport SET Skating = '{0}', AgilitySpeed = '{1}', 
+                                            TrafficReboundControl = '{2}', HockeySense = '{3}', StrengthFitness = '{4}', MentalToughness = '{5}', 
+                                            BattleMentality = '{6}', OverallRanking = '{7}', Notes =  '{8}', ScoutingReportDate = '{9}' 
+                                            WHERE GoalieScoutingReportID = '{10}'",
+                                        skating, agilitySpeed, trafficReboundControl, hockeySense, strengthFitness, mentalToughness,
+                                        battleMentality, overallRanking, notes, DateTime.Today, reportId);
+
+            cmd = new SqlCommand(addQuery, cn);
+
+            try
+            {
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                isSucceeded = true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+            return isSucceeded;
+        }
+
+
+
+
+        // 11/25/18_Yayun Yang (Kim)
+        //EditGoalieReport takes 10 argument, and connects to the database, updates 1 row  of GoalieScoutingReport table
+        //returns a bool
+        public static bool EditPlayerScoutingReport(string reportId, string skating, string individualOffensiveSkills,
+           string individualDefensiveSkills, string offensiveTeamPlay, string defensiveTeamPlay, string hockeySense, string strengthPower,
+           string workEthic, string overallRanking, string notes)
+        {
+            string addQuery = string.Format(@"UPDATE PlayerScoutingReport SET Skating = '{0}', IndividualOffensiveSkills = '{1}', IndividualDefensiveSkills = '{2}', 
+                                            OffensiveTeamPlay = '{2}', DefensiveTeamPlay = '{4}', HockeySense = '{5}', StrengthPower = '{6}', WorkEthic = '{7}', 
+                                            OverallRanking = '{8}', Notes =  '{9}', ScoutingReportDate = '{10}' WHERE PlayerScoutingReportID = '{11}'",
+                                        skating, individualOffensiveSkills, individualDefensiveSkills, offensiveTeamPlay, defensiveTeamPlay,
+                                        hockeySense, strengthPower, workEthic, overallRanking, notes, DateTime.Today, reportId);
+
+            cmd = new SqlCommand(addQuery, cn);
+            bool isSucceeded = false;
+
+            try
+            {
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                isSucceeded = true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return isSucceeded;
+        }
+
+        //04/12/18 Gabrile
+        //Takes two argument, the recruitID and position,determines which table to used based on position then deletes any report with the matching recruitID
+        public static bool DeleteReport(string recruitID, string position)
+        {
+
+            string deleteQuery;
+            if (position == "Goalie")
+            {
+                deleteQuery = string.Format(@"DELETE GoalieScoutingReport WHERE RecruitID = {0}", recruitID);
+            }
+            else
+            {
+                deleteQuery = string.Format(@"DELETE PlayerScoutingReport WHERE RecruitID = {0}", recruitID);
+            }
+
+            cmd = new SqlCommand(deleteQuery, cn);
+
+            bool isSucceeded = false;
+            try
+            {
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                isSucceeded = true;
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return isSucceeded;
+        }
+
+        //Convinience method to get recruit details from databse
+        public static RecruitClass GetRecruit(int id)
+        {
+            RecruitClass recruit = new RecruitClass();
+            string query = "SELECT * FROM Recruit WHERE RecruitID=@Id";
+            //SqlDataAdapter sda = new SqlDataAdapter(query, cn);
+            cmd = new SqlCommand(query, cn);
+            try
+            {
+                cn.Open();
+                cmd.Parameters.AddWithValue("@Id", id);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    recruit.FirstName = reader[1].ToString();
+                    recruit.LastName = reader[2].ToString();
+                    recruit.ContactNumber = reader[3].ToString();
+                    recruit.EmailAddress = reader[4].ToString();
+                    recruit.Birthyear = Convert.ToInt32(reader[5]);
+                    recruit.GraduationYear = Convert.ToInt32(reader[6]);
+                    recruit.CurrentTeam = reader[7].ToString();
+                    recruit.JerseyNumber = Convert.ToInt32(reader[8]);
+                    recruit.Position = reader[9].ToString();
+                    recruit.MothersName = reader[10].ToString();
+                    recruit.FathersName = reader[11].ToString();
+                    recruit.Status = reader[12].ToString();
+                    recruit.DateAdded = Convert.ToDateTime(reader[13]);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return recruit;
+        }
+
+        //COnvinience method to get the accounttype, based on accountID
+        public static bool GetAccountType(string accountID, out string accountType)
+        {
+            bool isSucceeded = false;
+            accountType = ""; 
+
+            string query = string.Format("SELECT AccountType FROM Account WHERE AccountID = {0}",accountID);
+            cmd = new SqlCommand(query, cn);
+
+            try
+            {
+                cn.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    accountType = reader[0].ToString();
+                    isSucceeded = true;
+                }
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return isSucceeded;
+        }
 
 
     }
-
 }

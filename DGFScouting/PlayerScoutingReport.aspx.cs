@@ -17,7 +17,9 @@ namespace DGFScouting
 
             // check username, recruitId and accountType valid
             if (Session["username"] == null || String.IsNullOrEmpty(recruitId) ||
-                Session["accountType"] == null || Session["accountType"].ToString() != AccountType.Coach.ToString())
+                Session["accountType"] == null
+                || !(Session["accountType"].ToString() == AccountType.Coach.ToString()
+                || Session["accountType"].ToString() == AccountType.Scout.ToString()))
             {
                 Response.Redirect("Recruits.aspx");
             }
@@ -27,8 +29,15 @@ namespace DGFScouting
 
             // set values in the name labels
             ConnectionClass.GetRecruitName(recruitId, out string firstName, out string lastName);
+            lblRecruitIDData.Text = recruitId;
             lblFirstNameData.Text = firstName;
             lblLastNameData.Text = lastName;
+        }
+
+        // Added by Ryan Watson 11/28/2018
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Recruits.aspx");
         }
 
         // 11/23/18 Minseok Choi

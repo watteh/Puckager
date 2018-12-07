@@ -10,7 +10,7 @@
 namespace DGFScouting {
     
     
-    public partial class PlayerScoutingReport {
+    public partial class EditPlayerReport {
         
         /// <summary>
         /// lblLoggedInUser control.
@@ -256,39 +256,30 @@ namespace DGFScouting {
         protected global::System.Web.UI.WebControls.TextBox txtNotes;
         
         /// <summary>
-        /// btnAddScoutingReport control.
+        /// BtnEditReport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddScoutingReport;
+        protected global::System.Web.UI.WebControls.Button BtnEditReport;
         
         /// <summary>
-        /// btnClear control.
+        /// BtnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClear;
+        protected global::System.Web.UI.WebControls.Button BtnCancel;
         
         /// <summary>
-        /// btnBack control.
+        /// lblEditReportError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBack;
-        
-        /// <summary>
-        /// lblAddScoutingReportError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddScoutingReportError;
+        protected global::System.Web.UI.WebControls.Label lblEditReportError;
     }
 }
