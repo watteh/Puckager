@@ -21,8 +21,6 @@ namespace DGFScouting
 
                 lblLoggedInUser.Text = "Welcome, " + Session["username"];
                 lblEditRecruitError.Visible = false;
-
-                lblEditRecruitError.CssClass = "alert alert-danger small font-weight-bold text-center";
                 int id = Convert.ToInt32(Request.QueryString["id"]);
 
                 //load selected recruit information as the hint of the textboxes through a RecruitClass object.
@@ -83,23 +81,21 @@ namespace DGFScouting
                     var dateAdded = Convert.ToString(DateTime.Today);
 
                     // Attempt to update a recruit row to the database from the data entered by the user into the form
-                    bool editRecruit = ConnectionClass.EditRecruit(id,firstName, lastName, contactNumber, emailAddress, birthYear, graduationYear, currentTeam, jerseyNumber, position, mothersName, fathersName, recruitStatus, dateAdded);
-                    if (editRecruit)
-                    {
-                        lblEditRecruitError.CssClass = "alert alert-success";
-                        lblEditRecruitError.Text = "Recruit Edited Successfully!";
-                        lblEditRecruitError.Visible = true;
-                    }
-                    else
-                    {
-                        lblEditRecruitError.Visible = true;
-                    }
-                   
+                    //var editRecruit = 
+                    ConnectionClass.EditRecruit(id,firstName, lastName, contactNumber, emailAddress, birthYear, graduationYear, currentTeam, jerseyNumber, position, mothersName, fathersName, recruitStatus, dateAdded);
+
+                    // Display different messages to the user to let them know whether the recruit was updated to the database successfully
+                    //if (editRecruit)
+                    //{
+                   lblEditRecruitError.Text = "Recruit Edited Successfuly!";
+                   lblEditRecruitError.Visible = true;
                 }
+
                 else
                 {
                    lblEditRecruitError.Visible = true;
                 }
+                //}
 
                 lblEditRecruitError.Visible = true;
             }

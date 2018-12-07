@@ -78,8 +78,6 @@
     <Content Include="css\bootstrap.css.map" />
     <Content Include="css\bootstrap.min.css.map" />
     <Content Include="css\RegisterForm.css" />
-    <Content Include="EditGoalieReport.aspx" />
-    <Content Include="EditPlayerReport.aspx" />
     <Content Include="EditRecruits.aspx" />
     <Content Include="GoalieScoutingReport.aspx" />
     <Content Include="js\bootstrap.bundle.js.map" />
@@ -118,8 +116,6 @@
     <Content Include="RegisterAccount.aspx" />
     <Content Include="UpdateAccount.aspx" />
     <Content Include="ViewAccount.aspx" />
-    <Content Include="ViewGoalieScoutingReport.aspx" />
-    <Content Include="ViewPlayerScoutingReport.aspx" />
     <Content Include="ViewRecruit.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -160,20 +156,6 @@
     <Compile Include="Accounts.aspx.designer.cs">
       <DependentUpon>Accounts.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EditGoalieReport.aspx.cs">
-      <DependentUpon>EditGoalieReport.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EditGoalieReport.aspx.designer.cs">
-      <DependentUpon>EditGoalieReport.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EditPlayerReport.aspx.cs">
-      <DependentUpon>EditPlayerReport.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EditPlayerReport.aspx.designer.cs">
-      <DependentUpon>EditPlayerReport.aspx</DependentUpon>
-    </Compile>
     <Compile Include="EditRecruits.aspx.cs">
       <DependentUpon>EditRecruits.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -181,7 +163,6 @@
     <Compile Include="EditRecruits.aspx.designer.cs">
       <DependentUpon>EditRecruits.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GoalieReport.cs" />
     <Compile Include="GoalieScoutingReport.aspx.cs">
       <DependentUpon>GoalieScoutingReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -203,7 +184,6 @@
     <Compile Include="Master_DGFScouting.Master.designer.cs">
       <DependentUpon>Master_DGFScouting.Master</DependentUpon>
     </Compile>
-    <Compile Include="PlayerReport.cs" />
     <Compile Include="PlayerScoutingReport.aspx.cs">
       <DependentUpon>PlayerScoutingReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -248,20 +228,6 @@
     </Compile>
     <Compile Include="ViewAccount.aspx.designer.cs">
       <DependentUpon>ViewAccount.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ViewGoalieScoutingReport.aspx.cs">
-      <DependentUpon>ViewGoalieScoutingReport.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewGoalieScoutingReport.aspx.designer.cs">
-      <DependentUpon>ViewGoalieScoutingReport.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ViewPlayerScoutingReport.aspx.cs">
-      <DependentUpon>ViewPlayerScoutingReport.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewPlayerScoutingReport.aspx.designer.cs">
-      <DependentUpon>ViewPlayerScoutingReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewRecruit.aspx.cs">
       <DependentUpon>ViewRecruit.aspx</DependentUpon>

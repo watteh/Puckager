@@ -10,12 +10,17 @@ namespace DGFScouting
 {
     public partial class ListAccounts : System.Web.UI.Page
     {
+        // Check if the logged in user is admin, if not it redirects to default page, otherwise displays account list.
         protected void Page_Load(object sender, EventArgs e)
         {
             // Only work when the page is initialized
             if (!IsPostBack)
             {
-                isAdmin();
+                // only Admin allowed
+                if (Session["accountType"] == null || Session["accountType"].ToString() != AccountType.Admin.ToString())
+                {
+                    Response.Redirect("Default.aspx");
+                }
 
                 // Create variable to store ListView object, call DisplayRecruits and use listViewRecruits as argument
                 var listViewAccounts = ListViewAccounts;
@@ -23,25 +28,8 @@ namespace DGFScouting
             }
         }
 
-        //Gabriele 04/12/18
-        // Check if the logged in user is admin, if not it redirects to default page, otherwise displays account list.
-        protected void isAdmin()
-        {
-            //checks and updates accountType every initialization
-            ConnectionClass.GetAccountType(Convert.ToString(Session["userID"]), out string accountType);
-            Session["accountType"] = Utility.ConvertStringToAccountType(accountType).ToString();
-
-            // only Admin allowed
-            if (Session["accountType"] == null || Session["accountType"].ToString() != AccountType.Admin.ToString())
-            {
-                Response.Redirect("Default.aspx");
-            }
-        }
-        
         protected void ListViewAccounts_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
-            isAdmin();
-
             string accountID = e.CommandArgument.ToString();
 
             if (e.CommandName == "updateAccount")

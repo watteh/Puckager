@@ -15,6 +15,5 @@
         <p>Minseok Choi - Lead Developer</p>
         <p>Semy Jin - Lead Developer</p>
         <p>David Gwyn - Lead Developer</p>
-        <p>Gabriele Hunte - Lead Developer</p>
     </div>
 </asp:Content>
