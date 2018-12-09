@@ -98,7 +98,7 @@ namespace DGFScouting
         }
 
 
-        // 25/11/18 Gabriele
+        // 25/11/18 Gabriele //Updated to master
         //UPDATE: Gabriele 4/12/18 - to also delete scouting reports for all recruits when applicable
         protected void ListViewRecruits_deleteRecruit(object sender, ListViewCommandEventArgs e)
         {
