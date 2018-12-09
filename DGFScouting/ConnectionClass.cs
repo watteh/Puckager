@@ -9,6 +9,8 @@ using System.Diagnostics;
 
 namespace DGFScouting
 {
+
+    // Tested and Working
     public static class ConnectionClass
     {
         // Private instance variables for both SQLConnection and SQLCommand
