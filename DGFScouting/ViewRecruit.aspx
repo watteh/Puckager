@@ -112,9 +112,9 @@
         <asp:MultiView ID="reportView" runat="server">
             <asp:View ID="emptyView" runat="server" />
             <asp:View ID="goalie" runat="server">
-                <label><b>Reports</b></label>
+                <h4><label>Report</label></h4>
                 <table id="goalieTable" class="table table-bordered table-striped">
-                    <thead>
+                    <thead class="thead-dark">
                         <tr>
                             <th style="text-align: center">Skating</th>
                             <th style="text-align: center">Agility Speed</th>
@@ -126,6 +126,8 @@
                             <th style="text-align: center">Overall Ranking</th>
                             <th style="text-align: center">Notes</th>
                             <th style="text-align: center">Report Date</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -154,9 +156,9 @@
                 </table>
             </asp:View>
             <asp:View ID="player" runat="server">
-                <label><b>Reports</b></label>
+                <h4><label>Report</label></h4>
                 <table id="playerTable" class="table table-bordered table-striped">
-                    <thead>
+                    <thead class="thead-dark">
                         <tr>
                             <th style="text-align: center">Skating</th>
                             <th style="text-align: center">Individual Offensive Skills</th>
@@ -169,6 +171,8 @@
                             <th style="text-align: center">Overall Ranking</th>
                             <th style="text-align: center">Notes</th>
                             <th style="text-align: center">Report Date</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>

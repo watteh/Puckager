@@ -75,7 +75,7 @@ namespace DGFScouting
                     if (editPlayerScoutingReport)
                     {
                         lblEditReportError.CssClass = "alert alert-success";
-                        lblEditReportError.Text = "Goalie Report Edited Successfully!";
+                        lblEditReportError.Text = "Player Report Edited Successfully!";
                         lblEditReportError.Visible = true;
                     }
                     else
