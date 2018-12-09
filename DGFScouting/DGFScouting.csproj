@@ -69,7 +69,6 @@
     <Content Include="AboutUs.aspx" />
     <Content Include="AddAccount.aspx" />
     <Content Include="AddRecruit.aspx" />
-    <Content Include="css\.DS_Store" />
     <Content Include="css\AddRecruit.css" />
     <Content Include="css\bootstrap-grid.css.map" />
     <Content Include="css\bootstrap-grid.min.css.map" />

@@ -108,7 +108,7 @@
     </div>
 
     <%-- 11/22/2018_HeeyeongKim --%>
-    <div class="container">
+    <div class="container-fluid" style="margin: 20px">
         <asp:MultiView ID="reportView" runat="server">
             <asp:View ID="emptyView" runat="server" />
             <asp:View ID="goalie" runat="server">
@@ -117,15 +117,15 @@
                     <thead>
                         <tr>
                             <th style="text-align: center">Skating</th>
-                            <th style="text-align: center">AgilitySpeed</th>
-                            <th style="text-align: center">TrafficReboundControl</th>
-                            <th style="text-align: center">HockeySense</th>
-                            <th style="text-align: center">StrengthFitness</th>
-                            <th style="text-align: center">MentalToughness</th>
-                            <th style="text-align: center">BattleMentality</th>
-                            <th style="text-align: center">OverallRanking</th>
+                            <th style="text-align: center">Agility Speed</th>
+                            <th style="text-align: center">Traffic Rebound Control</th>
+                            <th style="text-align: center">Hockey Sense</th>
+                            <th style="text-align: center">Strength Fitness</th>
+                            <th style="text-align: center">Mental Toughness</th>
+                            <th style="text-align: center">Battle Mentality</th>
+                            <th style="text-align: center">Overall Ranking</th>
                             <th style="text-align: center">Notes</th>
-                            <th style="text-align: center">ScoutingReportDate</th>
+                            <th style="text-align: center">Report Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -144,8 +144,8 @@
                                     <td><%#Eval("ScoutingReportDate") %></td>
 
 
-                                    <td id="viewGoalie"><a href="ViewGoalieScoutingReport.aspx?id=<%#Eval("GoalieScoutingReportID") %>">View</a></td>
-                                    <td id="editGoalie"><a href="EditGoalieReport.aspx?id=<%#Eval("GoalieScoutingReportID") %>">Edit</a></td>
+                                    <td id="viewGoalie"><a  class="btn btn-secondary" href="ViewGoalieScoutingReport.aspx?id=<%#Eval("GoalieScoutingReportID") %>">View</a></td>
+                                    <td id="editGoalie"><a  class="btn btn-secondary" href="EditGoalieReport.aspx?id=<%#Eval("GoalieScoutingReportID") %>">Edit</a></td>
 
                                 </tr>
                             </ItemTemplate>
@@ -159,16 +159,16 @@
                     <thead>
                         <tr>
                             <th style="text-align: center">Skating</th>
-                            <th style="text-align: center">IndividualOffensiveSkills</th>
-                            <th style="text-align: center">IndividualDefensiveSkills</th>
-                            <th style="text-align: center">OffensiveTeamPlay</th>
-                            <th style="text-align: center">DefensiveTeamPlay</th>
-                            <th style="text-align: center">HockeySense</th>
-                            <th style="text-align: center">StrengthPower</th>
-                            <th style="text-align: center">WorkEthic</th>
-                            <th style="text-align: center">OverallRanking</th>
+                            <th style="text-align: center">Individual Offensive Skills</th>
+                            <th style="text-align: center">Individual Defensive Skills</th>
+                            <th style="text-align: center">Offensive Team Play</th>
+                            <th style="text-align: center">Defensive Team Play</th>
+                            <th style="text-align: center">Hockey Sense</th>
+                            <th style="text-align: center">Strength Power</th>
+                            <th style="text-align: center">Work Ethic</th>
+                            <th style="text-align: center">Overall Ranking</th>
                             <th style="text-align: center">Notes</th>
-                            <th style="text-align: center">ScoutingReportDate</th>
+                            <th style="text-align: center">Report Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -187,8 +187,8 @@
                                     <td><%#Eval("Notes") %></td>
                                     <td><%#Eval("ScoutingReportDate") %></td>
 
-                                    <td id="viewPlayer"><a href="ViewPlayerScoutingReport.aspx?id=<%#Eval("PlayerScoutingReportID") %>">View</a></td>
-                                    <td id="editPlayer"><a href="EditPlayerReport.aspx?id=<%#Eval("PlayerScoutingReportID") %>">Edit</a></td>
+                                    <td id="viewPlayer"><a  class="btn btn-secondary" href="ViewPlayerScoutingReport.aspx?id=<%#Eval("PlayerScoutingReportID") %>">View</a></td>
+                                    <td id="editPlayer"><a  class="btn btn-secondary" href="EditPlayerReport.aspx?id=<%#Eval("PlayerScoutingReportID") %>">Edit</a></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:ListView>
