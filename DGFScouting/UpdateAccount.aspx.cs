@@ -15,15 +15,7 @@ namespace DGFScouting
             // Only work when the page is initialized
             if (!IsPostBack)
             {
-                //checks and updates accountType every initialization
-                ConnectionClass.GetAccountType(Convert.ToString(Session["userID"]), out string accountTyp);
-                Session["accountType"] = Utility.ConvertStringToAccountType(accountTyp).ToString();
-
-                // only Admin allowed
-                if ((Session["accountType"] == null || Session["accountType"].ToString() != AccountType.Admin.ToString()) || Session["accountID"] == null)
-                {
-                    Response.Redirect("Default.aspx");
-                }
+                isAdmin();
 
                 // accountID required
                 if (Session["accountID"] != null)
@@ -52,6 +44,7 @@ namespace DGFScouting
                 // Check to make sure form passes all validation checks
                 if (Page.IsValid)
                 {
+                    isAdmin();
                     // Retrieve user inputs from username, password, and email address textboxes
                     var accountID = lblAccountID.Text.Trim();
                     var username = txtUsername.Text.Trim();
@@ -84,6 +77,22 @@ namespace DGFScouting
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("Accounts.aspx");
+        }
+
+
+        //Gabriele 04/12/18
+        // Check if the logged in user is admin, if not it redirects to default page, otherwise displays account list.
+        protected void isAdmin()
+        {
+            //checks and updates accountType every initialization
+            ConnectionClass.GetAccountType(Convert.ToString(Session["userID"]), out string accountType);
+            Session["accountType"] = Utility.ConvertStringToAccountType(accountType).ToString();
+
+            // only Admin allowed
+            if (Session["accountType"] == null || Session["accountType"].ToString() != AccountType.Admin.ToString())
+            {
+                Response.Redirect("Default.aspx");
+            }
         }
     }
 }
