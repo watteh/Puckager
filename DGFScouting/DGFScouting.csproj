@@ -88,6 +88,7 @@
     <Content Include="Logout.aspx" />
     <Content Include="Master_DGFScouting.Master" />
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\Puckager - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
