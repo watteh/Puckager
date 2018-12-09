@@ -21,7 +21,7 @@ namespace DGFScouting
         static ConnectionClass()
         {
             // Update this string
-            cn = new SqlConnection(@"Data Source = THEGWYNS-SP; Initial Catalog = Puckager; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            cn = new SqlConnection(@"Server=tcp:puckagerdbserver.database.windows.net,1433;Initial Catalog=PuckagerDB;Persist Security Info=False;User ID=SyLarY;Password=Puckager!!azure;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         }
 
         // ValidateUser() takes two arguments, connects to the database, attempts to validate entered credentials in Account table and returns integer
