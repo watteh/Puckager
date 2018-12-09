@@ -112,7 +112,7 @@
         <asp:MultiView ID="reportView" runat="server">
             <asp:View ID="emptyView" runat="server" />
             <asp:View ID="goalie" runat="server">
-                <h4><label>Report</label></h4>
+                <h4><label>Goalie Report</label></h4>
                 <table id="goalieTable" class="table table-bordered table-striped">
                     <thead class="thead-dark">
                         <tr>
@@ -156,7 +156,7 @@
                 </table>
             </asp:View>
             <asp:View ID="player" runat="server">
-                <h4><label>Report</label></h4>
+                <h4><label>Player Report</label></h4>
                 <table id="playerTable" class="table table-bordered table-striped">
                     <thead class="thead-dark">
                         <tr>

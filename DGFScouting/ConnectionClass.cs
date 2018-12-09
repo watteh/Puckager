@@ -929,9 +929,9 @@ namespace DGFScouting
         public static bool GetAccountType(string accountID, out string accountType)
         {
             bool isSucceeded = false;
-            accountType = "";
+            accountType = ""; 
 
-            string query = string.Format("SELECT AccountType FROM Account WHERE AccountID = {0}", accountID);
+            string query = string.Format("SELECT AccountType FROM Account WHERE AccountID = {0}",accountID);
             cmd = new SqlCommand(query, cn);
 
             try

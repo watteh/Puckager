@@ -9,8 +9,6 @@ namespace DGFScouting
 {
     public partial class EditPlayerReport : System.Web.UI.Page
     {
-        PlayerReport player;
-        RecruitClass recruit;
         protected void Page_Load(object sender, EventArgs e)
         {            // Only work when the page is initialized
             if (!IsPostBack)
@@ -27,8 +25,8 @@ namespace DGFScouting
                 string reportId = Request.QueryString["id"];
 
 
-                player = ConnectionClass.DisplayPlayerReport(reportId);
-                recruit = ConnectionClass.DisplayRecruit(player.RecruitId);
+                PlayerReport player = ConnectionClass.DisplayPlayerReport(reportId);
+                RecruitClass recruit = ConnectionClass.DisplayRecruit(player.RecruitId);
 
                 //pollute control with recruit information
                 lblRecruitIDData.Text = player.RecruitId.ToString();
@@ -94,7 +92,8 @@ namespace DGFScouting
 
         protected void BtnCancel_Click(object sender, EventArgs e)
         {
-            string url = "ViewRecruit.aspx?id=" + recruit.RecruitID;
+            PlayerReport player = ConnectionClass.DisplayPlayerReport(Request.QueryString["id"]);
+            string url = "ViewRecruit.aspx?id=" + player.RecruitId;
             Response.Redirect(url);
         }
     }
