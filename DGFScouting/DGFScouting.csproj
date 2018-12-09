@@ -162,6 +162,7 @@
     <Compile Include="EditRecruits.aspx.designer.cs">
       <DependentUpon>EditRecruits.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GoalieReport.cs" />
     <Compile Include="GoalieScoutingReport.aspx.cs">
       <DependentUpon>GoalieScoutingReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -183,6 +184,7 @@
     <Compile Include="Master_DGFScouting.Master.designer.cs">
       <DependentUpon>Master_DGFScouting.Master</DependentUpon>
     </Compile>
+    <Compile Include="PlayerReport.cs" />
     <Compile Include="PlayerScoutingReport.aspx.cs">
       <DependentUpon>PlayerScoutingReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
