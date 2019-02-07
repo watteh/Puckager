@@ -1,0 +1,9 @@
+<ul>
+  <li> First Name | Last Name | Position | Number</li>
+  <li *ngFor='let recruit of recruits; let i = index'>
+    <span>{{recruit.first_name}}</span>
+    <span>{{recruit.last_name}}</span>
+    <span>{{recruit.position}}</span>
+    <span>{{recruit.number}}</span>
+  </li>
+</ul>

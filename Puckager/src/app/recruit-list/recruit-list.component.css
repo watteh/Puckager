@@ -1,0 +1,9 @@
+li {
+  width: 100%;
+  text-decoration: none;
+  list-style: none;
+}
+
+span {
+  margin: 10px
+}

@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { RegistrationComponent } from './registration/registration.component';
+import { RecruitListComponent } from './recruit-list/recruit-list.component';
+import { RecruitComponent } from './recruit-list/recruit/recruit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    RecruitListComponent,
+    RecruitComponent
   ],
   imports: [
     BrowserModule,
