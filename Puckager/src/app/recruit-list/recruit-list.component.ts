@@ -9,17 +9,27 @@ export class RecruitListComponent implements OnInit {
 
   recruits = [
     {
+      id:1,
       first_name: 'David',
       last_name: 'Gwynn',
+      birth_year:2000,
       position: 'Defense',
-      number: 99
+      status: 'Available'
     },
     {
+      id:2,
       first_name: 'Ryan',
       last_name: 'Watson',
-      position: 'Center',
-      number: 66
+      birth_year:2001,
+      position: 'Goalie',
+      status: 'Committed'
     }
+  ];
+
+  positions = [
+    {name: 'Forward'},
+    {name: 'Defenceman'},
+    {name: 'Goalie'}
   ];
 
   constructor() { }

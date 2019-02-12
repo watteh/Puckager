@@ -1,9 +1,14 @@
 li {
-  width: 100%;
-  text-decoration: none;
-  list-style: none;
+    width: 100%;
+    text-decoration: none;
+    list-style: none;
 }
 
 span {
-  margin: 10px
+    margin: 10px
+}
+
+p,
+li {
+    font-size: 1.5em;
 }

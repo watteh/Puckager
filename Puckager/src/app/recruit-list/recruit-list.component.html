@@ -1,9 +1,74 @@
-<ul>
-  <li> First Name | Last Name | Position | Number</li>
-  <li *ngFor='let recruit of recruits; let i = index'>
-    <span>{{recruit.first_name}}</span>
-    <span>{{recruit.last_name}}</span>
-    <span>{{recruit.position}}</span>
-    <span>{{recruit.number}}</span>
-  </li>
-</ul>
+<div class="container-fluid">
+    <div class="row">
+        <table style="margin: 10px">
+            <tr>
+                <td>
+                    <p class="col-2 col-form-label">Position </p>
+                </td>
+                <td>
+                    <select class="form-control">
+                        <option>Forward</option>
+                        <option>Defenceman</option>
+                        <option>Goalie</option>
+                      </select>
+                </td>
+                <td>
+                    <p class="col-2 col-form-label">Birth Year</p>
+                </td>
+                <td>
+                    <input type="number" class="form-control">
+                </td>
+                <td>
+                    <p class="col-2 col-form-label">Name</p>
+                </td>
+                <td>
+                    <input type="text" class="form-control">
+                </td>
+                <td>
+                    <button class="btn btn-secondary" type="submit">Submit</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<table id="recruitTable" class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th style="text-align: center">ID</th>
+            <th style="text-align: center">First Name</th>
+            <th style="text-align: center">Last Name</th>
+            <th style="text-align: center">Birth Year</th>
+            <th style="text-align: center">Position</th>
+            <th style="text-align: center">Status</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr *ngFor='let recruit of recruits; let i = index'>
+            <td>{{recruit.id}}</td>
+            <td>{{recruit.first_name}}</td>
+            <td>{{recruit.last_name}}</td>
+            <td>{{recruit.birth_year}}</td>
+            <td>{{recruit.position}}</td>
+            <td>{{recruit.status}}</td>
+            <td>
+                <button class="btn btn-primary" type="submit">View</button>
+            </td>
+            <td>
+                <button class="btn btn-success" type="submit">Add</button>
+            </td>
+            <td>
+                <button class="btn btn-warning" type="submit">Edit</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" type="submit">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
