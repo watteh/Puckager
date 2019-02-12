@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    background: #000000;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(right, #000000, #000000);
+    background: -moz-linear-gradient(right, #000000, #000000);
+    background: -o-linear-gradient(right, #000000, #000000);
+    background: linear-gradient(to left, #000000, #000000);
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
