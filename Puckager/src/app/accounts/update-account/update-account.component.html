@@ -1,0 +1,59 @@
+<div class="container my-5">
+    <h4>Update Account</h4>
+    <div class="formBody align-content-center">
+        <div class="form-group row">
+            <Label ID="lblAccountIdLabel" for="lblAccountID" CssClass="col-2 col-form-label" Text="Account ID:"></Label>
+            <div class="col-3">
+                <Label ID="lblAccountID" type="text" placeholder="userID" CssClass="col-form-label"></Label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <Label ID="lblUsername" for="txtUsername" CssClass="col-2 col-form-label" Text="User Name:"></Label>
+            <div class="col-3">
+                <input ID="txtUsername" type="text" placeholder="userName" CssClass="form-control">
+            </div>
+            <div class="col-4">
+            </div>
+        </div>
+        <div class="form-group row">
+            <Label ID="lblPassword" for="txtPassword" CssClass="col-2 col-form-label" Text="Password:"></Label>
+            <div class="col-3">
+                <input ID="txtPassword" type="password" placeholder="password" CssClass="form-control">
+            </div>
+            <div class="col-4">
+                <!-- Password must contain one letter, one number and be longer than six characters -->
+            </div>
+        </div>
+        <div class="form-group row">
+            <Label ID="lblEmailAddress" for="txtEmailAddress" CssClass="col-2 col-form-label" Text="Email Address:"></Label>
+            <div class="col-3">
+                <input ID="txtEmailAddress" type="text" placeholder="email address" CssClass="form-control">
+            </div>
+            <div class="col-4">
+                <!-- REGEX to ensure format matches user@domain.com -->
+            </div>
+        </div>
+        <div class="form-group row">
+            <Label ID="lblAccountType" for="ddlAccountType" CssClass="col-2 col-form-label" Text="Account Type:"></Label>
+            <div class="col-3">
+                <select ID="ddlAccountType" type="text" CssClass="form-control" runat="server">
+                    <option Value="None" Selected="True">None</option>
+                    <option Value="Admin">Admin</option>
+                    <option Value="Coach">Coach</option>
+                    <option Value="Scout">Scout</option>
+                </select>
+            </div>
+            <div class="col-4">
+
+            </div>
+            <div class="row">
+                <Button ID="btnUpdateAccount" CssClass="formButton col-2" OnClick="btnUpdateAccount_Click">Update</Button>
+                <Button ID="btnClear" CssClass="formButton col-2" OnClientClick="this.form.reset();return false;">Clear</Button>
+                <Button ID="btnCancel" CssClass="formButton col-2" OnClick="btnCancel_Click">Cancel</Button>
+            </div>
+            <div>
+                <Label ID="lblUpdateAccountError" Text="Error: Account not updated to the database" CssClass="alert alert-danger small font-weight-bold text-center" role="alert" Visible="false"></Label>
+            </div>
+        </div>
+    </div>
+</div>
