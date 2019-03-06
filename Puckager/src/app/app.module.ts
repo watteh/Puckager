@@ -16,6 +16,8 @@ import { AddRecruitComponent } from './recruit-list/add-recruit/add-recruit.comp
 import { AccountsComponent } from './accounts/accounts.component';
 import { AddAccountComponent } from './accounts/add-account/add-account.component';
 import { UpdateAccountComponent } from './accounts/update-account/update-account.component';
+import { ReportsComponent } from './recruit-list/reports/reports.component';
+import { AddReportComponent } from './recruit-list/reports/add-report/add-report.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { UpdateAccountComponent } from './accounts/update-account/update-account
     AddRecruitComponent,
     AccountsComponent,
     AddAccountComponent,
-    UpdateAccountComponent
+    UpdateAccountComponent,
+    ReportsComponent,
+    AddReportComponent
   ],
   imports: [
     BrowserModule,

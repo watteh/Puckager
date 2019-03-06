@@ -10,6 +10,8 @@ import { AddAccountComponent } from './accounts/add-account/add-account.componen
 import { UpdateAccountComponent } from './accounts/update-account/update-account.component';
 import { DetailsComponent } from './recruit-list/details/details.component';
 import { AddRecruitComponent } from './recruit-list/add-recruit/add-recruit.component';
+import { ReportsComponent } from './recruit-list/reports/reports.component';
+import { AddReportComponent } from './recruit-list/reports/add-report/add-report.component';
 
 const routes: Routes = [
   { path: '', component: SigninComponent },
@@ -21,7 +23,9 @@ const routes: Routes = [
   { path: 'addaccount', component: AddAccountComponent },
   { path: 'updateaccount', component: UpdateAccountComponent },
   { path: 'detail', component: DetailsComponent },
-  { path: 'addrecruit', component: AddRecruitComponent }
+  { path: 'addrecruit', component: AddRecruitComponent },
+  { path: 'report', component: ReportsComponent },
+  { path: 'addreport', component: AddReportComponent }
 ];
 
 @NgModule({
