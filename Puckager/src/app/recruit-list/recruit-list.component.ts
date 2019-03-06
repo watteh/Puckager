@@ -9,18 +9,18 @@ export class RecruitListComponent implements OnInit {
 
   recruits = [
     {
-      id:1,
+      id: 1,
       first_name: 'David',
       last_name: 'Gwynn',
-      birth_year:2000,
+      birth_year: 2000,
       position: 'Defense',
       status: 'Available'
     },
     {
-      id:2,
+      id: 2,
       first_name: 'Ryan',
       last_name: 'Watson',
-      birth_year:2001,
+      birth_year: 2001,
       position: 'Goalie',
       status: 'Committed'
     }

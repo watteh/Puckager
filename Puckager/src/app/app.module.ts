@@ -10,6 +10,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { RecruitListComponent } from './recruit-list/recruit-list.component';
 import { RecruitComponent } from './recruit-list/recruit/recruit.component';
 import { SigninComponent } from './signin/signin.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SigninComponent } from './signin/signin.component';
     RegistrationComponent,
     SigninComponent,
     RecruitListComponent,
-    RecruitComponent
+    RecruitComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
