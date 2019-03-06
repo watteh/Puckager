@@ -8,6 +8,8 @@ import { AboutComponent } from './about/about.component';
 import { AccountsComponent } from './accounts/accounts.component';
 import { AddAccountComponent } from './accounts/add-account/add-account.component';
 import { UpdateAccountComponent } from './accounts/update-account/update-account.component';
+import { DetailsComponent } from './recruit-list/details/details.component';
+import { AddRecruitComponent } from './recruit-list/add-recruit/add-recruit.component';
 
 const routes: Routes = [
   { path: '', component: SigninComponent },
@@ -17,7 +19,9 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'accounts', component: AccountsComponent },
   { path: 'addaccount', component: AddAccountComponent },
-  { path: 'updateaccount', component: UpdateAccountComponent }
+  { path: 'updateaccount', component: UpdateAccountComponent },
+  { path: 'detail', component: DetailsComponent },
+  { path: 'addrecruit', component: AddRecruitComponent }
 ];
 
 @NgModule({

@@ -1,3 +1,132 @@
-<p>
-  add-recruit works!
-</p>
+<div class="container-fluid">
+    <Label ID="lblLoggedInUser" Text=""></Label>
+    <div class="formBody">
+        <div class="form-group row">
+            <Label ID="lblFirstName" for="txtBoxFirstName" CssClass="col-2 col-form-label" Text="First Name:"></Label>
+            <div class="col-3">
+                <input ID="txtBoxFirstName" CssClass="form-control" placeholder="Joseph">
+            </div>
+            <div class="col-4">
+                <!-- Validation to check the field is not null and that it only contains alpha characters -->
+
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <Label ID="lblLastName" for="txtBoxLastName" CssClass="col-2 col-form-label" Text="Last Name:"></Label>
+            <div class="col-3">
+                <input ID="txtBoxLastName" CssClass="form-control" placeholder="Recruit">
+            </div>
+            <div class="col-4">
+                <!-- Validation to check the field is not null and that it only contains alpha characters -->
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <Label ID="lblPhoneNumber" for="txtPhoneNumber" CssClass="col-2 col-form-label" Text="Contact Number:"></Label>
+            <div class="col-3">
+                <input ID="txtBoxPhoneNumber" CssClass="form-control" placeholder="(905) 999-1234">
+            </div>
+            <div class="col-4">
+                <!-- REGEX validation to check format is (905) 999-9999 -->
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <Label ID="lblEmailAddress" for="txtEmailAddress" CssClass="col-2 col-form-label" Text="Email Address:"></Label>
+            <div class="col-3">
+                <input ID="txtBoxEmailAddress" CssClass="form-control" placeholder="joerecruit@recruit.com">
+            </div>
+            <div class="col-4">
+                <!-- REGEX validation to check format is user@domain.com -->
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <Label ID="lblBirthYear" for="txtBirthYear" CssClass="col-2 col-form-label" Text="Birth Year:"></Label>
+            <div class="col-3">
+                <input ID="txtBoxBirthYear" CssClass="form-control" placeholder="2001">
+            </div>
+            <div class="col-4">
+                <!-- Validation to check the field is only contains number and range is between 1900 - 2099 -->
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <Label ID="lblGradYear" for="txtGradYear" CssClass="col-2 col-form-label" Text="Graduation Year:"></Label>
+            <div class="col-3">
+                <input ID="txtBoxGradYear" CssClass="form-control" placeholder="2020">
+            </div>
+            <div class="col-4">
+                <!-- Validation to check the field is only contains number and range is between 1900 - 2099 -->
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <Label ID="lblCurrentTeam" for="txtCurrentTeam" CssClass="col-2 col-form-label" Text="Current Team:"></Label>
+            <div class="col-3">
+                <input ID="txtBoxCurrentTeam" CssClass="form-control" placeholder="NYS Bantam AA">
+            </div>
+            <div class="col-4">
+                <!-- Validation to check the field only contains alpha characters -->
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <Label ID="lblJerseyNumber" for="txtJerseyNumber" CssClass="col-2 col-form-label" Text="Jersey #:"></Label>
+            <div class="col-3">
+                <input ID="txtBoxJerseyNumber" CssClass="form-control" placeholder="19">
+            </div>
+            <div class="col-4">
+                <!-- Validation to check the field is only contains number and range is between 1 - 99 -->
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <Label ID="lblPosition" for="txtPosition" CssClass="col-2 col-form-label" Text="Position:"></Label>
+            <div class="col-3">
+                <select ID="dropdownPosition" type="text" CssClass="form-control">
+                    <option Selected="True" Value="Forward">Forward</option>
+                    <option Value="Defenceman">Defenceman</option>
+                    <option Value="Goalie">Goalie</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <Label ID="lblMothersName" for="txtMothersName" CssClass="col-2 col-form-label" Text="Mother's Name:"></Label>
+            <div class="col-3">
+                <input ID="txtBoxMothersName" CssClass="form-control" placeholder="Rita">
+            </div>
+            <div class="col-4">
+                <!-- Validation to check the field only contains alpha characters -->
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <Label ID="lblFathersName" for="txtFathersName" CssClass="col-2 col-form-label" Text="Father's Name:"></Label>
+            <div class="col-3">
+                <input ID="txtBoxFathersName" CssClass="form-control" placeholder="John">
+            </div>
+            <div class="col-4">
+                <!-- Validation to check the field only contains alpha characters -->
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <Label ID="lblStatus" for="txtStatus" CssClass="col-2 col-form-label" Text="Status:"></Label>
+            <div class="col-3">
+                <select ID="dropdownStatus" type="text" CssClass="form-control">
+                    <option Selected="True" Value="Available">Available</option>
+                    <option Value="Unavailable">Unavailable</option>
+                    <option Value="Committed">Committed</option>
+                    <option Value="Not Interested">Not Interested</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <Button ID="BtnEditRecruit" CssClass="formButton" OnClick="BtnEditRecruit_Click">Save</Button>
+    <Button ID="BtnCancel" CssClass="formButton" OnClick="BtnCancel_Click">Cancel</Button>
+    <Label ID="lblEditRecruitError" Text="Error: Failed to save to the database" CssClass="alert alert-danger small font-weight-bold text-center" role="alert"></Label>
+</div>

@@ -1,3 +1,187 @@
-<p>
-  details works!
-</p>
+<div class="container-fluid">
+    <Label ID="lblLoggedInUser" Text=""></Label>
+    <div class="formBody">
+        <div class="form-group row">
+            <Label ID="lblFirstName" for="txtBoxFirstName" CssClass="col-2 col-form-label" Text="First Name:"></Label>
+            <div class="col-3">
+                <Label ID="lblRecruitFirstName" CssClass="form-control"></Label>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <Label ID="lblLastName" for="txtBoxLastName" CssClass="col-2 col-form-label" Text="Last Name:"></Label>
+            <div class="col-3">
+                <Label ID="lblRecruitLastName" CssClass="form-control"></Label>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <Label ID="lblPhoneNumber" for="txtPhoneNumber" CssClass="col-2 col-form-label" Text="Contact Number:"></Label>
+            <div class="col-3">
+                <Label ID="lblRecruitPhoneNumber" CssClass="form-control"></Label>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <Label ID="lblEmailAddress" for="txtEmailAddress" CssClass="col-2 col-form-label" Text="Email Address:"></Label>
+            <div class="col-3">
+                <Label ID="lblRecruitEmailAddress" CssClass="form-control"></Label>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <Label ID="lblBirthYear" for="txtBirthYear" CssClass="col-2 col-form-label" Text="Birth Year:"></Label>
+            <div class="col-3">
+                <Label ID="lblRecruitBirthYear" CssClass="form-control"></Label>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <Label ID="lblGradYear" for="txtGradYear" CssClass="col-2 col-form-label" Text="Graduation Year:"></Label>
+            <div class="col-3">
+                <Label ID="lblRecruitGradYear" CssClass="form-control"></Label>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <Label ID="lblCurrentTeam" for="txtCurrentTeam" CssClass="col-2 col-form-label" Text="Current Team:"></Label>
+            <div class="col-3">
+                <Label ID="lblRecruitCurrentTeam" CssClass="form-control"></Label>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <Label ID="lblJerseyNumber" for="txtJerseyNumber" CssClass="col-2 col-form-label" Text="Jersey #:"></Label>
+            <div class="col-3">
+                <Label ID="lblRecruitJerseyNumber" CssClass="form-control"></Label>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <Label ID="lblPosition" for="txtPosition" CssClass="col-2 col-form-label" Text="Position:"></Label>
+            <div class="col-3">
+                <Label ID="lblRecruitPosition" CssClass="form-control"></Label>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <Label ID="lblMothersName" for="txtMothersName" CssClass="col-2 col-form-label" Text="Mother's Name:"></Label>
+            <div class="col-3">
+                <Label ID="lblRecruitMothersName" CssClass="form-control"></Label>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <Label ID="lblFathersName" for="txtFathersName" CssClass="col-2 col-form-label" Text="Father's Name:"></Label>
+            <div class="col-3">
+                <Label ID="lblRecruitFathersName" CssClass="form-control"></Label>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <Label ID="lblStatus" for="txtStatus" CssClass="col-2 col-form-label" Text="Status:"></Label>
+            <div class="col-3">
+                <Label ID="lblRecruitStatus" CssClass="form-control"></Label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" style="margin: 20px">
+    <!-- <MultiView ID="reportView">
+        <View ID="emptyView" /></View>
+        <View ID="goalie"> -->
+    <h4><label>Goalie Report</label></h4>
+    <table id="goalieTable" class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th style="text-align: center">Skating</th>
+                <th style="text-align: center">Agility Speed</th>
+                <th style="text-align: center">Traffic Rebound Control</th>
+                <th style="text-align: center">Hockey Sense</th>
+                <th style="text-align: center">Strength Fitness</th>
+                <th style="text-align: center">Mental Toughness</th>
+                <th style="text-align: center">Battle Mentality</th>
+                <th style="text-align: center">Overall Ranking</th>
+                <th style="text-align: center">Notes</th>
+                <th style="text-align: center">Report Date</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table table-bordered table-striped">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td id="viewGoalie"><a class="btn btn-secondary" href="">View</a></td>
+                <td id="editGoalie"><a class="btn btn-secondary" href="">Edit</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- </View>
+        <View ID="player"> -->
+    <h4><label>Player Report</label></h4>
+    <table id="playerTable" class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th style="text-align: center">Skating</th>
+                <th style="text-align: center">Individual Offensive Skills</th>
+                <th style="text-align: center">Individual Defensive Skills</th>
+                <th style="text-align: center">Offensive Team Play</th>
+                <th style="text-align: center">Defensive Team Play</th>
+                <th style="text-align: center">Hockey Sense</th>
+                <th style="text-align: center">Strength Power</th>
+                <th style="text-align: center">Work Ethic</th>
+                <th style="text-align: center">Overall Ranking</th>
+                <th style="text-align: center">Notes</th>
+                <th style="text-align: center">Report Date</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table table-bordered table-striped">
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td id="viewPlayer"><a class="btn btn-secondary" href="">View</a></td>
+                <td id="editPlayer"><a class="btn btn-secondary" href="">Edit</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- </View>
+    </MultiView> -->
+</div>
+<div class="row">
+    <Button ID="BtnBack" CssClass="formButton" OnClick="BtnBack_Click">Back</Button>
+    <Button ID="BtnDelete" CssClass="formButton" OnClick="BtnDelete_Click" OnClientClick="return confirm_delete()">Delete</Button>
+    <Button ID="Update" CssClass="formButton" OnClick="BtnUpdate_Click">Update</Button>
+    <Button ID="AddReport" CssClass="formButton" OnClick="BtnAddReport_Click">AddReport</Button>
+</div>
