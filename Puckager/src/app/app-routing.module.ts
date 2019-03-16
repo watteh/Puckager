@@ -1,6 +1,6 @@
-
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { RegistrationComponent } from './registration/registration.component';
 import { RecruitListComponent } from './recruit-list/recruit-list.component';
 import { SigninComponent } from './signin/signin.component';
@@ -17,14 +17,14 @@ const routes: Routes = [
   { path: '', component: SigninComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'recruits', component: RecruitListComponent },
-  { path: 'signin', component: SigninComponent },
+  // { path: 'signin', component: SigninComponent },
   { path: 'about', component: AboutComponent },
   { path: 'accounts', component: AccountsComponent },
   { path: 'addaccount', component: AddAccountComponent },
-  { path: 'updateaccount', component: UpdateAccountComponent },
-  { path: 'detail', component: DetailsComponent },
+  { path: 'updateaccount/:id', component: UpdateAccountComponent }, // Displays specific account for update
+  { path: 'detail/:id', component: DetailsComponent }, // Displays specific recruit details page
   { path: 'addrecruit', component: AddRecruitComponent },
-  { path: 'report', component: ReportsComponent },
+  { path: 'report/:id', component: ReportsComponent }, // Displays reports for specfic recruit
   { path: 'addreport', component: AddReportComponent }
 ];
 

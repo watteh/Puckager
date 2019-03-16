@@ -1,12 +1,16 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { RecruitService } from './services/recruit.service';
+
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
 import { RegistrationComponent } from './registration/registration.component';
 import { RecruitListComponent } from './recruit-list/recruit-list.component';
 import { RecruitComponent } from './recruit-list/recruit/recruit.component';
@@ -40,9 +44,11 @@ import { AddReportComponent } from './recruit-list/reports/add-report/add-report
     BrowserModule,
     AppRoutingModule,
     AngularFontAwesomeModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [RecruitService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

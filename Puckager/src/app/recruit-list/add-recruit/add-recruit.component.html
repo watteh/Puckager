@@ -1,10 +1,11 @@
 <div class="container-fluid">
     <Label ID="lblLoggedInUser"></Label>
     <div class="formBody">
+        <!-- <form> -->
         <div class="form-group row">
-            <Label ID="lblFirstName" for="txtBoxFirstName" CssClass="col-2 col-form-label">First Name:</Label>
+            <Label ID="lblFirstName" for="txtBoxFirstName" class="col-2 col-form-label">First Name:</Label>
             <div class="col-3">
-                <input ID="txtBoxFirstName" CssClass="form-control" placeholder="Joseph">
+                <input ID="txtBoxFirstName" class="form-control" placeholder="Joseph" formControl="firstName">
             </div>
             <div class="col-4">
                 <!-- Validation to check the field is not null and that it only contains alpha characters -->
@@ -13,9 +14,9 @@
         </div>
 
         <div class="form-group row">
-            <Label ID="lblLastName" for="txtBoxLastName" CssClass="col-2 col-form-label">Last Name:</Label>
+            <Label ID="lblLastName" for="txtBoxLastName" class="col-2 col-form-label">Last Name:</Label>
             <div class="col-3">
-                <input ID="txtBoxLastName" CssClass="form-control" placeholder="Recruit">
+                <input ID="txtBoxLastName" class="form-control" placeholder="Recruit" formControl="lastName">
             </div>
             <div class="col-4">
                 <!-- Validation to check the field is not null and that it only contains alpha characters -->
@@ -23,9 +24,9 @@
         </div>
 
         <div class="form-group row">
-            <Label ID="lblPhoneNumber" for="txtPhoneNumber" CssClass="col-2 col-form-label">Contact Number:</Label>
+            <Label ID="lblPhoneNumber" for="txtPhoneNumber" class="col-2 col-form-label">Contact Number:</Label>
             <div class="col-3">
-                <input ID="txtBoxPhoneNumber" CssClass="form-control" placeholder="(905) 999-1234">
+                <input ID="txtBoxPhoneNumber" class="form-control" placeholder="(905) 999-1234" formControl="contactNumber">
             </div>
             <div class="col-4">
                 <!-- REGEX validation to check format is (905) 999-9999 -->
@@ -33,9 +34,9 @@
         </div>
 
         <div class="form-group row">
-            <Label ID="lblEmailAddress" for="txtEmailAddress" CssClass="col-2 col-form-label">Email Address:</Label>
+            <Label ID="lblEmailAddress" for="txtEmailAddress" class="col-2 col-form-label">Email Address:</Label>
             <div class="col-3">
-                <input ID="txtBoxEmailAddress" CssClass="form-control" placeholder="joerecruit@recruit.com">
+                <input ID="txtBoxEmailAddress" class="form-control" placeholder="joerecruit@recruit.com" formControl="emailAddress">
             </div>
             <div class="col-4">
                 <!-- REGEX validation to check format is user@domain.com -->
@@ -43,9 +44,9 @@
         </div>
 
         <div class="form-group row">
-            <Label ID="lblBirthYear" for="txtBirthYear" CssClass="col-2 col-form-label">Birth Year:</Label>
+            <Label ID="lblBirthYear" for="txtBirthYear" class="col-2 col-form-label">Birth Year:</Label>
             <div class="col-3">
-                <input ID="txtBoxBirthYear" CssClass="form-control" placeholder="2001">
+                <input ID="txtBoxBirthYear" class="form-control" placeholder="2001" formControl="birthYear">
             </div>
             <div class="col-4">
                 <!-- Validation to check the field is only contains number and range is between 1900 - 2099 -->
@@ -53,9 +54,9 @@
         </div>
 
         <div class="form-group row">
-            <Label ID="lblGradYear" for="txtGradYear" CssClass="col-2 col-form-label">Graduation Year:</Label>
+            <Label ID="lblGradYear" for="txtGradYear" class="col-2 col-form-label">Graduation Year:</Label>
             <div class="col-3">
-                <input ID="txtBoxGradYear" CssClass="form-control" placeholder="2020">
+                <input ID="txtBoxGradYear" class="form-control" placeholder="2020" formControl="graduationYear">
             </div>
             <div class="col-4">
                 <!-- Validation to check the field is only contains number and range is between 1900 - 2099 -->
@@ -63,9 +64,9 @@
         </div>
 
         <div class="form-group row">
-            <Label ID="lblCurrentTeam" for="txtCurrentTeam" CssClass="col-2 col-form-label">Current Team:</Label>
+            <Label ID="lblCurrentTeam" for="txtCurrentTeam" class="col-2 col-form-label">Current Team:</Label>
             <div class="col-3">
-                <input ID="txtBoxCurrentTeam" CssClass="form-control" placeholder="NYS Bantam AA">
+                <input ID="txtBoxCurrentTeam" class="form-control" placeholder="NYS Bantam AA" formControl="currentTeam">
             </div>
             <div class="col-4">
                 <!-- Validation to check the field only contains alpha characters -->
@@ -73,9 +74,9 @@
         </div>
 
         <div class="form-group row">
-            <Label ID="lblJerseyNumber" for="txtJerseyNumber" CssClass="col-2 col-form-label">Jersey #:</Label>
+            <Label ID="lblJerseyNumber" for="txtJerseyNumber" class="col-2 col-form-label">Jersey #:</Label>
             <div class="col-3">
-                <input ID="txtBoxJerseyNumber" CssClass="form-control" placeholder="19">
+                <input ID="txtBoxJerseyNumber" class="form-control" placeholder="19" formControl="jerseynumber">
             </div>
             <div class="col-4">
                 <!-- Validation to check the field is only contains number and range is between 1 - 99 -->
@@ -83,9 +84,9 @@
         </div>
 
         <div class="form-group row">
-            <Label ID="lblPosition" for="txtPosition" CssClass="col-2 col-form-label">Position:</Label>
+            <Label ID="lblPosition" for="txtPosition" class="col-2 col-form-label">Position:</Label>
             <div class="col-3">
-                <select ID="dropdownPosition" type="text" CssClass="form-control">
+                <select ID="dropdownPosition" type="text" class="form-control" formControl="position">
                     <option Selected="True" Value="Forward">Forward</option>
                     <option Value="Defenceman">Defenceman</option>
                     <option Value="Goalie">Goalie</option>
@@ -94,9 +95,9 @@
         </div>
 
         <div class="form-group row">
-            <Label ID="lblMothersName" for="txtMothersName" CssClass="col-2 col-form-label">Mother's Name:</Label>
+            <Label ID="lblMothersName" for="txtMothersName" class="col-2 col-form-label">Mother's Name:</Label>
             <div class="col-3">
-                <input ID="txtBoxMothersName" CssClass="form-control" placeholder="Rita">
+                <input ID="txtBoxMothersName" class="form-control" placeholder="Rita" formControl="motherName">
             </div>
             <div class="col-4">
                 <!-- Validation to check the field only contains alpha characters -->
@@ -104,9 +105,9 @@
         </div>
 
         <div class="form-group row">
-            <Label ID="lblFathersName" for="txtFathersName" CssClass="col-2 col-form-label">Father's Name:</Label>
+            <Label ID="lblFathersName" for="txtFathersName" class="col-2 col-form-label">Father's Name:</Label>
             <div class="col-3">
-                <input ID="txtBoxFathersName" CssClass="form-control" placeholder="John">
+                <input ID="txtBoxFathersName" class="form-control" placeholder="John" formControl="fatherName">
             </div>
             <div class="col-4">
                 <!-- Validation to check the field only contains alpha characters -->
@@ -114,9 +115,9 @@
         </div>
 
         <div class="form-group row">
-            <Label ID="lblStatus" for="txtStatus" CssClass="col-2 col-form-label">Status:</Label>
+            <Label ID="lblStatus" for="txtStatus" class="col-2 col-form-label">Status:</Label>
             <div class="col-3">
-                <select ID="dropdownStatus" type="text" CssClass="form-control">
+                <select ID="dropdownStatus" type="text" class="form-control" formControl="status">
                     <option Selected="True" Value="Available">Available</option>
                     <option Value="Unavailable">Unavailable</option>
                     <option Value="Committed">Committed</option>
@@ -124,9 +125,12 @@
                 </select>
             </div>
         </div>
-    </div>
 
-    <Button ID="BtnEditRecruit" CssClass="formButton" OnClick="BtnEditRecruit_Click">Save</Button>
-    <Button ID="BtnCancel" CssClass="formButton" OnClick="BtnCancel_Click">Cancel</Button>
-    <Label ID="lblEditRecruitError" Text="Error: Failed to save to the database" CssClass="alert alert-danger small font-weight-bold text-center" role="alert"></Label>
+        <Button ID="BtnAddRecruit" type='submit' class="formButton" (click)="addRecruit(firstName.Value, lastName.Value, contactNumber.Value,
+            emailAddress.Value, birthYear.Value, graduationYear.Value, currentTeam.Value, jerseynumber.Value,
+             position.Value, motherName.Value, fatherName.Value, status.Value)">Add Recruit</Button>
+        <a ID="BtnCancel" class="formButton" href="/recruits">Cancel</a>
+        <Label ID="lblEditRecruitError" Text="Error: Failed to save to the database" class="alert alert-danger small font-weight-bold text-center" role="alert"></Label>
+        <!-- </form> -->
+    </div>
 </div>
