@@ -28,11 +28,11 @@ export class RecruitService {
       dateAdded
     };
     console.log(obj);
-    this.http.post(`${this.uri}/addrecruit`, obj)
-        .subscribe(res => console.log('Done'));
+    this.http.post(`/addrecruit`, obj)
+        .subscribe(res => console.log('Done')); // ${this.uri}
   }
 
   getRecruits() {
-    return this.http.get(`${this.uri}/recruits`);
+    return this.http.get(`/recruits`); // ${this.uri}
   }
 }

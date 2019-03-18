@@ -1,24 +1,54 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-let Recruit = new Schema({
-    firstName: { type: String },
-    lastName: { type: String },
-    contactnumber: { type: String },
-    emailAddress: { type: String },
-    birthYear: { type: String },
-    graduationYear: { type: String },
-    currentTeam: { type: String },
-    jerseynumber: { type: String },
-    position: { type: String },
-    mothersName: { type: String },
-    fathersName: { type: String },
-    status: { type: String },
-    dateAdded: { type: Date },
-    playerReports: { type: String }, // PlayerReportSchema
-    goalieReports: { type: String } // GoalieReportSchema
-}, {
-    collections: 'recruit'
+// Create Schema and Model
+let PlayerReportSchema = mongoose.Schema({
+    skating: Number,
+    individualOffensiveSkills: Number,
+    individualDefensiveSkills: Number,
+    offensiveTeamPlay: Number,
+    defensiveTeamPlay: Number,
+    hockeySense: Number,
+    strengthPower: Number,
+    workEthic: Number,
+    overallRanking: Number,
+    notes: String,
+    reportDate: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('recruit', Recruit);
+let GoalieReportSchema = mongoose.Schema({
+    skating: Number,
+    agilitySpeed: Number,
+    trafficReboundControl: Number,
+    hockeySense: Number,
+    strengthFitness: Number,
+    mentalToughness: Number,
+    battleMentality: Number,
+    overallRanking: Number,
+    notes: String,
+    reportDate: { type: Date, default: Date.now }
+});
+
+let RecruitSchema = mongoose.Schema({
+    firstName: String,
+    lastName: String,
+    contactNumber: String,
+    emailAddress: String,
+    birthYear: String,
+    graduationYear: String,
+    currentTeam: String,
+    jerseyNumber: String,
+    position: String,
+    mothersName: String,
+    fathersName: String,
+    status: String,
+    dateAdded: { type: Date, default: Date.now },
+    playerReports: [PlayerReportSchema],
+    goalieReports: [GoalieReportSchema],
+}, {
+    collection: "recruits"
+});
+
+const Recruit = mongoose.model('recruit', RecruitSchema)
+
+module.exports = Recruit;

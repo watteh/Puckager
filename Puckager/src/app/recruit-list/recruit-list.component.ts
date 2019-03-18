@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import Recruit from '../../models/recruit';
+import Recruit from '../../models/Recruit';
 
-import {RecruitService} from '../services/recruit.service';
+import {RecruitService } from '../services/recruit.service';
 
 
 @Component({
@@ -44,5 +44,5 @@ export class RecruitListComponent implements OnInit {
       this.recruits = data;
     });
   }
-
+  
 }

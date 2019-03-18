@@ -9,14 +9,14 @@ import { RecruitService } from '../../services/recruit.service';
 })
 export class AddRecruitComponent implements OnInit {
 
-  angForm: FormGroup;
+  public recruitGroup: FormGroup;
 
   constructor(private fb: FormBuilder, private bs: RecruitService) {
     this.createForm();
    }
 
    createForm() {
-    this.angForm = this.fb.group({
+    this.recruitGroup = this.fb.group({
       firstName: [''],
       lastName: [''],
       contactNumber: [''],
