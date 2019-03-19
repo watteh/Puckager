@@ -1,5 +1,7 @@
 // Create Schema and Model
-export default class RecruitSchema {
+export class RecruitSchema {
+  // tslint:disable-next-line:variable-name
+  _id: string;
   firstName: string;
   lastName: string;
   contactnumber: string;
@@ -7,7 +9,7 @@ export default class RecruitSchema {
   birthYear: string;
   graduationYear: string;
   currentTeam: string;
-  jerseynumber: string;
+  jerseyNumber: string;
   position: string;
   mothersName: string;
   fathersName: string;

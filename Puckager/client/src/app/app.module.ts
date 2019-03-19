@@ -24,6 +24,14 @@ import { UpdateAccountComponent } from './accounts/update-account/update-account
 import { ReportsComponent } from './recruit-list/reports/reports.component';
 import { AddReportComponent } from './recruit-list/reports/add-report/add-report.component';
 
+// import { FlashMessagesModule, FlashMessagesService } from 'angular2-flash-messages';
+// import { AuthService } from './services/auth.service';
+// import { JwtModule, JwtHelperService, JwtInterceptor } from '@auth0/angular-jwt';
+
+// export function jwtTokenGetter() {
+//   return localStorage.getItem('id_token');
+// }
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,8 +55,14 @@ import { AddReportComponent } from './recruit-list/reports/add-report/add-report
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     HttpClientModule,
     ReactiveFormsModule
+    /* FlashMessagesModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: jwtTokenGetter
+      }
+    }) */
   ],
-  providers: [RecruitService],
+  providers: [], // FlashMessagesService
   bootstrap: [AppComponent]
 })
 export class AppModule { }
