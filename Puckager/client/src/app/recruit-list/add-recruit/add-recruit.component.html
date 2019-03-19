@@ -26,7 +26,7 @@
             <div class="form-group row">
                 <Label ID="lblPhoneNumber" for="txtPhoneNumber" class="col-2 col-form-label">Contact Number:</Label>
                 <div class="col-3">
-                    <input [(ngModel)]="recruit.contactnumber" value="{{recruit.contactnumber}}" name="contactnumber" ID="txtBoxPhoneNumber" class="form-control" placeholder="(905) 999-1234">
+                    <input [(ngModel)]="recruit.contactNumber" value="{{recruit.contactNumber}}" name="contactNumber" ID="txtBoxPhoneNumber" class="form-control" placeholder="(905) 999-1234">
                 </div>
                 <div class="col-4">
                     <!-- REGEX validation to check format is (905) 999-9999 -->
@@ -126,9 +126,8 @@
                 </div>
             </div>
 
-            <a ID="BtnAddRecruit" type='submit' class="formButton" routerLink="/recruits">{{title}}</a>
+            <button ID="BtnAddRecruit" type='submit' class="formButton btn btn-primary">{{title}}</button>
             <a ID="BtnCancel" class="formButton" routerLink="/recruits">Cancel</a>
-            <!-- <Label ID="lblEditRecruitError" Text="Error: Failed to save to the database" class="alert alert-danger small font-weight-bold text-center" role="alert"></Label> -->
         </form>
     </div>
 </div>

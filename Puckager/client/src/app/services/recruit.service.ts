@@ -36,7 +36,7 @@ export class RecruitService {
   }
 
   public addRecruit(recruit: RecruitSchema): Observable<any> {
-    return this.http.post<any>(this.uri + 'add', recruit, this.httpOptions);
+    return this.http.post<any>(this.uri + 'recruits/addrecruit', recruit, this.httpOptions);
   }
 
   public editRecruit(recruit: RecruitSchema): Observable<any> {
