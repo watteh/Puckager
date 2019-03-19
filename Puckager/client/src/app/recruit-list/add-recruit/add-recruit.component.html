@@ -1,136 +1,134 @@
 <div class="container-fluid">
     <Label ID="lblLoggedInUser"></Label>
-    <div class="formBody" [formGroup]="recruitGroup">
-        <!-- <form> -->
-        <div class="form-group row">
-            <Label ID="lblFirstName" for="txtBoxFirstName" class="col-2 col-form-label">First Name:</Label>
-            <div class="col-3">
-                <input ID="txtBoxFirstName" class="form-control" placeholder="Joseph" formControlName="firstName">
-            </div>
-            <div class="col-4">
-                <!-- Validation to check the field is not null and that it only contains alpha characters -->
+    <div class="formBody">
+        <form class="form" (submit)="onDetailsPageSubmit()">
+            <div class="form-group row">
+                <Label ID="lblFirstName" for="txtBoxFirstName" class="col-2 col-form-label">First Name:</Label>
+                <div class="col-3">
+                    <input [(ngModel)]="recruit.firstName" value="{{recruit.firstName}}" name="firstName" ID="txtBoxFirstName" class="form-control" placeholder="Joseph">
+                </div>
+                <div class="col-4">
+                    <!-- Validation to check the field is not null and that it only contains alpha characters -->
 
+                </div>
             </div>
-        </div>
 
-        <div class="form-group row">
-            <Label ID="lblLastName" for="txtBoxLastName" class="col-2 col-form-label">Last Name:</Label>
-            <div class="col-3">
-                <input ID="txtBoxLastName" class="form-control" placeholder="Recruit" formControlName="lastName">
+            <div class="form-group row">
+                <Label ID="lblLastName" for="txtBoxLastName" class="col-2 col-form-label">Last Name:</Label>
+                <div class="col-3">
+                    <input [(ngModel)]="recruit.lastName" value="{{recruit.lastName}}" name="lastName" ID="txtBoxLastName" class="form-control" placeholder="Recruit">
+                </div>
+                <div class="col-4">
+                    <!-- Validation to check the field is not null and that it only contains alpha characters -->
+                </div>
             </div>
-            <div class="col-4">
-                <!-- Validation to check the field is not null and that it only contains alpha characters -->
-            </div>
-        </div>
 
-        <div class="form-group row">
-            <Label ID="lblPhoneNumber" for="txtPhoneNumber" class="col-2 col-form-label">Contact Number:</Label>
-            <div class="col-3">
-                <input ID="txtBoxPhoneNumber" class="form-control" placeholder="(905) 999-1234" formControlName="contactNumber">
+            <div class="form-group row">
+                <Label ID="lblPhoneNumber" for="txtPhoneNumber" class="col-2 col-form-label">Contact Number:</Label>
+                <div class="col-3">
+                    <input [(ngModel)]="recruit.contactnumber" value="{{recruit.contactnumber}}" name="contactnumber" ID="txtBoxPhoneNumber" class="form-control" placeholder="(905) 999-1234">
+                </div>
+                <div class="col-4">
+                    <!-- REGEX validation to check format is (905) 999-9999 -->
+                </div>
             </div>
-            <div class="col-4">
-                <!-- REGEX validation to check format is (905) 999-9999 -->
-            </div>
-        </div>
 
-        <div class="form-group row">
-            <Label ID="lblEmailAddress" for="txtEmailAddress" class="col-2 col-form-label">Email Address:</Label>
-            <div class="col-3">
-                <input ID="txtBoxEmailAddress" class="form-control" placeholder="joerecruit@recruit.com" formControlName="emailAddress">
+            <div class="form-group row">
+                <Label ID="lblEmailAddress" for="txtEmailAddress" class="col-2 col-form-label">Email Address:</Label>
+                <div class="col-3">
+                    <input [(ngModel)]="recruit.emailAddress" value="{{recruit.emailAddress}}" name="emailAddress" ID="txtBoxEmailAddress" class="form-control" placeholder="joerecruit@recruit.com">
+                </div>
+                <div class="col-4">
+                    <!-- REGEX validation to check format is user@domain.com -->
+                </div>
             </div>
-            <div class="col-4">
-                <!-- REGEX validation to check format is user@domain.com -->
-            </div>
-        </div>
 
-        <div class="form-group row">
-            <Label ID="lblBirthYear" for="txtBirthYear" class="col-2 col-form-label">Birth Year:</Label>
-            <div class="col-3">
-                <input ID="txtBoxBirthYear" class="form-control" placeholder="2001" formControlName="birthYear">
+            <div class="form-group row">
+                <Label ID="lblBirthYear" for="txtBirthYear" class="col-2 col-form-label">Birth Year:</Label>
+                <div class="col-3">
+                    <input [(ngModel)]="recruit.birthYear" value="{{recruit.birthYear}}" name="birthYear" ID="txtBoxBirthYear" class="form-control" placeholder="2001">
+                </div>
+                <div class="col-4">
+                    <!-- Validation to check the field is only contains number and range is between 1900 - 2099 -->
+                </div>
             </div>
-            <div class="col-4">
-                <!-- Validation to check the field is only contains number and range is between 1900 - 2099 -->
-            </div>
-        </div>
 
-        <div class="form-group row">
-            <Label ID="lblGradYear" for="txtGradYear" class="col-2 col-form-label">Graduation Year:</Label>
-            <div class="col-3">
-                <input ID="txtBoxGradYear" class="form-control" placeholder="2020" formControlName="graduationYear">
+            <div class="form-group row">
+                <Label ID="lblGradYear" for="txtGradYear" class="col-2 col-form-label">Graduation Year:</Label>
+                <div class="col-3">
+                    <input [(ngModel)]="recruit.graduationYear" value="{{recruit.graduationYear}}" name="graduationYear" ID="txtBoxGradYear" class="form-control" placeholder="2020">
+                </div>
+                <div class="col-4">
+                    <!-- Validation to check the field is only contains number and range is between 1900 - 2099 -->
+                </div>
             </div>
-            <div class="col-4">
-                <!-- Validation to check the field is only contains number and range is between 1900 - 2099 -->
-            </div>
-        </div>
 
-        <div class="form-group row">
-            <Label ID="lblCurrentTeam" for="txtCurrentTeam" class="col-2 col-form-label">Current Team:</Label>
-            <div class="col-3">
-                <input ID="txtBoxCurrentTeam" class="form-control" placeholder="NYS Bantam AA" formControlName="currentTeam">
+            <div class="form-group row">
+                <Label ID="lblCurrentTeam" for="txtCurrentTeam" class="col-2 col-form-label">Current Team:</Label>
+                <div class="col-3">
+                    <input [(ngModel)]="recruit.currentTeam" value="{{recruit.currentTeam}}" name="currentTeam" ID="txtBoxCurrentTeam" class="form-control" placeholder="NYS Bantam AA">
+                </div>
+                <div class="col-4">
+                    <!-- Validation to check the field only contains alpha characters -->
+                </div>
             </div>
-            <div class="col-4">
-                <!-- Validation to check the field only contains alpha characters -->
-            </div>
-        </div>
 
-        <div class="form-group row">
-            <Label ID="lblJerseyNumber" for="txtJerseyNumber" class="col-2 col-form-label">Jersey #:</Label>
-            <div class="col-3">
-                <input ID="txtBoxJerseyNumber" class="form-control" placeholder="19" formControlName="jerseynumber">
+            <div class="form-group row">
+                <Label ID="lblJerseyNumber" for="txtJerseyNumber" class="col-2 col-form-label">Jersey #:</Label>
+                <div class="col-3">
+                    <input [(ngModel)]="recruit.jerseyNumber" value="{{recruit.jerseyNumber}}" name="jerseyNumber" ID="txtBoxJerseyNumber" class="form-control" placeholder="19">
+                </div>
+                <div class="col-4">
+                    <!-- Validation to check the field is only contains number and range is between 1 - 99 -->
+                </div>
             </div>
-            <div class="col-4">
-                <!-- Validation to check the field is only contains number and range is between 1 - 99 -->
-            </div>
-        </div>
 
-        <div class="form-group row">
-            <Label ID="lblPosition" for="txtPosition" class="col-2 col-form-label">Position:</Label>
-            <div class="col-3">
-                <select ID="dropdownPosition" type="text" class="form-control" formControlName="position">
-                    <option Selected="True" Value="Forward">Forward</option>
-                    <option Value="Defenceman">Defenceman</option>
-                    <option Value="Goalie">Goalie</option>
-                </select>
+            <div class="form-group row">
+                <Label ID="lblPosition" for="txtPosition" class="col-2 col-form-label">Position:</Label>
+                <div class="col-3">
+                    <select [(ngModel)]="recruit.position" value="{{recruit.position}}" name="position" ID="dropdownPosition" type="text" class="form-control">
+                        <option Selected="True" Value="Forward">Forward</option>
+                        <option Value="Defenceman">Defenceman</option>
+                        <option Value="Goalie">Goalie</option>
+                    </select>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group row">
-            <Label ID="lblMothersName" for="txtMothersName" class="col-2 col-form-label">Mother's Name:</Label>
-            <div class="col-3">
-                <input ID="txtBoxMothersName" class="form-control" placeholder="Rita" formControlName="motherName">
+            <div class="form-group row">
+                <Label ID="lblMothersName" for="txtMothersName" class="col-2 col-form-label">Mother's Name:</Label>
+                <div class="col-3">
+                    <input [(ngModel)]="recruit.mothersName" value="{{recruit.mothersName}}" name="mothersName" ID="txtBoxMothersName" class="form-control" placeholder="Rita">
+                </div>
+                <div class="col-4">
+                    <!-- Validation to check the field only contains alpha characters -->
+                </div>
             </div>
-            <div class="col-4">
-                <!-- Validation to check the field only contains alpha characters -->
-            </div>
-        </div>
 
-        <div class="form-group row">
-            <Label ID="lblFathersName" for="txtFathersName" class="col-2 col-form-label">Father's Name:</Label>
-            <div class="col-3">
-                <input ID="txtBoxFathersName" class="form-control" placeholder="John" formControlName="fatherName">
+            <div class="form-group row">
+                <Label ID="lblFathersName" for="txtFathersName" class="col-2 col-form-label">Father's Name:</Label>
+                <div class="col-3">
+                    <input [(ngModel)]="recruit.fathersName" value="{{recruit.fathersName}}" name="fathersName" ID="txtBoxFathersName" class="form-control" placeholder="John">
+                </div>
+                <div class="col-4">
+                    <!-- Validation to check the field only contains alpha characters -->
+                </div>
             </div>
-            <div class="col-4">
-                <!-- Validation to check the field only contains alpha characters -->
-            </div>
-        </div>
 
-        <div class="form-group row">
-            <Label ID="lblStatus" for="txtStatus" class="col-2 col-form-label">Status:</Label>
-            <div class="col-3">
-                <select ID="dropdownStatus" type="text" class="form-control" formControlName="status">
-                    <option Selected="True" Value="Available">Available</option>
-                    <option Value="Unavailable">Unavailable</option>
-                    <option Value="Committed">Committed</option>
-                    <option Value="Not Interested">Not Interested</option>
-                </select>
+            <div class="form-group row">
+                <Label ID="lblStatus" for="txtStatus" class="col-2 col-form-label">Status:</Label>
+                <div class="col-3">
+                    <select [(ngModel)]="recruit.status" value="{{recruit.status}}" name="status" ID="dropdownStatus" type="text" class="form-control">
+                        <option Selected="True" Value="Available">Available</option>
+                        <option Value="Unavailable">Unavailable</option>
+                        <option Value="Committed">Committed</option>
+                        <option Value="Not Interested">Not Interested</option>
+                    </select>
+                </div>
             </div>
-        </div>
 
-        <Button ID="BtnAddRecruit" type='submit' class="formButton" (click)="addRecruit(firstName.Value, lastName.Value, contactNumber.Value,
-            emailAddress.Value, birthYear.Value, graduationYear.Value, currentTeam.Value, jerseynumber.Value,
-             position.Value, motherName.Value, fatherName.Value, status.Value)">Add Recruit</Button>
-        <a ID="BtnCancel" class="formButton" href="/recruits">Cancel</a>
-        <Label ID="lblEditRecruitError" Text="Error: Failed to save to the database" class="alert alert-danger small font-weight-bold text-center" role="alert"></Label>
-        <!-- </form> -->
+            <a ID="BtnAddRecruit" type='submit' class="formButton" routerLink="/recruits">{{title}}</a>
+            <a ID="BtnCancel" class="formButton" routerLink="/recruits">Cancel</a>
+            <!-- <Label ID="lblEditRecruitError" Text="Error: Failed to save to the database" class="alert alert-danger small font-weight-bold text-center" role="alert"></Label> -->
+        </form>
     </div>
 </div>

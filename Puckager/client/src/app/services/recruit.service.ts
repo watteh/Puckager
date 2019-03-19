@@ -28,7 +28,11 @@ export class RecruitService {
   }
 
   public getRecruit(recruit: RecruitSchema): Observable<any> {
-    return this.http.get<any>(this.uri + 'edit/' + recruit._id, this.httpOptions);
+    return this.http.get<any>(this.uri + 'recruits/edit/' + recruit._id, this.httpOptions);
+  }
+
+  public getRecruitDetails(recruit: RecruitSchema): Observable<any> {
+    return this.http.get<any>(this.uri + 'recruits/detail/' + recruit._id, this.httpOptions);
   }
 
   public addRecruit(recruit: RecruitSchema): Observable<any> {
@@ -36,7 +40,7 @@ export class RecruitService {
   }
 
   public editRecruit(recruit: RecruitSchema): Observable<any> {
-    return this.http.post<any>(this.uri + 'edit/' + recruit._id, recruit, this.httpOptions);
+    return this.http.post<any>(this.uri + 'recruits/edit/' + recruit._id, recruit, this.httpOptions);
   }
 
   public deleteRecruit(recruit: RecruitSchema): Observable<any> {

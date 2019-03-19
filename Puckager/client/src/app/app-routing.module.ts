@@ -22,9 +22,13 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent, data: {title: 'About Us'} },
   { path: 'accounts', component: AccountsComponent, data: {title: 'Accounts'} },
   { path: 'addaccount', component: AddAccountComponent, data: {title: 'Add Account'} },
-  { path: 'updateaccount/:id', component: UpdateAccountComponent, data: {title: 'Update Account'} }, // Displays specific account for update
-  { path: 'detail/:id', component: DetailsComponent, data: {title: 'Recruit Details'} }, // Displays specific recruit details page
-  { path: 'addrecruit', component: AddRecruitComponent, data: {title: 'Add Recruit'} },
+  { path: 'updateaccount/:id', component: UpdateAccountComponent, data: {title: 'Update Account'} },
+  // Displays specific account for update
+  { path: 'recruits/detail/:id', component: DetailsComponent, data: {title: 'Recruit Details'} },
+  // Displays specific recruit details page
+  { path: 'recruits/edit/:id', component: AddRecruitComponent, data: {title: 'Update Recruit'} },
+  // Displays specific recruit details page
+  { path: 'recruits/addrecruit', component: AddRecruitComponent, data: {title: 'Add Recruit'} },
   { path: 'report/:id', component: ReportsComponent, data: {title: 'Report Details'} }, // Displays reports for specfic recruit
   { path: 'addreport', component: AddReportComponent, data: {title: 'Add Report'} },
 

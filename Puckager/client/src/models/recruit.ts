@@ -4,7 +4,7 @@ export class RecruitSchema {
   _id: string;
   firstName: string;
   lastName: string;
-  contactnumber: string;
+  contactNumber: string;
   emailAddress: string;
   birthYear: string;
   graduationYear: string;
@@ -15,8 +15,8 @@ export class RecruitSchema {
   fathersName: string;
   status: string;
   dateAdded: Date;
-  // playerReports: [PlayerReportSchema];
-  // goalieReports: [GoalieReportSchema];
+  playerReports: [PlayerReportSchema];
+  goalieReports: [GoalieReportSchema];
 }
 
 export class PlayerReportSchema {

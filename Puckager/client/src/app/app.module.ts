@@ -7,8 +7,6 @@ import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { RecruitService } from './services/recruit.service';
-
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { RegistrationComponent } from './registration/registration.component';
@@ -24,13 +22,13 @@ import { UpdateAccountComponent } from './accounts/update-account/update-account
 import { ReportsComponent } from './recruit-list/reports/reports.component';
 import { AddReportComponent } from './recruit-list/reports/add-report/add-report.component';
 
-// import { FlashMessagesModule, FlashMessagesService } from 'angular2-flash-messages';
+import { FlashMessagesModule, FlashMessagesService } from 'angular2-flash-messages';
 // import { AuthService } from './services/auth.service';
-// import { JwtModule, JwtHelperService, JwtInterceptor } from '@auth0/angular-jwt';
+import { JwtModule, JwtHelperService, JwtInterceptor } from '@auth0/angular-jwt';
 
-// export function jwtTokenGetter() {
-//   return localStorage.getItem('id_token');
-// }
+export function jwtTokenGetter() {
+  return localStorage.getItem('id_token');
+}
 
 @NgModule({
   declarations: [
@@ -54,15 +52,16 @@ import { AddReportComponent } from './recruit-list/reports/add-report/add-report
     AngularFontAwesomeModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     HttpClientModule,
-    ReactiveFormsModule
-    /* FlashMessagesModule,
+    ReactiveFormsModule,
+    FormsModule,
+    FlashMessagesModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: jwtTokenGetter
       }
-    }) */
+    })
   ],
-  providers: [], // FlashMessagesService
+  providers: [FlashMessagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

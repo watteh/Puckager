@@ -28,7 +28,7 @@
                     <button class="btn btn-secondary" type="submit">Submit</button>
                 </td>
                 <td>
-                    <a class="btn btn-success" type="submit" routerLink="/addrecruit">Add</a>
+                    <a class="btn btn-success" type="submit" routerLink="/recruits/addrecruit">Add</a>
                 </td>
             </tr>
         </table>
@@ -53,7 +53,6 @@
     <tbody>
 
         <tr *ngFor='let recruit of recruits'>
-            <!-- ; let i = index -->
             <td>{{recruit.jerseyNumber}}</td>
             <td>{{recruit.firstName}}</td>
             <td>{{recruit.lastName}}</td>
@@ -64,7 +63,7 @@
                 <a class="btn btn-primary" type="submit" routerLink="detail/{{ recruit._id }}">View</a>
             </td>
             <td>
-                <a class="btn btn-warning" type="submit" routerLink="detail/{{ recruit._id }}">Edit</a>
+                <a class="btn btn-warning" type="submit" routerLink="edit/{{ recruit._id }}">Edit</a>
             </td>
             <td>
                 <a (click)="onDeleteClick()" class="btn btn-danger" type="submit" routerLink="delete/{{ recruit._id }}">Delete</a>

@@ -24,7 +24,7 @@ recruitRouter.get('/recruits', (req, res, next) => {
 });
 
 /* GET route for processing the Add page */
-recruitRouter.get('/addrecruit', (req, res, next) => {
+recruitRouter.get('/recruits/addrecruit', (req, res, next) => {
     res.json({
         success: true,
         msg: 'Successfully displayed Add Page'
@@ -32,7 +32,7 @@ recruitRouter.get('/addrecruit', (req, res, next) => {
 });
 
 /* POST route for processing the Add page */
-recruitRouter.post('/addrecruit', (req, res, next) => {
+recruitRouter.post('/recruits/addrecruit', (req, res, next) => {
     let newRecruit = recruitModel({
         "firstName": req.body.firstName,
         "lastName": req.body.lastName,
@@ -62,7 +62,7 @@ recruitRouter.post('/addrecruit', (req, res, next) => {
 });
 
 /* GET request to perform the delete action */
-recruitRouter.get('/delete/:id', (req, res, next) => {
+recruitRouter.get('/recruits/delete/:id', (req, res, next) => {
     let id = req.params.id;
 
     recruitModel.remove({ _id: id }, (err) => {
@@ -78,8 +78,26 @@ recruitRouter.get('/delete/:id', (req, res, next) => {
     });
 });
 
+/* GET request - display the Details page */
+recruitRouter.get('/recruits/detail/:id', (req, res, next) => {
+    let id = req.params.id;
+
+    recruitModel.findById(id, (err, recruitObject) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            res.json({
+                success: true,
+                msg: 'Successfully displayed recruit to edit',
+                recruit: recruitObject
+            });
+        }
+    });
+});
+
 /* GET request - display the Edit page */
-recruitRouter.get('/detail/:id', (req, res, next) => {
+recruitRouter.get('/recruits/edit/:id', (req, res, next) => {
     let id = req.params.id;
 
     recruitModel.findById(id, (err, recruitObject) => {
@@ -97,7 +115,7 @@ recruitRouter.get('/detail/:id', (req, res, next) => {
 });
 
 /* POST request - Update the database with data from the Edit page */
-recruitRouter.post('/detail/:id', (req, res, next) => {
+recruitRouter.post('/recruits/edit/:id', (req, res, next) => {
     let id = req.params.id;
 
     let updatedRecruit = recruitModel({
