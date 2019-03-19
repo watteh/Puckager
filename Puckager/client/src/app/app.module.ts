@@ -21,6 +21,7 @@ import { AddAccountComponent } from './accounts/add-account/add-account.componen
 import { UpdateAccountComponent } from './accounts/update-account/update-account.component';
 import { ReportsComponent } from './recruit-list/reports/reports.component';
 import { AddReportComponent } from './recruit-list/reports/add-report/add-report.component';
+import { DeleteRecruitComponent } from './recruit-list/delete-recruit/delete-recruit.component';
 
 import { FlashMessagesModule, FlashMessagesService } from 'angular2-flash-messages';
 // import { AuthService } from './services/auth.service';
@@ -44,7 +45,8 @@ export function jwtTokenGetter() {
     AddAccountComponent,
     UpdateAccountComponent,
     ReportsComponent,
-    AddReportComponent
+    AddReportComponent,
+    DeleteRecruitComponent
   ],
   imports: [
     BrowserModule,

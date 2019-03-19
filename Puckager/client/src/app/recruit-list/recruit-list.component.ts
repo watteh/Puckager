@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RecruitSchema } from '../../models/recruit';
-import {RecruitService } from '../services/recruit.service';
+import { RecruitService } from '../services/recruit.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-recruit-list',
@@ -12,8 +12,10 @@ import { Router } from '@angular/router';
 export class RecruitListComponent implements OnInit {
 
    recruits: RecruitSchema[];
+   recruit: RecruitSchema;
 
-  constructor(private rs: RecruitService, private router: Router, private flashMessage: FlashMessagesService) { }
+  constructor(private activatedRoute: ActivatedRoute, private rs: RecruitService,
+              private router: Router, private flashMessage: FlashMessagesService) { }
 
   ngOnInit() {
     this.recruits = new Array<RecruitSchema>();

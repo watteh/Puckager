@@ -12,6 +12,8 @@ import { DetailsComponent } from './recruit-list/details/details.component';
 import { AddRecruitComponent } from './recruit-list/add-recruit/add-recruit.component';
 import { ReportsComponent } from './recruit-list/reports/reports.component';
 import { AddReportComponent } from './recruit-list/reports/add-report/add-report.component';
+import { DeleteRecruitComponent } from './recruit-list/delete-recruit/delete-recruit.component';
+
 
 const routes: Routes = [
   { path: '', component: SigninComponent, data: {title: 'Log In'} },
@@ -31,6 +33,8 @@ const routes: Routes = [
   { path: 'recruits/addrecruit', component: AddRecruitComponent, data: {title: 'Add Recruit'} },
   { path: 'report/:id', component: ReportsComponent, data: {title: 'Report Details'} }, // Displays reports for specfic recruit
   { path: 'addreport', component: AddReportComponent, data: {title: 'Add Report'} },
+  { path: 'recruits/delete/:id', component: DeleteRecruitComponent, data: {title: 'Delete Recruit'} },
+
 
   { path: '', redirectTo: '/about', pathMatch: 'full'} // ,
   // { path: '**', component: PageNotFoundComponent}
