@@ -149,4 +149,94 @@ recruitRouter.post('/recruits/edit/:id', (req, res, next) => {
     });
 });
 
+/* POST request - add report to Database */
+recruitRouter.post('/addreport/:id', (req, res, next) => {
+    let id = req.params.id;
+
+    let updatedRecruit;
+
+    let newReport; // = recruitModel({});
+
+    recruitModel.findById(id, (err, recruitObject) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            if (recruitObject.position = 'Goalie') {
+                updatedRecruit = recruitModel({
+                    "_id": recruitObject._id,
+                    "firstName": recruitObject.firstName,
+                    "lastName": recruitObject.lastName,
+                    "contactNumber": recruitObject.contactNumber,
+                    "emailAddress": recruitObject.emailAddress,
+                    "birthYear": recruitObject.birthYear,
+                    "graduationYear": recruitObject.graduationYear,
+                    "currentTeam": recruitObject.currentTeam,
+                    "jerseyNumber": recruitObject.jerseyNumber,
+                    "position": recruitObject.position,
+                    "mothersName": recruitObject.mothersName,
+                    "fathersName": recruitObject.fathersName,
+                    "status": recruitObject.status,
+                    "dateAdded": recruitObject.dateAdded,
+                    "playerReports": [],
+                    "goalieReports": [{
+                        "skating": req.body.skating,
+                        "agilitySpeed": req.body.agilitySpeed,
+                        "trafficReboundControl": req.body.trafficReboundControl,
+                        "hockeySense": req.body.hockeySense,
+                        "strengthFitness": req.body.strengthFitness,
+                        "mentalToughness": req.body.mentalToughness,
+                        "battleMentality": req.body.battleMentality,
+                        "overallRanking": req.body.overallRanking,
+                        "notes": req.body.notes
+                    }]
+                });
+            } else {
+                updatedRecruit = recruitModel({
+                    "_id": recruitObject._id,
+                    "firstName": recruitObject.firstName,
+                    "lastName": recruitObject.lastName,
+                    "contactNumber": recruitObject.contactNumber,
+                    "emailAddress": recruitObject.emailAddress,
+                    "birthYear": recruitObject.birthYear,
+                    "graduationYear": recruitObject.graduationYear,
+                    "currentTeam": recruitObject.currentTeam,
+                    "jerseyNumber": recruitObject.jerseyNumber,
+                    "position": recruitObject.position,
+                    "mothersName": recruitObject.mothersName,
+                    "fathersName": recruitObject.fathersName,
+                    "status": recruitObject.status,
+                    "dateAdded": recruitObject.dateAdded,
+                    "playerReports": [{
+                        "skating": req.body.skating,
+                        "individualOffensiveSkills": req.body.individualOffensiveSkills,
+                        "individualDefensiveSkills": req.body.individualDefensiveSkills,
+                        "offensiveTeamPlay": req.body.offensiveTeamPlay,
+                        "defensiveTeamPlay": req.body.defensiveTeamPlay,
+                        "hockeySense": req.body.hockeySense,
+                        "strengthPower": req.body.strengthPower,
+                        "workEthic": req.body.workEthic,
+                        "overallRanking": req.body.overallRanking,
+                        "notes": req.body.notes
+                    }],
+                    "goalieReports": []
+                });
+            }
+        }
+    });
+
+    recruitModel.update({ _id: id }, updatedRecruit, (err) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            res.json({
+                success: true,
+                msg: 'Successfully edited recruit',
+                recruit: updatedRecruit
+            });
+        }
+    });
+});
+
 module.exports = recruitRouter;

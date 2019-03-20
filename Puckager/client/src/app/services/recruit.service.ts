@@ -46,4 +46,8 @@ export class RecruitService {
   public deleteRecruit(recruit: RecruitSchema): Observable<any> {
     return this.http.get<any>(this.uri + '/recruits/delete/' + recruit._id, this.httpOptions);
   }
+
+  public addReport(recruit: RecruitSchema): Observable<any> {
+    return this.http.post<any>(this.uri + '/addreport/' + recruit._id, this.httpOptions);
+  }
 }

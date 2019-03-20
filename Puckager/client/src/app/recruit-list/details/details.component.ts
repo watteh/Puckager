@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RecruitSchema } from '../../../models/recruit';
+import { PlayerReportSchema } from '../../../models/recruit';
+import { GoalieReportSchema } from '../../../models/recruit';
+
 import { RecruitService } from '../../services/recruit.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -12,6 +15,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class DetailsComponent implements OnInit {
   title: string;
   recruit: RecruitSchema;
+  position: boolean;
+
+  playerReports: PlayerReportSchema[];
+  playerReport: PlayerReportSchema;
+
+  goalieReports: GoalieReportSchema[];
+  goalieReport: GoalieReportSchema;
 
   constructor(private activatedRoute: ActivatedRoute, private rs: RecruitService, private router: Router,
               private flashMessage: FlashMessagesService) { }
@@ -20,17 +30,26 @@ export class DetailsComponent implements OnInit {
     this.title = this.activatedRoute.snapshot.data.title;
     this.recruit = new RecruitSchema();
 
+    this.playerReports = new Array<PlayerReportSchema>();
+    this.goalieReports = new Array<GoalieReportSchema>();
+
     this.activatedRoute.params.subscribe(params => {
       this.recruit._id = params.id;
     });
 
     this.getRecruitDetails(this.recruit);
-
   }
 
   getRecruitDetails(recruit: RecruitSchema): void {
     this.rs.getRecruitDetails(recruit).subscribe(data => {
       this.recruit = data.recruit;
+      if (data.recruit.position === 'Goalie') {
+        this.position = true;
+      } else {
+        this.position = false;
+      }
+      this.playerReports = data.recruit.playerReports;
+      this.goalieReports = data.recruit.goalieReports;
     });
   }
 

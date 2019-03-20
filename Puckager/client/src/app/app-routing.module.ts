@@ -32,7 +32,7 @@ const routes: Routes = [
   // Displays specific recruit details page
   { path: 'recruits/addrecruit', component: AddRecruitComponent, data: {title: 'Add Recruit'} },
   { path: 'report/:id', component: ReportsComponent, data: {title: 'Report Details'} }, // Displays reports for specfic recruit
-  { path: 'addreport', component: AddReportComponent, data: {title: 'Add Report'} },
+  { path: 'addreport/:id', component: AddReportComponent, data: {title: 'Add Report'} },
   { path: 'recruits/delete/:id', component: DeleteRecruitComponent, data: {title: 'Delete Recruit'} },
 
 

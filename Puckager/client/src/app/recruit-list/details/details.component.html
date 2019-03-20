@@ -88,100 +88,85 @@
 </div>
 
 <div class="container-fluid" style="margin: 20px">
-    <!-- <MultiView ID="reportView">
-        <View ID="emptyView" /></View>
-        <View ID="goalie"> -->
-    <h4><label>Goalie Report</label></h4>
-    <table id="goalieTable" class="table table-bordered table-striped">
-        <thead class="thead-dark">
-            <tr>
-                <th style="text-align: center">Skating</th>
-                <th style="text-align: center">Agility Speed</th>
-                <th style="text-align: center">Traffic Rebound Control</th>
-                <th style="text-align: center">Hockey Sense</th>
-                <th style="text-align: center">Strength Fitness</th>
-                <th style="text-align: center">Mental Toughness</th>
-                <th style="text-align: center">Battle Mentality</th>
-                <th style="text-align: center">Overall Ranking</th>
-                <th style="text-align: center">Notes</th>
-                <th style="text-align: center">Report Date</th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="table table-bordered table-striped">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td id="viewGoalie"><a class="btn btn-secondary" href="/report">View</a></td>
-                <td id="editGoalie"><a class="btn btn-secondary" href="/report">Edit</a></td>
-            </tr>
-        </tbody>
-    </table>
-    <!-- </View>
-        <View ID="player"> -->
-    <h4><label>Player Report</label></h4>
-    <table id="playerTable" class="table table-bordered table-striped">
-        <thead class="thead-dark">
-            <tr>
-                <th style="text-align: center">Skating</th>
-                <th style="text-align: center">Individual Offensive Skills</th>
-                <th style="text-align: center">Individual Defensive Skills</th>
-                <th style="text-align: center">Offensive Team Play</th>
-                <th style="text-align: center">Defensive Team Play</th>
-                <th style="text-align: center">Hockey Sense</th>
-                <th style="text-align: center">Strength Power</th>
-                <th style="text-align: center">Work Ethic</th>
-                <th style="text-align: center">Overall Ranking</th>
-                <th style="text-align: center">Notes</th>
-                <th style="text-align: center">Report Date</th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="table table-bordered table-striped">
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td id="viewPlayer"><a class="btn btn-secondary" href="/report">View</a></td>
-                <td id="editPlayer"><a class="btn btn-secondary" href="/report">Edit</a></td>
-            </tr>
-        </tbody>
-    </table>
-    <!-- </View>
-    </MultiView> -->
+    <div *ngIf="position">
+        <h4><label>Goalie Report</label></h4>
+        <table id="goalieTable" class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th style="text-align: center">Skating</th>
+                    <th style="text-align: center">Agility Speed</th>
+                    <th style="text-align: center">Traffic Rebound Control</th>
+                    <th style="text-align: center">Hockey Sense</th>
+                    <th style="text-align: center">Strength Fitness</th>
+                    <th style="text-align: center">Mental Toughness</th>
+                    <th style="text-align: center">Battle Mentality</th>
+                    <th style="text-align: center">Overall Ranking</th>
+                    <th style="text-align: center">Notes</th>
+                    <th style="text-align: center">Report Date</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let goalieReport of goalieReports' class="table table-bordered table-striped">
+                    <td>{{ goalieReport.skating }}</td>
+                    <td>{{ goalieReport.agilitySpeed }}</td>
+                    <td>{{ goalieReport.trafficReboundControl }}</td>
+                    <td>{{ goalieReport.hockeySense }}</td>
+                    <td>{{ goalieReport.strengthFitness }}</td>
+                    <td>{{ goalieReport.mentalToughness }}</td>
+                    <td>{{ goalieReport.battleMentality }}</td>
+                    <td>{{ goalieReport.overallRanking }}</td>
+                    <td>{{ goalieReport.notes }}</td>
+                    <td>{{ goalieReport.reportDate }}</td>
+                    <td id="viewGoalie"><a class="btn btn-secondary" routerLink="/report">View</a></td>
+                    <td id="editGoalie"><a class="btn btn-secondary" routerLink="/report">Edit</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="!position">
+        <h4><label>Player Report</label></h4>
+        <table id="playerTable" class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th style="text-align: center">Skating</th>
+                    <th style="text-align: center">Individual Offensive Skills</th>
+                    <th style="text-align: center">Individual Defensive Skills</th>
+                    <th style="text-align: center">Offensive Team Play</th>
+                    <th style="text-align: center">Defensive Team Play</th>
+                    <th style="text-align: center">Hockey Sense</th>
+                    <th style="text-align: center">Strength Power</th>
+                    <th style="text-align: center">Work Ethic</th>
+                    <th style="text-align: center">Overall Ranking</th>
+                    <th style="text-align: center">Notes</th>
+                    <th style="text-align: center">Report Date</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let playerReport of playerReports' class="table table-bordered table-striped">
+                    <td>{{ playerReport.skating }}</td>
+                    <td>{{ playerReport.individualOffensiveSkills }}</td>
+                    <td>{{ playerReport.individualDefensiveSkills }}</td>
+                    <td>{{ playerReport.offensiveTeamPlay }}</td>
+                    <td>{{ playerReport.defensiveTeamPlay }}</td>
+                    <td>{{ playerReport.hockeySense }}</td>
+                    <td>{{ playerReport.strengthPower }}</td>
+                    <td>{{ playerReport.workEthic }}</td>
+                    <td>{{ playerReport.overallRanking }}</td>
+                    <td>{{ playerReport.notes }}</td>
+                    <td>{{ playerReport.reportDate }}</td>
+                    <td id="viewPlayer"><a class="btn btn-secondary" routerLink="/report">View</a></td>
+                    <td id="editPlayer"><a class="btn btn-secondary" routerLink="/report">Edit</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 <div class="row">
-    <a ID="BtnBack" class="btn" href="/recruits">Back</a>
-    <a ID="BtnDelete" class="btn" href="">Delete</a>
-    <a ID="Update" class="btn" href="">Update</a>
-    <a ID="AddReport" class="btn" href="/addreport">AddReport</a>
+    <a ID="BtnBack" class="btn btn-primary" routerLink="/recruits">Back</a>
+    <a ID="BtnDelete" class="btn btn-primary" routerLink="/recruits/delete/{{ recruit._id }}">Delete</a>
+    <a ID="AddReport" class="btn btn-primary" routerLink="/addreport/{{ recruit._id }}">AddReport</a>
 </div>
