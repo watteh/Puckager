@@ -15,8 +15,31 @@ export class RecruitSchema {
   fathersName: string;
   status: string;
   dateAdded: Date;
-  playerReports: [PlayerReportSchema];
-  goalieReports: [GoalieReportSchema];
+  playerReports: [{
+    skating: number;
+    individualOffensiveSkills: number;
+    individualDefensiveSkills: number;
+    offensiveTeamPlay: number;
+    defensiveTeamPlay: number;
+    hockeySense: number;
+    strengthPower: number;
+    workEthic: number;
+    overallRanking: number;
+    notes: string;
+    reportDate: Date;
+  }];
+  goalieReports: [{
+    skating: number;
+    agilitySpeed: number;
+    trafficReboundControl: number;
+    hockeySense: number;
+    strengthFitness: number;
+    mentalToughness: number;
+    battleMentality: number;
+    overallRanking: number;
+    notes: string;
+    reportDate: Date;
+  }];
 }
 
 export class PlayerReportSchema {

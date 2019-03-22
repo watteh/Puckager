@@ -43,8 +43,31 @@ let RecruitSchema = mongoose.Schema({
     fathersName: String,
     status: String,
     dateAdded: { type: Date, default: Date.now },
-    playerReports: [PlayerReportSchema],
-    goalieReports: [GoalieReportSchema],
+    playerReports: [{
+        skating: Number,
+        individualOffensiveSkills: Number,
+        individualDefensiveSkills: Number,
+        offensiveTeamPlay: Number,
+        defensiveTeamPlay: Number,
+        hockeySense: Number,
+        strengthPower: Number,
+        workEthic: Number,
+        overallRanking: Number,
+        notes: String,
+        reportDate: { type: Date, default: Date.now }
+    }],
+    goalieReports: [{
+        skating: Number,
+        agilitySpeed: Number,
+        trafficReboundControl: Number,
+        hockeySense: Number,
+        strengthFitness: Number,
+        mentalToughness: Number,
+        battleMentality: Number,
+        overallRanking: Number,
+        notes: String,
+        reportDate: { type: Date, default: Date.now }
+    }]
 }, {
     collection: "recruits"
 });

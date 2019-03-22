@@ -89,7 +89,7 @@ recruitRouter.get('/recruits/detail/:id', (req, res, next) => {
         } else {
             res.json({
                 success: true,
-                msg: 'Successfully displayed recruit to edit',
+                msg: 'Successfully displayed recruit',
                 recruit: recruitObject
             });
         }
@@ -132,7 +132,6 @@ recruitRouter.post('/recruits/edit/:id', (req, res, next) => {
         "mothersName": req.body.mothersName,
         "fathersName": req.body.fathersName,
         "status": req.body.status
-
     });
 
     recruitModel.update({ _id: id }, updatedRecruit, (err) => {
@@ -153,88 +152,66 @@ recruitRouter.post('/recruits/edit/:id', (req, res, next) => {
 recruitRouter.post('/addreport/:id', (req, res, next) => {
     let id = req.params.id;
 
-    let updatedRecruit;
-
-    let newReport; // = recruitModel({});
+    let report;
 
     recruitModel.findById(id, (err, recruitObject) => {
         if (err) {
             console.log(err);
             res.end(err);
         } else {
-            if (recruitObject.position = 'Goalie') {
-                updatedRecruit = recruitModel({
-                    "_id": recruitObject._id,
-                    "firstName": recruitObject.firstName,
-                    "lastName": recruitObject.lastName,
-                    "contactNumber": recruitObject.contactNumber,
-                    "emailAddress": recruitObject.emailAddress,
-                    "birthYear": recruitObject.birthYear,
-                    "graduationYear": recruitObject.graduationYear,
-                    "currentTeam": recruitObject.currentTeam,
-                    "jerseyNumber": recruitObject.jerseyNumber,
-                    "position": recruitObject.position,
-                    "mothersName": recruitObject.mothersName,
-                    "fathersName": recruitObject.fathersName,
-                    "status": recruitObject.status,
-                    "dateAdded": recruitObject.dateAdded,
-                    "playerReports": [],
-                    "goalieReports": [{
-                        "skating": req.body.skating,
-                        "agilitySpeed": req.body.agilitySpeed,
-                        "trafficReboundControl": req.body.trafficReboundControl,
-                        "hockeySense": req.body.hockeySense,
-                        "strengthFitness": req.body.strengthFitness,
-                        "mentalToughness": req.body.mentalToughness,
-                        "battleMentality": req.body.battleMentality,
-                        "overallRanking": req.body.overallRanking,
-                        "notes": req.body.notes
-                    }]
+            if (recruitObject.position === 'Goalie') {
+                report = {
+                    "skating": parseInt(req.body.skating),
+                    "agilitySpeed": parseInt(req.body.agilitySpeed),
+                    "trafficReboundControl": parseInt(req.body.trafficReboundControl),
+                    "hockeySense": parseInt(req.body.hockeySense),
+                    "strengthFitness": parseInt(req.body.strengthFitness),
+                    "mentalToughness": parseInt(req.body.mentalToughness),
+                    "battleMentality": parseInt(req.body.battleMentality),
+                    "overallRanking": parseInt(req.body.overallRanking),
+                    "notes": req.body.notes,
+                    "reportDate": Date.now()
+                };
+
+                recruitModel.findOneAndUpdate({ _id: id }, { $push: { goalieReports: report } }, (err) => {
+                    if (err) {
+                        console.log(err);
+                        res.end(err);
+                    } else {
+                        res.json({
+                            success: true,
+                            msg: 'Successfully added report',
+                            report: report
+                        });
+                    }
                 });
             } else {
-                updatedRecruit = recruitModel({
-                    "_id": recruitObject._id,
-                    "firstName": recruitObject.firstName,
-                    "lastName": recruitObject.lastName,
-                    "contactNumber": recruitObject.contactNumber,
-                    "emailAddress": recruitObject.emailAddress,
-                    "birthYear": recruitObject.birthYear,
-                    "graduationYear": recruitObject.graduationYear,
-                    "currentTeam": recruitObject.currentTeam,
-                    "jerseyNumber": recruitObject.jerseyNumber,
-                    "position": recruitObject.position,
-                    "mothersName": recruitObject.mothersName,
-                    "fathersName": recruitObject.fathersName,
-                    "status": recruitObject.status,
-                    "dateAdded": recruitObject.dateAdded,
-                    "playerReports": [{
-                        "skating": req.body.skating,
-                        "individualOffensiveSkills": req.body.individualOffensiveSkills,
-                        "individualDefensiveSkills": req.body.individualDefensiveSkills,
-                        "offensiveTeamPlay": req.body.offensiveTeamPlay,
-                        "defensiveTeamPlay": req.body.defensiveTeamPlay,
-                        "hockeySense": req.body.hockeySense,
-                        "strengthPower": req.body.strengthPower,
-                        "workEthic": req.body.workEthic,
-                        "overallRanking": req.body.overallRanking,
-                        "notes": req.body.notes
-                    }],
-                    "goalieReports": []
+                report = {
+                    "skating": parseInt(req.body.skating),
+                    "individualOffensiveSkills": parseInt(req.body.individualOffensiveSkills),
+                    "individualDefensiveSkills": parseInt(req.body.individualDefensiveSkills),
+                    "offensiveTeamPlay": parseInt(req.body.offensiveTeamPlay),
+                    "defensiveTeamPlay": parseInt(req.body.defensiveTeamPlay),
+                    "hockeySense": parseInt(req.body.hockeySense),
+                    "strengthPower": parseInt(req.body.strengthPower),
+                    "workEthic": parseInt(req.body.workEthic),
+                    "overallRanking": parseInt(req.body.overallRanking),
+                    "notes": req.body.notes,
+                    "reportDate": Date.now()
+                };
+                recruitModel.findOneAndUpdate({ _id: id }, { $push: { playerReports: report } }, (err) => {
+                    if (err) {
+                        console.log(err);
+                        res.end(err);
+                    } else {
+                        res.json({
+                            success: true,
+                            msg: 'Successfully added report',
+                            report: report
+                        });
+                    }
                 });
             }
-        }
-    });
-
-    recruitModel.update({ _id: id }, updatedRecruit, (err) => {
-        if (err) {
-            console.log(err);
-            res.end(err);
-        } else {
-            res.json({
-                success: true,
-                msg: 'Successfully edited recruit',
-                recruit: updatedRecruit
-            });
         }
     });
 });

@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
-import { RecruitSchema } from '../../models/recruit';
+import { RecruitSchema, PlayerReportSchema, GoalieReportSchema } from '../../models/recruit';
 // import { User } from '../models/user';
 
 @Injectable({
@@ -47,7 +47,11 @@ export class RecruitService {
     return this.http.get<any>(this.uri + '/recruits/delete/' + recruit._id, this.httpOptions);
   }
 
-  public addReport(recruit: RecruitSchema): Observable<any> {
-    return this.http.post<any>(this.uri + '/addreport/' + recruit._id, this.httpOptions);
+  public addPlayerReport(playerReport: PlayerReportSchema, recruit: RecruitSchema): Observable<any> {
+    return this.http.post<any>(this.uri + '/addreport/' + recruit._id, playerReport, this.httpOptions);
+  }
+
+  public addGoalieReport(playerReport: GoalieReportSchema, recruit: RecruitSchema): Observable<any> {
+    return this.http.post<any>(this.uri + '/addreport/' + recruit._id, playerReport, this.httpOptions);
   }
 }

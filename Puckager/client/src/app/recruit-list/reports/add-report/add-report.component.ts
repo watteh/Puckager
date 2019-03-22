@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { PlayerReportSchema } from '../../../../models/recruit';
-import { GoalieReportSchema } from '../../../../models/recruit';
-import { RecruitSchema } from '../../../../models/recruit';
+import { RecruitSchema, PlayerReportSchema, GoalieReportSchema } from '../../../../models/recruit';
 
 import { RecruitService } from '../../../services/recruit.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Recruit } from 'app/recruit-list/recruit/recuit.model';
 
 @Component({
   selector: 'app-add-report',
@@ -48,18 +47,30 @@ export class AddReportComponent implements OnInit {
   }
 
   onReportSubmit(): void {
-    this.recruit.goalieReports[0] = this.goalieReport;
-    this.recruit.playerReports[0] = this.playerReport;
-    this.rs.addReport(this.recruit).subscribe(data => {
+    if (this.position) {
+      this.rs.addGoalieReport(this.goalieReport, this.recruit).subscribe(data => {
         if (data.success) {
-
+          console.log(data);
           this.flashMessage.show('Report has been added.', {cssClass: 'alert-success', timeOut: 3000});
-          this.router.navigate(['/recruits']);
+          this.router.navigate(['/recruits/detail/' + this.recruit._id]);
         } else {
           this.flashMessage.show('Report was not added.', {cssClass: 'alert-danger', timeOut: 3000});
-          this.router.navigate(['/recruits']);
+          this.router.navigate(['/recruits/detail' + this.recruit._id]);
         }
       });
+    } else {
+      this.rs.addPlayerReport(this.playerReport, this.recruit).subscribe(data => {
+        if (data.success) {
+          console.log(data);
+          this.flashMessage.show('Report has been added.', {cssClass: 'alert-success', timeOut: 3000});
+          this.router.navigate(['/recruits/detail/' + this.recruit._id]);
+        } else {
+          this.flashMessage.show('Report was not added.', {cssClass: 'alert-danger', timeOut: 3000});
+          this.router.navigate(['/recruits/detail' + this.recruit._id]);
+        }
+      });
+    }
+
   }
 
 }

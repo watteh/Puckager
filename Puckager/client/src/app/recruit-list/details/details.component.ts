@@ -50,6 +50,7 @@ export class DetailsComponent implements OnInit {
       }
       this.playerReports = data.recruit.playerReports;
       this.goalieReports = data.recruit.goalieReports;
+      console.log(data);
     });
   }
 
