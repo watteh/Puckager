@@ -16,6 +16,7 @@ export class RecruitSchema {
   status: string;
   dateAdded: Date;
   playerReports: [{
+    _id: string;
     skating: number;
     individualOffensiveSkills: number;
     individualDefensiveSkills: number;
@@ -29,6 +30,7 @@ export class RecruitSchema {
     reportDate: Date;
   }];
   goalieReports: [{
+    _id: string;
     skating: number;
     agilitySpeed: number;
     trafficReboundControl: number;
@@ -43,6 +45,8 @@ export class RecruitSchema {
 }
 
 export class PlayerReportSchema {
+  // tslint:disable-next-line:variable-name
+  _id: string;
   skating: number;
   individualOffensiveSkills: number;
   individualDefensiveSkills: number;
@@ -57,6 +61,8 @@ export class PlayerReportSchema {
 }
 
 export class GoalieReportSchema {
+  // tslint:disable-next-line:variable-name
+  _id: string;
   skating: number;
   agilitySpeed: number;
   trafficReboundControl: number;

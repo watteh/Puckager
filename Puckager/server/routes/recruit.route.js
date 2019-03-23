@@ -118,23 +118,22 @@ recruitRouter.get('/recruits/edit/:id', (req, res, next) => {
 recruitRouter.post('/recruits/edit/:id', (req, res, next) => {
     let id = req.params.id;
 
-    let updatedRecruit = recruitModel({
-        "_id": id,
-        "firstName": req.body.firstName,
-        "lastName": req.body.lastName,
-        "contactNumber": req.body.contactNumber,
-        "emailAddress": req.body.emailAddress,
-        "birthYear": req.body.birthYear,
-        "graduationYear": req.body.graduationYear,
-        "currentTeam": req.body.currentTeam,
-        "jerseyNumber": req.body.jerseyNumber,
-        "position": req.body.position,
-        "mothersName": req.body.mothersName,
-        "fathersName": req.body.fathersName,
-        "status": req.body.status
-    });
-
-    recruitModel.update({ _id: id }, updatedRecruit, (err) => {
+    recruitModel.update({ _id: id }, {
+        $set: {
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            contactNumber: req.body.contactNumber,
+            emailAddress: req.body.emailAddress,
+            birthYear: req.body.birthYear,
+            graduationYear: req.body.graduationYear,
+            currentTeam: req.body.currentTeam,
+            jerseyNumber: req.body.jerseyNumber,
+            position: req.body.position,
+            mothersName: req.body.mothersName,
+            fathersName: req.body.fathersName,
+            status: req.body.status
+        }
+    }, (err) => {
         if (err) {
             console.log(err);
             res.end(err);
