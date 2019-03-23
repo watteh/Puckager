@@ -141,7 +141,6 @@ recruitRouter.post('/recruits/edit/:id', (req, res, next) => {
             res.json({
                 success: true,
                 msg: 'Successfully edited recruit',
-                recruit: updatedRecruit
             });
         }
     });
