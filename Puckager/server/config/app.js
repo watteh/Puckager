@@ -23,7 +23,7 @@ let flash = require('connect-flash');
 let mongoose = require('mongoose');
 let DB = require('./db');
 
-//point Mongoose to teh DB URI
+//point Mongoose to the DB URI
 mongoose.connect(DB.URI);
 
 let mongoDB = mongoose.connection;
@@ -37,7 +37,7 @@ let recruitRouter = require('../routes/recruit.route');
 let app = express();
 
 // view engine setup
-//app.set('views', path.join(__dirname, '../views'));
+app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));

@@ -14,6 +14,7 @@ export class AddReportComponent implements OnInit {
   title: string;
   recruit: RecruitSchema;
   position: boolean;
+  edit: boolean;
 
   playerReport: PlayerReportSchema;
   goalieReport: GoalieReportSchema;
@@ -30,10 +31,12 @@ export class AddReportComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       if (this.title === 'Add Report') {
         this.recruit._id = params.id;
+        this.edit = false;
       } else {
         this.recruit._id = params.recruitid;
         this.playerReport._id = params.reportid;
         this.goalieReport._id = params.reportid;
+        this.edit = true;
       }
     });
 
@@ -72,30 +75,54 @@ export class AddReportComponent implements OnInit {
   }
 
   onReportSubmit(): void {
-    if (this.position) {
-      this.rs.addGoalieReport(this.goalieReport, this.recruit).subscribe(data => {
-        if (data.success) {
-          console.log(data);
-          this.flashMessage.show('Report has been added.', {cssClass: 'alert-success', timeOut: 3000});
-          this.router.navigate(['/recruits/detail/' + this.recruit._id]);
-        } else {
-          this.flashMessage.show('Report was not added.', {cssClass: 'alert-danger', timeOut: 3000});
-          this.router.navigate(['/recruits/detail' + this.recruit._id]);
-        }
-      });
+    if (this.edit) {
+      if (this.position) {
+        this.rs.editGoalieReport(this.goalieReport, this.recruit).subscribe(data => {
+          if (data.success) {
+            console.log(data);
+            this.flashMessage.show('Report has been edited.', {cssClass: 'alert-success', timeOut: 3000});
+            this.router.navigate(['/recruits/detail/' + this.recruit._id]);
+          } else {
+            this.flashMessage.show('Report was not edited.', {cssClass: 'alert-danger', timeOut: 3000});
+            this.router.navigate(['/recruits/detail' + this.recruit._id]);
+          }
+        });
+      } else {
+        this.rs.editPlayerReport(this.playerReport, this.recruit).subscribe(data => {
+          if (data.success) {
+            console.log(data);
+            this.flashMessage.show('Report has been edited.', {cssClass: 'alert-success', timeOut: 3000});
+            this.router.navigate(['/recruits/detail/' + this.recruit._id]);
+          } else {
+            this.flashMessage.show('Report was not edited.', {cssClass: 'alert-danger', timeOut: 3000});
+            this.router.navigate(['/recruits/detail' + this.recruit._id]);
+          }
+        });
+      }
     } else {
-      this.rs.addPlayerReport(this.playerReport, this.recruit).subscribe(data => {
-        if (data.success) {
-          console.log(data);
-          this.flashMessage.show('Report has been added.', {cssClass: 'alert-success', timeOut: 3000});
-          this.router.navigate(['/recruits/detail/' + this.recruit._id]);
-        } else {
-          this.flashMessage.show('Report was not added.', {cssClass: 'alert-danger', timeOut: 3000});
-          this.router.navigate(['/recruits/detail' + this.recruit._id]);
-        }
-      });
+      if (this.position) {
+        this.rs.addGoalieReport(this.goalieReport, this.recruit).subscribe(data => {
+          if (data.success) {
+            console.log(data);
+            this.flashMessage.show('Report has been added.', {cssClass: 'alert-success', timeOut: 3000});
+            this.router.navigate(['/recruits/detail/' + this.recruit._id]);
+          } else {
+            this.flashMessage.show('Report was not added.', {cssClass: 'alert-danger', timeOut: 3000});
+            this.router.navigate(['/recruits/detail' + this.recruit._id]);
+          }
+        });
+      } else {
+        this.rs.addPlayerReport(this.playerReport, this.recruit).subscribe(data => {
+          if (data.success) {
+            console.log(data);
+            this.flashMessage.show('Report has been added.', {cssClass: 'alert-success', timeOut: 3000});
+            this.router.navigate(['/recruits/detail/' + this.recruit._id]);
+          } else {
+            this.flashMessage.show('Report was not added.', {cssClass: 'alert-danger', timeOut: 3000});
+            this.router.navigate(['/recruits/detail' + this.recruit._id]);
+          }
+        });
+      }
     }
-
   }
-
 }

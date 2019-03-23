@@ -44,14 +44,22 @@ export class RecruitService {
   }
 
   public deleteRecruit(recruit: RecruitSchema): Observable<any> {
-    return this.http.get<any>(this.uri + '/recruits/delete/' + recruit._id, this.httpOptions);
+    return this.http.get<any>(this.uri + 'recruits/delete/' + recruit._id, this.httpOptions);
   }
 
   public addPlayerReport(playerReport: PlayerReportSchema, recruit: RecruitSchema): Observable<any> {
-    return this.http.post<any>(this.uri + '/addreport/' + recruit._id, playerReport, this.httpOptions);
+    return this.http.post<any>(this.uri + 'addreport/' + recruit._id, playerReport, this.httpOptions);
   }
 
   public addGoalieReport(playerReport: GoalieReportSchema, recruit: RecruitSchema): Observable<any> {
-    return this.http.post<any>(this.uri + '/addreport/' + recruit._id, playerReport, this.httpOptions);
+    return this.http.post<any>(this.uri + 'addreport/' + recruit._id, playerReport, this.httpOptions);
+  }
+
+  public editPlayerReport(playerReport: PlayerReportSchema, recruit: RecruitSchema): Observable<any> {
+    return this.http.post<any>(this.uri + 'editreport/' + recruit._id + '/' + playerReport._id, playerReport, this.httpOptions);
+  }
+
+  public editGoalieReport(playerReport: GoalieReportSchema, recruit: RecruitSchema): Observable<any> {
+    return this.http.post<any>(this.uri + 'editreport/' + recruit._id + '/' + playerReport._id, playerReport, this.httpOptions);
   }
 }

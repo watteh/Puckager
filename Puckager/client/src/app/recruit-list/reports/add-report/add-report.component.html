@@ -262,11 +262,11 @@
 
             <div *ngIf="title === 'Add Report'">
                 <button ID="btnAddScoutingReport" class="btn">Add {{recruit.position}} Report</button>
+                <a ID="btnClear" class="btn" href="addreport/{{ recruit._id }}">Clear</a>
             </div>
             <div *ngIf="title !== 'Add Report'">
                 <button ID="btnAddScoutingReport" class="btn">Edit {{recruit.position}} Report</button>
             </div>
-            <a ID="btnClear" class="btn" href="addreport/{{ recruit._id }}">Clear</a>
             <a ID="btnBack" class="btn" href="recruits/detail/{{ recruit._id }}">Back</a>
         </form>
     </div>

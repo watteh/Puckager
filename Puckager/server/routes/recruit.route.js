@@ -214,4 +214,73 @@ recruitRouter.post('/addreport/:id', (req, res, next) => {
     });
 });
 
+/* POST request - edit report in Database */
+recruitRouter.post('/editreport/:recruitid/:reportid', (req, res, next) => {
+    let recruitID = req.params.recruitid;
+    let reportID = req.params.reportid;
+
+    let report;
+
+    recruitModel.findById(recruitID, (err, recruitObject) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            if (recruitObject.position === 'Goalie') {
+                report = {
+                    skating: parseInt(req.body.skating),
+                    agilitySpeed: parseInt(req.body.agilitySpeed),
+                    trafficReboundControl: parseInt(req.body.trafficReboundControl),
+                    hockeySense: parseInt(req.body.hockeySense),
+                    strengthFitness: parseInt(req.body.strengthFitness),
+                    mentalToughness: parseInt(req.body.mentalToughness),
+                    battleMentality: parseInt(req.body.battleMentality),
+                    overallRanking: parseInt(req.body.overallRanking),
+                    notes: req.body.notes,
+                    reportDate: Date.now()
+                };
+
+                recruitModel.findOneAndUpdate({ _id: recruitID, "goalieReports._id": reportID }, { $set: { "goalieReports.$": report } }, (err) => {
+                    if (err) {
+                        console.log(err);
+                        res.end(err);
+                    } else {
+                        res.json({
+                            success: true,
+                            msg: 'Successfully edited report',
+                            report: report
+                        });
+                    }
+                });
+            } else {
+                report = {
+                    skating: parseInt(req.body.skating),
+                    individualOffensiveSkills: parseInt(req.body.individualOffensiveSkills),
+                    individualDefensiveSkills: parseInt(req.body.individualDefensiveSkills),
+                    offensiveTeamPlay: parseInt(req.body.offensiveTeamPlay),
+                    defensiveTeamPlay: parseInt(req.body.defensiveTeamPlay),
+                    hockeySense: parseInt(req.body.hockeySense),
+                    strengthPower: parseInt(req.body.strengthPower),
+                    workEthic: parseInt(req.body.workEthic),
+                    overallRanking: parseInt(req.body.overallRanking),
+                    notes: req.body.notes,
+                    reportDate: Date.now()
+                };
+                recruitModel.findOneAndUpdate({ _id: recruitID, "playerReports._id": reportID }, { $set: { "playerReports.$": report } }, (err) => {
+                    if (err) {
+                        console.log(err);
+                        res.end(err);
+                    } else {
+                        res.json({
+                            success: true,
+                            msg: 'Successfully edited report',
+                            report: report
+                        });
+                    }
+                });
+            }
+        }
+    });
+});
+
 module.exports = recruitRouter;
