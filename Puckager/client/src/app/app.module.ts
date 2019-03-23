@@ -11,7 +11,6 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { RegistrationComponent } from './registration/registration.component';
 import { RecruitListComponent } from './recruit-list/recruit-list.component';
-import { RecruitComponent } from './recruit-list/recruit/recruit.component';
 import { SigninComponent } from './signin/signin.component';
 import { AboutComponent } from './about/about.component';
 import { DetailsComponent } from './recruit-list/details/details.component';
@@ -37,7 +36,6 @@ export function jwtTokenGetter() {
     RegistrationComponent,
     SigninComponent,
     RecruitListComponent,
-    RecruitComponent,
     AboutComponent,
     DetailsComponent,
     AddRecruitComponent,

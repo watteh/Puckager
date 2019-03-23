@@ -119,8 +119,8 @@
                     <td>{{ goalieReport.overallRanking }}</td>
                     <td>{{ goalieReport.notes }}</td>
                     <td>{{ goalieReport.reportDate }}</td>
-                    <td id="viewGoalie"><a class="btn btn-secondary" routerLink="/report">View</a></td>
-                    <td id="editGoalie"><a class="btn btn-secondary" routerLink="/report">Edit</a></td>
+                    <td id="viewGoalie"><a class="btn btn-secondary" href="/report/{{ recruit._id }}/{{ goalieReport._id }}">View</a></td>
+                    <td id="editGoalie"><a class="btn btn-secondary" href="/editreport/{{ recruit._id }}/{{ goalieReport._id }}">Edit</a></td>
                 </tr>
             </tbody>
         </table>
@@ -158,8 +158,8 @@
                     <td>{{ playerReport.overallRanking }}</td>
                     <td>{{ playerReport.notes }}</td>
                     <td>{{ playerReport.reportDate }}</td>
-                    <td id="viewPlayer"><a class="btn btn-secondary" routerLink="/report">View</a></td>
-                    <td id="editPlayer"><a class="btn btn-secondary" routerLink="/report">Edit</a></td>
+                    <td id="viewPlayer"><a class="btn btn-secondary" href="/report/{{ recruit._id }}/{{ playerReport._id }}">View</a></td>
+                    <td id="editPlayer"><a class="btn btn-secondary" href="/editreport/{{ recruit._id }}/{{ playerReport._id }}">Edit</a></td>
                 </tr>
             </tbody>
         </table>

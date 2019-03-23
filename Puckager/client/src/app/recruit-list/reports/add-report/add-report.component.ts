@@ -4,7 +4,6 @@ import { RecruitSchema, PlayerReportSchema, GoalieReportSchema } from '../../../
 import { RecruitService } from '../../../services/recruit.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Recruit } from 'app/recruit-list/recruit/recuit.model';
 
 @Component({
   selector: 'app-add-report',
@@ -29,7 +28,13 @@ export class AddReportComponent implements OnInit {
     this.goalieReport = new GoalieReportSchema();
 
     this.activatedRoute.params.subscribe(params => {
-      this.recruit._id = params.id;
+      if (this.title === 'Add Report') {
+        this.recruit._id = params.id;
+      } else {
+        this.recruit._id = params.recruitid;
+        this.playerReport._id = params.reportid;
+        this.goalieReport._id = params.reportid;
+      }
     });
 
     this.getRecruitDetails(this.recruit);
@@ -40,8 +45,28 @@ export class AddReportComponent implements OnInit {
       this.recruit = data.recruit;
       if (data.recruit.position === 'Goalie') {
         this.position = true;
+        if (this.title !== 'Add Report') {
+          if (this.recruit.goalieReports === undefined) {
+          } else {
+            this.recruit.goalieReports.forEach((goalieReport) => {
+              if (this.goalieReport._id === goalieReport._id) {
+                this.goalieReport = goalieReport;
+              }
+            });
+          }
+        }
       } else {
         this.position = false;
+        if (this.title !== 'Add Report') {
+          if (this.recruit.playerReports === undefined) {
+          } else {
+            this.recruit.playerReports.forEach((playerReport) => {
+              if (this.playerReport._id === playerReport._id) {
+                this.playerReport = playerReport;
+              }
+            });
+          }
+        }
       }
     });
   }

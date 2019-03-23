@@ -31,9 +31,13 @@ const routes: Routes = [
   { path: 'recruits/edit/:id', component: AddRecruitComponent, data: {title: 'Update Recruit'} },
   // Displays specific recruit details page
   { path: 'recruits/addrecruit', component: AddRecruitComponent, data: {title: 'Add Recruit'} },
-  { path: 'report/:id', component: ReportsComponent, data: {title: 'Report Details'} }, // Displays reports for specfic recruit
+  // Displays reports for specfic recruit
+  { path: 'report/:recruitid/:reportid', component: ReportsComponent, data: {title: 'Report Details'} },
   { path: 'addreport/:id', component: AddReportComponent, data: {title: 'Add Report'} },
   { path: 'recruits/delete/:id', component: DeleteRecruitComponent, data: {title: 'Delete Recruit'} },
+  { path: 'editreport/:recruitid/:reportid', component: AddReportComponent, data: {title: 'Edit Report'} },
+
+
 
 
   { path: '', redirectTo: '/about', pathMatch: 'full'} // ,
