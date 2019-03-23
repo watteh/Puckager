@@ -13,14 +13,13 @@ import { AddRecruitComponent } from './recruit-list/add-recruit/add-recruit.comp
 import { ReportsComponent } from './recruit-list/reports/reports.component';
 import { AddReportComponent } from './recruit-list/reports/add-report/add-report.component';
 import { DeleteRecruitComponent } from './recruit-list/delete-recruit/delete-recruit.component';
-
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
   { path: '', component: SigninComponent, data: {title: 'Log In'} },
   { path: 'logout', redirectTo: '', pathMatch: 'full' },
   { path: 'registration', component: RegistrationComponent, data: {title: 'Register'} },
   { path: 'recruits', component: RecruitListComponent, data: {title: 'Recruits'} },
-  // { path: 'signin', component: SigninComponent },
   { path: 'about', component: AboutComponent, data: {title: 'About Us'} },
   { path: 'accounts', component: AccountsComponent, data: {title: 'Accounts'} },
   { path: 'addaccount', component: AddAccountComponent, data: {title: 'Add Account'} },
@@ -36,12 +35,8 @@ const routes: Routes = [
   { path: 'addreport/:id', component: AddReportComponent, data: {title: 'Add Report'} },
   { path: 'recruits/delete/:id', component: DeleteRecruitComponent, data: {title: 'Delete Recruit'} },
   { path: 'editreport/:recruitid/:reportid', component: AddReportComponent, data: {title: 'Edit Report'} },
-
-
-
-
-  { path: '', redirectTo: '/about', pathMatch: 'full'} // ,
-  // { path: '**', component: PageNotFoundComponent}
+  { path: '', redirectTo: '/about', pathMatch: 'full'},
+  { path: '**', component: PagenotfoundComponent}
 ];
 
 @NgModule({
