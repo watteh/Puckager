@@ -42,6 +42,8 @@ export class AppComponent implements OnInit {
   }
 
   isLoggedIn(): boolean {
-    return this.authService.loggedIn();
+    const result = this.user = JSON.parse(localStorage.getItem('user'));
+
+    return result;
   }
 }

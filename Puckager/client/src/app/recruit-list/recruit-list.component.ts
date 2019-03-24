@@ -3,6 +3,7 @@ import { RecruitSchema } from '../../models/recruit';
 import { RecruitService } from '../services/recruit.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from 'app/services/auth.service';
 
 @Component({
   selector: 'app-recruit-list',
@@ -15,7 +16,8 @@ export class RecruitListComponent implements OnInit {
    recruit: RecruitSchema;
 
   constructor(private activatedRoute: ActivatedRoute, private rs: RecruitService,
-              private router: Router, private flashMessage: FlashMessagesService) { }
+              private router: Router, private flashMessage: FlashMessagesService,
+              private authService: AuthService) { }
 
   ngOnInit() {
     this.recruits = new Array<RecruitSchema>();
@@ -38,6 +40,10 @@ export class RecruitListComponent implements OnInit {
         this.flashMessage.show('User must be logged in.', {cssClass: 'alert-danger', timeOut: 3000});
       }
     });
+  }
+
+  isLoggedIn(): boolean {
+    return this.authService.loggedIn();
   }
 
 }
