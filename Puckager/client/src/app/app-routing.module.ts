@@ -16,8 +16,8 @@ import { DeleteRecruitComponent } from './recruit-list/delete-recruit/delete-rec
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
-  { path: '', component: SigninComponent, data: {title: 'Log In'} },
-  { path: 'logout', redirectTo: '', pathMatch: 'full' },
+  { path: 'login', component: SigninComponent, data: {title: 'Login'} },
+  { path: 'logout', redirectTo: 'login', pathMatch: 'full' },
   { path: 'registration', component: RegistrationComponent, data: {title: 'Register'} },
   { path: 'recruits', component: RecruitListComponent, data: {title: 'Recruits'} },
   { path: 'about', component: AboutComponent, data: {title: 'About Us'} },

@@ -23,7 +23,7 @@ import { AddReportComponent } from './recruit-list/reports/add-report/add-report
 import { DeleteRecruitComponent } from './recruit-list/delete-recruit/delete-recruit.component';
 
 import { FlashMessagesModule, FlashMessagesService } from 'angular2-flash-messages';
-// import { AuthService } from './services/auth.service';
+import { AuthService } from './services/auth.service';
 import { JwtModule, JwtHelperService, JwtInterceptor } from '@auth0/angular-jwt';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 

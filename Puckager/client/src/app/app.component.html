@@ -1,34 +1,36 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <button class="navbar-toggler navbar-toggler-right" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<div *ngIf='header'>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler navbar-toggler-right" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" routerLink="/about">PUCKAGER</a>
+        <a class="navbar-brand" routerLink="/about">PUCKAGER</a>
 
-    <div [ngbCollapse]="isNavbarCollapsed" class="navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/about"><i class="fa fa-lg fa-question-circle"></i> About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/recruits"><i class="fa fa-lg fa-users"></i> Recruits</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/contact"><i class="fa fa-lg fa-phone"></i> Contact Us</a>
-            </li>
-            <li class="navbar-text">
-                <i class="fa fg-lg fa-user"></i> Welcome, displayName
-            </li>
-            <li class="nav-item">
-                <a href="/logout" class="nav-link">
-                    <i class="fa fa-lg fa-sign-out"></i> Logout</a>
-            </li>
-            <li class="nav-item">
-                <a href="/" class="nav-link">
-                    <i class="fa fa-lg fa-sign-in"></i> Login</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+        <div [ngbCollapse]="isNavbarCollapsed" class="navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/about" routerLinkActive="active"><i class="fa fa-lg fa-question-circle"></i> About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/recruits" routerLinkActive="active"><i class="fa fa-lg fa-users"></i> Recruits</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/contact" routerLinkActive="active"><i class="fa fa-lg fa-phone"></i> Contact Us</a>
+                </li>
+                <li *ngIf="isLoggedIn()" class="navbar-text">
+                    <i class="fa fg-lg fa-user"></i> Welcome, {{ user.displayName }}
+                </li>
+                <li *ngIf="!isLoggedIn()" class="nav-item">
+                    <a href="/logout" class="nav-link">
+                        <i class="fa fa-lg fa-sign-out"></i> Logout</a>
+                </li>
+                <li *ngIf="isLoggedIn()" class="nav-item">
+                    <a href="/" class="nav-link">
+                        <i class="fa fa-lg fa-sign-in"></i> Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
 <flash-messages>
 </flash-messages>
 <router-outlet></router-outlet>

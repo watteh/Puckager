@@ -7,6 +7,9 @@ let passport = require('passport');
 
 let recruitModel = require('../models/Recruit');
 
+let userModel = require('../models/user');
+let User = userModel.User;
+
 // GET List of Recruits page - READ Operation
 recruitRouter.get('/recruits', (req, res, next) => {
     recruitModel.find((err, recruitList) => {
@@ -17,7 +20,8 @@ recruitRouter.get('/recruits', (req, res, next) => {
                 success: true,
                 msg: `Recruit List Displayed Successfully`,
                 recruitList: recruitList,
-                user: req.user
+                user: req.user,
+                displayName: req.user ? req.user.displayName : ''
             });
         }
     });
@@ -27,7 +31,8 @@ recruitRouter.get('/recruits', (req, res, next) => {
 recruitRouter.get('/recruits/addrecruit', (req, res, next) => {
     res.json({
         success: true,
-        msg: 'Successfully displayed Add Page'
+        msg: 'Successfully displayed Add Page',
+        displayName: req.user ? req.user.displayName : ''
     });
 });
 
@@ -55,7 +60,8 @@ recruitRouter.post('/recruits/addrecruit', (req, res, next) => {
         } else {
             res.json({
                 success: true,
-                msg: 'Successfully added new recruit!'
+                msg: 'Successfully added new recruit!',
+                displayName: req.user ? req.user.displayName : ''
             });
         }
     });
@@ -72,7 +78,8 @@ recruitRouter.get('/recruits/delete/:id', (req, res, next) => {
         } else {
             return res.json({
                 success: true,
-                msg: 'Successfully deleted recruit'
+                msg: 'Successfully deleted recruit',
+                displayName: req.user ? req.user.displayName : ''
             });
         }
     });
@@ -90,7 +97,8 @@ recruitRouter.get('/recruits/detail/:id', (req, res, next) => {
             res.json({
                 success: true,
                 msg: 'Successfully displayed recruit',
-                recruit: recruitObject
+                recruit: recruitObject,
+                displayName: req.user ? req.user.displayName : ''
             });
         }
     });
@@ -108,7 +116,8 @@ recruitRouter.get('/recruits/edit/:id', (req, res, next) => {
             res.json({
                 success: true,
                 msg: 'Successfully displayed recruit to edit',
-                recruit: recruitObject
+                recruit: recruitObject,
+                displayName: req.user ? req.user.displayName : ''
             });
         }
     });
@@ -141,6 +150,7 @@ recruitRouter.post('/recruits/edit/:id', (req, res, next) => {
             res.json({
                 success: true,
                 msg: 'Successfully edited recruit',
+                displayName: req.user ? req.user.displayName : ''
             });
         }
     });
@@ -179,7 +189,8 @@ recruitRouter.post('/addreport/:id', (req, res, next) => {
                         res.json({
                             success: true,
                             msg: 'Successfully added report',
-                            report: report
+                            report: report,
+                            displayName: req.user ? req.user.displayName : ''
                         });
                     }
                 });
@@ -205,7 +216,8 @@ recruitRouter.post('/addreport/:id', (req, res, next) => {
                         res.json({
                             success: true,
                             msg: 'Successfully added report',
-                            report: report
+                            report: report,
+                            displayName: req.user ? req.user.displayName : ''
                         });
                     }
                 });
@@ -248,7 +260,8 @@ recruitRouter.post('/editreport/:recruitid/:reportid', (req, res, next) => {
                         res.json({
                             success: true,
                             msg: 'Successfully edited report',
-                            report: report
+                            report: report,
+                            displayName: req.user ? req.user.displayName : ''
                         });
                     }
                 });
@@ -274,12 +287,122 @@ recruitRouter.post('/editreport/:recruitid/:reportid', (req, res, next) => {
                         res.json({
                             success: true,
                             msg: 'Successfully edited report',
-                            report: report
+                            report: report,
+                            displayName: req.user ? req.user.displayName : ''
                         });
                     }
                 });
             }
         }
+    });
+});
+
+/* GET - get login page or redirect to about page if already logged in */
+recruitRouter.get('/login', (req, res, next) => {
+    // Check if user is already logged in
+    if (!req.user) {
+        res.json({
+            title: 'Login',
+            msg: 'Login Page',
+            displayName: req.user ? req.user.displayName : ''
+        });
+    } else {
+        return res.redirect('/');
+    }
+});
+
+/* POST - post login */
+recruitRouter.post('/login', (req, res, next) => {
+    passport.authenticate('local', (err, user, info) => {
+        if (err) {
+            return next(err);
+        }
+        if (!user) {
+            return res.json({
+                success: false,
+                msg: 'Error: login failed.'
+            });
+        }
+        req.logIn(user, (err) => {
+            if (err) {
+                return next(err);
+            }
+
+            const payload = {
+                id: user._id,
+                displayName: user.displayName,
+                username: user.username,
+                email: user.email
+            }
+
+            const authToken = jwt.sign(payload, DB.secret, {
+                expiresIn: 604800 // 1 week
+            });
+
+            return res.json({
+                success: true,
+                msg: 'User login successful!',
+                user: payload,
+                token: authToken
+            });
+        });
+    })(req, res, next);
+});
+
+/* GET - get registration page, or send to about page if already logged in */
+recruitRouter.get('/registration', (req, res, next) => {
+    // Check if user is already logged in
+    if (!req.user) {
+        res.json({
+            title: 'Register',
+            msg: 'Registration Page',
+            displayName: req.user ? req.user.displayName : ''
+        });
+    } else {
+        res.json({
+            title: 'Register',
+            msg: 'User already logged in',
+            displayName: req.user ? req.user.displayName : ''
+        });
+    }
+});
+
+/* POST - post registration page */
+recruitRouter.post('/registration', (req, res, next) => {
+    // create new user object
+    let newUser = new User({
+        username: req.body.username,
+        email: req.body.email,
+        displayName: req.body.displayName
+    });
+
+    User.register(newUser, req.body.password, (err) => {
+        if (err) {
+            console.log('Error Inserting new user');
+            if (err.name == 'UserExistsError') {
+                console.log('Error inserting new user');
+            }
+            return res.json({
+                success: false,
+                msg: 'Error: registration failed'
+            });
+        } else {
+            // if no error exists, then registration is successful and user redirected
+            return passport.authenticate('local')(req, res, () => {
+                return res.json({
+                    success: true,
+                    msg: 'Registration successful!'
+                });
+            });
+        }
+    });
+});
+
+recruitRouter.get('/logout', (req, res, next) => {
+    req.logout();
+    return res.json({
+        success: true,
+        msg: 'User logged out'
     });
 });
 
