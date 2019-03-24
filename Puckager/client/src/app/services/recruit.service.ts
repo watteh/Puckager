@@ -13,6 +13,7 @@ export class RecruitService {
   private user: User;
   private authToken: any = null;
 
+  // *** REMINDER - must change endpoint uri to host url for it to work
   private uri = 'http://localhost:3000/api/';
 
   private httpOptions = {
