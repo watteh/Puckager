@@ -1,10 +1,8 @@
 const express = require('express');
-const app = express();
 const recruitRouter = express.Router();
 let jwt = require('jsonwebtoken');
-
 let passport = require('passport');
-
+let DB = require('../config/db');
 let recruitModel = require('../models/Recruit');
 
 let userModel = require('../models/user');

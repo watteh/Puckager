@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'models/user';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { AuthService } from './services/auth.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  title: string;
   user: User;
   header: boolean;
 
@@ -18,14 +20,21 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.user = new User();
-    this.user = JSON.parse(localStorage.getItem('user'));
 
-    this.header = true;
+    this.router.events
+    .filter(e => e instanceof NavigationEnd)
+    .forEach(e => {
+      this.title = this.route.root.firstChild.snapshot.data.title;
+      if (this.title === 'Login' || this.title === 'Register') {
+        this.header = false;
+      } else {
+        this.header = true;
+        this.user = JSON.parse(localStorage.getItem('user'));
+      }
+    });
   }
 
   onLogoutClick(): void {
-    // this.header = false;
-
     this.authService.logout().subscribe(data => {
       this.flashMessage.show(data.msg, {cssClass: 'alert-warning', timeOut: 5000});
       this.router.navigate(['/login']);
@@ -33,8 +42,6 @@ export class AppComponent implements OnInit {
   }
 
   isLoggedIn(): boolean {
-    // this.header = true;
-
     return this.authService.loggedIn();
   }
 }
