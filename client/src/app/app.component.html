@@ -13,15 +13,15 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/recruits" routerLinkActive="active"><i class="fa fa-lg fa-users"></i> Recruits</a>
                 </li>
-                <li *ngIf="isLoggedIn()" class="navbar-text">
+                <li *ngIf="isLoggedIn()" class="nav-text">
                     <i class="fa fg-lg fa-user"></i> Welcome, {{ user.displayName }}
                 </li>
                 <li *ngIf="isLoggedIn()" class="nav-item">
-                    <a href="/logout" class="nav-link">
+                    <a class="nav-item" (click)="onLogoutClick()" routerLink="/logout">
                         <i class="fa fa-lg fa-sign-out"></i> Logout</a>
                 </li>
                 <li *ngIf="!isLoggedIn()" class="nav-item">
-                    <a href="/login" class="nav-link">
+                    <a class="nav-item" routerLinkActive="active" routerLink="/login">
                         <i class="fa fa-lg fa-sign-in"></i> Login</a>
                 </li>
             </ul>
