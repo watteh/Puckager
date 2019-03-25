@@ -7,20 +7,20 @@
 
         <div [ngbCollapse]="isNavbarCollapsed" class="navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/about" routerLinkActive="active"><i class="fa fa-lg fa-question-circle"></i> About</a>
+                <li>
+                    <a class="nav-item" routerLink="/about" routerLinkActive="active"><i class="fa fa-lg fa-question-circle"></i> About</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/recruits" routerLinkActive="active"><i class="fa fa-lg fa-users"></i> Recruits</a>
+                <li>
+                    <a class="nav-item" routerLink="/recruits" routerLinkActive="active"><i class="fa fa-lg fa-users"></i> Recruits</a>
                 </li>
-                <li *ngIf="isLoggedIn()" class="nav-text">
+                <li *ngIf="isLoggedIn()" class="nav-text text-white">
                     <i class="fa fg-lg fa-user"></i> Welcome, {{ user.displayName }}
                 </li>
-                <li *ngIf="isLoggedIn()" class="nav-item">
+                <li *ngIf="isLoggedIn()">
                     <a class="nav-item" (click)="onLogoutClick()" routerLink="/logout">
                         <i class="fa fa-lg fa-sign-out"></i> Logout</a>
                 </li>
-                <li *ngIf="!isLoggedIn()" class="nav-item">
+                <li *ngIf="!isLoggedIn()">
                     <a class="nav-item" routerLinkActive="active" routerLink="/login">
                         <i class="fa fa-lg fa-sign-in"></i> Login</a>
                 </li>
