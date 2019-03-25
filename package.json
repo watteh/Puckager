@@ -2,7 +2,7 @@
     "name": "Puckager",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "server.js",
     "private": true,
     "scripts": {
         "start": "node server.js"
