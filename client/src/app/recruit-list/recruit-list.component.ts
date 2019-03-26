@@ -42,6 +42,10 @@ export class RecruitListComponent implements OnInit {
     });
   }
 
+  onSocialClick()  {
+
+  }
+
   isLoggedIn(): boolean {
     return this.authService.loggedIn();
   }
