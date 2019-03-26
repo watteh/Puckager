@@ -25,6 +25,7 @@ import { DeleteRecruitComponent } from './recruit-list/delete-recruit/delete-rec
 import { FlashMessagesModule, FlashMessagesService } from 'angular2-flash-messages';
 // import { AuthService } from './services/auth.service';
 import { JwtModule, JwtHelperService, JwtInterceptor } from '@auth0/angular-jwt';
+import { RecruitFilterPipe } from './recruit-list/recruit-filter.pipe';
 
 export function jwtTokenGetter() {
   return localStorage.getItem('id_token');
@@ -44,7 +45,8 @@ export function jwtTokenGetter() {
     UpdateAccountComponent,
     ReportsComponent,
     AddReportComponent,
-    DeleteRecruitComponent
+    DeleteRecruitComponent,
+    RecruitFilterPipe
   ],
   imports: [
     BrowserModule,

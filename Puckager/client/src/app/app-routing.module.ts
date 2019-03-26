@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'logout', redirectTo: '', pathMatch: 'full' },
   { path: 'registration', component: RegistrationComponent, data: {title: 'Register'} },
   { path: 'recruits', component: RecruitListComponent, data: {title: 'Recruits'} },
-  // { path: 'signin', component: SigninComponent },
+  { path: 'signin', component: SigninComponent },
   { path: 'about', component: AboutComponent, data: {title: 'About Us'} },
   { path: 'accounts', component: AccountsComponent, data: {title: 'Accounts'} },
   { path: 'addaccount', component: AddAccountComponent, data: {title: 'Add Account'} },
