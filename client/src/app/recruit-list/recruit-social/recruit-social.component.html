@@ -1,3 +1,22 @@
-<p>
-  recruit-social works!
-</p>
+<h1>Twitter Posts Found For Player</h1>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Tweet #</th>
+    <th scope="col">Creator</th>
+    <th scope="col">Date</th>
+    <th scope="col">Link</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let tweet of tweets; index as i">
+    <th scope="row">{{ i + 1 }}</th>
+    <td>
+      {{ tweet.creator }}
+    </td>
+    <td>{{ tweet.date | date }}</td>
+    <td><a href={{tweet.url}}>{{ tweet.url }}</a></td>
+  </tr>
+  </tbody>
+</table>

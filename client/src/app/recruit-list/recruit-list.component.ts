@@ -42,8 +42,9 @@ export class RecruitListComponent implements OnInit {
     });
   }
 
-  onSocialClick()  {
-
+  onSocialClick(firstName: string, lastName: string)  {
+    const payLoad = firstName  + ' ' + lastName;
+    console.log(payLoad);
   }
 
   isLoggedIn(): boolean {
