@@ -27,6 +27,7 @@ import { AuthService } from './services/auth.service';
 import { JwtModule, JwtHelperService, JwtInterceptor } from '@auth0/angular-jwt';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { AuthGuard } from './guards/auth.guard';
+import { RecruitFilterPipe } from './pipes/recruit-filter.pipe';
 
 export function jwtTokenGetter() {
   return localStorage.getItem('id_token');
@@ -47,7 +48,8 @@ export function jwtTokenGetter() {
     ReportsComponent,
     AddReportComponent,
     DeleteRecruitComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    RecruitFilterPipe
   ],
   imports: [
     BrowserModule,

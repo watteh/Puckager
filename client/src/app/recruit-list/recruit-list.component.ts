@@ -4,6 +4,7 @@ import { RecruitService } from '../services/recruit.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'app/services/auth.service';
+import { AngularFontAwesomeComponent } from 'angular-font-awesome';
 
 @Component({
   selector: 'app-recruit-list',
@@ -11,9 +12,17 @@ import { AuthService } from 'app/services/auth.service';
   styleUrls: ['./recruit-list.component.css']
 })
 export class RecruitListComponent implements OnInit {
+    selectedPosition;
+    positions: Array<object> = [
+      { name: 'Forward' },
+      { name: 'Defenceman' },
+      { name: 'Goalie' }
+    ];
+    birthYear;
+    name;
 
-   recruits: RecruitSchema[];
-   recruit: RecruitSchema;
+    recruits: RecruitSchema[];
+    recruit: RecruitSchema;
 
   constructor(private activatedRoute: ActivatedRoute, private rs: RecruitService,
               private router: Router, private flashMessage: FlashMessagesService,
