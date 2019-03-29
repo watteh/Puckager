@@ -17,7 +17,8 @@ import { DetailsComponent } from './recruit-list/details/details.component';
 import { AddRecruitComponent } from './recruit-list/add-recruit/add-recruit.component';
 import { AccountsComponent } from './accounts/accounts.component';
 import { AddAccountComponent } from './accounts/add-account/add-account.component';
-import { UpdateAccountComponent } from './accounts/update-account/update-account.component';
+import { AccountDetailsComponent } from './accounts/account-details/account-details.component';
+import { DeleteAccountComponent } from './accounts/delete-account/delete-account.component';
 import { ReportsComponent } from './recruit-list/reports/reports.component';
 import { AddReportComponent } from './recruit-list/reports/add-report/add-report.component';
 import { DeleteRecruitComponent } from './recruit-list/delete-recruit/delete-recruit.component';
@@ -44,12 +45,13 @@ export function jwtTokenGetter() {
     AddRecruitComponent,
     AccountsComponent,
     AddAccountComponent,
-    UpdateAccountComponent,
     ReportsComponent,
     AddReportComponent,
     DeleteRecruitComponent,
     PagenotfoundComponent,
-    RecruitFilterPipe
+    RecruitFilterPipe,
+    AccountDetailsComponent,
+    DeleteAccountComponent
   ],
   imports: [
     BrowserModule,

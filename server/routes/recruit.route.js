@@ -404,4 +404,140 @@ recruitRouter.get('/logout', (req, res, next) => {
     });
 });
 
+// GET List of Accounts page - READ Operation
+recruitRouter.get('/accounts', (req, res, next) => {
+    User.find((err, userList) => {
+        if (err) {
+            return console.error(err);
+        } else {
+            return res.json({
+                success: true,
+                msg: `Recruit List Displayed Successfully`,
+                userList: userList,
+                user: req.user,
+                displayName: req.user ? req.user.displayName : ''
+            });
+        }
+    });
+});
+
+/* GET route for processing the User Add page */
+recruitRouter.get('/addaccount', (req, res, next) => {
+    res.json({
+        success: true,
+        msg: 'Successfully displayed Add Page',
+        displayName: req.user ? req.user.displayName : ''
+    });
+});
+
+/* POST route for processing the Add page */
+recruitRouter.post('/addaccount', (req, res, next) => {
+    // create new user object
+    let newUser = new User({
+        "username": req.body.username,
+        "email": req.body.email,
+        "displayName": req.body.displayName
+    });
+
+    User.register(newUser, req.body.password, (err) => {
+        if (err) {
+            console.log('Error Inserting new user');
+            if (err.name == 'UserExistsError') {
+                console.log('Error inserting new user');
+            }
+            return res.json({
+                success: false,
+                msg: 'Error: registration failed'
+            });
+        } else {
+            // if no error exists, then registration is successful and user redirected
+            return res.json({
+                success: true,
+                msg: 'Registration successful!'
+            });
+        }
+    });
+});
+
+/* GET request to perform the delete action */
+recruitRouter.get('/deleteaccount/:id', (req, res, next) => {
+    let id = req.params.id;
+
+    User.remove({ _id: id }, (err) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            return res.json({
+                success: true,
+                msg: 'Successfully deleted user',
+                displayName: req.user ? req.user.displayName : ''
+            });
+        }
+    });
+});
+
+/* GET request - display the Details page */
+recruitRouter.get('/accountdetails/:id', (req, res, next) => {
+    let id = req.params.id;
+
+    User.findById(id, (err, userObject) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            res.json({
+                success: true,
+                msg: 'Successfully displayed User',
+                user: userObject,
+                displayName: req.user ? req.user.displayName : ''
+            });
+        }
+    });
+});
+
+/* GET request - display the Edit page */
+recruitRouter.get('/updateaccount/:id', (req, res, next) => {
+    let id = req.params.id;
+
+    User.findById(id, (err, userObject) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            res.json({
+                success: true,
+                msg: 'Successfully displayed user to edit',
+                user: userObject,
+                displayName: req.user ? req.user.displayName : ''
+            });
+        }
+    });
+});
+
+/* POST request - Update the database with data from the Edit page */
+recruitRouter.post('/updateaccount/:id', (req, res, next) => {
+    let id = req.params.id;
+
+    User.update({ _id: id }, {
+        $set: {
+            username: req.body.username,
+            password: req.body.password, // *** Should this be set like in register?
+            email: req.body.email,
+            displayName: req.body.displayName
+        }
+    }, (err) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            res.json({
+                success: true,
+                msg: 'Successfully updated user',
+                displayName: req.user ? req.user.displayName : ''
+            });
+        }
+    });
+});
+
 module.exports = recruitRouter;
