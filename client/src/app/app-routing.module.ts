@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'recruits', component: RecruitListComponent, data: {title: 'Recruits'}, canActivate: [AuthGuard] },
   { path: 'about', component: AboutComponent, data: {title: 'About Us'} },
   { path: 'accounts', component: AccountsComponent, data: {title: 'Accounts'}, canActivate: [AuthGuard] },
-  { path: 'accountdetails/:id', component: AccountDetailsComponent, data: {title: 'Update Account'}, canActivate: [AuthGuard] },
+  { path: 'accountdetails/:id', component: AccountDetailsComponent, data: {title: 'Account Details'}, canActivate: [AuthGuard] },
   { path: 'addaccount', component: AddAccountComponent, data: {title: 'Add Account'}, canActivate: [AuthGuard] },
   { path: 'updateaccount/:id', component: AddAccountComponent, data: {title: 'Update Account'}, canActivate: [AuthGuard] },
   { path: 'deleteaccount/:id', component: DeleteAccountComponent, data: {title: 'Update Account'}, canActivate: [AuthGuard] },
