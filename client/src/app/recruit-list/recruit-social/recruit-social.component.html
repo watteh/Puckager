@@ -6,17 +6,17 @@
     <th scope="col">Tweet #</th>
     <th scope="col">Creator</th>
     <th scope="col">Date</th>
-    <th scope="col">Link</th>
+    <th scope="col">Text</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let tweet of tweets; index as i">
     <th scope="row">{{ i + 1 }}</th>
     <td>
-      {{ tweet.creator }}
+      {{ tweet.user.name }}
     </td>
-    <td>{{ tweet.date | date }}</td>
-    <td><a href={{tweet.url}}>{{ tweet.url }}</a></td>
+    <td>{{ tweet.created_at | date }}</td>
+    <td>{{ tweet.text }}</td>
   </tr>
   </tbody>
 </table>

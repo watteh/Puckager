@@ -1,77 +1,108 @@
 <div *ngIf='isLoggedIn()' class="container-fluid">
-    <div class="row">
-        <table style="margin: 10px">
-            <tr>
-                <td>
-                    <p class="col-2 col-form-label">Position </p>
-                </td>
-                <td>
-                    <select class="form-control">
-                        <option>Forward</option>
-                        <option>Defenceman</option>
-                        <option>Goalie</option>
-                      </select>
-                </td>
-                <td>
-                    <p class="col-2 col-form-label">Birth Year</p>
-                </td>
-                <td>
-                    <input type="number" class="form-control">
-                </td>
-                <td>
-                    <p class="col-2 col-form-label">Name</p>
-                </td>
-                <td>
-                    <input type="text" class="form-control">
-                </td>
-                <td>
-                    <button class="btn btn-secondary" type="submit">Submit</button>
-                </td>
-                <td>
-                    <a class="btn btn-success" type="submit" routerLink="/recruits/addrecruit">Add</a>
-                </td>
-            </tr>
-        </table>
-    </div>
+  <div class="row">
+    <table style="margin: 10px">
+      <tr>
+        <td>
+          <p class="col-form-label">Position </p>
+        </td>
+        <td>
+          <select class="form-control">
+            <option>Forward</option>
+            <option>Defenceman</option>
+            <option>Goalie</option>
+          </select>
+        </td>
+        <td>
+          <p class="col-form-label">Birth Year</p>
+        </td>
+        <td>
+          <input type="number" class="form-control">
+        </td>
+        <td>
+          <p class="col-form-label">Name</p>
+        </td>
+        <td>
+          <input type="text" class="form-control">
+        </td>
+        <td>
+          <button class="btn btn-secondary" type="submit">Submit</button>
+        </td>
+        <td>
+          <a class="btn btn-success" type="submit" routerLink="/recruits/addrecruit">Add</a>
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>
 
 <table id="recruitTable" class="table table-bordered table-striped">
-    <thead class="thead-dark">
-        <tr>
-            <th style="text-align: center">Jersey Number</th>
-            <th style="text-align: center">First Name</th>
-            <th style="text-align: center">Last Name</th>
-            <th style="text-align: center">Birth Year</th>
-            <th style="text-align: center">Position</th>
-            <th style="text-align: center">Status</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
+  <thead class="thead-dark">
+    <tr>
+      <th style="text-align: center; width: 140px">Jersey Number</th>
+      <th style="text-align: center">First Name</th>
+      <th style="text-align: center">Last Name</th>
+      <th style="text-align: center">Birth Year</th>
+      <th style="text-align: center">Position</th>
+      <th style="text-align: center">Status</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <!-- <th *ngIf="!mobile"></th>
+      <th *ngIf="!mobile"></th>
+      <th *ngIf="!mobile"></th> -->
+    </tr>
+  </thead>
 
-    <tbody>
+  <tbody>
 
-        <tr *ngFor='let recruit of recruits'>
-            <td>{{recruit.jerseyNumber}}</td>
-            <td>{{recruit.firstName}}</td>
-            <td>{{recruit.lastName}}</td>
-            <td>{{recruit.birthYear}}</td>
-            <td>{{recruit.position}}</td>
-            <td>{{recruit.status}}</td>
-            <td>
-                <a class="btn btn-primary" type="submit" routerLink="detail/{{ recruit._id }}">View</a>
-            </td>
-            <td>
-                <a class="btn btn-warning" type="submit" routerLink="edit/{{ recruit._id }}">Edit</a>
-            </td>
-            <td>
-                <a (click)="onDeleteClick()" class="btn btn-danger" type="submit" routerLink="/recruits/delete/{{ recruit._id }}">Delete</a>
-            </td>
-            <td>
-                <a (click)="onSocialClick(recruit.firstName, recruit.lastName)" class="btn btn-success" type="submit" routerLink="/recruits/social/{{ recruit._id }}">Social</a>
-            </td>
-        </tr>
-    </tbody>
+    <tr *ngFor='let recruit of recruits'>
+      <td style="text-align: center">{{recruit.jerseyNumber}}</td>
+      <td style="text-align: center">{{recruit.firstName}}</td>
+      <td style="text-align: center">{{recruit.lastName}}</td>
+      <td style="text-align: center">{{recruit.birthYear}}</td>
+      <td style="text-align: center">{{recruit.position}}</td>
+      <td style="text-align: center">{{recruit.status}}</td>
+      <!-- <td *ngIf="mobile">
+          <div class="col">
+              <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button ngbDropdownItem>Action - 1</button>
+                  <button ngbDropdownItem>Another Action</button>
+                  <button ngbDropdownItem>Something else is here</button>
+                </div>
+              </div>
+            </div>
+      </td> -->
+      <td>
+        <a class="btn btn-primary" type="submit" routerLink="detail/{{ recruit._id }}">View</a>
+      </td>
+      <td>
+        <a class="btn btn-warning" type="submit" routerLink="edit/{{ recruit._id }}">Edit</a>
+      </td>
+      <td>
+        <a (click)="onDeleteClick()" class="btn btn-danger" type="submit"
+          routerLink="/recruits/delete/{{ recruit._id }}">Delete</a>
+      </td>
+      <td>
+        <a (click)="onSocialClick(recruit.firstName, recruit.lastName)" class="btn btn-success" type="submit"
+          routerLink="/recruits/social/{{ recruit._id }}">Social</a>
+      </td>
+      <!-- <td *ngIf="!mobile">
+        <a class="btn btn-primary" type="submit" routerLink="detail/{{ recruit._id }}">View</a>
+      </td>
+      <td *ngIf="!mobile">
+        <a class="btn btn-warning" type="submit" routerLink="edit/{{ recruit._id }}">Edit</a>
+      </td>
+      <td *ngIf="!mobile">
+        <a (click)="onDeleteClick()" class="btn btn-danger" type="submit"
+          routerLink="/recruits/delete/{{ recruit._id }}">Delete</a>
+      </td>
+      <td *ngIf="!mobile">
+        <a (click)="onSocialClick(recruit.firstName, recruit.lastName)" class="btn btn-success" type="submit"
+          routerLink="/recruits/social/{{ recruit._id }}">Social</a>
+      </td> -->
+    </tr>
+  </tbody>
 </table>
