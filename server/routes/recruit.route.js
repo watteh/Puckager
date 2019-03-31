@@ -138,7 +138,8 @@ recruitRouter.post('/recruits/edit/:id', (req, res, next) => {
             position: req.body.position,
             mothersName: req.body.mothersName,
             fathersName: req.body.fathersName,
-            status: req.body.status
+            status: req.body.status,
+            submittedBy: req.body.submittedBy
         }
     }, (err) => {
         if (err) {
@@ -176,6 +177,7 @@ recruitRouter.post('/addreport/:id', (req, res, next) => {
                     "battleMentality": parseInt(req.body.battleMentality),
                     "overallRanking": parseInt(req.body.overallRanking),
                     "notes": req.body.notes,
+                    "submittedBy": req.body.submittedBy,
                     "reportDate": Date.now()
                 };
 
@@ -204,6 +206,7 @@ recruitRouter.post('/addreport/:id', (req, res, next) => {
                     "workEthic": parseInt(req.body.workEthic),
                     "overallRanking": parseInt(req.body.overallRanking),
                     "notes": req.body.notes,
+                    "submittedBy": req.body.submittedBy,
                     "reportDate": Date.now()
                 };
                 recruitModel.findOneAndUpdate({ _id: id }, { $push: { playerReports: report } }, (err) => {
@@ -247,6 +250,7 @@ recruitRouter.post('/editreport/:recruitid/:reportid', (req, res, next) => {
                     battleMentality: parseInt(req.body.battleMentality),
                     overallRanking: parseInt(req.body.overallRanking),
                     notes: req.body.notes,
+                    submittedBy: req.body.submittedBy,
                     reportDate: Date.now()
                 };
 
@@ -275,6 +279,7 @@ recruitRouter.post('/editreport/:recruitid/:reportid', (req, res, next) => {
                     workEthic: parseInt(req.body.workEthic),
                     overallRanking: parseInt(req.body.overallRanking),
                     notes: req.body.notes,
+                    submittedBy: req.body.submittedBy,
                     reportDate: Date.now()
                 };
                 recruitModel.findOneAndUpdate({ _id: recruitID, "playerReports._id": reportID }, { $set: { "playerReports.$": report } }, (err) => {
