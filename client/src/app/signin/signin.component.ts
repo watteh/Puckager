@@ -22,9 +22,14 @@ export class SigninComponent implements OnInit {
     this.authService.authenticateUser(this.user).subscribe(data => {
       if (data.success) {
         console.log(data.user);
-        this.authService.storeUserData(data.token, data.user);
-        this.flashMessage.show(data.msg, {cssClass: 'alert-success', timeOut: 3000});
-        this.router.navigate(['/about']);
+        if (data.user.accountType === 'None') {
+          this.flashMessage.show('Account not yet validated', {cssClass: 'alert-danger', timeOut: 10000});
+          this.router.navigate(['/about']);
+        } else {
+          this.authService.storeUserData(data.token, data.user);
+          this.flashMessage.show(data.msg, {cssClass: 'alert-success', timeOut: 3000});
+          this.router.navigate(['/about']);
+        }
       } else {
         this.flashMessage.show(data.msg, {cssClass: 'alert-danger', timeOut: 3000});
         this.router.navigate(['/login']);
