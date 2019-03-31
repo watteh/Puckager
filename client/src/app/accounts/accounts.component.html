@@ -31,7 +31,9 @@
                             <a href='/updateaccount/{{user._id}}' class="btn btn-block btn-warning">Update</a>
                         </td>
                         <td>
-                            <a (click)="onDeleteClick()" class="btn btn-danger" type="submit" href='/deleteaccount/{{user._id}}' CssClass="btn btn-block btn-danger">Delete</a>
+                            <ng-container *ngIf='user.accountType !== "Admin"'>
+                                <a (click)="onDeleteClick()" class="btn btn-danger" type="submit" href='/deleteaccount/{{user._id}}' CssClass="btn btn-block btn-danger">Delete</a>
+                            </ng-container>
                         </td>
                     </tr>
                 </tbody>

@@ -26,10 +26,10 @@
             </div>
         </div>
         <div class="row">
-            <a *ngIf='current.accountType === Admin' ID="BtnBack" class="btn btn-primary" routerLink="/accounts">Back</a>
-            <a *ngIf='current.accountType !== Admin' ID="BtnBack" class="btn btn-primary" routerLink="/about">Back</a>
+            <a *ngIf='current.accountType === "Admin"' ID="BtnBack" class="btn btn-primary" routerLink="/accounts">Back</a>
+            <a *ngIf='current.accountType !== "Admin"' ID="BtnBack" class="btn btn-primary" routerLink="/about">Back</a>
             <a ID="BtnUpdate" class="btn btn-warning" routerLink="/updateaccount/{{ user._id }}">Update Account</a>
-            <a ID="BtnDelete" class="btn btn-danger" routerLink="/deleteaccount/{{ user._id }}">Delete</a>
+            <a *ngIf='user.accountType !== "Admin" && current.accountType !== "Admin"' ID="BtnDelete" class="btn btn-danger" routerLink="/deleteaccount/{{ user._id }}">Delete</a>
         </div>
     </div>
 </div>
