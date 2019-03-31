@@ -29,9 +29,6 @@
             <a *ngIf='current.accountType === "Admin"' ID="BtnBack" class="btn btn-primary" routerLink="/accounts">Back</a>
             <a *ngIf='current.accountType !== "Admin"' ID="BtnBack" class="btn btn-primary" routerLink="/about">Back</a>
             <a ID="BtnUpdate" class="btn btn-warning" routerLink="/updateaccount/{{ user._id }}">Update Account</a>
-            <ng-container *ngIf='user.accountType !== "Admin" && current.accountType === "Admin"'>
-                <a ID="BtnDelete" class="btn btn-danger" routerLink="/deleteaccount/{{ user._id }}">Delete</a>
-            </ng-container>
         </div>
     </div>
 </div>
