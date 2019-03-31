@@ -8,6 +8,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { FlatpickrModule } from 'angularx-flatpickr';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 import { RegistrationComponent } from './registration/registration.component';
 import { RecruitListComponent } from './recruit-list/recruit-list.component';
@@ -29,6 +34,7 @@ import { JwtModule, JwtHelperService, JwtInterceptor } from '@auth0/angular-jwt'
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RecruitFilterPipe } from './pipes/recruit-filter.pipe';
+import { SchedulerComponent } from './scheduler/scheduler/scheduler.component';
 
 export function jwtTokenGetter() {
   return localStorage.getItem('id_token');
@@ -51,7 +57,8 @@ export function jwtTokenGetter() {
     PagenotfoundComponent,
     RecruitFilterPipe,
     AccountDetailsComponent,
-    DeleteAccountComponent
+    DeleteAccountComponent,
+    SchedulerComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +68,12 @@ export function jwtTokenGetter() {
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    FlatpickrModule.forRoot(),
+    BrowserAnimationsModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    }),
     FlashMessagesModule,
     NgbModule.forRoot(),
     JwtModule.forRoot({

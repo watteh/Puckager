@@ -16,6 +16,9 @@
                 <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
                     <a routerLink="/accounts" routerLinkActive="active"><i class="fa fa-lg fa-users"></i> Account</a>
                 </li>
+                <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
+                    <a routerLink="/schedule" routerLinkActive="active"><i class="fa fa-lg fa-calendar"></i> Schedule</a>
+                </li>
                 <li *ngIf="isLoggedIn()" class="navbar-text text-success ml-5 mr-5 d-none d-lg-inline">
                     <i class="fa fg-lg fa-user"></i> Welcome, {{ user.displayName }}
                 </li>

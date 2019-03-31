@@ -15,6 +15,7 @@ import { ReportsComponent } from './recruit-list/reports/reports.component';
 import { AddReportComponent } from './recruit-list/reports/add-report/add-report.component';
 import { DeleteRecruitComponent } from './recruit-list/delete-recruit/delete-recruit.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { SchedulerComponent } from './scheduler/scheduler/scheduler.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -28,6 +29,8 @@ const routes: Routes = [
   { path: 'addaccount', component: AddAccountComponent, data: {title: 'Add Account'}, canActivate: [AuthGuard] },
   { path: 'updateaccount/:id', component: AddAccountComponent, data: {title: 'Update Account'}, canActivate: [AuthGuard] },
   { path: 'deleteaccount/:id', component: DeleteAccountComponent, data: {title: 'Update Account'}, canActivate: [AuthGuard] },
+
+  { path: 'schedule', component: SchedulerComponent, data: {title: 'Scheduler'}, canActivate: [AuthGuard] },
 
   // Displays specific account for update
   { path: 'recruits/detail/:id', component: DetailsComponent, data: {title: 'Recruit Details'}, canActivate: [AuthGuard] },
