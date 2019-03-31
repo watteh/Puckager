@@ -119,19 +119,21 @@
                                 </thead>
                                 <tbody>
                                     <tr *ngFor='let goalieReport of goalieReports' class="table table-bordered table-striped">
-                                        <td>{{ goalieReport.skating }}</td>
-                                        <td>{{ goalieReport.agilitySpeed }}</td>
-                                        <td>{{ goalieReport.trafficReboundControl }}</td>
-                                        <td>{{ goalieReport.hockeySense }}</td>
-                                        <td>{{ goalieReport.strengthFitness }}</td>
-                                        <td>{{ goalieReport.mentalToughness }}</td>
-                                        <td>{{ goalieReport.battleMentality }}</td>
-                                        <td>{{ goalieReport.overallRanking }}</td>
-                                        <td>{{ goalieReport.notes }}</td>
-                                        <td>{{ goalieReport.reportDate }}</td>
-                                        <td>{{ goalieReport.submittedBy }}</td>
-                                        <td id="viewGoalie"><a class="btn btn-primary" href="/report/{{ recruit._id }}/{{ goalieReport._id }}">View</a></td>
-                                        <td id="editGoalie"><a class="btn btn-warning" href="/editreport/{{ recruit._id }}/{{ goalieReport._id }}">Edit</a></td>
+                                        <ng-container *ngIf='user.username === goalieReport.submittedBy || user.accountType === "Admin"'>
+                                            <td>{{ goalieReport.skating }}</td>
+                                            <td>{{ goalieReport.agilitySpeed }}</td>
+                                            <td>{{ goalieReport.trafficReboundControl }}</td>
+                                            <td>{{ goalieReport.hockeySense }}</td>
+                                            <td>{{ goalieReport.strengthFitness }}</td>
+                                            <td>{{ goalieReport.mentalToughness }}</td>
+                                            <td>{{ goalieReport.battleMentality }}</td>
+                                            <td>{{ goalieReport.overallRanking }}</td>
+                                            <td>{{ goalieReport.notes }}</td>
+                                            <td>{{ goalieReport.reportDate }}</td>
+                                            <td>{{ goalieReport.submittedBy }}</td>
+                                            <td id="viewGoalie"><a class="btn btn-primary" href="/report/{{ recruit._id }}/{{ goalieReport._id }}">View</a></td>
+                                            <td id="editGoalie"><a class="btn btn-warning" href="/editreport/{{ recruit._id }}/{{ goalieReport._id }}">Edit</a></td>
+                                        </ng-container>
                                     </tr>
                                 </tbody>
                             </table>
@@ -166,20 +168,22 @@
                                 </thead>
                                 <tbody>
                                     <tr *ngFor='let playerReport of playerReports' class="table table-bordered table-striped">
-                                        <td>{{ playerReport.skating }}</td>
-                                        <td>{{ playerReport.individualOffensiveSkills }}</td>
-                                        <td>{{ playerReport.individualDefensiveSkills }}</td>
-                                        <td>{{ playerReport.offensiveTeamPlay }}</td>
-                                        <td>{{ playerReport.defensiveTeamPlay }}</td>
-                                        <td>{{ playerReport.hockeySense }}</td>
-                                        <td>{{ playerReport.strengthPower }}</td>
-                                        <td>{{ playerReport.workEthic }}</td>
-                                        <td>{{ playerReport.overallRanking }}</td>
-                                        <td>{{ playerReport.notes }}</td>
-                                        <td>{{ playerReport.reportDate }}</td>
-                                        <td>{{ playerReport.submittedBy }}</td>
-                                        <td id="viewPlayer"><a class="btn btn-primary" href="/report/{{ recruit._id }}/{{ playerReport._id }}">View</a></td>
-                                        <td id="editPlayer"><a class="btn btn-warning" href="/editreport/{{ recruit._id }}/{{ playerReport._id }}">Edit</a></td>
+                                        <ng-container *ngIf='user.username === playerReport.submittedBy || user.accountType !== "Scout"'>
+                                            <td>{{ playerReport.skating }}</td>
+                                            <td>{{ playerReport.individualOffensiveSkills }}</td>
+                                            <td>{{ playerReport.individualDefensiveSkills }}</td>
+                                            <td>{{ playerReport.offensiveTeamPlay }}</td>
+                                            <td>{{ playerReport.defensiveTeamPlay }}</td>
+                                            <td>{{ playerReport.hockeySense }}</td>
+                                            <td>{{ playerReport.strengthPower }}</td>
+                                            <td>{{ playerReport.workEthic }}</td>
+                                            <td>{{ playerReport.overallRanking }}</td>
+                                            <td>{{ playerReport.notes }}</td>
+                                            <td>{{ playerReport.reportDate }}</td>
+                                            <td>{{ playerReport.submittedBy }}</td>
+                                            <td id="viewPlayer"><a class="btn btn-primary" href="/report/{{ recruit._id }}/{{ playerReport._id }}">View</a></td>
+                                            <td id="editPlayer"><a class="btn btn-warning" href="/editreport/{{ recruit._id }}/{{ playerReport._id }}">Edit</a></td>
+                                        </ng-container>
                                     </tr>
                                 </tbody>
                             </table>

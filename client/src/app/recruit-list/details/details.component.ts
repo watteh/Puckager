@@ -6,6 +6,7 @@ import { GoalieReportSchema } from '../../../models/recruit';
 import { RecruitService } from '../../services/recruit.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute } from '@angular/router';
+import { User } from 'models/user';
 
 @Component({
   selector: 'app-details',
@@ -16,6 +17,8 @@ export class DetailsComponent implements OnInit {
   title: string;
   recruit: RecruitSchema;
   position: boolean;
+
+  user: User;
 
   playerReports: PlayerReportSchema[];
   playerReport: PlayerReportSchema;
@@ -29,6 +32,8 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
     this.title = this.activatedRoute.snapshot.data.title;
     this.recruit = new RecruitSchema();
+
+    this.user = JSON.parse(localStorage.getItem('user'));
 
     this.playerReports = new Array<PlayerReportSchema>();
     this.goalieReports = new Array<GoalieReportSchema>();
