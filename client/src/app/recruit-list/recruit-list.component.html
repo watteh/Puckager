@@ -1,56 +1,57 @@
-<div *ngIf='isLoggedIn()' class="container-fluid">
+<div class="container my-5">
     <div class="row">
-        <!-- Search Icon -->
-        <div class="form-group" style="float:left; margin: 15px; margin-right: 0px">
-            <p>
-                <fa name="search"></fa>
-            </p>
+        <div *ngIf='isLoggedIn()' class="container-fluid">
+            <div class="row">
+                <!-- Search Icon -->
+                <div class="form-group" style="float:left; margin: 15px; margin-right: 0px">
+                    <p>
+                        <fa name="search"></fa>
+                    </p>
+                </div>
+                <!-- Search Name Textbox -->
+                <div class="form-group" style="float: left; margin: 10px">
+                    <input type="text" class="form-control" placeholder="Search By Name" style="width:300px" [(ngModel)]="name" />
+                </div>
+                <div>
+                    <a class="btn btn-success" type="submit" routerLink="/recruits/addrecruit">Add</a>
+                </div>
+            </div>
         </div>
-        <!-- Search Name Textbox -->
-        <div class="form-group" style="float: left; margin: 10px">
-            <input type="text" class="form-control" placeholder="Search By Name" style="width:300px" [(ngModel)]="name" />
-        </div>
-        <div>
-            <a class="btn btn-success" type="submit" routerLink="/recruits/addrecruit">Add</a>
-        </div>
-        <!-- </tr> -->
-        <!-- </table> -->
+
+        <table id="recruitTable" class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th style="text-align: center">Jersey Number</th>
+                    <th style="text-align: center">First Name</th>
+                    <th style="text-align: center">Last Name</th>
+                    <th style="text-align: center">Birth Year</th>
+                    <th style="text-align: center">Position</th>
+                    <th style="text-align: center">Status</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor='let recruit of recruits | recruitFilter:name, position'>
+                    <td>{{recruit.jerseyNumber}}</td>
+                    <td>{{recruit.firstName}}</td>
+                    <td>{{recruit.lastName}}</td>
+                    <td>{{recruit.birthYear}}</td>
+                    <td>{{recruit.position}}</td>
+                    <td>{{recruit.status}}</td>
+                    <td>
+                        <a class="btn btn-primary" type="submit" routerLink="detail/{{ recruit._id }}">View</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-warning" type="submit" routerLink="edit/{{ recruit._id }}">Edit</a>
+                    </td>
+                    <td>
+                        <a (click)="onDeleteClick()" class="btn btn-danger" type="submit" routerLink="/recruits/delete/{{ recruit._id }}">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
-
-<table id="recruitTable" class="table table-bordered table-striped">
-    <thead class="thead-dark">
-        <tr>
-            <th style="text-align: center">Jersey Number</th>
-            <th style="text-align: center">First Name</th>
-            <th style="text-align: center">Last Name</th>
-            <th style="text-align: center">Birth Year</th>
-            <th style="text-align: center">Position</th>
-            <th style="text-align: center">Status</th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-
-    <tbody>
-
-        <tr *ngFor='let recruit of recruits | recruitFilter:name, position'>
-            <td>{{recruit.jerseyNumber}}</td>
-            <td>{{recruit.firstName}}</td>
-            <td>{{recruit.lastName}}</td>
-            <td>{{recruit.birthYear}}</td>
-            <td>{{recruit.position}}</td>
-            <td>{{recruit.status}}</td>
-            <td>
-                <a class="btn btn-primary" type="submit" routerLink="detail/{{ recruit._id }}">View</a>
-            </td>
-            <td>
-                <a class="btn btn-warning" type="submit" routerLink="edit/{{ recruit._id }}">Edit</a>
-            </td>
-            <td>
-                <a (click)="onDeleteClick()" class="btn btn-danger" type="submit" routerLink="/recruits/delete/{{ recruit._id }}">Delete</a>
-            </td>
-        </tr>
-    </tbody>
-</table>

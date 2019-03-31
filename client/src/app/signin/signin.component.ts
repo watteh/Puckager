@@ -21,6 +21,7 @@ export class SigninComponent implements OnInit {
   onLoginSubmit(): void {
     this.authService.authenticateUser(this.user).subscribe(data => {
       if (data.success) {
+        console.log(data.user);
         this.authService.storeUserData(data.token, data.user);
         this.flashMessage.show(data.msg, {cssClass: 'alert-success', timeOut: 3000});
         this.router.navigate(['/about']);

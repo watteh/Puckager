@@ -13,6 +13,7 @@ export class AddAccountComponent implements OnInit {
 
   title: string;
   user: User;
+  current: User;
 
   constructor(private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router,
               private flashMessage: FlashMessagesService) { }
@@ -20,6 +21,7 @@ export class AddAccountComponent implements OnInit {
   ngOnInit() {
     this.title = this.activatedRoute.snapshot.data.title;
     this.user = new User();
+    this.current = new User();
 
     this.activatedRoute.params.subscribe(params => {
       this.user._id = params.id;
@@ -28,6 +30,9 @@ export class AddAccountComponent implements OnInit {
     if (this.title === 'Update Account') {
       this.getUser(this.user);
     }
+
+    this.current = JSON.parse(localStorage.getItem('user'));
+
   }
 
   getUser(user: User): void {

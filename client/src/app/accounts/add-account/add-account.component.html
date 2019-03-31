@@ -1,5 +1,5 @@
 <div class="container my-5">
-    <h4>Add Account</h4>
+    <h4>{{title}}</h4>
     <div class="formBody">
         <form class="form" (submit)="onAccountPageSubmit()">
             <div class="form-group row">
@@ -40,18 +40,19 @@
             <div class="form-group row">
                 <Label ID="lblAccountType" for="ddlAccountType" CssClass="col-2 col-form-label">Account Type:</Label>
                 <div class="col-3">
-                    <select [(ngModel)]="user.accountType" value="{{user.accountType}}" name="accountType" ID="ddlAccountType" type="text" CssClass="form-control">
-                        <option Value="None" Selected="True">None</option>
-                        <option Value="Admin">Admin</option>
-                        <option Value="Coach">Coach</option>
-                        <option Value="Scout">Scout</option>
-                </select>
-                </div>
-                <div class="col-4">
+                    <label *ngIf='user.accountType === "Admin" || current.accountType !== "Admin"; else accountChange'>{{user.accountType}}</label>
+                    <ng-template #accountChange>
+                        <select [(ngModel)]="user.accountType" value="{{user.accountType}}" name="accountType" ID="ddlAccountType" type="text" CssClass="form-control">
+                            <option Value="None" Selected="True">None</option>
+                            <option Value="Admin">Admin</option>
+                            <option Value="Coach">Coach</option>
+                            <option Value="Scout">Scout</option>
+                        </select>
+                    </ng-template>
                 </div>
                 <div>
                     <button ID="btnAddAccount" type='submit' class="formButton btn btn-primary">{{title}}</button>
-                    <a ID="BtnCancel" class="formButton" routerLink="/accounts">Cancel</a>
+                    <a ID="BtnCancel" class="formButton btn btn-warning" routerLink="/accounts">Cancel</a>
                 </div>
             </div>
         </form>

@@ -6,7 +6,6 @@ import { AuthService } from 'app/services/auth.service';
 import { UserService } from '../services/user.service';
 import { RecruitService } from '../services/recruit.service';
 
-
 @Component({
   selector: 'app-accounts',
   templateUrl: './accounts.component.html',
@@ -16,6 +15,7 @@ export class AccountsComponent implements OnInit {
 
   users: User[];
   user: User;
+  current: User;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router,
               private flashMessage: FlashMessagesService, private authService: AuthService,
@@ -36,8 +36,13 @@ export class AccountsComponent implements OnInit {
   displayUserList(): void {
     this.userService.getList().subscribe(data => {
       if (data.success) {
-        console.log(data);
         this.users = data.userList;
+        this.current = JSON.parse(localStorage.getItem('user'));
+        console.log(this.current);
+        if (this.current.accountType !== 'Admin') {
+          const navigate = '/accountdetails/' + this.current._id;
+          this.router.navigate([navigate]);
+        }
       } else {
         this.flashMessage.show('User must be logged in.', {cssClass: 'alert-danger', timeOut: 3000});
       }

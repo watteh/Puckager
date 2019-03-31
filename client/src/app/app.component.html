@@ -1,27 +1,30 @@
 <div *ngIf='header'>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <button class="navbar-toggler navbar-toggler-right" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-    </button>
-        <a class="navbar-brand" routerLink="/about">PUCKAGER</a>
+        <a class="navbar-brand" routerLink="/">PUCKAGER</a>
+        <button (click)="isNavbarCollapsed = !isNavbarCollapsed" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div [ngbCollapse]="isNavbarCollapsed" class="navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li>
-                    <a class="nav-item" routerLink="/about" routerLinkActive="active"><i class="fa fa-lg fa-question-circle"></i> About</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
+                    <a routerLink="/about" routerLinkActive="active"><i class="fa fa-lg fa-question-circle"></i> About</a>
                 </li>
-                <li>
-                    <a class="nav-item" routerLink="/recruits" routerLinkActive="active"><i class="fa fa-lg fa-users"></i> Recruits</a>
+                <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
+                    <a routerLink="/recruits" routerLinkActive="active"><i class="fa fa-lg fa-list"></i> Recruits</a>
                 </li>
-                <li *ngIf="isLoggedIn()" class="nav-text text-white">
+                <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
+                    <a routerLink="/accounts" routerLinkActive="active"><i class="fa fa-lg fa-users"></i> Account</a>
+                </li>
+                <li *ngIf="isLoggedIn()" class="navbar-text text-success ml-5 mr-5 d-none d-lg-inline">
                     <i class="fa fg-lg fa-user"></i> Welcome, {{ user.displayName }}
                 </li>
-                <li *ngIf="isLoggedIn()">
-                    <a class="nav-item" (click)="onLogoutClick()" routerLink="/logout">
+                <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline" *ngIf="isLoggedIn()">
+                    <a (click)="onLogoutClick()" routerLink="/logout">
                         <i class="fa fa-lg fa-sign-out"></i> Logout</a>
                 </li>
-                <li *ngIf="!isLoggedIn()">
-                    <a class="nav-item" routerLinkActive="active" routerLink="/login">
+                <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline" *ngIf="!isLoggedIn()">
+                    <a routerLinkActive="active" routerLink="/login">
                         <i class="fa fa-lg fa-sign-in"></i> Login</a>
                 </li>
             </ul>

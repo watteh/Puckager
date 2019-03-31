@@ -1,5 +1,5 @@
 <div class="container my-5">
-    <h4>Add Account</h4>
+    <h4>{{ title }}</h4>
     <div class="formBody">
         <div class="form-group row">
             <label ID="lblUsername" for="txtUsername" CssClass="col-2 col-form-label">User Name:</label>
@@ -25,9 +25,11 @@
                 <label ID="txtAccountType" type="text" CssClass="form-control">{{ user.accountType }}</label>
             </div>
         </div>
+        <div class="row">
+            <a *ngIf='current.accountType === Admin' ID="BtnBack" class="btn btn-primary" routerLink="/accounts">Back</a>
+            <a *ngIf='current.accountType !== Admin' ID="BtnBack" class="btn btn-primary" routerLink="/about">Back</a>
+            <a ID="BtnUpdate" class="btn btn-warning" routerLink="/updateaccount/{{ user._id }}">Update Account</a>
+            <a ID="BtnDelete" class="btn btn-danger" routerLink="/deleteaccount/{{ user._id }}">Delete</a>
+        </div>
     </div>
-</div>
-<div class="row">
-    <a ID="BtnBack" class="btn btn-primary" routerLink="/accounts">Back</a>
-    <a ID="BtnDelete" class="btn btn-primary" routerLink="/deleteaccount/{{ user._id }}">Delete</a>
 </div>

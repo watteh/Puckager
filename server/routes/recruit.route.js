@@ -327,10 +327,11 @@ recruitRouter.post('/login', (req, res, next) => {
             }
 
             const payload = {
-                id: user._id,
+                _id: user._id,
                 displayName: user.displayName,
                 username: user.username,
-                email: user.email
+                email: user.email,
+                accountType: user.accountType
             }
 
             const authToken = jwt.sign(payload, DB.secret, {
@@ -371,7 +372,8 @@ recruitRouter.post('/registration', (req, res, next) => {
     let newUser = new User({
         username: req.body.username,
         email: req.body.email,
-        displayName: req.body.displayName
+        displayName: req.body.displayName,
+        accountType: 'None'
     });
 
     User.register(newUser, req.body.password, (err) => {
@@ -412,10 +414,10 @@ recruitRouter.get('/accounts', (req, res, next) => {
         } else {
             return res.json({
                 success: true,
-                msg: `Recruit List Displayed Successfully`,
+                msg: `Account List Displayed Successfully`,
                 userList: userList,
-                user: req.user,
-                displayName: req.user ? req.user.displayName : ''
+                current: req.user,
+                displayName: req.body.name ? req.body.user.name : ''
             });
         }
     });
@@ -426,6 +428,7 @@ recruitRouter.get('/addaccount', (req, res, next) => {
     res.json({
         success: true,
         msg: 'Successfully displayed Add Page',
+        current: req.user,
         displayName: req.user ? req.user.displayName : ''
     });
 });
@@ -436,7 +439,8 @@ recruitRouter.post('/addaccount', (req, res, next) => {
     let newUser = new User({
         "username": req.body.username,
         "email": req.body.email,
-        "displayName": req.body.displayName
+        "displayName": req.body.displayName,
+        "accountType": req.body.accountType
     });
 
     User.register(newUser, req.body.password, (err) => {
@@ -453,6 +457,7 @@ recruitRouter.post('/addaccount', (req, res, next) => {
             // if no error exists, then registration is successful and user redirected
             return res.json({
                 success: true,
+                current: req.user,
                 msg: 'Registration successful!'
             });
         }
@@ -471,6 +476,7 @@ recruitRouter.get('/deleteaccount/:id', (req, res, next) => {
             return res.json({
                 success: true,
                 msg: 'Successfully deleted user',
+                current: req.user,
                 displayName: req.user ? req.user.displayName : ''
             });
         }
@@ -490,6 +496,7 @@ recruitRouter.get('/accountdetails/:id', (req, res, next) => {
                 success: true,
                 msg: 'Successfully displayed User',
                 user: userObject,
+                current: req.user,
                 displayName: req.user ? req.user.displayName : ''
             });
         }
@@ -509,6 +516,7 @@ recruitRouter.get('/updateaccount/:id', (req, res, next) => {
                 success: true,
                 msg: 'Successfully displayed user to edit',
                 user: userObject,
+                current: req.user,
                 displayName: req.user ? req.user.displayName : ''
             });
         }
@@ -522,7 +530,7 @@ recruitRouter.post('/updateaccount/:id', (req, res, next) => {
     User.update({ _id: id }, {
         $set: {
             username: req.body.username,
-            password: req.body.password, // *** Should this be set like in register?
+            password: req.body.password,
             email: req.body.email,
             displayName: req.body.displayName,
             accountType: req.body.accountType
@@ -535,6 +543,7 @@ recruitRouter.post('/updateaccount/:id', (req, res, next) => {
             res.json({
                 success: true,
                 msg: 'Successfully updated user',
+                current: req.user,
                 displayName: req.user ? req.user.displayName : ''
             });
         }
