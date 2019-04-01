@@ -6,7 +6,8 @@
     "private": true,
     "scripts": {
         "start": "node server.js",
-        "start:server": "nodemon server.js"
+        "start:server": "nodemon server.js",
+        "start:client": "cd client && ng serve -- --proxy-config src/proxy.conf.json"
     },
     "engines": {
         "node": "^10.15.0",

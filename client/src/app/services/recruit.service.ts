@@ -18,7 +18,7 @@ export class RecruitService {
   // *** REMINDER - must change endpoint uri to host url for it to work
   // private uri = 'http://localhost:3000/api/';
   private uri = 'https://puckager.herokuapp.com/api/';
-  private djangoUrl = 'http://localhost:4200/twitter';
+  private djangoUrl = 'https://packager-crawler.herokuapp.com/twitter';
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -95,13 +95,8 @@ export class RecruitService {
       "player_name": playerName
     }
     console.log('PAYLOAD IN RECRUIT SERVICE', payLoad);
-    // this.http.post('http://localhost:4200/twitter', payLoad,  djangoHttpOptions)
-    this.http.post<any>(this.djangoUrl, payLoad,  djangoHttpOptions)
-    // .subscribe(response => {
-    //   console.log(response);
-    // }, error => {
-    //   console.log(error);
-    // })
+    console.log(djangoHttpOptions);
+    this.http.post<any>(this.djangoUrl, payLoad,  this.httpOptions)
     .pipe(map(tweetData => {
       return {
         tweets: tweetData.map(tweet => {
