@@ -84,24 +84,24 @@ export class RecruitService {
   }
 
   public getPlayerTweets(playerName: string)  {
-    // const djangoHttpOptions = {
-    //   headers: new HttpHeaders({
-    //     'Content-Type': 'application/json',
-    //     'Access-Control-Allow-Origin': '*',
-    //     'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
-    //     'Access-Control-Allow-Methods': 'POST'
-    //   })
-    // };
+    const djangoHttpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+        'Access-Control-Allow-Methods': 'POST'
+      })
+    };
 
-    this.loadToken();
-    this.httpOptions.headers = this.httpOptions.headers.set('Access-Control-Allow-Methods', 'POST');
+    // this.loadToken();
+    // this.httpOptions.headers = this.httpOptions.headers.set('Access-Control-Allow-Methods', 'POST');
 
     const payLoad = {
       player_name: playerName
     };
     console.log('PAYLOAD IN RECRUIT SERVICE', payLoad);
     console.log(this.httpOptions);
-    this.http.post<any>(this.djangoUrl, payLoad,  this.httpOptions)
+    this.http.post<any>(this.djangoUrl, payLoad, djangoHttpOptions)
     .pipe(map(tweetData => {
       return {
         tweets: tweetData.map(tweet => {
