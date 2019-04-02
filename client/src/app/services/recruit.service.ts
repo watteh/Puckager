@@ -18,7 +18,7 @@ export class RecruitService {
   // *** REMINDER - must change endpoint uri to host url for it to work
   // private uri = 'http://localhost:3000/api/';
   private uri = 'https://puckager.herokuapp.com/api/';
-  private djangoUrl = 'https://packager-crawler.herokuapp.com/twitter';
+  private djangoUrl = 'https://packager-crawler.herokuapp.com/twitter/';
   // private djangoUrl = 'https://puckager.herokuapp.com/twitter';
 
   private httpOptions = {
@@ -99,8 +99,7 @@ export class RecruitService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Origin, X-Requested-With,' +
-        'Content-Type, Accept, Accept-Encoding, Authorization, dnt, User-Agent, X-Csrftoken, X-Request-With',
+        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
         'Access-Control-Allow-Methods': 'POST'
       })
     };
