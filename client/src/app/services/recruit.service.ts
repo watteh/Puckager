@@ -84,7 +84,7 @@ export class RecruitService {
   }
 
   public getPlayerTweets(playerName: string)  {
-    this.loadToken();
+    // this.loadToken();
 
     // const djangoHttpOptions = {
     //   headers: new HttpHeaders({
