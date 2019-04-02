@@ -11,12 +11,12 @@ export class RecruitSocialComponent implements OnInit {
 
   tweets = [];
 
-  private tweetSub: Subscription;
+  // private tweetSub: Subscription;
 
   constructor(private rs: RecruitService) { }
 
   ngOnInit() {
-    this.tweetSub = this.rs.getTweetUpdateListener().subscribe((tweetData) => {
+    this.rs.getTweetUpdateListener().subscribe((tweetData) => {
       this.tweets = tweetData.tweets;
       console.log(this.tweets);
     });
