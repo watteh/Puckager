@@ -92,7 +92,7 @@ export class RecruitService {
       player_name: playerName
     };
 
-    this.http.post<any>(this.djangoUrl, payLoad) // , this.httpOptions
+    this.http.post<any>(this.djangoUrl, payLoad, this.httpOptions)
     .pipe(map(tweetData => {
       return {
         tweets: tweetData.map(tweet => {
