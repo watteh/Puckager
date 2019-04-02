@@ -4,6 +4,7 @@ import { RecruitSchema, PlayerReportSchema, GoalieReportSchema } from '../../../
 import { RecruitService } from '../../../services/recruit.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute } from '@angular/router';
+import { User } from 'models/user';
 
 @Component({
   selector: 'app-add-report',
@@ -15,6 +16,7 @@ export class AddReportComponent implements OnInit {
   recruit: RecruitSchema;
   position: boolean;
   edit: boolean;
+  current: User;
 
   playerReport: PlayerReportSchema;
   goalieReport: GoalieReportSchema;
@@ -27,6 +29,7 @@ export class AddReportComponent implements OnInit {
     this.recruit = new RecruitSchema();
     this.playerReport = new PlayerReportSchema();
     this.goalieReport = new GoalieReportSchema();
+    this.current = JSON.parse(localStorage.getItem('user'));
 
     this.activatedRoute.params.subscribe(params => {
       if (this.title === 'Add Report') {
@@ -75,6 +78,7 @@ export class AddReportComponent implements OnInit {
   }
 
   onReportSubmit(): void {
+    this.playerReport.submittedBy = this.current.username;
     if (this.edit) {
       if (this.position) {
         this.rs.editGoalieReport(this.goalieReport, this.recruit).subscribe(data => {

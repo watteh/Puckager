@@ -1,273 +1,274 @@
-<div class="container-fluid">
-
-    <Label ID="lblLoggedInUser"></Label>
-
-    <div class="formBody">
-        <form class="form" (submit)="onReportSubmit()">
-            <div class="form-group row">
-                <Label ID="lblRecruitID" for="txtRecruitID" CssClass="col-2 col-form-label">Recruit ID:</Label>
-                <div class="col-3">
-                    <label ID="lblRecruitIDData" for="txtRecruitIDData" CssClass="col-2 col-form-label">{{ recruit._id }}</label>
+<div class="container my-5">
+    <div class="row">
+        <div class="formBody">
+            <form class="form" (submit)="onReportSubmit()">
+                <div class="form-group row">
+                    <Label ID="lblRecruitID" for="txtRecruitID" CssClass="col-2 col-form-label">Recruit ID:</Label>
+                    <div class="col-3">
+                        <label ID="lblRecruitIDData" for="txtRecruitIDData" CssClass="col-2 col-form-label">{{ recruit._id }}</label>
+                    </div>
                 </div>
-            </div>
-
-            <div class="form-group row">
-                <Label ID="lblFirstName" for="txtFirstName" CssClass="col-2 col-form-label">First Name:</Label>
-                <div class="col-3">
-                    <label ID="lblFirstNameData" for="txtFirstNameData" CssClass="col-2 col-form-label">{{ recruit.firstName }}</label>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <Label ID="lblLastName" for="txtLastName" CssClass="col-2 col-form-label">Last Name:</Label>
-                <div class="col-3">
-                    <label ID="lblLastNameData" for="txtLastNameData" CssClass="col-2 col-form-label">{{ recruit.lastName }}</label>
-                </div>
-            </div>
-            <div *ngIf="position">
 
                 <div class="form-group row">
-                    <Label ID="lblSkating" for="txtSkating" CssClass="col-2 col-form-label">Skating:</Label>
+                    <Label ID="lblFirstName" for="txtFirstName" CssClass="col-2 col-form-label">First Name:</Label>
                     <div class="col-3">
-                        <select [(ngModel)]="goalieReport.skating" value="{{goalieReport.skating}}" name="skating" ID="dropdownSkating" type="text" CssClass="form-control">
+                        <label ID="lblFirstNameData" for="txtFirstNameData" CssClass="col-2 col-form-label">{{ recruit.firstName }}</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <Label ID="lblLastName" for="txtLastName" CssClass="col-2 col-form-label">Last Name:</Label>
+                    <div class="col-3">
+                        <label ID="lblLastNameData" for="txtLastNameData" CssClass="col-2 col-form-label">{{ recruit.lastName }}</label>
+                    </div>
+                </div>
+                <div *ngIf="position">
+
+                    <div class="form-group row">
+                        <Label ID="lblSkating" for="txtSkating" CssClass="col-2 col-form-label">Skating:</Label>
+                        <div class="col-3">
+                            <select [(ngModel)]="goalieReport.skating" value="{{goalieReport.skating}}" name="skating" ID="dropdownSkating" type="text" CssClass="form-control">
                         <option Selected="True" Value="1">1</option>
                         <option Value="2">2</option>
                         <option Value="3">3</option>
                         <option Value="4">4</option>
                         <option Value="5">5</option>
                     </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group row">
-                    <Label ID="lblAgilitySpeed" for="txtAgilitySpeed" CssClass="col-2 col-form-label">Agility Speed:</Label>
-                    <div class="col-3">
-                        <select [(ngModel)]="goalieReport.agilitySpeed" value="{{goalieReport.agilitySpeed}}" name="agilitySpeed" ID="dropdownAgilitySpeed" type="text" CssClass="form-control">
+                    <div class="form-group row">
+                        <Label ID="lblAgilitySpeed" for="txtAgilitySpeed" CssClass="col-2 col-form-label">Agility Speed:</Label>
+                        <div class="col-3">
+                            <select [(ngModel)]="goalieReport.agilitySpeed" value="{{goalieReport.agilitySpeed}}" name="agilitySpeed" ID="dropdownAgilitySpeed" type="text" CssClass="form-control">
                         <option Selected="True" Value="1">1</option>
                         <option Value="2">2</option>
                         <option Value="3">3</option>
                         <option Value="4">4</option>
                         <option Value="5">5</option>
                     </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group row">
-                    <Label ID="lblTrafficReboundControl" for="txtTrafficReboundControl" CssClass="col-2 col-form-label">Traffic Rebound Control:</Label>
-                    <div class="col-3">
-                        <select [(ngModel)]="goalieReport.trafficReboundControl" value="{{goalieReport.trafficReboundControl}}" name="trafficReboundControl" ID="dropdownTrafficReboundControl" type="text" CssClass="form-control">
+                    <div class="form-group row">
+                        <Label ID="lblTrafficReboundControl" for="txtTrafficReboundControl" CssClass="col-2 col-form-label">Traffic Rebound Control:</Label>
+                        <div class="col-3">
+                            <select [(ngModel)]="goalieReport.trafficReboundControl" value="{{goalieReport.trafficReboundControl}}" name="trafficReboundControl" ID="dropdownTrafficReboundControl" type="text" CssClass="form-control">
                         <option Selected="True" Value="1">1</option>
                         <option Value="2">2</option>
                         <option Value="3">3</option>
                         <option Value="4">4</option>
                         <option Value="5">5</option>
                     </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group row">
-                    <Label ID="lblHockeySense" for="txtHockeySense" CssClass="col-2 col-form-label">Hockey Sense:</Label>
-                    <div class="col-3">
-                        <select [(ngModel)]="goalieReport.hockeySense" value="{{goalieReport.hockeySense}}" name="hockeySense" ID="dropdownHockeySense" type="text" CssClass="form-control">
+                    <div class="form-group row">
+                        <Label ID="lblHockeySense" for="txtHockeySense" CssClass="col-2 col-form-label">Hockey Sense:</Label>
+                        <div class="col-3">
+                            <select [(ngModel)]="goalieReport.hockeySense" value="{{goalieReport.hockeySense}}" name="hockeySense" ID="dropdownHockeySense" type="text" CssClass="form-control">
                         <option Selected="True" Value="1">1</option>
                         <option Value="2">2</option>
                         <option Value="3">3</option>
                         <option Value="4">4</option>
                         <option Value="5">5</option>
                     </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group row">
-                    <Label ID="lblStrengthFitness" for="txtStrengthFitness" CssClass="col-2 col-form-label">Strength Fitness:</Label>
-                    <div class="col-3">
-                        <select [(ngModel)]="goalieReport.strengthFitness" value="{{goalieReport.strengthFitness}}" name="strengthFitness" ID="dropdownStrengthFitness" type="text" CssClass="form-control">
+                    <div class="form-group row">
+                        <Label ID="lblStrengthFitness" for="txtStrengthFitness" CssClass="col-2 col-form-label">Strength Fitness:</Label>
+                        <div class="col-3">
+                            <select [(ngModel)]="goalieReport.strengthFitness" value="{{goalieReport.strengthFitness}}" name="strengthFitness" ID="dropdownStrengthFitness" type="text" CssClass="form-control">
                         <option Selected="True" Value="1">1</option>
                         <option Value="2">2</option>
                         <option Value="3">3</option>
                         <option Value="4">4</option>
                         <option Value="5">5</option>
                     </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group row">
-                    <Label ID="lblMentalToughness" for="txtMentalToughness" CssClass="col-2 col-form-label">Mental Toughness:</Label>
-                    <div class="col-3">
-                        <select [(ngModel)]="goalieReport.mentalToughness" value="{{goalieReport.mentalToughness}}" name="mentalToughness" ID="dropdownMentalToughness" type="text" CssClass="form-control">
+                    <div class="form-group row">
+                        <Label ID="lblMentalToughness" for="txtMentalToughness" CssClass="col-2 col-form-label">Mental Toughness:</Label>
+                        <div class="col-3">
+                            <select [(ngModel)]="goalieReport.mentalToughness" value="{{goalieReport.mentalToughness}}" name="mentalToughness" ID="dropdownMentalToughness" type="text" CssClass="form-control">
                         <option Selected="True" Value="1">1</option>
                         <option Value="2">2</option>
                         <option Value="3">3</option>
                         <option Value="4">4</option>
                         <option Value="5">5</option>
                     </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group row">
-                    <Label ID="lblBattleMentality" for="txtBattleMentality" CssClass="col-2 col-form-label">Battle Mentality:</Label>
-                    <div class="col-3">
-                        <select [(ngModel)]="goalieReport.battleMentality" value="{{goalieReport.battleMentality}}" name="battleMentality" ID="dropdownBattleMentality" type="text" CssClass="form-control">
+                    <div class="form-group row">
+                        <Label ID="lblBattleMentality" for="txtBattleMentality" CssClass="col-2 col-form-label">Battle Mentality:</Label>
+                        <div class="col-3">
+                            <select [(ngModel)]="goalieReport.battleMentality" value="{{goalieReport.battleMentality}}" name="battleMentality" ID="dropdownBattleMentality" type="text" CssClass="form-control">
                         <option Selected="True" Value="1">1</option>
                         <option Value="2">2</option>
                         <option Value="3">3</option>
                         <option Value="4">4</option>
                         <option Value="5">5</option>
                     </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group row">
-                    <Label ID="lblOverallRanking" for="txtOverallRanking" CssClass="col-2 col-form-label">Overall Ranking:</Label>
-                    <div class="col-3">
-                        <select [(ngModel)]="goalieReport.overallRanking" value="{{goalieReport.overallRanking}}" name="overallRanking" ID="dropdownOverallRanking" type="text" CssClass="form-control">
+                    <div class="form-group row">
+                        <Label ID="lblOverallRanking" for="txtOverallRanking" CssClass="col-2 col-form-label">Overall Ranking:</Label>
+                        <div class="col-3">
+                            <select [(ngModel)]="goalieReport.overallRanking" value="{{goalieReport.overallRanking}}" name="overallRanking" ID="dropdownOverallRanking" type="text" CssClass="form-control">
                         <option Selected="True" Value="1">1</option>
                         <option Value="2">2</option>
                         <option Value="3">3</option>
                         <option Value="4">4</option>
                         <option Value="5">5</option>
                     </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <Label ID="lblNotes" for="txtNotes" CssClass="col-2 col-form-label">Notes:</Label>
+                        <div class="col-3">
+                            <input [(ngModel)]="goalieReport.notes" value="{{goalieReport.notes}}" name="notes" ID="txtNotes" TextMode="MultiLine" Width="500px">
+                        </div>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <Label ID="lblNotes" for="txtNotes" CssClass="col-2 col-form-label">Notes:</Label>
-                    <div class="col-3">
-                        <input [(ngModel)]="goalieReport.notes" value="{{goalieReport.notes}}" name="notes" ID="txtNotes" TextMode="MultiLine" Width="500px">
-                    </div>
-                </div>
-            </div>
-            <div *ngIf="!position">
-                <div class="form-group row">
-                    <Label ID="lblSkating" for="txtSkating" CssClass="col-2 col-form-label">Skating:</Label>
-                    <div class="col-3">
-                        <select [(ngModel)]="playerReport.skating" value="{{playerReport.skating}}" name="skating" ID="dropdownSkating" type="text" CssClass="form-control">
+                <div *ngIf="!position">
+                    <div class="form-group row">
+                        <Label ID="lblSkating" for="txtSkating" CssClass="col-2 col-form-label">Skating:</Label>
+                        <div class="col-3">
+                            <select [(ngModel)]="playerReport.skating" value="{{playerReport.skating}}" name="skating" ID="dropdownSkating" type="text" CssClass="form-control">
                                     <option Selected="True" Value="1">1</option>
                                     <option Value="2">2</option>
                                     <option Value="3">3</option>
                                     <option Value="4">4</option>
                                     <option Value="5">5</option>
                                 </select>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <Label ID="lblIndividualOffesiveSkills" for="txtIndividualOffesiveSkills" CssClass="col-2 col-form-label">Individual Offensive Skills:</Label>
-                    <div class="col-3">
-                        <select [(ngModel)]="playerReport.individualOffensiveSkills" value="{{playerReport.individualOffensiveSkills}}" name="individualOffesiveSkills" ID="dropdownIndividualOffesiveSkills" type="text" CssClass="form-control">
+                    <div class="form-group row">
+                        <Label ID="lblIndividualOffesiveSkills" for="txtIndividualOffesiveSkills" CssClass="col-2 col-form-label">Individual Offensive Skills:</Label>
+                        <div class="col-3">
+                            <select [(ngModel)]="playerReport.individualOffensiveSkills" value="{{playerReport.individualOffensiveSkills}}" name="individualOffesiveSkills" ID="dropdownIndividualOffesiveSkills" type="text" CssClass="form-control">
                                 <option Selected="True" Value="1">1</option>
                                 <option Value="2">2</option>
                                 <option Value="3">3</option>
                                 <option Value="4">4</option>
                                 <option Value="5">5</option>
                             </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group row">
-                    <Label ID="lblIndividualDefensiveSkills" for="txtIndividualDefensiveSkills" CssClass="col-2 col-form-label">Individual Defensive Skills:</Label>
-                    <div class="col-3">
-                        <select [(ngModel)]="playerReport.individualDefensiveSkills" value="{{playerReport.individualDefensiveSkills}}" name="individualDefensiveSkills" ID="dropdownIndividualDefensiveSkills" type="text" CssClass="form-control">
+                    <div class="form-group row">
+                        <Label ID="lblIndividualDefensiveSkills" for="txtIndividualDefensiveSkills" CssClass="col-2 col-form-label">Individual Defensive Skills:</Label>
+                        <div class="col-3">
+                            <select [(ngModel)]="playerReport.individualDefensiveSkills" value="{{playerReport.individualDefensiveSkills}}" name="individualDefensiveSkills" ID="dropdownIndividualDefensiveSkills" type="text" CssClass="form-control">
                                 <option Selected="True" Value="1">1</option>
                                 <option Value="2">2</option>
                                 <option Value="3">3</option>
                                 <option Value="4">4</option>
                                 <option Value="5">5</option>
                             </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group row">
-                    <Label ID="lblOffensiveTeamPlay" for="txtOffensiveTeamPlay" CssClass="col-2 col-form-label">Offensive Team Play:</Label>
-                    <div class="col-3">
-                        <select [(ngModel)]="playerReport.offensiveTeamPlay" value="{{playerReport.offensiveTeamPlay}}" name="offensiveTeamPlay" ID="dropdownOffensiveTeamPlay" type="text" CssClass="form-control">
+                    <div class="form-group row">
+                        <Label ID="lblOffensiveTeamPlay" for="txtOffensiveTeamPlay" CssClass="col-2 col-form-label">Offensive Team Play:</Label>
+                        <div class="col-3">
+                            <select [(ngModel)]="playerReport.offensiveTeamPlay" value="{{playerReport.offensiveTeamPlay}}" name="offensiveTeamPlay" ID="dropdownOffensiveTeamPlay" type="text" CssClass="form-control">
                                 <option Selected="True" Value="1">1</option>
                                 <option Value="2">2</option>
                                 <option Value="3">3</option>
                                 <option Value="4">4</option>
                                 <option Value="5">5</option>
                             </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group row">
-                    <Label ID="lblDefensiveTeamPlay" for="txtDefensiveTeamPlay" CssClass="col-2 col-form-label">Defensive Team Play:</Label>
-                    <div class="col-3">
-                        <select [(ngModel)]="playerReport.defensiveTeamPlay" value="{{playerReport.defensiveTeamPlay}}" name="defensiveTeamPlay" ID="dropdownDefensiveTeamPlay" type="text" CssClass="form-control">
+                    <div class="form-group row">
+                        <Label ID="lblDefensiveTeamPlay" for="txtDefensiveTeamPlay" CssClass="col-2 col-form-label">Defensive Team Play:</Label>
+                        <div class="col-3">
+                            <select [(ngModel)]="playerReport.defensiveTeamPlay" value="{{playerReport.defensiveTeamPlay}}" name="defensiveTeamPlay" ID="dropdownDefensiveTeamPlay" type="text" CssClass="form-control">
                                 <option Selected="True" Value="1">1</option>
                                 <option Value="2">2</option>
                                 <option Value="3">3</option>
                                 <option Value="4">4</option>
                                 <option Value="5">5</option>
                             </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group row">
-                    <Label ID="lblHockeySense" for="txtHockeySense" CssClass="col-2 col-form-label">Hockey Sense:</Label>
-                    <div class="col-3">
-                        <select [(ngModel)]="playerReport.hockeySense" value="{{playerReport.hockeySense}}" name="hockeySense" ID="dropdownHockeySense" type="text" CssClass="form-control">
+                    <div class="form-group row">
+                        <Label ID="lblHockeySense" for="txtHockeySense" CssClass="col-2 col-form-label">Hockey Sense:</Label>
+                        <div class="col-3">
+                            <select [(ngModel)]="playerReport.hockeySense" value="{{playerReport.hockeySense}}" name="hockeySense" ID="dropdownHockeySense" type="text" CssClass="form-control">
                                 <option Selected="True" Value="1">1</option>
                                 <option Value="2">2</option>
                                 <option Value="3">3</option>
                                 <option Value="4">4</option>
                                 <option Value="5">5</option>
                             </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group row">
-                    <Label ID="lblStrengthPower" for="txtStrengthPower" CssClass="col-2 col-form-label">Strength Power:</Label>
-                    <div class="col-3">
-                        <select [(ngModel)]="playerReport.strengthPower" value="{{playerReport.strengthPower}}" name="strengthPower" ID="dropdownStrengthPower" type="text" CssClass="form-control">
+                    <div class="form-group row">
+                        <Label ID="lblStrengthPower" for="txtStrengthPower" CssClass="col-2 col-form-label">Strength Power:</Label>
+                        <div class="col-3">
+                            <select [(ngModel)]="playerReport.strengthPower" value="{{playerReport.strengthPower}}" name="strengthPower" ID="dropdownStrengthPower" type="text" CssClass="form-control">
                                 <option Selected="True" Value="1">1</option>
                                 <option Value="2">2</option>
                                 <option Value="3">3</option>
                                 <option Value="4">4</option>
                                 <option Value="5">5</option>
                             </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group row">
-                    <Label ID="lblWorkEthic" for="txtWorkEthic" CssClass="col-2 col-form-label">Work Ethic:</Label>
-                    <div class="col-3">
-                        <select [(ngModel)]="playerReport.workEthic" value="{{playerReport.workEthic}}" name="workEthic" ID="dropdownWorkEthic" type="text" CssClass="form-control">
+                    <div class="form-group row">
+                        <Label ID="lblWorkEthic" for="txtWorkEthic" CssClass="col-2 col-form-label">Work Ethic:</Label>
+                        <div class="col-3">
+                            <select [(ngModel)]="playerReport.workEthic" value="{{playerReport.workEthic}}" name="workEthic" ID="dropdownWorkEthic" type="text" CssClass="form-control">
                                 <option Selected="True" Value="1">1</option>
                                 <option Value="2">2</option>
                                 <option Value="3">3</option>
                                 <option Value="4">4</option>
                                 <option Value="5">5</option>
                             </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group row">
-                    <Label ID="lblOverallRanking" for="txtOverallRanking" CssClass="col-2 col-form-label">Overall Ranking:</Label>
-                    <div class="col-3">
-                        <select [(ngModel)]="playerReport.overallRanking" value="{{playerReport.overallRanking}}" name="overallRanking" ID="dropdownOverallRanking" type="text" CssClass="form-control">
+                    <div class="form-group row">
+                        <Label ID="lblOverallRanking" for="txtOverallRanking" CssClass="col-2 col-form-label">Overall Ranking:</Label>
+                        <div class="col-3">
+                            <select [(ngModel)]="playerReport.overallRanking" value="{{playerReport.overallRanking}}" name="overallRanking" ID="dropdownOverallRanking" type="text" CssClass="form-control">
                                 <option Selected="True" Value="1">1</option>
                                 <option Value="2">2</option>
                                 <option Value="3">3</option>
                                 <option Value="4">4</option>
                                 <option Value="5">5</option>
                             </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <Label ID="lblNotes" for="txtNotes" CssClass="col-2 col-form-label">Notes:</Label>
+                        <div class="col-3">
+                            <input [(ngModel)]="playerReport.notes" value="{{playerReport.notes}}" name="notes" ID="txtNotes" TextMode="MultiLine" Width="500px">
+                        </div>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <Label ID="lblNotes" for="txtNotes" CssClass="col-2 col-form-label">Notes:</Label>
-                    <div class="col-3">
-                        <input [(ngModel)]="playerReport.notes" value="{{playerReport.notes}}" name="notes" ID="txtNotes" TextMode="MultiLine" Width="500px">
-                    </div>
-                </div>
-            </div>
 
-            <div *ngIf="title === 'Add Report'">
-                <button ID="btnAddScoutingReport" class="btn">Add {{recruit.position}} Report</button>
-                <a ID="btnClear" class="btn" href="addreport/{{ recruit._id }}">Clear</a>
-            </div>
-            <div *ngIf="title !== 'Add Report'">
-                <button ID="btnAddScoutingReport" class="btn">Edit {{recruit.position}} Report</button>
-            </div>
-            <a ID="btnBack" class="btn" href="recruits/detail/{{ recruit._id }}">Back</a>
-        </form>
+                <div *ngIf="title === 'Add Report'">
+                    <button ID="btnAddScoutingReport" class="btn btn-primary">Add {{recruit.position}} Report</button>
+                    <a ID="btnClear" class="btn btn-info" href="addreport/{{ recruit._id }}">Clear</a>
+                    <a ID="btnBack" class="btn btn-warning" href="recruits/detail/{{ recruit._id }}">Back</a>
+                </div>
+                <div *ngIf="title !== 'Add Report'">
+                    <button ID="btnAddScoutingReport" class="btn btn-primary">Edit {{recruit.position}} Report</button>
+                    <a ID="btnClear" class="btn btn-info" href="addreport/{{ recruit._id }}">Clear</a>
+                    <a ID="btnBack" class="btn btn-warning" href="recruits/detail/{{ recruit._id }}">Back</a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>

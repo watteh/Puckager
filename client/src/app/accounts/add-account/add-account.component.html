@@ -1,49 +1,60 @@
 <div class="container my-5">
-    <h4>Add Account</h4>
+    <h4>{{title}}</h4>
     <div class="formBody">
-        <div class="form-group row">
-            <label ID="lblUsername" for="txtUsername" CssClass="col-2 col-form-label">User Name:</label>
-            <div class="col-3">
-                <input ID="txtUsername" type="text" placeholder="userName" CssClass="form-control">
+        <form class="form" (submit)="onAccountPageSubmit()">
+            <div class="form-group row">
+                <label ID="lblUsername" for="txtUsername" CssClass="col-2 col-form-label">User Name:</label>
+                <div class="col-3">
+                    <input [(ngModel)]="user.username" value="{{user.username}}" name="username" ID="txtUsername" type="text" placeholder="userName" CssClass="form-control">
+                </div>
+                <div class="col-4">
+                </div>
             </div>
-            <div class="col-4">
+            <div class="form-group row">
+                <Label ID="lblPassword" for="txtPassword" CssClass="col-2 col-form-label">Password:</Label>
+                <div class="col-3">
+                    <input [(ngModel)]="user.password" value="{{user.password}}" name="password" ID="txtPassword" type="password" placeholder="password" CssClass="form-control">
+                </div>
+                <div class="col-4">
+                    <!-- Password must contain one letter, one number and be longer than six characters -->
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <Label ID="lblPassword" for="txtPassword" CssClass="col-2 col-form-label">Password:</Label>
-            <div class="col-3">
-                <input ID="txtPassword" type="password" placeholder="password" CssClass="form-control">
+            <div class="form-group row">
+                <Label ID="lblEmailAddress" for="txtEmailAddress" CssClass="col-2 col-form-label">Email Address:</Label>
+                <div class="col-3">
+                    <input [(ngModel)]="user.email" value="{{user.email}}" name="email" ID="txtEmailAddress" type="text" placeholder="email address" CssClass="form-control">
+                </div>
+                <div class="col-4">
+                    <!-- REGEX to ensure format matches user@domain.com -->
+                </div>
             </div>
-            <div class="col-4">
-                <!-- Password must contain one letter, one number and be longer than six characters -->
+            <div class="form-group row">
+                <Label ID="lblDisplayName" for="txtDisplayName" CssClass="col-2 col-form-label">Display Name:</Label>
+                <div class="col-3">
+                    <input [(ngModel)]="user.displayName" value="{{user.displayName}}" name="displayName" ID="txtDisplayName" type="text" placeholder="Display Name" CssClass="form-control">
+                </div>
+                <div class="col-4">
+                    <!-- REGEX to ensure format matches user@domain.com -->
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <Label ID="lblEmailAddress" for="txtEmailAddress" CssClass="col-2 col-form-label">Email Address:</Label>
-            <div class="col-3">
-                <input ID="txtEmailAddress" type="text" placeholder="email address" CssClass="form-control">
+            <div class="form-group row">
+                <Label ID="lblAccountType" for="ddlAccountType" CssClass="col-2 col-form-label">Account Type:</Label>
+                <div class="col-3">
+                    <label *ngIf='user.accountType === "Admin" || current.accountType !== "Admin"; else accountChange'>{{user.accountType}}</label>
+                    <ng-template #accountChange>
+                        <select [(ngModel)]="user.accountType" value="{{user.accountType}}" name="accountType" ID="ddlAccountType" type="text" CssClass="form-control">
+                            <option Value="None" Selected="True">None</option>
+                            <option Value="Admin">Admin</option>
+                            <option Value="Coach">Coach</option>
+                            <option Value="Scout">Scout</option>
+                        </select>
+                    </ng-template>
+                </div>
+                <div>
+                    <button ID="btnAddAccount" type='submit' class="formButton btn btn-primary">{{title}}</button>
+                    <a ID="BtnCancel" class="formButton btn btn-warning" routerLink="/accounts">Cancel</a>
+                </div>
             </div>
-            <div class="col-4">
-                <!-- REGEX to ensure format matches user@domain.com -->
-            </div>
-        </div>
-        <div class="form-group row">
-            <Label ID="lblAccountType" for="ddlAccountType" CssClass="col-2 col-form-label">Account Type:</Label>
-            <div class="col-3">
-                <select ID="ddlAccountType" type="text" CssClass="form-control">
-                    <option Value="None" Selected="True">None</option>
-                    <option Value="Admin">Admin</option>
-                    <option Value="Coach">Coach</option>
-                    <option Value="Scout">Scout</option>
-                </select>
-            </div>
-            <div class="col-4">
-            </div>
-            <div>
-                <button ID="btnAddAccount" OnClick="">Add Account</button>
-                <button ID="btnClear" OnClientClick="">Clear</button>
-                <label ID="lblAddAccountError" role="alert" Visible="false"></label>
-            </div>
-        </div>
+        </form>
     </div>
 </div>

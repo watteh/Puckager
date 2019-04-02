@@ -13,6 +13,7 @@ let PlayerReportSchema = mongoose.Schema({
     workEthic: Number,
     overallRanking: Number,
     notes: String,
+    submittedBy: String,
     reportDate: { type: Date, default: Date.now }
 });
 
@@ -26,6 +27,7 @@ let GoalieReportSchema = mongoose.Schema({
     battleMentality: Number,
     overallRanking: Number,
     notes: String,
+    submittedBy: String,
     reportDate: { type: Date, default: Date.now }
 });
 
@@ -54,6 +56,7 @@ let RecruitSchema = mongoose.Schema({
         workEthic: Number,
         overallRanking: Number,
         notes: String,
+        submittedBy: String,
         reportDate: { type: Date, default: Date.now }
     }],
     goalieReports: [{
@@ -66,6 +69,7 @@ let RecruitSchema = mongoose.Schema({
         battleMentality: Number,
         overallRanking: Number,
         notes: String,
+        submittedBy: String,
         reportDate: { type: Date, default: Date.now }
     }]
 }, {

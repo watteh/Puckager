@@ -1,42 +1,43 @@
 <div class="container my-5">
+    <h4>Accounts</h4>
     <div class="row">
-        <div class="col-md.12">
-            <h4>Accounts</h4>
-            <a class="btn btn-block btn-primary col-md-2 float-right" href="/addaccount">Add Account</a>
-            <div class="table-responsive">
-                <table id="accountTable" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th style="text-align: center">ID</th>
-                            <th style="text-align: center">User Name</th>
-                            <th style="text-align: center">Password</th>
-                            <th style="text-align: center">EmailAddress</th>
-                            <th style="text-align: center">AccountType</th>
-                            <th style="text-align: center">Actions</th>
-                        </tr>
-                    </thead>
+        <a class="btn btn-block btn-primary col-md-2 float-right" href="/addaccount">Add Account</a>
+        <div class="table-responsive">
+            <table id="accountTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th style="text-align: center">ID</th>
+                        <th style="text-align: center">User Name</th>
+                        <th style="text-align: center">Email Address</th>
+                        <th style="text-align: center">Display Name</th>
+                        <th style="text-align: center">Account Type</th>
+                        <th style="text-align: center">View</th>
+                        <th style="text-align: center">Update</th>
+                        <th style="text-align: center">Delete</th>
+                    </tr>
+                </thead>
 
-                    <tbody>
-                        <tr class="table table-bordered table-striped">
-                            <td>
-                            </td>
-                            <td>
-                            </td>
-                            <td>
-                            </td>
-                            <!--Display passwords as "***"-->
-                            <td>
-                            </td>
-                            <td>
-                            </td>
-                            <td>
-                                <button Text="Update" CssClass="btn btn-block btn-primary">Update</button>
-                                <button Text="Delete" CssClass="btn btn-block btn-danger">Delete</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                <tbody>
+                    <tr *ngFor='let user of users' class="table table-bordered table-striped">
+                        <td>{{user._id}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.displayName}}</td>
+                        <td>{{user.accountType}}</td>
+                        <td>
+                            <a href='/accountdetails/{{user._id}}' class="btn btn-block btn-primary">View</a>
+                        </td>
+                        <td>
+                            <a href='/updateaccount/{{user._id}}' class="btn btn-block btn-warning">Update</a>
+                        </td>
+                        <td>
+                            <ng-container *ngIf='user.accountType !== "Admin"'>
+                                <a (click)="onDeleteClick()" class="btn btn-danger" type="submit" href='/deleteaccount/{{user._id}}' CssClass="btn btn-block btn-danger">Delete</a>
+                            </ng-container>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

@@ -1,0 +1,34 @@
+<div class="container my-5">
+    <h4>{{ title }}</h4>
+    <div class="formBody">
+        <div class="form-group row">
+            <label ID="lblUsername" for="txtUsername" CssClass="col-2 col-form-label">User Name:</label>
+            <div class="col-3">
+                <label ID="txtUsername" type="text" CssClass="form-control">{{ user.username }}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <Label ID="lblEmailAddress" for="txtEmailAddress" CssClass="col-2 col-form-label">Email Address:</Label>
+            <div class="col-3">
+                <label ID="txtEmailAddress" type="text" CssClass="form-control">{{ user.email }}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <Label ID="lblDisplayName" for="ddlDisplayName" CssClass="col-2 col-form-label">Display Name:</Label>
+            <div class="col-3">
+                <label ID="txtDisplayName" type="text" CssClass="form-control">{{ user.displayName }}</label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <Label ID="lblAccountType" for="ddlAccountType" CssClass="col-2 col-form-label">Account Type:</Label>
+            <div class="col-3">
+                <label ID="txtAccountType" type="text" CssClass="form-control">{{ user.accountType }}</label>
+            </div>
+        </div>
+        <div class="row">
+            <a *ngIf='current.accountType === "Admin"' ID="BtnBack" class="btn btn-primary" routerLink="/accounts">Back</a>
+            <a *ngIf='current.accountType !== "Admin"' ID="BtnBack" class="btn btn-primary" routerLink="/about">Back</a>
+            <a ID="BtnUpdate" class="btn btn-warning" routerLink="/updateaccount/{{ user._id }}">Update Account</a>
+        </div>
+    </div>
+</div>

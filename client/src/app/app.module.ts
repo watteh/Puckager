@@ -15,9 +15,11 @@ import { SigninComponent } from './signin/signin.component';
 import { AboutComponent } from './about/about.component';
 import { DetailsComponent } from './recruit-list/details/details.component';
 import { AddRecruitComponent } from './recruit-list/add-recruit/add-recruit.component';
+import { RecruitSocialComponent } from './recruit-list/recruit-social/recruit-social.component';
 import { AccountsComponent } from './accounts/accounts.component';
 import { AddAccountComponent } from './accounts/add-account/add-account.component';
-import { UpdateAccountComponent } from './accounts/update-account/update-account.component';
+import { AccountDetailsComponent } from './accounts/account-details/account-details.component';
+import { DeleteAccountComponent } from './accounts/delete-account/delete-account.component';
 import { ReportsComponent } from './recruit-list/reports/reports.component';
 import { AddReportComponent } from './recruit-list/reports/add-report/add-report.component';
 import { DeleteRecruitComponent } from './recruit-list/delete-recruit/delete-recruit.component';
@@ -27,6 +29,8 @@ import { AuthService } from './services/auth.service';
 import { JwtModule, JwtHelperService, JwtInterceptor } from '@auth0/angular-jwt';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { AuthGuard } from './guards/auth.guard';
+import { RecruitFilterPipe } from './pipes/recruit-filter.pipe';
+
 
 export function jwtTokenGetter() {
   return localStorage.getItem('id_token');
@@ -43,11 +47,14 @@ export function jwtTokenGetter() {
     AddRecruitComponent,
     AccountsComponent,
     AddAccountComponent,
-    UpdateAccountComponent,
     ReportsComponent,
     AddReportComponent,
     DeleteRecruitComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    RecruitFilterPipe,
+    AccountDetailsComponent,
+    DeleteAccountComponent,
+    RecruitSocialComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +65,7 @@ export function jwtTokenGetter() {
     ReactiveFormsModule,
     FormsModule,
     FlashMessagesModule,
-    NgbModule.forRoot(),
+    NgbModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: jwtTokenGetter

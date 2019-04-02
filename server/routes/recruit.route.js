@@ -138,7 +138,8 @@ recruitRouter.post('/recruits/edit/:id', (req, res, next) => {
             position: req.body.position,
             mothersName: req.body.mothersName,
             fathersName: req.body.fathersName,
-            status: req.body.status
+            status: req.body.status,
+            submittedBy: req.body.submittedBy
         }
     }, (err) => {
         if (err) {
@@ -176,6 +177,7 @@ recruitRouter.post('/addreport/:id', (req, res, next) => {
                     "battleMentality": parseInt(req.body.battleMentality),
                     "overallRanking": parseInt(req.body.overallRanking),
                     "notes": req.body.notes,
+                    "submittedBy": req.body.submittedBy,
                     "reportDate": Date.now()
                 };
 
@@ -204,6 +206,7 @@ recruitRouter.post('/addreport/:id', (req, res, next) => {
                     "workEthic": parseInt(req.body.workEthic),
                     "overallRanking": parseInt(req.body.overallRanking),
                     "notes": req.body.notes,
+                    "submittedBy": req.body.submittedBy,
                     "reportDate": Date.now()
                 };
                 recruitModel.findOneAndUpdate({ _id: id }, { $push: { playerReports: report } }, (err) => {
@@ -247,6 +250,7 @@ recruitRouter.post('/editreport/:recruitid/:reportid', (req, res, next) => {
                     battleMentality: parseInt(req.body.battleMentality),
                     overallRanking: parseInt(req.body.overallRanking),
                     notes: req.body.notes,
+                    submittedBy: req.body.submittedBy,
                     reportDate: Date.now()
                 };
 
@@ -275,6 +279,7 @@ recruitRouter.post('/editreport/:recruitid/:reportid', (req, res, next) => {
                     workEthic: parseInt(req.body.workEthic),
                     overallRanking: parseInt(req.body.overallRanking),
                     notes: req.body.notes,
+                    submittedBy: req.body.submittedBy,
                     reportDate: Date.now()
                 };
                 recruitModel.findOneAndUpdate({ _id: recruitID, "playerReports._id": reportID }, { $set: { "playerReports.$": report } }, (err) => {
@@ -327,10 +332,11 @@ recruitRouter.post('/login', (req, res, next) => {
             }
 
             const payload = {
-                id: user._id,
+                _id: user._id,
                 displayName: user.displayName,
                 username: user.username,
-                email: user.email
+                email: user.email,
+                accountType: user.accountType
             }
 
             const authToken = jwt.sign(payload, DB.secret, {
@@ -371,7 +377,8 @@ recruitRouter.post('/registration', (req, res, next) => {
     let newUser = new User({
         username: req.body.username,
         email: req.body.email,
-        displayName: req.body.displayName
+        displayName: req.body.displayName,
+        accountType: 'None'
     });
 
     User.register(newUser, req.body.password, (err) => {
@@ -401,6 +408,150 @@ recruitRouter.get('/logout', (req, res, next) => {
     return res.json({
         success: true,
         msg: 'User logged out'
+    });
+});
+
+// GET List of Accounts page - READ Operation
+recruitRouter.get('/accounts', (req, res, next) => {
+    User.find((err, userList) => {
+        if (err) {
+            return console.error(err);
+        } else {
+            return res.json({
+                success: true,
+                msg: `Account List Displayed Successfully`,
+                userList: userList,
+                current: req.user,
+                displayName: req.body.name ? req.body.user.name : ''
+            });
+        }
+    });
+});
+
+/* GET route for processing the User Add page */
+recruitRouter.get('/addaccount', (req, res, next) => {
+    res.json({
+        success: true,
+        msg: 'Successfully displayed Add Page',
+        current: req.user,
+        displayName: req.user ? req.user.displayName : ''
+    });
+});
+
+/* POST route for processing the Add page */
+recruitRouter.post('/addaccount', (req, res, next) => {
+    // create new user object
+    let newUser = new User({
+        "username": req.body.username,
+        "email": req.body.email,
+        "displayName": req.body.displayName,
+        "accountType": req.body.accountType
+    });
+
+    User.register(newUser, req.body.password, (err) => {
+        if (err) {
+            console.log('Error Inserting new user');
+            if (err.name == 'UserExistsError') {
+                console.log('Error inserting new user');
+            }
+            return res.json({
+                success: false,
+                msg: 'Error: registration failed'
+            });
+        } else {
+            // if no error exists, then registration is successful and user redirected
+            return res.json({
+                success: true,
+                current: req.user,
+                msg: 'Registration successful!'
+            });
+        }
+    });
+});
+
+/* GET request to perform the delete action */
+recruitRouter.get('/deleteaccount/:id', (req, res, next) => {
+    let id = req.params.id;
+
+    User.remove({ _id: id }, (err) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            return res.json({
+                success: true,
+                msg: 'Successfully deleted user',
+                current: req.user,
+                displayName: req.user ? req.user.displayName : ''
+            });
+        }
+    });
+});
+
+/* GET request - display the Details page */
+recruitRouter.get('/accountdetails/:id', (req, res, next) => {
+    let id = req.params.id;
+
+    User.findById(id, (err, userObject) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            res.json({
+                success: true,
+                msg: 'Successfully displayed User',
+                user: userObject,
+                current: req.user,
+                displayName: req.user ? req.user.displayName : ''
+            });
+        }
+    });
+});
+
+/* GET request - display the Edit page */
+recruitRouter.get('/updateaccount/:id', (req, res, next) => {
+    let id = req.params.id;
+
+    User.findById(id, (err, userObject) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            res.json({
+                success: true,
+                msg: 'Successfully displayed user to edit',
+                user: userObject,
+                current: req.user,
+                displayName: req.user ? req.user.displayName : ''
+            });
+        }
+    });
+});
+
+/* POST request - Update the database with data from the Edit page */
+recruitRouter.post('/updateaccount/:id', (req, res, next) => {
+    let id = req.params.id;
+
+    User.update({ _id: id }, {
+        $set: {
+            username: req.body.username,
+            password: req.body.password,
+            email: req.body.email,
+            displayName: req.body.displayName,
+            accountType: req.body.accountType
+        }
+    }, (err) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            res.json({
+                success: true,
+                msg: 'Successfully updated user',
+                current: req.user,
+                displayName: req.user ? req.user.displayName : ''
+            });
+        }
     });
 });
 

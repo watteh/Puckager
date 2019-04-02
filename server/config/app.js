@@ -93,7 +93,6 @@ passport.use(strategy);
 app.use('/api', recruitRouter);
 app.use('/api/recruits', passport.authenticate('jwt', { session: false }), recruitRouter);
 
-
 app.get('*', (req, res) => {
     res.sendfile(path.join(__dirname, '../../public/index.html'));
 });

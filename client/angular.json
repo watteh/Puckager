@@ -65,18 +65,19 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "client:build"
+                        "browserTarget": "Puckager:build",
+                        "proxyConfig": "src/proxy.conf.json"
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "client:build:production"
+                            "browserTarget": "Puckager:build:production"
                         }
                     }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "client:build"
+                        "browserTarget": "Puckager:build"
                     }
                 },
                 "test": {
@@ -120,11 +121,11 @@
                     "builder": "@angular-devkit/build-angular:protractor",
                     "options": {
                         "protractorConfig": "e2e/protractor.conf.js",
-                        "devServerTarget": "client:serve"
+                        "devServerTarget": "Puckager:serve"
                     },
                     "configurations": {
                         "production": {
-                            "devServerTarget": "client:serve:production"
+                            "devServerTarget": "Puckager:serve:production"
                         }
                     }
                 },
@@ -140,5 +141,5 @@
             }
         }
     },
-    "defaultProject": "client"
+    "defaultProject": "Puckager"
 }

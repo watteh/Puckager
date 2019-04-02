@@ -28,6 +28,7 @@ export class RecruitSchema {
     overallRanking: number;
     notes: string;
     reportDate: Date;
+    submittedBy: string;
   }];
   goalieReports: [{
     _id: string;
@@ -41,6 +42,7 @@ export class RecruitSchema {
     overallRanking: number;
     notes: string;
     reportDate: Date;
+    submittedBy: string;
   }];
 }
 
@@ -58,6 +60,7 @@ export class PlayerReportSchema {
   overallRanking: number;
   notes: string;
   reportDate: Date;
+  submittedBy: string;
 }
 
 export class GoalieReportSchema {
@@ -73,4 +76,5 @@ export class GoalieReportSchema {
   overallRanking: number;
   notes: string;
   reportDate: Date;
+  submittedBy: string;
 }
