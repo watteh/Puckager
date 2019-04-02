@@ -18,7 +18,7 @@ export class RecruitService {
   // *** REMINDER - must change endpoint uri to host url for it to work
   // private uri = 'http://localhost:3000/api/';
   private uri = 'https://puckager.herokuapp.com/api/';
-  private djangoUrl = '/twitter';
+  private djangoUrl = '/twitter/';
   // private djangoUrl = 'https://puckager.herokuapp.com/twitter';
 
   private httpOptions = {
