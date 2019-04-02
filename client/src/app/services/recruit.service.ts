@@ -84,15 +84,23 @@ export class RecruitService {
   }
 
   public getPlayerTweets(playerName: string)  {
-    // this.loadToken();
 
-    this.httpOptions.headers = this.httpOptions.headers.set('Access-Control-Allow-Methods', 'POST');
+    // this.httpOptions.headers = this.httpOptions.headers.set('Access-Control-Allow-Methods', 'POST');
+
+    const newOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'origin, x-requested-with, content-type, accept',
+        'Access-Control-ALlow-Methods': 'POST'
+      })
+    };
 
     const payLoad = {
       player_name: playerName
     };
 
-    this.http.post<any>(this.djangoUrl, payLoad, this.httpOptions)
+    this.http.post<any>(this.djangoUrl, payLoad, newOptions)
     .pipe(map(tweetData => {
       return {
         tweets: tweetData.map(tweet => {
