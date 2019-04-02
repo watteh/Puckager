@@ -84,7 +84,7 @@ export class RecruitService {
   }
 
   public getPlayerTweets(playerName: string)  {
-    this.loadToken();
+    // this.loadToken();
 
     this.httpOptions.headers = this.httpOptions.headers.set('Access-Control-Allow-Methods', 'POST');
 
