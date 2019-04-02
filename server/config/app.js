@@ -46,7 +46,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
-app.use(cors());
+// app.use(cors());
 
 // setup express-session
 app.use(session({
@@ -89,6 +89,16 @@ let strategy = new JWTStrategy(jwtOptions, (jwt_payload, done) => {
 });
 
 passport.use(strategy);
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader(
+        'Access-Control-Allow-Headers',
+        'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    res.setHeader(
+        'Access-Control-Allow-Methods',
+        'GET, POST, PATCH, PUT, DELETE, OPTIONS');
+    next();
+});
 
 app.use('/api', recruitRouter);
 app.use('/api/recruits', passport.authenticate('jwt', { session: false }), recruitRouter);

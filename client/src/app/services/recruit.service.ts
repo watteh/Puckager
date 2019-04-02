@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
 
 import { RecruitSchema, PlayerReportSchema, GoalieReportSchema } from '../../models/recruit';
 import { User } from '../../models/user';
@@ -12,10 +12,13 @@ import { User } from '../../models/user';
 export class RecruitService {
   private user: User;
   private authToken: any = null;
+  tweets = [];
+  private tweetsUpdated = new Subject<{tweets: any[]}>();
 
   // *** REMINDER - must change endpoint uri to host url for it to work
   // private uri = 'http://localhost:3000/api/';
   private uri = 'https://puckager.herokuapp.com/api/';
+  private djangoUrl = 'https://packager-crawler.herokuapp.com/twitter';
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -77,6 +80,67 @@ export class RecruitService {
   public editGoalieReport(playerReport: GoalieReportSchema, recruit: RecruitSchema): Observable<any> {
     this.loadToken();
     return this.http.post<any>(this.uri + 'editreport/' + recruit._id + '/' + playerReport._id, playerReport, this.httpOptions);
+  }
+
+  public getPlayerTweets(playerName: string)  {
+    const djangoHttpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+        'Access-Control-Allow-Methods': 'POST'
+      })
+    };
+    const payLoad = {
+      player_name: playerName
+    };
+    console.log('PAYLOAD IN RECRUIT SERVICE', payLoad);
+    console.log(djangoHttpOptions);
+    this.http.post<any>(this.djangoUrl, payLoad,  this.httpOptions)
+    .pipe(map(tweetData => {
+      return {
+        tweets: tweetData.map(tweet => {
+          return {
+            id: tweet.id,
+            user: tweet.user,
+            created_at: tweet.created_at,
+            text: tweet.text,
+          };
+        })
+      };
+  }))
+  .subscribe(returnedTweetData => {
+    returnedTweetData.tweets.map(tweet => {
+      this.tweets.push(tweet);
+    });
+    // this.tweets = returnedTweetData.tweets;
+    this.tweetsUpdated.next({
+      tweets: [...this.tweets],
+    });
+  });
+  }
+  // public getPlayerTweets(playerName: string)  {
+  //   const payLoad = {
+  //     "player_name": playerName
+  //   }
+  //   return this.http.post<any>(this.djangoUrl, payLoad)
+  //   .pipe(map(tweets => {
+  //       return {
+  //         tweets: tweets.map(tweet => {
+  //           console.log(tweet);
+  //         })
+  //       };
+  //   }))
+  //   .subscribe(returnedTweetData => {
+  //     this.tweets = returnedTweetData.tweets;
+  //     this.tweetsUpdated.next({
+  //       tweets: [...this.tweets],
+  //     })
+  //   })
+  // }
+
+  getTweetUpdateListener() {
+    return this.tweetsUpdated.asObservable();
   }
 
   private loadToken() {
