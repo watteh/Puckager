@@ -1,7 +1,7 @@
 {
-  "/twitter": {
-    "target": "http://localhost:8000",
-    "changeOrigin": true,
-    "secure": false
-  }
+    "/twitter": {
+        "target": "https://packager-crawler.herokuapp.com/",
+        "changeOrigin": true,
+        "secure": false
+    }
 }
