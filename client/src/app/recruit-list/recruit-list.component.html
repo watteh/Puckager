@@ -52,7 +52,7 @@
                         <a (click)="onDeleteClick()" class="btn btn-danger" type="submit" routerLink="/recruits/delete/{{ recruit._id }}">Delete</a>
                     </td>
                     <td>
-                        <a (click)="onSocialClick(recruit.firstName, recruit.lastName)" class="btn btn-success" type="submit" routerLink="/recruits/social/{{ recruit._id }}">Social</a>
+                        <a (click)="onSocialClick(recruit.firstName, recruit.lastName)" class="btn btn-success" type="button" routerLink="/recruits/social/{{ recruit._id }}">Social</a>
                     </td>
                 </tr>
             </tbody>
