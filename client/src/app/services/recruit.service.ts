@@ -90,9 +90,9 @@ export class RecruitService {
     const newOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'origin, x-requested-with, content-type, accept',
-        'Access-Control-ALlow-Methods': 'POST'
+        'Access-Control-Request-Origin': '*',
+        'Access-Control-Request-Headers': 'origin, x-requested-with, content-type, accept',
+        'Access-Control-Request-Methods': 'POST'
       })
     };
 
