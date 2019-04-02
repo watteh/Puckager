@@ -95,14 +95,22 @@ export class RecruitService {
     //   })
     // };
 
-    this.httpOptions.headers.set('Access-Control-Allow-Methods', 'POST');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Origin, X-Requested-With,' +
+        'Content-Type, Accept, Accept-Encoding, Authorization, dnt, User-Agent, X-Csrftoken, X-Request-With',
+        'Access-Control-Allow-Methods': 'POST'
+      })
+    };
 
     const payLoad = {
       player_name: playerName
     };
 
     console.log(this.httpOptions);
-    this.http.post<any>(this.djangoUrl, payLoad, this.httpOptions)
+    this.http.post<any>(this.djangoUrl, payLoad, httpOptions)
     .pipe(map(tweetData => {
       return {
         tweets: tweetData.map(tweet => {
