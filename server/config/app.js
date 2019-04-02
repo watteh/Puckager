@@ -92,10 +92,6 @@ passport.use(strategy);
 
 app.use('/api', recruitRouter);
 app.use('/api/recruits', passport.authenticate('jwt', { session: false }), recruitRouter);
-app.post('/twitter', function(req, res, next) {
-    var url = 'https://packager.herokuapp.com/twitter';
-    req.pipe(request(url)).pipe(res);
-});
 
 app.get('*', (req, res) => {
     res.sendfile(path.join(__dirname, '../../public/index.html'));
