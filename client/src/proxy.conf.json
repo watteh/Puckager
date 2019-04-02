@@ -1,7 +1,7 @@
 {
-    "/twitter/": {
-        "target": "https://packager-crawler.herokuapp.com",
-        "changeOrigin": true,
-        "secure": false
+    "/twitter": {
+        "target": "https://puckager-crawler.herokuapp.com",
+        "secure": false,
+        "changeOrigin": true
     }
 }
