@@ -1,7 +1,8 @@
 {
-    "/twitter/": {
+    "/twitter": {
         "target": "https://puckager-crawler.herokuapp.com",
         "secure": false,
-        "changeOrigin": true
+        "changeOrigin": true,
+        "pathRewrite": { "^/twitter": "https://puckager-crawler.herokuapp.com/twitter/" }
     }
 }
