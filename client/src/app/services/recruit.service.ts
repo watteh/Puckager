@@ -19,7 +19,7 @@ export class RecruitService {
   // private uri = 'http://localhost:3000/api/';
   private uri = 'https://puckager.herokuapp.com/api/';
   // private djangoUrl = 'https://packager-crawler.herokuapp.com/twitter/';
-  private djangoUrl = 'https://packager-crawler.herokuapp.com/twitter';
+  private djangoUrl = 'https://packager.herokuapp.com/twitter';
 
 
   private httpOptions = {
@@ -85,8 +85,6 @@ export class RecruitService {
   }
 
   public getPlayerTweets(playerName: string)  {
-
-    // this.httpOptions.headers = this.httpOptions.headers.set('Access-Control-Allow-Methods', 'POST');
 
     const newOptions = {
       headers: new HttpHeaders({
