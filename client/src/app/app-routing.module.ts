@@ -11,6 +11,7 @@ import { AccountDetailsComponent } from './accounts/account-details/account-deta
 import { DeleteAccountComponent } from './accounts/delete-account/delete-account.component';
 import { DetailsComponent } from './recruit-list/details/details.component';
 import { AddRecruitComponent } from './recruit-list/add-recruit/add-recruit.component';
+import { RecruitSocialComponent } from './recruit-list/recruit-social/recruit-social.component';
 import { ReportsComponent } from './recruit-list/reports/reports.component';
 import { AddReportComponent } from './recruit-list/reports/add-report/add-report.component';
 import { DeleteRecruitComponent } from './recruit-list/delete-recruit/delete-recruit.component';
@@ -35,6 +36,7 @@ const routes: Routes = [
   // Displays specific account for update
   { path: 'recruits/detail/:id', component: DetailsComponent, data: {title: 'Recruit Details'}, canActivate: [AuthGuard] },
   // Displays specific recruit details page
+  { path: 'recruits/social/:id', component: RecruitSocialComponent, data: {title: 'Twitter Posts'} },
   { path: 'recruits/edit/:id', component: AddRecruitComponent, data: {title: 'Update Recruit'}, canActivate: [AuthGuard] },
   // Displays specific recruit details page
   { path: 'recruits/addrecruit', component: AddRecruitComponent, data: {title: 'Add Recruit'}, canActivate: [AuthGuard] },

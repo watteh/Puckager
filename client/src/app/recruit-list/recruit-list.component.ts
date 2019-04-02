@@ -28,10 +28,16 @@ export class RecruitListComponent implements OnInit {
               private router: Router, private flashMessage: FlashMessagesService,
               private authService: AuthService) { }
 
+  mobile = false;
+
   ngOnInit() {
     this.recruits = new Array<RecruitSchema>();
 
     this.displayRecruitList();
+
+    if (window.screen.width <= 1024) {
+      this.mobile = true;
+    }
   }
 
   onDeleteClick(): void {
@@ -46,13 +52,21 @@ export class RecruitListComponent implements OnInit {
         console.log(data);
         this.recruits = data.recruitList;
       } else {
-        this.flashMessage.show('User must be logged in.', {cssClass: 'alert-danger', timeOut: 3000});
+        this.flashMessage.show('User must be logged in.', {
+          cssClass: 'alert-danger',
+          timeOut: 3000
+        });
       }
     });
+  }
+
+  onSocialClick(firstName: string, lastName: string) {
+    const payLoad = firstName + ' ' + lastName + ' hockey' ;
+    console.log(payLoad);
+    this.rs.getPlayerTweets(payLoad);
   }
 
   isLoggedIn(): boolean {
     return this.authService.loggedIn();
   }
-
 }

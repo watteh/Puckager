@@ -20,6 +20,7 @@ import { SigninComponent } from './signin/signin.component';
 import { AboutComponent } from './about/about.component';
 import { DetailsComponent } from './recruit-list/details/details.component';
 import { AddRecruitComponent } from './recruit-list/add-recruit/add-recruit.component';
+import { RecruitSocialComponent } from './recruit-list/recruit-social/recruit-social.component';
 import { AccountsComponent } from './accounts/accounts.component';
 import { AddAccountComponent } from './accounts/add-account/add-account.component';
 import { AccountDetailsComponent } from './accounts/account-details/account-details.component';
@@ -35,6 +36,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RecruitFilterPipe } from './pipes/recruit-filter.pipe';
 import { SchedulerComponent } from './scheduler/scheduler/scheduler.component';
+
 
 export function jwtTokenGetter() {
   return localStorage.getItem('id_token');
@@ -58,7 +60,8 @@ export function jwtTokenGetter() {
     RecruitFilterPipe,
     AccountDetailsComponent,
     DeleteAccountComponent,
-    SchedulerComponent
+    SchedulerComponent,
+    RecruitSocialComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +78,7 @@ export function jwtTokenGetter() {
       useFactory: adapterFactory
     }),
     FlashMessagesModule,
-    NgbModule.forRoot(),
+    NgbModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: jwtTokenGetter

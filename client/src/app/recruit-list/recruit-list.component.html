@@ -30,6 +30,7 @@
                     <th></th>
                     <th></th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
 
@@ -50,8 +51,26 @@
                     <td>
                         <a (click)="onDeleteClick()" class="btn btn-danger" type="submit" routerLink="/recruits/delete/{{ recruit._id }}">Delete</a>
                     </td>
+                    <td>
+                        <a (click)="onSocialClick(recruit.firstName, recruit.lastName)" class="btn btn-success" type="button" routerLink="/recruits/social/{{ recruit._id }}">Social</a>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+
+<!-- <td *ngIf="!mobile">
+        <a class="btn btn-primary" type="submit" routerLink="detail/{{ recruit._id }}">View</a>
+      </td>
+      <td *ngIf="!mobile">
+        <a class="btn btn-warning" type="submit" routerLink="edit/{{ recruit._id }}">Edit</a>
+      </td>
+      <td *ngIf="!mobile">
+        <a (click)="onDeleteClick()" class="btn btn-danger" type="submit"
+          routerLink="/recruits/delete/{{ recruit._id }}">Delete</a>
+      </td>
+      <td *ngIf="!mobile">
+        <a (click)="onSocialClick(recruit.firstName, recruit.lastName)" class="btn btn-success" type="submit"
+          routerLink="/recruits/social/{{ recruit._id }}">Social</a>
+      </td> -->
