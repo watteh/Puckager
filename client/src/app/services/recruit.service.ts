@@ -87,19 +87,18 @@ export class RecruitService {
     const djangoHttpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': 'https://puckager.herokuapp.com',
         'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
         'Access-Control-Allow-Methods': 'POST'
       })
     };
 
-    // this.loadToken();
-    // this.httpOptions.headers = this.httpOptions.headers.set('Access-Control-Allow-Methods', 'POST');
+    this.loadToken();
 
     const payLoad = {
       player_name: playerName
     };
-    console.log('PAYLOAD IN RECRUIT SERVICE', payLoad);
+
     console.log(this.httpOptions);
     this.http.post<any>(this.djangoUrl, payLoad, djangoHttpOptions)
     .pipe(map(tweetData => {
@@ -124,25 +123,6 @@ export class RecruitService {
       });
     });
   }
-  // public getPlayerTweets(playerName: string)  {
-  //   const payLoad = {
-  //     "player_name": playerName
-  //   }
-  //   return this.http.post<any>(this.djangoUrl, payLoad)
-  //   .pipe(map(tweets => {
-  //       return {
-  //         tweets: tweets.map(tweet => {
-  //           console.log(tweet);
-  //         })
-  //       };
-  //   }))
-  //   .subscribe(returnedTweetData => {
-  //     this.tweets = returnedTweetData.tweets;
-  //     this.tweetsUpdated.next({
-  //       tweets: [...this.tweets],
-  //     })
-  //   })
-  // }
 
   getTweetUpdateListener() {
     return this.tweetsUpdated.asObservable();
