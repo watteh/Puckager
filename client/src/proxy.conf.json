@@ -1,6 +1,6 @@
 {
     "/twitter": {
-        "target": "https://packager.herokuapp.com/twitter",
+        "target": "https://packager-crawler.herokuapp.com/twitter",
         "changeOrigin": true,
         "secure": false
     }

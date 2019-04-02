@@ -92,8 +92,8 @@ passport.use(strategy);
 
 app.use('/api', recruitRouter);
 app.use('/api/recruits', passport.authenticate('jwt', { session: false }), recruitRouter);
-app.use('/twitter', function(req, res) {
-    var url = 'https://packager-crawler.herokuapp.com/twitter';
+app.post('/twitter', function(req, res, next) {
+    var url = 'https://packager.herokuapp.com/twitter';
     req.pipe(request(url)).pipe(res);
 });
 
