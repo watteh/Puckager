@@ -88,7 +88,7 @@ export class RecruitService {
     const newOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': 'https://puckager.herokuapp.com',
         'Access-Control-Allow-Headers': 'origin, x-requested-with, content-type, accept',
         'Access-Control-Allow-Methods': 'POST'
       })
