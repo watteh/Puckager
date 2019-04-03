@@ -88,7 +88,7 @@ export class AddReportComponent implements OnInit {
             this.router.navigate(['/recruits/detail/' + this.recruit._id]);
           } else {
             this.flashMessage.show('Report was not edited.', {cssClass: 'alert-danger', timeOut: 3000});
-            this.router.navigate(['/recruits/detail' + this.recruit._id]);
+            this.router.navigate(['/recruits/detail/' + this.recruit._id]);
           }
         });
       } else {
@@ -99,7 +99,7 @@ export class AddReportComponent implements OnInit {
             this.router.navigate(['/recruits/detail/' + this.recruit._id]);
           } else {
             this.flashMessage.show('Report was not edited.', {cssClass: 'alert-danger', timeOut: 3000});
-            this.router.navigate(['/recruits/detail' + this.recruit._id]);
+            this.router.navigate(['/recruits/detail/' + this.recruit._id]);
           }
         });
       }
@@ -112,7 +112,7 @@ export class AddReportComponent implements OnInit {
             this.router.navigate(['/recruits/detail/' + this.recruit._id]);
           } else {
             this.flashMessage.show('Report was not added.', {cssClass: 'alert-danger', timeOut: 3000});
-            this.router.navigate(['/recruits/detail' + this.recruit._id]);
+            this.router.navigate(['/recruits/detail/' + this.recruit._id]);
           }
         });
       } else {
@@ -123,7 +123,7 @@ export class AddReportComponent implements OnInit {
             this.router.navigate(['/recruits/detail/' + this.recruit._id]);
           } else {
             this.flashMessage.show('Report was not added.', {cssClass: 'alert-danger', timeOut: 3000});
-            this.router.navigate(['/recruits/detail' + this.recruit._id]);
+            this.router.navigate(['/recruits/detail/' + this.recruit._id]);
           }
         });
       }
