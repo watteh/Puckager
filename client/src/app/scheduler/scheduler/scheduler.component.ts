@@ -17,6 +17,13 @@ import {
   CalendarEventTimesChangedEvent,
   CalendarView
 } from 'angular-calendar';
+import { ActivatedRoute, Router } from '@angular/router';
+import { User } from '../../../models/user';
+import { FlashMessagesService } from 'angular2-flash-messages';
+import { AuthService } from 'app/services/auth.service';
+import { UserService } from '../../services/user.service';
+import { RecruitService } from '../../services/recruit.service';
+import { DefaultRouteReuseStrategy } from '@angular/router/src/route_reuse_strategy';
 
 const colors: any = {
   red: {
@@ -41,6 +48,12 @@ const colors: any = {
 })
 export class SchedulerComponent implements OnInit {
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
+
+  users: User[];
+  user: User;
+  current: User;
+  DatesSet: Event[];
+  DateSet: Event;
 
   view: CalendarView = CalendarView.Month;
 
@@ -71,19 +84,14 @@ export class SchedulerComponent implements OnInit {
 
   refresh: Subject<any> = new Subject();
 
-  events: CalendarEvent[] = [
+  events: CalendarEvent[] =
+  [
     {
       start: subDays(startOfDay(new Date()), 1),
       end: addDays(new Date(), 1),
       title: 'A 3 day event',
       color: colors.red,
       actions: this.actions,
-      allDay: true,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
-      draggable: true
     },
     {
       start: startOfDay(new Date()),
@@ -95,8 +103,7 @@ export class SchedulerComponent implements OnInit {
       start: subDays(endOfMonth(new Date()), 3),
       end: addDays(endOfMonth(new Date()), 3),
       title: 'A long event that spans 2 months',
-      color: colors.blue,
-      allDay: true
+      color: colors.blue
     },
     {
       start: addHours(startOfDay(new Date()), 2),
@@ -104,18 +111,15 @@ export class SchedulerComponent implements OnInit {
       title: 'A draggable and resizable event',
       color: colors.yellow,
       actions: this.actions,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
-      draggable: true
     }
   ];
 
   activeDayIsOpen = true;
 
 
-  constructor(private modal: NgbModal) { }
+  constructor(private modal: NgbModal, private activatedRoute: ActivatedRoute, private router: Router,
+              private flashMessage: FlashMessagesService, private authService: AuthService,
+              private userService: UserService, private rs: RecruitService) { }
 
   ngOnInit() {
   }
@@ -165,11 +169,7 @@ export class SchedulerComponent implements OnInit {
         start: startOfDay(new Date()),
         end: endOfDay(new Date()),
         color: colors.red,
-        draggable: true,
-        resizable: {
-          beforeStart: true,
-          afterEnd: true
-        }
+        actions: this.actions
       }
     ];
   }
