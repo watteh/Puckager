@@ -1,14 +1,7 @@
-li {
-    width: 100%;
-    text-decoration: none;
-    list-style: none;
+table {
+  margin-top: 10px;
 }
 
-span {
-    margin: 10px
-}
-
-p,
-li {
-    font-size: 1.5em;
+a:hover {
+  color: #fff;
 }

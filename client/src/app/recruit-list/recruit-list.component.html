@@ -12,43 +12,46 @@
                 <div class="form-group" style="float: left; margin: 10px">
                     <input type="text" class="form-control" placeholder="Search By Name" style="width:300px" [(ngModel)]="name" />
                 </div>
-                <div>
-                    <a class="btn btn-success" type="submit" routerLink="/recruits/addrecruit">Add</a>
-                </div>
             </div>
         </div>
 
-        <table id="recruitTable" class="table table-bordered table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th style="text-align: center">Jersey Number</th>
-                    <th style="text-align: center">First Name</th>
-                    <th style="text-align: center">Last Name</th>
-                    <th style="text-align: center">Birth Year</th>
-                    <th style="text-align: center">Position</th>
-                    <th style="text-align: center">Status</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
+        <div>
+            <a class="btn btn-dark btn-block" type="submit" routerLink="/recruits/addrecruit"><i class="fa fa-plus-circle"></i> Add</a>
+        </div>
+
+        <table id="recruitTable" class="table table-bordered table-striped table-hover">
+          <thead class="thead-dark">
+              <tr>
+                  <th class="text-center align-middle">Jersey Number</th>
+                  <th class="text-center align-middle">First Name</th>
+                  <th class="text-center align-middle">Last Name</th>
+                  <th class="text-center align-middle">Birth Year</th>
+                  <th class="text-center align-middle">Position</th>
+                  <th class="text-center align-middle">Status</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+              </tr>
+
+          </thead>
+
 
             <tbody>
                 <tr *ngFor='let recruit of recruits | recruitFilter:name, position'>
-                    <td>{{recruit.jerseyNumber}}</td>
-                    <td>{{recruit.firstName}}</td>
-                    <td>{{recruit.lastName}}</td>
-                    <td>{{recruit.birthYear}}</td>
-                    <td>{{recruit.position}}</td>
-                    <td>{{recruit.status}}</td>
-                    <td>
-                        <a class="btn btn-primary" type="submit" routerLink="detail/{{ recruit._id }}">View</a>
+                    <td class="text-center align-middle">{{recruit.jerseyNumber}}</td>
+                    <td class="text-center align-middle">{{recruit.firstName}}</td>
+                    <td class="text-center align-middle">{{recruit.lastName}}</td>
+                    <td class="text-center align-middle">{{recruit.birthYear}}</td>
+                    <td class="text-center align-middle">{{recruit.position}}</td>
+                    <td class="text-center align-middle">{{recruit.status}}</td>
+                    <td class="text-center align-middle">
+                        <a class="btn btn-dark btn-block center-block" type="submit" routerLink="detail/{{ recruit._id }}"><i class="fa fas fa-eye"></i> View</a>
                     </td>
-                    <td>
-                        <a class="btn btn-warning" type="submit" routerLink="edit/{{ recruit._id }}">Edit</a>
+                    <td class="text-center align-middle">
+                        <a class="btn btn-dark btn-block center-block" type="submit" routerLink="edit/{{ recruit._id }}"><i class="fa fas fa-edit"></i> Edit</a>
                     </td>
-                    <td>
-                        <a (click)="onDeleteClick()" class="btn btn-danger" type="submit" routerLink="/recruits/delete/{{ recruit._id }}">Delete</a>
+                    <td class="text-center align-middle">
+                        <a (click)="onDeleteClick()" class="btn btn-dark btn-block center-block" type="submit" routerLink="/recruits/delete/{{ recruit._id }}"><i class="fa fas fa-trash"></i> Delete</a>
                     </td>
                 </tr>
             </tbody>

@@ -13,8 +13,8 @@ export class AuthService {
   private authToken: any;
 
   // *** REMINDER - must change endpoint uri to host url for it to work
-  //private endpoint = 'http://localhost:3000/api/';
-  private endpoint = 'https://puckager.herokuapp.com/api/';
+  private endpoint = 'http://localhost:3000/api/';
+  //private endpoint = 'https://puckager.herokuapp.com/api/';
 
 
   private httpOptions = {
