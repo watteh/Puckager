@@ -5,3 +5,7 @@ table {
 a:hover {
   color: #fff;
 }
+
+.btn {
+  width: 100px;
+}

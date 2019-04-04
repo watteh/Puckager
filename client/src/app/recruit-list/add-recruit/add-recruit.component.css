@@ -1,31 +1,23 @@
-.formBody {
-    margin: 50px;
+/*
+    Filename: add-recruit.component.css
+    Date: April 3rd, 2019
+    Contributors: Puckager Team
+    Description: Custom CSS for Add-Recruit page - Adding a Recruit.
+*/
+
+select {
+  height: 36px;
 }
 
-.formButton {
-    font-family: "Roboto", sans-serif;
-    text-transform: uppercase;
-    outline: 0;
-    background: #ED1C24;
-    border: 0;
-    padding: 10px;
-    margin: 25px;
-    width: 300px;
-    color: #FFFFFF;
-    font-size: 14px;
-    -webkit-transition: all 0.3 ease;
-    transition: all 0.3 ease;
-    cursor: pointer;
-    align-content: center;
+select {
+    height: 50px;
+  }
+
+.btn {
+  width: 200px;
+  margin: 5px;
 }
 
-.formButton:hover,
-.form button:active,
-.form button:focus {
-    background: #ED1C24;
-}
-
-.errorMessage {
-    padding: 5px;
-    margin: 25px;
+.btn:hover {
+  color: #fff;
 }
