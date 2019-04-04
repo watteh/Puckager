@@ -1,7 +1,6 @@
 <div class="container my-5">
     <div class="row">
         <h1>Twitter Posts Found For Player</h1>
-        <div *ngIf='tweets.length === 0'> No Tweets to display for player</div>
         <div *ngIf='tweets.length > 0'>
             <table class="table table-striped">
                 <thead>
@@ -23,6 +22,9 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <div *ngIf='tweets.length === 0'>
+            <h3>No Tweets to display for player</h3>
         </div>
     </div>
 </div>
