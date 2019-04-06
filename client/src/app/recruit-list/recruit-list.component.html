@@ -51,11 +51,10 @@
                     <td class="text-center align-middle">{{recruit.position}}</td>
                     <td class="text-center align-middle">{{recruit.status}}</td>
                     <td colspan="3" class="text-center align-middle">
-                        <a class="btn btn-block center-block" type="submit" routerLink="detail/{{ recruit._id }}"><i
-            class="fa fas fa-eye"></i></a>
-                        <a class="btn btn-dark btn-block center-block" type="submit" routerLink="edit/{{ recruit._id }}"><i
-            class="fa fas fa-edit"></i></a>
+                        <a class="btn btn-block center-block" type="submit" routerLink="detail/{{ recruit._id }}"><i class="fa fas fa-eye"></i></a>
+                        <a class="btn btn-dark btn-block center-block" type="submit" routerLink="edit/{{ recruit._id }}"><i class="fa fas fa-edit"></i></a>
                         <a (click)="onDeleteClick()" class="btn btn-dark btn-block center-block" type="submit" routerLink="/recruits/delete/{{ recruit._id }}"><i class="fa fas fa-trash"></i></a>
+                        <a (click)="onSocialClick(recruit.firstName, recruit.lastName)" class="btn btn-dark btn-block center-block" type="submit" routerLink="/recruits/social/{{ recruit._id }}"><i class="fa fab fa-twitter"></i></a>
                     </td>
                 </tr>
             </tbody>
