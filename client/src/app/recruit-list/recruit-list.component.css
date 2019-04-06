@@ -1,25 +1,24 @@
 a:hover {
-  color: #fff;
+    color: #fff;
 }
 
 .btn {
-  width: 50px;
-  display: inline-block;
-  margin: 3px;
-  background: #b62b28;
-  color: white;
+    width: 50px;
+    display: inline-block;
+    margin: 3px;
+    background: #b62b28;
+    color: white;
 }
 
 thead {
-  color:#b62b28;
+    color: #b62b28;
 }
 
-
 table {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 .input-group {
-  margin-top: 10px;
-  width: 300px;
+    margin-top: 10px;
+    width: 300px;
 }

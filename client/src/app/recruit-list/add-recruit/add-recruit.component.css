@@ -6,18 +6,18 @@
 */
 
 select {
-  height: 36px;
+    height: 36px;
 }
 
 select {
     height: 50px;
-  }
+}
 
 .btn {
-  width: 200px;
-  margin: 5px;
+    width: 200px;
+    margin: 5px;
 }
 
 .btn:hover {
-  color: #fff;
+    color: #fff;
 }

@@ -12,7 +12,7 @@ export class UserService {
 
   // *** REMINDER - must change endpoint uri to host url for it to work
   private uri = 'http://localhost:3000/api/';
-  //private uri = 'https://puckager.herokuapp.com/api/';
+  // private uri = 'https://puckager.herokuapp.com/api/';
 
   private httpOptions = {
     headers: new HttpHeaders({
