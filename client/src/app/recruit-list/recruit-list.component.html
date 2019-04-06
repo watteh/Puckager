@@ -1,21 +1,5 @@
-<!--
-
-<div class="container">
-  <div class="row">
-    <div clas="col-12">
-      <div class="row">
-        <div *ngIf='isLoggedIn()' class="container-fluid">
-            <div class="main">
-
-      </div>
-    </div>
-  </div>
-</div>
-
--->
-
-<!-- Search Name Textbox -->
-<div class="container">
+<div *ngIf="isLoggedIn()"  class="container">
+    <h1 class="display-2 text-center">List of Recruits</h1>
     <div class="input-group">
         <input class="form-control" type="text" placeholder="Search By Name" [(ngModel)]="name">
         <div class="input-group-append">
