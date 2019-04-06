@@ -1,6 +1,6 @@
 <div *ngIf='header'>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <img src="assets/favicon.ico" alt="DGF Hockey Logo" align="middle"><a class="navbar-brand" routerLink="/">DGF SCOUTING</a>
+        <img src="assets/favicon.ico" alt="DGF Hockey Logo"><a class="navbar-brand" routerLink="/">DGF SCOUTING</a>
         <button (click)="isNavbarCollapsed = !isNavbarCollapsed" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
         </button>
@@ -19,7 +19,7 @@
                 <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
                     <a routerLink="/schedule" routerLinkActive="active"><i class="fa fa-lg fa-calendar"></i> Schedule</a>
                 </li>
-                <li *ngIf="isLoggedIn()" class="navbar-text text-danger ml-5 mr-5 d-none d-lg-inline">
+                <li *ngIf="isLoggedIn()" class="navbar-text text-displayName ml-5 mr-5 d-none d-lg-inline">
                     <i class="fa fg-lg fa-user"></i> Welcome, {{ user.displayName }}
                 </li>
                 <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline" *ngIf="isLoggedIn()">
