@@ -1,6 +1,6 @@
 <div *ngIf='header'>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <img src="assets/favicon.ico" alt="DGF Hockey Logo"><a class="navbar-brand" routerLink="/">DGF SCOUTING</a>
+        <img src="assets/favicon.ico" alt="DGF Hockey Logo" align="middle"><a class="navbar-brand" routerLink="/">DGF SCOUTING</a>
         <button (click)="isNavbarCollapsed = !isNavbarCollapsed" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,8 +34,7 @@
         </div>
     </nav>
 </div>
-<flash-messages>
-</flash-messages>
+<flash-messages></flash-messages>
 <router-outlet></router-outlet>
 <div>
     <footer class="page-footer font-small text-grey">
