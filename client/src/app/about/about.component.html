@@ -11,7 +11,7 @@
         <div class="mx-auto text-center">
             <h1 class="mx-auto my-0 text-uppercase">DGF Scouting</h1>
             <h2 class="text-white-50 mx-auto mt-2 mb-5">An innovative solution to help minor league hockey coaches evaluate recruits and build teams.</h2>
-            <a *ngIf="!isLoggedIn()" [routerLink]="['/registration']" class="btn btn-primary js-scroll-trigger">Get Started</a>
+            <a *ngIf="!isLoggedIn()" [routerLink]="['/login']" class="btn btn-primary js-scroll-trigger">Get Started</a>
             <a *ngIf="isLoggedIn()" [routerLink]="['/recruits']" class="btn btn-primary js-scroll-trigger">Get Started</a>
         </div>
     </div>
