@@ -9,11 +9,7 @@
       "urls": [
         "/es2015-polyfills.44b450db0b1006206bb5.js",
         "/index.html",
-<<<<<<< HEAD
-        "/main.fd04cee64192ad89513f.js",
-=======
         "/main.476606ba49d4cd2a0526.js",
->>>>>>> ryanangular
         "/polyfills.8bbb231b43165d65d357.js",
         "/runtime.26209474bfa8dc87a77c.js",
         "/scripts.14232b7ba40e698f7e04.js",
@@ -64,13 +60,8 @@
     "/glyphicons-halflings-regular.e18bbf611f2a2e43afc0.ttf": "44bc1850f570972267b169ae18f1cb06b611ffa2",
     "/glyphicons-halflings-regular.f4769f9bdb7466be6508.eot": "86b6f62b7853e67d3e635f6512a5a5efc58ea3c3",
     "/glyphicons-halflings-regular.fa2772327f55d8198301.woff": "278e49a86e634da6f2a02f3b47dd9d2a8f26210f",
-<<<<<<< HEAD
-    "/index.html": "57b3a3a862d0921f5ea2719a4c132005d7c6db8e",
-    "/main.fd04cee64192ad89513f.js": "bbfc04dc8860c24f9856385e323e9a72a2b031c1",
-=======
     "/index.html": "67f403d237452f8fd8c22436e62fce3c17e7e6b1",
     "/main.476606ba49d4cd2a0526.js": "7e969536acb96cc2576657976e2e8c92f3b2c04b",
->>>>>>> ryanangular
     "/polyfills.8bbb231b43165d65d357.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
     "/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
     "/scripts.14232b7ba40e698f7e04.js": "e2b289b50483da36b4401b7f0fb9b82f6b083357",
