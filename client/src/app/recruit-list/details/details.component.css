@@ -1,0 +1,27 @@
+.btn {
+  width: 100px;
+  text-align: center;
+  display: inline-block;
+  margin: 3px;
+  padding: 3px;
+  background: #b62b28;
+  color: white;
+}
+
+.btn-reports {
+  width: 50px;
+  text-align: center;
+  display: inline-block;
+  margin: 3px;
+  padding: 3px;
+  background: #b62b28;
+  color: white;
+}
+
+table {
+  margin-top: 10px;
+}
+
+thead {
+  color: #b62b28;
+}

@@ -59,4 +59,9 @@ export class DetailsComponent implements OnInit {
     });
   }
 
+  onDeleteClick(): void {
+    if (!confirm('Are you sure?')) {
+      this.router.navigate(['/recruits']);
+    }
+  }
 }

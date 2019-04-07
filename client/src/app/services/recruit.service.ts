@@ -16,7 +16,7 @@ export class RecruitService {
   private tweetsUpdated = new Subject<{tweets: any[]}>();
 
   // *** REMINDER - must change endpoint uri to host url for it to work
-  // private uri = 'http://localhost:3000/api/';
+  //private uri = 'http://localhost:3000/api/';
   private uri = 'https://puckager.herokuapp.com/api/';
   private djangoUrl = 'https://puckager-crawler.herokuapp.com/twitter/';
 

@@ -9,15 +9,11 @@ select {
     height: 36px;
 }
 
-select {
-    height: 50px;
-}
-
 .btn {
-    width: 200px;
-    margin: 5px;
-}
-
-.btn:hover {
-    color: #fff;
+  width: 75px;
+  padding: 2px;
+  margin-right: 10px;
+  display: inline-block;
+  background: #b62b28;
+  color: white;
 }

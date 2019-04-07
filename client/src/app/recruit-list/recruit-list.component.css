@@ -10,6 +10,11 @@ a:hover {
     color: white;
 }
 
+.btn-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
 thead {
     color: #b62b28;
 }
