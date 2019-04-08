@@ -11,8 +11,6 @@ export class RecruitSocialComponent implements OnInit {
 
   tweets = [];
 
-  // private tweetSub: Subscription;
-
   constructor(private rs: RecruitService) { }
 
   ngOnInit() {
@@ -21,11 +19,5 @@ export class RecruitSocialComponent implements OnInit {
       console.log(this.tweets);
     });
   }
-
-  // getPlayerTweets(): void {
-  //   this.rs.getPlayerTweets(data).subscribe(data => {
-  //     console.log(data);
-  //   });
-  // }
 
 }
