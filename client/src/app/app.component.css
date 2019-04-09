@@ -8,5 +8,13 @@ img {
 }
 
 .text-DisplayName {
+  color: #E92E36; 
+}
+
+.text-accountOptions {
+  color: #8C8C8D;
+}
+
+a:hover {
   color: #b62b28;
 }
