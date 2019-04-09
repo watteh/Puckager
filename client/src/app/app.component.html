@@ -1,5 +1,5 @@
 <div *ngIf="header">
-  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <nav ngif class="navbar navbar-expand-md bg-dark navbar-dark">
     <!-- Logo -->
     <img src="assets/favicon.ico" alt="DGF Hockey Logo" /><a
       class="navbar-brand"
@@ -73,13 +73,15 @@
             ><i class="fa fa-lg fa-sign-in-alt"></i> Login</a
           >
         </li>
-        <li *ngIf="isLoggedIn()" class="nav-item">
-          <a class="nav-link inactiveLink" id="displayName"
-            ><i class="fa fg-lg fa-user"></i> Welcome,
-            {{ user.displayName | titlecase }}</a
-          >
-        </li>
       </ul>
+    </div>
+    <div class="navbar-nav">
+      <li *ngIf="isLoggedIn()" class="nav-item">
+        <a class="nav-link" id="displayName"
+          ><i class="fa fg-lg fa-user"></i> Welcome,
+          {{ user.displayName | titlecase }}</a
+        >
+      </li>
     </div>
   </nav>
 </div>
