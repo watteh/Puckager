@@ -11,10 +11,26 @@ img {
   color: #E92E36; 
 }
 
-.text-accountOptions {
+a.text-warning {
   color: #8C8C8D;
+}
+
+a:link {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #FFFFFF;
+  text-decoration: none;
 }
 
 a:hover {
   color: #b62b28;
+  text-decoration: none;
+}
+
+a:active {
+  color: #8C8C8D;
+  text-decoration: none;
 }
