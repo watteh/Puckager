@@ -1,0 +1,8 @@
+.btn {
+    width: 75px;
+    padding: 2px;
+    margin-right: 10px;
+    display: inline-block;
+    background: #b62b28;
+    color: white;
+}
