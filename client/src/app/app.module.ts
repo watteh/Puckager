@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FlatpickrModule } from 'angularx-flatpickr';
+import { CustomFormsModule } from 'ng5-validation';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
@@ -82,8 +83,9 @@ export function jwtTokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: jwtTokenGetter
-      }
-    })
+      },
+    }),
+    CustomFormsModule
   ],
   providers: [FlashMessagesService, AuthGuard],
   bootstrap: [AppComponent]

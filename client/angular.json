@@ -36,6 +36,7 @@
                             "node_modules/tether/dist/js/tether.js",
                             "node_modules/bootstrap/dist/js/bootstrap.js",
                             "node_modules/popper.js/dist/umd/popper.js",
+                            "node_modules/ng5-validation/bundles/ng2-validation.umd.js"
                         ],
                         "es5BrowserSupport": true
                     },
