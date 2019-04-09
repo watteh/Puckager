@@ -20,7 +20,7 @@
                     <a routerLink="/schedule" routerLinkActive="active"><i class="fa fa-lg fa-calendar"></i> Schedule</a>
                 </li>
                 <li *ngIf="isLoggedIn()" class="navbar-text text-displayName ml-5 mr-5 d-none d-lg-inline">
-                    <i class="fa fg-lg fa-user"></i> Welcome, {{ user.displayName }}
+                    <i class="fa fg-lg fa-user"></i> Welcome, {{ user.displayName | titlecase }}
                 </li>
                 <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline" *ngIf="isLoggedIn()">
                     <a (click)="onLogoutClick()" routerLink="/logout">

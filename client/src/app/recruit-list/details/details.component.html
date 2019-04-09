@@ -105,7 +105,7 @@
             <ng-container *ngIf='user.username === goalieReport.submittedBy || user.accountType === "Admin"'>
               <td class="text-center align-middle">{{ goalieReport.overallRanking }}</td>
               <td class="text-center align-middle">{{ goalieReport.notes }}</td>
-              <td class="text-center align-middle">{{ goalieReport.reportDate }}</td>
+              <td class="text-center align-middle">{{ goalieReport.reportDate | date: 'yyyy.MM.dd' }}</td>
               <td colspan="2" class="text-center align-middle"><a id="viewGoalie"
                   class="btn btn-reports btn-outline-dark" href="/report/{{ recruit._id }}/{{ goalieReport._id }}"><i
                     class="fa fas fa-eye"></i></a>
@@ -137,7 +137,7 @@
             <ng-container *ngIf='user.username === playerReport.submittedBy || user.accountType !== "Scout"'>
               <td class="text-center align-middle">{{ playerReport.overallRanking }}</td>
               <td class="text-center align-middle">{{ playerReport.notes }}</td>
-              <td class="text-center align-middle">{{ playerReport.reportDate }}</td>
+              <td class="text-center align-middle">{{ playerReport.reportDate | date: 'yyyy.MM.dd' }}</td>
               <td colspan="2" class="text-center align-middle"><a id="viewPlayer"
                   class="btn btn-reports btn-outline-dark" href="/report/{{ recruit._id }}/{{ playerReport._id }}"><i
                     class="fa fas fa-eye"></i></a>
