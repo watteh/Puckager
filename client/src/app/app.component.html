@@ -1,54 +1,51 @@
 <div *ngIf='header'>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <img src="assets/favicon.ico" alt="DGF Hockey Logo"><a class="navbar-brand" routerLink="/">DGF SCOUTING</a>
-    <button (click)="isNavbarCollapsed = !isNavbarCollapsed" class="navbar-toggler" type="button" data-toggle="collapse"
-      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-      aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <img src="assets/favicon.ico" alt="DGF Hockey Logo"><a class="navbar-brand" routerLink="/">DGF SCOUTING</a>
+        <button (click)="isNavbarCollapsed = !isNavbarCollapsed" class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
-          <a routerLink="/about" routerLinkActive="active"><i class="fa fa-lg fa-home"></i> About</a>
-        </li>
-        <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
-          <a routerLink="/recruits" routerLinkActive="active"><i class="fa fa-lg fa-hockey-puck"></i> Recruits</a>
-        </li>
-        <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
-          <a routerLink="/schedule" routerLinkActive="active"><i class="fa fa-lg fa-calendar"></i> Schedule</a>
-        </li>
-        <li *ngIf="user.accountType === 'Admin'" class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
-          <a routerLink="/accounts" routerLinkActive="active"><i class="fa fa-lg fa-users"></i> Manage User Accounts</a>
-        </li>
-        <li *ngIf="user.accountType === 'Admin'" class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
-          <a routerLink="/updateaccount/{{ user._id }}" routerLinkActive="active"><i class="fas fa-lg fa-user-edit"></i>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isNavbarCollapsed">
+            <ul class="navbar-nav ml-auto">
+                <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
+                    <a routerLink="/about" routerLinkActive="active"><i class="fa fa-lg fa-home"></i> About</a>
+                </li>
+                <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
+                    <a routerLink="/recruits" routerLinkActive="active"><i class="fa fa-lg fa-hockey-puck"></i> Recruits</a>
+                </li>
+                <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
+                    <a routerLink="/schedule" routerLinkActive="active"><i class="fa fa-lg fa-calendar"></i> Schedule</a>
+                </li>
+                <li *ngIf="user.accountType === 'Admin'" class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
+                    <a routerLink="/accounts" routerLinkActive="active"><i class="fa fa-lg fa-users"></i> Manage User Accounts</a>
+                </li>
+                <li *ngIf="user.accountType === 'Admin'" class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
+                    <a routerLink="/updateaccount/{{ user._id }}" routerLinkActive="active"><i class="fas fa-lg fa-user-edit"></i>
             Edit Account</a>
-        </li>
-        <li *ngIf="user.accountType === 'Coach' || user.accountType === 'Scout'"
-          class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
-          <a routerLink="/updateaccount/{{ user._id }}" routerLinkActive="active"><i class="fas fa-lg fa-user-edit"></i>
+                </li>
+                <li *ngIf="user.accountType === 'Coach' || user.accountType === 'Scout'" class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
+                    <a routerLink="/updateaccount/{{ user._id }}" routerLinkActive="active"><i class="fas fa-lg fa-user-edit"></i>
             Edit Account</a>
-        </li>
-        <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline" *ngIf="isLoggedIn()">
-          <a (click)="onLogoutClick()" routerLink="/logout">
-            <i class="fa fa-lg fa-sign-out-alt"></i> Logout</a>
-        </li>
-        <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline" *ngIf="!isLoggedIn()">
-          <a routerLinkActive="active" routerLink="/login">
-            <i class="fa fa-lg fa-sign-in-alt"></i> Login</a>
-        </li>
-        <li *ngIf="isLoggedIn()" class="navbar-text text-displayName ml-5 mr-5 d-none d-lg-inline">
-          <i class="fa fg-lg fa-user"></i> Welcome, {{ user.displayName | titlecase }}
-        </li>
-      </ul>
-    </div>
-  </nav>
+                </li>
+                <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline" *ngIf="isLoggedIn()">
+                    <a (click)="onLogoutClick()" routerLink="/logout">
+                        <i class="fa fa-lg fa-sign-out-alt"></i> Logout</a>
+                </li>
+                <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline" *ngIf="!isLoggedIn()">
+                    <a routerLinkActive="active" routerLink="/login">
+                        <i class="fa fa-lg fa-sign-in-alt"></i> Login</a>
+                </li>
+                <li *ngIf="isLoggedIn()" class="navbar-text text-displayName ml-5 mr-5 d-none d-lg-inline">
+                    <i class="fa fg-lg fa-user"></i> Welcome, {{ user.displayName | titlecase }}
+                </li>
+            </ul>
+        </div>
+    </nav>
 </div>
 <flash-messages></flash-messages>
 <router-outlet></router-outlet>
 <div>
-  <footer class="page-footer font-small text-grey">
-    <div class="footer-copyright text-center py-3">© 2019 Copyright DGF Hockey Inc.</div>
-  </footer>
+    <footer class="page-footer font-small text-grey">
+        <div class="footer-copyright text-center py-3">© 2019 Copyright DGF Hockey Inc.</div>
+    </footer>
 </div>
