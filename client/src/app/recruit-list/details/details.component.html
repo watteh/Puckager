@@ -1,152 +1,135 @@
 <div class="container">
-  <h1 class="display-2 text-center">{{ title }}</h1>
-  <form class="form">
-    <div class="form row">
-      <div class="form-group col-md-6">
-        <label id="lblFirstName" for="txtBoxFirstName">First Name</label>
-        <input [(ngModel)]="recruit.firstName" value="{{recruit.firstName}}" name="firstName" ID="txtBoxFirstName"
-          class="form-control" readonly>
-      </div>
-      <div class="form-group col-md-6">
-        <label id="lblLastName" for="txtBoxLastName">Last Name</label>
-        <input [(ngModel)]="recruit.lastName" value="{{recruit.lastName}}" name="lastName" ID="txtBoxLastName"
-          class="form-control" readonly>
-      </div>
-    </div>
+    <h1 class="display-2 text-center">{{ title }}</h1>
+    <form class="form">
+        <div class="form row">
+            <div class="form-group col-md-6">
+                <label id="lblFirstName" for="txtBoxFirstName">First Name</label>
+                <input [(ngModel)]="recruit.firstName" value="{{recruit.firstName}}" name="firstName" ID="txtBoxFirstName" class="form-control" readonly>
+            </div>
+            <div class="form-group col-md-6">
+                <label id="lblLastName" for="txtBoxLastName">Last Name</label>
+                <input [(ngModel)]="recruit.lastName" value="{{recruit.lastName}}" name="lastName" ID="txtBoxLastName" class="form-control" readonly>
+            </div>
+        </div>
 
-    <div class="form row">
-      <div class="form-group col-md-6">
-        <label id="lblPhoneNumber" for="txtPhoneNumber">Contact Number</label>
-        <input [(ngModel)]="recruit.contactNumber" value="{{recruit.contactNumber}}" name="contactNumber"
-          ID="txtBoxPhoneNumber" class="form-control" readonly>
-      </div>
-      <div class="form-group col-md-6">
-        <label id="lblEmailAddress" for="txtEmailAddress">Email Address</label>
-        <input [(ngModel)]="recruit.emailAddress" value="{{recruit.emailAddress}}" name="emailAddress"
-          ID="txtBoxEmailAddress" class="form-control" readonly>
-      </div>
-    </div>
+        <div class="form row">
+            <div class="form-group col-md-6">
+                <label id="lblPhoneNumber" for="txtPhoneNumber">Contact Number</label>
+                <input [(ngModel)]="recruit.contactNumber" value="{{recruit.contactNumber}}" name="contactNumber" ID="txtBoxPhoneNumber" class="form-control" readonly>
+            </div>
+            <div class="form-group col-md-6">
+                <label id="lblEmailAddress" for="txtEmailAddress">Email Address</label>
+                <input [(ngModel)]="recruit.emailAddress" value="{{recruit.emailAddress}}" name="emailAddress" ID="txtBoxEmailAddress" class="form-control" readonly>
+            </div>
+        </div>
 
-    <div class="form row">
-      <div class="form-group col-md-2">
-        <label id="lblBirthYear" for="txtBirthYear">Birth Year</label>
-        <input [(ngModel)]="recruit.birthYear" value="{{recruit.birthYear}}" name="birthYear" ID="txtBoxBirthYear"
-          class="form-control" readonly>
-      </div>
-      <div class="form-group col-md-2">
-        <label id="lblGradYear" for="txtGradYear">Graduation Year</label>
-        <input [(ngModel)]="recruit.graduationYear" value="{{recruit.graduationYear}}" name="graduationYear"
-          ID="txtBoxGradYear" class="form-control" readonly>
-      </div>
-      <div class="form-group col-md-8">
-        <label id="lblCurrentTeam" for="txtCurrentTeam">Current Team</label>
-        <input [(ngModel)]="recruit.currentTeam" value="{{recruit.currentTeam}}" name="currentTeam"
-          ID="txtBoxCurrentTeam" class="form-control" readonly>
-      </div>
-    </div>
+        <div class="form row">
+            <div class="form-group col-md-2">
+                <label id="lblBirthYear" for="txtBirthYear">Birth Year</label>
+                <input [(ngModel)]="recruit.birthYear" value="{{recruit.birthYear}}" name="birthYear" ID="txtBoxBirthYear" class="form-control" readonly>
+            </div>
+            <div class="form-group col-md-2">
+                <label id="lblGradYear" for="txtGradYear">Graduation Year</label>
+                <input [(ngModel)]="recruit.graduationYear" value="{{recruit.graduationYear}}" name="graduationYear" ID="txtBoxGradYear" class="form-control" readonly>
+            </div>
+            <div class="form-group col-md-8">
+                <label id="lblCurrentTeam" for="txtCurrentTeam">Current Team</label>
+                <input [(ngModel)]="recruit.currentTeam" value="{{recruit.currentTeam}}" name="currentTeam" ID="txtBoxCurrentTeam" class="form-control" readonly>
+            </div>
+        </div>
 
-    <div class="form row">
-      <div class="form-group col-md-6">
-        <label id="lblMothersName" for="txtMothersName">Mother's Name</label>
-        <input [(ngModel)]="recruit.mothersName" value="{{recruit.mothersName}}" name="mothersName"
-          ID="txtBoxMothersName" class="form-control" readonly>
-      </div>
-      <div class="form-group col-md-6">
-        <label id="lblFathersName" for="txtFathersName">Father's Name</label>
-        <input [(ngModel)]="recruit.fathersName" value="{{recruit.fathersName}}" name="fathersName"
-          ID="txtBoxFathersName" class="form-control" readonly>
-      </div>
-    </div>
-    <div class="form row">
-      <div class="form-group col-md-4">
-        <label id="lblJerseyNumber" for="txtJerseyNumber">Jersey Number</label>
-        <input [(ngModel)]="recruit.jerseyNumber" value="{{recruit.jerseyNumber}}" name="jerseyNumber"
-          ID="txtBoxJerseyNumber" class="form-control" readonly>
-      </div>
-      <div class="form-group col-md-4">
-        <label id="lblPosition" for="txtPosition">Position</label>
-        <input [(ngModel)]="recruit.position" value="{{recruit.position}}" name="position" ID="dropdownPosition"
-          class="form-control" readonly>
-      </div>
-      <div class="form-group col-md-4">
-        <label id="lblStatus" for="txtStatus">Status</label>
-        <input [(ngModel)]="recruit.status" value="{{recruit.status}}" name="status" ID="dropdownStatus"
-          class="form-control" readonly>
-      </div>
-    </div>
+        <div class="form row">
+            <div class="form-group col-md-6">
+                <label id="lblMothersName" for="txtMothersName">Mother's Name</label>
+                <input [(ngModel)]="recruit.mothersName" value="{{recruit.mothersName}}" name="mothersName" ID="txtBoxMothersName" class="form-control" readonly>
+            </div>
+            <div class="form-group col-md-6">
+                <label id="lblFathersName" for="txtFathersName">Father's Name</label>
+                <input [(ngModel)]="recruit.fathersName" value="{{recruit.fathersName}}" name="fathersName" ID="txtBoxFathersName" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="form row">
+            <div class="form-group col-md-4">
+                <label id="lblJerseyNumber" for="txtJerseyNumber">Jersey Number</label>
+                <input [(ngModel)]="recruit.jerseyNumber" value="{{recruit.jerseyNumber}}" name="jerseyNumber" ID="txtBoxJerseyNumber" class="form-control" readonly>
+            </div>
+            <div class="form-group col-md-4">
+                <label id="lblPosition" for="txtPosition">Position</label>
+                <input [(ngModel)]="recruit.position" value="{{recruit.position}}" name="position" ID="dropdownPosition" class="form-control" readonly>
+            </div>
+            <div class="form-group col-md-4">
+                <label id="lblStatus" for="txtStatus">Status</label>
+                <input [(ngModel)]="recruit.status" value="{{recruit.status}}" name="status" ID="dropdownStatus" class="form-control" readonly>
+            </div>
+        </div>
 
-    <div class="form row">
-      <div class="form-group col-md-6">
-        <a ID="AddReport" class="btn btn-danger" routerLink="/addreport/{{ recruit._id }}"><i
+        <div class="form row">
+            <div class="form-group col-md-6">
+                <a ID="AddReport" class="btn btn-danger" routerLink="/addreport/{{ recruit._id }}"><i
             class="fa fas fa-plus-circle"></i> Add Report</a>
-        <a (click)="onDeleteClick()" ID="BtnDelete" class="btn btn-danger"
-          routerLink="/recruits/delete/{{ recruit._id }}"><i class="fa fas fa-trash"></i> Delete</a>
-        <a ID="BtnCancel" class="btn" routerLink="/recruits"><i class="fa fas fa-undo"></i> Back</a>
-      </div>
-    </div>
-  </form>
+                <a (click)="onDeleteClick()" ID="BtnDelete" class="btn btn-danger" routerLink="/recruits/delete/{{ recruit._id }}"><i class="fa fas fa-trash"></i> Delete</a>
+                <a ID="BtnCancel" class="btn" routerLink="/recruits"><i class="fa fas fa-undo"></i> Back</a>
+            </div>
+        </div>
+    </form>
 </div>
 
 <div class="container" *ngIf="position">
-  <div class="col-md-12">
-    <h1 class="display-4">Scouting Reports</h1>
-    <div class="table-responsive-sm">
-      <table id="goalieTable" class="table table-striped table-bordered table-sm">
-        <thead>
-          <tr>
-            <th class="th-sm text-center align-middle">Overall Ranking</th>
-            <th class="th-sm text-center align-middle">Notes</th>
-            <th class="th-sm text-center align-middle">Report Date</th>
-            <th colspan="2"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor='let goalieReport of goalieReports' class="table table-striped table-bordered table-sm">
-            <ng-container *ngIf='user.username === goalieReport.submittedBy || user.accountType === "Admin"'>
-              <td class="text-center align-middle">{{ goalieReport.overallRanking }}</td>
-              <td class="text-center align-middle">{{ goalieReport.notes }}</td>
-              <td class="text-center align-middle">{{ goalieReport.reportDate | date: 'yyyy.MM.dd' }}</td>
-              <td colspan="2" class="text-center align-middle"><a id="viewGoalie"
-                  class="btn btn-reports btn-outline-dark" href="/report/{{ recruit._id }}/{{ goalieReport._id }}"><i
+    <div class="col-md-12">
+        <h1 class="display-4">Scouting Reports</h1>
+        <div class="table-responsive-sm">
+            <table id="goalieTable" class="table table-striped table-bordered table-sm">
+                <thead>
+                    <tr>
+                        <th class="th-sm text-center align-middle">Overall Ranking</th>
+                        <th class="th-sm text-center align-middle">Notes</th>
+                        <th class="th-sm text-center align-middle">Last Updated</th>
+                        <th colspan="2"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let goalieReport of goalieReports' class="table table-striped table-bordered table-sm">
+                        <ng-container *ngIf='user.username === goalieReport.submittedBy || user.accountType === "Admin"'>
+                            <td class="text-center align-middle">{{ goalieReport.overallRanking }}</td>
+                            <td class="text-center align-middle">{{ goalieReport.notes }}</td>
+                            <td class="text-center align-middle">{{ goalieReport.reportDate | date: 'yyyy.MM.dd' }}</td>
+                            <td colspan="2" class="text-center align-middle"><a id="viewGoalie" class="btn btn-reports btn-outline-dark" href="/report/{{ recruit._id }}/{{ goalieReport._id }}"><i
                     class="fa fas fa-eye"></i></a>
-                <a id="editGoalie" class="btn btn-reports btn-outline-dark"
-                  href="/editreport/{{ recruit._id }}/{{ goalieReport._id }}"><i class="fa fas fa-pencil"></i></a></td>
-            </ng-container>
-          </tr>
-        </tbody>
-      </table>
+                                <a id="editGoalie" class="btn btn-reports btn-outline-dark" href="/editreport/{{ recruit._id }}/{{ goalieReport._id }}"><i class="fa fas fa-pencil-alt"></i></a></td>
+                        </ng-container>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
 </div>
 
 <div class="container" *ngIf="!position">
-  <div class="col-md-12">
-    <h1 class="display-4">Scouting Reports</h1>
-    <div class="table-responsive-sm">
-      <table id="playerTable" class="table table-striped table-bordered table-sm">
-        <thead>
-          <tr>
-            <th class="th-sm text-center align-middle">Overall Ranking</th>
-            <th class="th-sm text-center align-middle">Notes</th>
-            <th class="th-sm text-center align-middle">Report Date</th>
-            <th colspan="2"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor='let playerReport of playerReports' class="table table-striped table-bordered table-sm">
-            <ng-container *ngIf='user.username === playerReport.submittedBy || user.accountType !== "Scout"'>
-              <td class="text-center align-middle">{{ playerReport.overallRanking }}</td>
-              <td class="text-center align-middle">{{ playerReport.notes }}</td>
-              <td class="text-center align-middle">{{ playerReport.reportDate | date: 'yyyy.MM.dd' }}</td>
-              <td colspan="2" class="text-center align-middle"><a id="viewPlayer"
-                  class="btn btn-reports btn-outline-dark" href="/report/{{ recruit._id }}/{{ playerReport._id }}"><i
+    <div class="col-md-12">
+        <h1 class="display-4">Scouting Reports</h1>
+        <div class="table-responsive-sm">
+            <table id="playerTable" class="table table-striped table-bordered table-sm">
+                <thead>
+                    <tr>
+                        <th class="th-sm text-center align-middle">Overall Ranking</th>
+                        <th class="th-sm text-center align-middle">Notes</th>
+                        <th class="th-sm text-center align-middle">Last Updated</th>
+                        <th colspan="2"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let playerReport of playerReports' class="table table-striped table-bordered table-sm">
+                        <ng-container *ngIf='user.username === playerReport.submittedBy || user.accountType !== "Scout"'>
+                            <td class="text-center align-middle">{{ playerReport.overallRanking }}</td>
+                            <td class="text-center align-middle">{{ playerReport.notes }}</td>
+                            <td class="text-center align-middle">{{ playerReport.reportDate | date: 'yyyy.MM.dd' }}</td>
+                            <td colspan="2" class="text-center align-middle"><a id="viewPlayer" class="btn btn-reports btn-outline-dark" href="/report/{{ recruit._id }}/{{ playerReport._id }}"><i
                     class="fa fas fa-eye"></i></a>
-                <a id="editPlayer" class="btn btn-reports btn-outline-dark"
-                  href="/editreport/{{ recruit._id }}/{{ playerReport._id }}"><i class="fa fas fa-pencil-alt"></i></a></td>
-            </ng-container>
-          </tr>
-        </tbody>
-      </table>
+                                <a id="editPlayer" class="btn btn-reports btn-outline-dark" href="/editreport/{{ recruit._id }}/{{ playerReport._id }}"><i class="fa fas fa-pencil-alt"></i></a></td>
+                        </ng-container>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
 </div>

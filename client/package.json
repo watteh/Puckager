@@ -33,7 +33,7 @@
         "flatpickr": "^4.5.7",
         "font-awesome": "^4.7.0",
         "jquery": "^3.3.1",
-        "ng2-slim-loading-bar": "^4.0.0",
+        "ng5-validation": "^1.0.0",
         "ngx-bootstrap": "^3.2.0",
         "npm": "^6.9.0",
         "popper.js": "^1.15.0",
