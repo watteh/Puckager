@@ -3,34 +3,11 @@ nav {
 }
 
 img {
-  float: left;
-  margin: 0px 5px 5px 0px;
+  height: 40px;
 }
 
-.text-DisplayName {
-  color: #E92E36; 
-}
-
-a.text-warning {
-  color: #8C8C8D;
-}
-
-a:link {
-  color: #FFFFFF;
-  text-decoration: none;
-}
-
-a:visited {
-  color: #FFFFFF;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #b62b28;
-  text-decoration: none;
-}
-
-a:active {
-  color: #8C8C8D;
-  text-decoration: none;
+#displayName {
+  pointer-events: none;
+  cursor: default;
+  color: #E92E36;
 }

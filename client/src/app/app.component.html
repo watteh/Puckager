@@ -1,3 +1,59 @@
+<div *ngIf="header">
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Logo -->
+    <img src="assets/favicon.ico" alt="DGF Hockey Logo"/><a class="navbar-brand" routerLink="/">DGF SCOUTING</a>
+
+    <!-- Toggler/collapsibe Button for Responsiveness -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#collapsibleNavbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about" routerLinkActive="active"><i class="fa fa-lg fa-home"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/recruits" routerLinkActive="active"><i class="fa fa-lg fa-hockey-puck"></i> Recruits</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/schedule" routerLinkActive="active"><i class="fa fa-lg fa-calendar"></i> Schedule</a>
+        </li>
+        <li *ngIf="isLoggedIn() && user.accountType === 'Admin'" class="nav-item">
+          <a class="nav-link" routerLink="/accounts" routerLinkActive="active"><i class="fa fa-lg fa-users"></i> Manage User Accounts</a>
+        </li>
+        <li *ngIf="isLoggedIn() && (user.accountType === 'Admin' || user.accountType === 'Coach' || user.accountType === 'Scout' )" class="nav-item">
+          <a class="nav-link" routerLink="/updateaccount/{{ user._id }}" routerLinkActive="active"><i class="fas fa-lg fa-user-edit"></i> Edit Account</a>
+        </li>
+        <li *ngIf="isLoggedIn()" class="nav-item">
+          <a (click)="onLogoutClick()" class="nav-link" routerLink="/logout" routerLinkActive="active"><i class="fa fa-lg fa-sign-out-alt"></i> Logout</a>
+        </li>
+        <li *ngIf="!isLoggedIn()" class="nav-item">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active"><i class="fa fa-lg fa-sign-in-alt"></i> Login</a>
+        </li>
+        <li *ngIf="isLoggedIn()" class="nav-item">
+          <a class="nav-link inactiveLink" id="displayName"><i class="fa fg-lg fa-user"></i> Welcome, {{ user.displayName | titlecase }}</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<flash-messages></flash-messages>
+<router-outlet></router-outlet>
+<div>
+  <footer class="page-footer font-small text-grey">
+    <div class="footer-copyright text-center py-3">© 2019 Copyright DGF Hockey Inc.</div>
+  </footer>
+</div>
+
+  <!--
+
 <div *ngIf='header'>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <img src="assets/favicon.ico" alt="DGF Hockey Logo"><a class="navbar-brand" routerLink="/">DGF SCOUTING</a>
@@ -9,7 +65,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
-        <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
+        <li class="nav-item text-white ml-5 mr-5 d-none d-lg-inline">
           <a routerLink="/about" routerLinkActive="active"><i class="fa fa-lg fa-home"></i> About</a>
         </li>
         <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
@@ -52,3 +108,5 @@
     <div class="footer-copyright text-center py-3">© 2019 Copyright DGF Hockey Inc.</div>
   </footer>
 </div>
+
+-->

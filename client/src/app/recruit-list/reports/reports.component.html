@@ -26,8 +26,8 @@
     <div *ngIf="position">
       <div class="form row">
         <div class="form-group col-md-12">
-          <label id="lblReportDate" for="txtReportDate">Report Date</label>
-          <input [ngModel]="goalieReport.reportDate | date: 'longDate'" value="{{ goalieReport.reportDate }}" name="reportDate"
+          <label id="lblReportDate" for="txtReportDate">Report Last Updated</label>
+          <input [ngModel]="goalieReport.reportDate | date: 'longDate'" (ngModelChange)="goalieReport.reportDate" value="{{ goalieReport.reportDate }}" name="reportDate"
             ID="txtReportDate" class="form-control" datetime="yyy-MMM-dd" readonly>
         </div>
       </div>
@@ -96,8 +96,8 @@
     <div *ngIf="!position">
       <div class="form row">
         <div class="form-group col-md-12">
-          <label id="lblReportDate" for="txtReportDate">Report Date</label>
-          <input [ngModel]="playerReport.reportDate | date: 'longDate'" value="{{playerReport.reportDate}}" name="reportDate"
+          <label id="lblReportDate" for="txtReportDate">Report Last Updated</label>
+          <input [ngModel]="playerReport.reportDate | date: 'longDate'" (ngModelChange)="playerReport.reportDate" value="{{playerReport.reportDate}}" name="reportDate"
             ID="txtReportDate" class="form-control" readonly>
         </div>
       </div>
