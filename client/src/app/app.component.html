@@ -18,14 +18,14 @@
         <li class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
           <a routerLink="/schedule" routerLinkActive="active"><i class="fa fa-lg fa-calendar"></i> Schedule</a>
         </li>
-        <li *ngIf="user.accountType === 'Admin'" class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
+        <li *ngIf="isLoggedIn() && user.accountType === 'Admin'" class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
           <a routerLink="/accounts" routerLinkActive="active"><i class="fa fa-lg fa-users"></i> Manage User Accounts</a>
         </li>
-        <li *ngIf="user.accountType === 'Admin'" class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
+        <li *ngIf="isLoggedIn() && user.accountType === 'Admin'" class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
           <a routerLink="/updateaccount/{{ user._id }}" routerLinkActive="active"><i class="fas fa-lg fa-user-edit"></i>
             Edit Account</a>
         </li>
-        <li *ngIf="user.accountType === 'Coach' || user.accountType === 'Scout'"
+        <li *ngIf="isLoggedIn() && (user.accountType === 'Coach' || user.accountType === 'Scout')"
           class="navbar-text text-white ml-5 mr-5 d-none d-lg-inline">
           <a routerLink="/updateaccount/{{ user._id }}" routerLinkActive="active"><i class="fas fa-lg fa-user-edit"></i>
             Edit Account</a>
