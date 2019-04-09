@@ -1,34 +1,36 @@
-<div class="container my-5">
-    <h4>{{ title }}</h4>
-    <div class="formBody">
-        <div class="form-group row">
-            <label ID="lblUsername" for="txtUsername" CssClass="col-2 col-form-label">User Name:</label>
-            <div class="col-3">
-                <label ID="txtUsername" type="text" CssClass="form-control">{{ user.username }}</label>
+<div class="container">
+  <h1 class="display-2 text-center">{{ title }}</h1>
+  <form class="form">
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label id="lblUsername" for="txtUsername">Username</label>
+            <input [ngModel]="user.username | lowercase" value="{{user.username}}" (ngModelChange)="user.username=$event" name="username" ID="txtBoxUsername"
+              class="form-control" readonly>
+          </div>
+          <div class="form-group col-md-4">
+              <label id="lblDisplayName" for="txtDisplayName">Display Name</label>
+              <input [ngModel]="user.displayName | lowercase" (ngModelChange)="user.displayName=$event" value="{{user.displayName}}" name="displayname" ID="txtBoxDisplayName"
+                class="form-control" readonly>
             </div>
-        </div>
-        <div class="form-group row">
-            <Label ID="lblEmailAddress" for="txtEmailAddress" CssClass="col-2 col-form-label">Email Address:</Label>
-            <div class="col-3">
-                <label ID="txtEmailAddress" type="text" CssClass="form-control">{{ user.email }}</label>
-            </div>
-        </div>
-        <div class="form-group row">
-            <Label ID="lblDisplayName" for="ddlDisplayName" CssClass="col-2 col-form-label">Display Name:</Label>
-            <div class="col-3">
-                <label ID="txtDisplayName" type="text" CssClass="form-control">{{ user.displayName }}</label>
-            </div>
-        </div>
-        <div class="form-group row">
-            <Label ID="lblAccountType" for="ddlAccountType" CssClass="col-2 col-form-label">Account Type:</Label>
-            <div class="col-3">
-                <label ID="txtAccountType" type="text" CssClass="form-control">{{ user.accountType }}</label>
-            </div>
-        </div>
-        <div class="row">
-            <a *ngIf='current.accountType === "Admin"' ID="BtnBack" class="btn btn-primary" routerLink="/accounts">Back</a>
-            <a *ngIf='current.accountType !== "Admin"' ID="BtnBack" class="btn btn-primary" routerLink="/about">Back</a>
-            <a ID="BtnUpdate" class="btn btn-warning" routerLink="/updateaccount/{{ user._id }}">Update Account</a>
-        </div>
+          <div class="form-group col-md-4">
+            <label id="lblEmail" for="txtBoxLastName">Email</label>
+            <input [ngModel]="user.email | lowercase" (ngModelChange)="user.email=$event" value="{{user.email}}" name="email" ID="txtEmail"
+              class="form-control" readonly>
+          </div>
     </div>
+    <div class="form-row">
+           <div class="form-group col-md-6">
+            <label id="lblAccountType" for="txtBoxAccountType">Account Type</label>
+            <input [ngModel]="user.accountType | lowercase" (ngModelChange)="user.accountType=$event" value="{{user.accountType}}" name="accounttype" ID="txtAccountType"
+              class="form-control" readonly>
+          </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <a ID="BtnUpdate" class="btn btn-outline-dark" routerLink="/updateaccount/{{ user._id }}"><i class="fas fa fa-pencil-alt"></i> Update</a>
+            <a *ngIf='current.accountType === "Admin"' ID="BtnBack" class="btn btn-outline-dark" routerLink="/accounts"><i class="fas fa fa-undo"></i> Back</a>
+            <a *ngIf='current.accountType !== "Admin"' ID="BtnBack" class="btn btn-outline-dark" routerLink="/about"><i class="fas fa fa-undo"></i> Back</a>            
+          </div>
+    </div>
+  </form>
 </div>
