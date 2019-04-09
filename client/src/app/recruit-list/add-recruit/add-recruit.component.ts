@@ -13,7 +13,6 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 export class AddRecruitComponent implements OnInit {
   title: string;
   recruit: RecruitSchema;
-  form: FormGroup;
 
   constructor(private activatedRoute: ActivatedRoute, private rs: RecruitService, private router: Router,
               private flashMessage: FlashMessagesService, private fb: FormBuilder) { }
