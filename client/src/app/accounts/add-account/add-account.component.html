@@ -1,6 +1,6 @@
 <div class="container">
   <h1 class="display-2 text-center">{{ title }}</h1>
-  <form class="form" (submi)="onAccountPageSubmit()">
+  <form class="form" (submit)="onAccountPageSubmit()">
       <div class="form-row">
           <div class="form-group col-md-4">
               <label id="lblUsername" for="txtUsername">Username</label>
@@ -62,7 +62,7 @@
       <div class="form-row">
           <div class="form-group col-md-6">
               <button ID="btnAddAccount" type='submit' class="btn btn-outline-dark"><i class="fa fa-arrow-circle-right"></i> Submit</button>
-              <a ID="BtnCancel" class="formButton btn btn-outline-dark" routerLink="/recruits"><i class="fa fas fa-undo"></i> Back</a>
+              <a ID="BtnCancel" class="formButton btn btn-outline-dark" routerLink="/about"><i class="fa fas fa-undo"></i> Back</a>
             </div>
       </div>
   </form>
