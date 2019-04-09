@@ -38,7 +38,6 @@ export class AddRecruitComponent implements OnInit {
   }
 
 onDetailsPageSubmit(): void {
-    if (this.form.valid) {
       switch (this.title) {
         case 'Add Recruit':
         this.rs.addRecruit(this.recruit).subscribe(data => {
@@ -65,8 +64,5 @@ onDetailsPageSubmit(): void {
         });
         break;
       }
-    } else {
-      this.flashMessage.show('Please properly fill out all fields in form.', {cssClass: 'alert-danger', timeOut: 7000});
-    }
   }
 }
