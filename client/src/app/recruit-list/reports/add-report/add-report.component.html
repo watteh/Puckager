@@ -229,9 +229,9 @@
             <div class="form row">
                 <div class="form-group col-md-12">
                     <label id="lblNotes" for="txtNotes">Notes</label>
-                    <textarea [(ngModel)]="playerReport.notes" value="{{playerReport.notes}}" name="notes" ID="txtNotes" rows="5" class="form-control" required #notes="ngModel"></textarea>
-                    <div *ngIf="notes.invalid && (notes.dirty || notes.touched)" class="alert alert-danger">
-                        <div *ngIf="notes.errors.required">
+                    <textarea [(ngModel)]="playerReport.notes" value="{{playerReport.notes}}" name="notes" ID="txtNotes" rows="5" class="form-control" required #playerNotes="ngModel"></textarea>
+                    <div *ngIf="playerNotes.invalid && (playerNotes.dirty || playerNotes.touched)" class="alert alert-danger">
+                        <div *ngIf="playerNotes.errors.required">
                             Notes are required.
                         </div>
                     </div>
@@ -249,7 +249,8 @@
         </div>
         <div *ngIf="title !== 'Add Report'" class="form row">
             <div class="form-group col-md-6">
-                <button ID="btnEditScoutingReport" class="btn btn-outline-dark"><i class="fa fas fa-pencil"></i> Edit</button>
+                <button ID="btnEditScoutingReport" class="btn btn-outline-dark"><i class="fa fas fa-pencil-alt"></i>
+          Edit</button>
                 <a ID="btnClear" class="btn btn-outline-dark" href="addreport/{{ recruit._id }}"><i
             class="fa fas fa-eraser"></i> Clear</a>
                 <a ID="btnBack" class="btn btn-outline-dark" href="recruits/detail/{{ recruit._id }}"><i
