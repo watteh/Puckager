@@ -1,83 +1,69 @@
-<div class="container my-5">
-    <h4>{{title}}</h4>
-    <div class="formBody">
-        <form class="form" (submit)="onAccountPageSubmit()">
-            <div class="form-group row">
-                <label ID="lblUsername" for="txtUsername" CssClass="col-2 col-form-label">User Name:</label>
-                <div class="col-3">
-                    <input [(ngModel)]="user.username" value="{{user.username}}" name="username" ID="txtUsername" type="text" placeholder="userName" required #username="ngModel" CssClass="form-control">
-                </div>
-                <div class="col-4">
-                    <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
-                        <div *ngIf="username.errors.required">
-                            Username is required.
-                        </div>
+<div class="container">
+  <h1 class="display-2 text-center">{{ title }}</h1>
+  <form class="form" (submi)="onAccountPageSubmit()">
+      <div class="form-row">
+          <div class="form-group col-md-4">
+              <label id="lblUsername" for="txtUsername">Username</label>
+              <input [(ngModel)]="user.username" value="{{user.username}}" name="username" ID="txtUsername" type="text" placeholder="username" required #username="ngModel"
+                class="form-control">
+                <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+                    <div *ngIf="username.errors.required">
+                        Username is required.
                     </div>
                 </div>
             </div>
-            <div class="form-group row">
-                <Label ID="lblPassword" for="txtPassword" CssClass="col-2 col-form-label">Password:</Label>
-                <div class="col-3">
-                    <input [(ngModel)]="user.password" value="{{user.password}}" name="password" ID="txtPassword" type="password" placeholder="password" required #password="ngModel" CssClass="form-control">
-                </div>
-                <div class="col-4">
-                    <!-- Password must contain one letter, one number and be longer than six characters -->
-                    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
-                        <div *ngIf="password.errors.required">
-                            Password is required.
-                        </div>
+            <div class="form-group col-md-4">
+                <label id="lblDisplayName" for="txtDisplayName">Display Name</label>
+                <input [(ngModel)]="user.displayName" value="{{user.displayName}}" name="displayName" ID="txtDisplayName" type="text" required #display="ngModel" placeholder="display name"
+                  class="form-control">
+                  <div *ngIf="display.invalid && (display.dirty || display.touched)" class="alert alert-danger">
+                      <div *ngIf="display.errors.required">
+                          Display name is required.
+                      </div>
+                  </div>
+              </div>
+            <div class="form-group col-md-4">
+                <label id="lblPassword" for="txtPassword">Password</label>
+                <input [(ngModel)]="user.password" value="{{user.password}}" name="password" ID="txtPassword" type="password" placeholder="password" required #password="ngModel"
+                  class="form-control">
+                  <!-- Password must contain one letter, one number and be longer than six characters -->
+                  <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                      <div *ngIf="password.errors.required">
+                          Password is required.
+                      </div>
+                  </div>
+            </div>
+      </div>
+      <div class="form-row">
+          <div class="form-group col-md-6">
+              <label id="lblEmail" for="txtEmail">Email</label>
+              <input [(ngModel)]="user.email" value="{{user.email}}" name="email" ID="txtEmailAddress" type="text" placeholder="email address" required email #email="ngModel"
+                class="form-control">
+                <!-- REGEX to ensure format matches user@domain.com -->
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                    <div *ngIf="email.errors.required">
+                        Email is required.
+                    </div>
+                    <div *ngIf="email.errors.email">
+                        Email must be in email format "joe@gmail.com".
                     </div>
                 </div>
             </div>
-            <div class="form-group row">
-                <Label ID="lblEmailAddress" for="txtEmailAddress" CssClass="col-2 col-form-label">Email Address:</Label>
-                <div class="col-3">
-                    <input [(ngModel)]="user.email" value="{{user.email}}" name="email" ID="txtEmailAddress" type="text" placeholder="email address" required email #email="ngModel" CssClass="form-control">
-                </div>
-                <div class="col-4">
-                    <!-- REGEX to ensure format matches user@domain.com -->
-                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
-                        <div *ngIf="email.errors.required">
-                            Email is required.
-                        </div>
-                        <div *ngIf="email.errors.email">
-                            Email must be in email format "joe@gmail.com".
-                        </div>
-                    </div>
-                </div>
+            <div class="form-group col-md-4">
+                <label ID="lblAccountType" for="ddlAccountType">Account Type:</label>
+                <select [(ngModel)]="user.accountType" value="{{user.accountType}}" name="accountType" ID="ddlAccountType" type="text" class="form-control" style="height: 36px;">
+                    <option Value="None" Selected="True">None</option>
+                    <option Value="Admin">Admin</option>
+                    <option Value="Coach">Coach</option>
+                    <option Value="Scout">Scout</option>
+                </select>
+              </div>
+      </div>
+      <div class="form-row">
+          <div class="form-group col-md-6">
+              <button ID="btnAddAccount" type='submit' class="btn btn-outline-dark"><i class="fa fa-arrow-circle-right"></i> Submit</button>
+              <a ID="BtnCancel" class="formButton btn btn-outline-dark" routerLink="/recruits"><i class="fa fas fa-undo"></i> Back</a>
             </div>
-            <div class="form-group row">
-                <Label ID="lblDisplayName" for="txtDisplayName" CssClass="col-2 col-form-label">Display Name:</Label>
-                <div class="col-3">
-                    <input [(ngModel)]="user.displayName" value="{{user.displayName}}" name="displayName" ID="txtDisplayName" type="text" required #display="ngModel" placeholder="Display Name" CssClass="form-control">
-                </div>
-                <div class="col-4">
-                    <!-- REGEX to ensure format matches user@domain.com -->
-                    <div *ngIf="display.invalid && (display.dirty || display.touched)" class="alert alert-danger">
-                        <div *ngIf="display.errors.required">
-                            Display name is required.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group row">
-                <Label ID="lblAccountType" for="ddlAccountType" CssClass="col-2 col-form-label">Account Type:</Label>
-                <div class="col-3">
-                    <label *ngIf='user.accountType === "Admin" || current.accountType !== "Admin"; else accountChange'>{{user.accountType}}</label>
-                    <ng-template #accountChange>
-                        <select [(ngModel)]="user.accountType" value="{{user.accountType}}" name="accountType" ID="ddlAccountType" type="text" CssClass="form-control">
-                            <option Value="None" Selected="True">None</option>
-                            <option Value="Admin">Admin</option>
-                            <option Value="Coach">Coach</option>
-                            <option Value="Scout">Scout</option>
-                        </select>
-                    </ng-template>
-                </div>
-                <div>
-                    <button ID="btnAddAccount" type='submit' class="formButton btn btn-primary">{{title}}</button>
-                    <a ID="BtnCancel" class="formButton btn btn-warning" routerLink="/accounts">Cancel</a>
-                </div>
-            </div>
-        </form>
-    </div>
+      </div>
+  </form>
 </div>

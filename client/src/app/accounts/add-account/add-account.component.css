@@ -1,9 +1,5 @@
-.control-label:after {
-    color: #d00;
-    content: "*";
-    position: absolute;
-    margin-left: 5px;
-    top: 1px;
+select {
+    height: 36px;
 }
 
 .btn {
@@ -13,4 +9,12 @@
     display: inline-block;
     background: #b62b28;
     color: white;
+}
+
+.control-label:after {
+    color: #d00;
+    content: "*";
+    position: absolute;
+    margin-left: 5px;
+    top: 1px;
 }
