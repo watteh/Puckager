@@ -1,109 +1,105 @@
 {
-    "configVersion": 1,
-    "index": "/index.html",
-    "assetGroups": [{
-            "name": "app",
-            "installMode": "prefetch",
-            "updateMode": "prefetch",
-            "urls": [
-                "/es2015-polyfills.44b450db0b1006206bb5.js",
-                "/index.html",
-                "/main.3cf3c3352318c844c700.js",
-                "/polyfills.8bbb231b43165d65d357.js",
-                "/runtime.26209474bfa8dc87a77c.js",
-                "/scripts.a6329b65c784e0d1323b.js",
-                "/styles.5c36ebd7504697d7b547.js",
-                "/styles.7e19a240ae299fd0bc30.css"
-            ],
-            "patterns": []
-        },
-        {
-            "name": "assets",
-            "installMode": "lazy",
-            "updateMode": "prefetch",
-            "urls": [
-                "/assets/bg-masthead.jpg",
-                "/assets/david_gwyn.jpeg",
-                "/assets/developer_fill.png",
-                "/assets/favicon.ico",
-                "/assets/gabriele_hunte.png",
-                "/assets/heeyeong_kim.png",
-                "/assets/logo.png",
-                "/assets/minseok_choi.jpeg",
-                "/assets/ryan_watson.jpeg",
-                "/assets/semy_jin.png",
-                "/assets/tyler_trafford.png",
-                "/assets/yayun_yang.png",
-                "/bg-masthead.17a2aede28655387873e.jpg",
-                "/fontawesome-webfont.674f50d287a8c48dc19b.eot",
-                "/fontawesome-webfont.912ec66d7572ff821749.svg",
-                "/fontawesome-webfont.af7ae505a9eed503f8b8.woff2",
-                "/fontawesome-webfont.b06871f281fee6b241d6.ttf",
-                "/fontawesome-webfont.fee66e712a8a08eef580.woff",
-                "/glyphicons-halflings-regular.448c34a56d699c29117a.woff2",
-                "/glyphicons-halflings-regular.89889688147bd7575d63.svg",
-                "/glyphicons-halflings-regular.e18bbf611f2a2e43afc0.ttf",
-                "/glyphicons-halflings-regular.f4769f9bdb7466be6508.eot",
-                "/glyphicons-halflings-regular.fa2772327f55d8198301.woff"
-            ],
-            "patterns": []
-        }
-    ],
-    "dataGroups": [],
-    "hashTable": {
-        "/assets/bg-masthead.jpg": "09ce0aeb5f514d64e5e0cf2f44647cf682d9eaba",
-        "/assets/david_gwyn.jpeg": "4a488273b9dbab22ed6cd47fbe6c366f8837c4d9",
-        "/assets/developer_fill.png": "e7639566290f7960c7639b8fd1777a3788893c7c",
-        "/assets/favicon.ico": "dab4075a08eb9ce17eb558b0836e391de17c9496",
-        "/assets/gabriele_hunte.png": "277e82bf1acbd96d44e5de610c59d72b62e64494",
-        "/assets/heeyeong_kim.png": "9f618cc48a051e48ccc575c2775e549d04bdc548",
-        "/assets/logo.png": "322d66bc916dd3ccca39cc3ddc15da4612cd4b94",
-        "/assets/minseok_choi.jpeg": "59bd5fd1475fb526a695ca5de76dd76b28c20b5b",
-        "/assets/ryan_watson.jpeg": "a41c6f26d7484827ea714598d9d32737770e7132",
-        "/assets/semy_jin.png": "513d7f58b43dda8c0c3c952a7f7c33251e1ad262",
-        "/assets/tyler_trafford.png": "05bd8b3418c8f90da7d4f0b194e2e914caf00352",
-        "/assets/yayun_yang.png": "8499d5e092302bbc1ed33dfd436b0c3d42bf67dc",
-        "/bg-masthead.17a2aede28655387873e.jpg": "09ce0aeb5f514d64e5e0cf2f44647cf682d9eaba",
-        "/es2015-polyfills.44b450db0b1006206bb5.js": "2f388121100fc23553ef172f4227276f96b7a97c",
-        "/fontawesome-webfont.674f50d287a8c48dc19b.eot": "d980c2ce873dc43af460d4d572d441304499f400",
-        "/fontawesome-webfont.912ec66d7572ff821749.svg": "98a8aa5cf7d62c2eff5f07ede8d844b874ef06ed",
-        "/fontawesome-webfont.af7ae505a9eed503f8b8.woff2": "d6f48cba7d076fb6f2fd6ba993a75b9dc1ecbf0c",
-        "/fontawesome-webfont.b06871f281fee6b241d6.ttf": "13b1eab65a983c7a73bc7997c479d66943f7c6cb",
-        "/fontawesome-webfont.fee66e712a8a08eef580.woff": "28b782240b3e76db824e12c02754a9731a167527",
-        "/glyphicons-halflings-regular.448c34a56d699c29117a.woff2": "ca35b697d99cae4d1b60f2d60fcd37771987eb07",
-        "/glyphicons-halflings-regular.89889688147bd7575d63.svg": "de51a8494180a6db074af2dee2383f0a363c5b08",
-        "/glyphicons-halflings-regular.e18bbf611f2a2e43afc0.ttf": "44bc1850f570972267b169ae18f1cb06b611ffa2",
-        "/glyphicons-halflings-regular.f4769f9bdb7466be6508.eot": "86b6f62b7853e67d3e635f6512a5a5efc58ea3c3",
-        "/glyphicons-halflings-regular.fa2772327f55d8198301.woff": "278e49a86e634da6f2a02f3b47dd9d2a8f26210f",
-        <<
-        << << < HEAD "/index.html": "6546e736c26a288349f83c1588716519bab663f3",
-        "/main.ce82667302b574ad671f.js": "7c49ec31b75c054e1a518665af6aa16078c3ae66",
-        ===
-        === =
-        "/index.html": "026f09a744f19759aa818c4494550754096fad06",
-        "/main.3cf3c3352318c844c700.js": "f583acedc13b8e5f49be64a8e55a3813fa49e25e",
-        >>>
-        >>> > ryanangular "/polyfills.8bbb231b43165d65d357.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
-        "/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
-        "/scripts.a6329b65c784e0d1323b.js": "f93f58869a2c0a72ab45ee09b2dd28d713810855",
-        "/styles.5c36ebd7504697d7b547.js": "b029f9a12bba41eb5a88886448be10442034112d",
-        "/styles.7e19a240ae299fd0bc30.css": "ca9353c4e632f75efda9b2524dfc04a11ab58f1d"
+  "configVersion": 1,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/es2015-polyfills.44b450db0b1006206bb5.js",
+        "/index.html",
+        "/main.ef75894d0d5d7d79c61a.js",
+        "/polyfills.8bbb231b43165d65d357.js",
+        "/runtime.26209474bfa8dc87a77c.js",
+        "/scripts.a6329b65c784e0d1323b.js",
+        "/styles.5c36ebd7504697d7b547.js",
+        "/styles.7e19a240ae299fd0bc30.css"
+      ],
+      "patterns": []
     },
-    "navigationUrls": [{
-            "positive": true,
-            "regex": "^\\/.*$"
-        },
-        {
-            "positive": false,
-            "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
-        },
-        {
-            "positive": false,
-            "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
-        },
-        {
-            "positive": false,
-            "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
-        }
-    ]
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/bg-masthead.jpg",
+        "/assets/david_gwyn.jpeg",
+        "/assets/developer_fill.png",
+        "/assets/favicon.ico",
+        "/assets/gabriele_hunte.png",
+        "/assets/heeyeong_kim.png",
+        "/assets/logo.png",
+        "/assets/minseok_choi.jpeg",
+        "/assets/ryan_watson.jpeg",
+        "/assets/semy_jin.png",
+        "/assets/tyler_trafford.png",
+        "/assets/yayun_yang.png",
+        "/bg-masthead.17a2aede28655387873e.jpg",
+        "/fontawesome-webfont.674f50d287a8c48dc19b.eot",
+        "/fontawesome-webfont.912ec66d7572ff821749.svg",
+        "/fontawesome-webfont.af7ae505a9eed503f8b8.woff2",
+        "/fontawesome-webfont.b06871f281fee6b241d6.ttf",
+        "/fontawesome-webfont.fee66e712a8a08eef580.woff",
+        "/glyphicons-halflings-regular.448c34a56d699c29117a.woff2",
+        "/glyphicons-halflings-regular.89889688147bd7575d63.svg",
+        "/glyphicons-halflings-regular.e18bbf611f2a2e43afc0.ttf",
+        "/glyphicons-halflings-regular.f4769f9bdb7466be6508.eot",
+        "/glyphicons-halflings-regular.fa2772327f55d8198301.woff"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/bg-masthead.jpg": "09ce0aeb5f514d64e5e0cf2f44647cf682d9eaba",
+    "/assets/david_gwyn.jpeg": "4a488273b9dbab22ed6cd47fbe6c366f8837c4d9",
+    "/assets/developer_fill.png": "e7639566290f7960c7639b8fd1777a3788893c7c",
+    "/assets/favicon.ico": "dab4075a08eb9ce17eb558b0836e391de17c9496",
+    "/assets/gabriele_hunte.png": "277e82bf1acbd96d44e5de610c59d72b62e64494",
+    "/assets/heeyeong_kim.png": "9f618cc48a051e48ccc575c2775e549d04bdc548",
+    "/assets/logo.png": "322d66bc916dd3ccca39cc3ddc15da4612cd4b94",
+    "/assets/minseok_choi.jpeg": "59bd5fd1475fb526a695ca5de76dd76b28c20b5b",
+    "/assets/ryan_watson.jpeg": "a41c6f26d7484827ea714598d9d32737770e7132",
+    "/assets/semy_jin.png": "513d7f58b43dda8c0c3c952a7f7c33251e1ad262",
+    "/assets/tyler_trafford.png": "05bd8b3418c8f90da7d4f0b194e2e914caf00352",
+    "/assets/yayun_yang.png": "8499d5e092302bbc1ed33dfd436b0c3d42bf67dc",
+    "/bg-masthead.17a2aede28655387873e.jpg": "09ce0aeb5f514d64e5e0cf2f44647cf682d9eaba",
+    "/es2015-polyfills.44b450db0b1006206bb5.js": "2f388121100fc23553ef172f4227276f96b7a97c",
+    "/fontawesome-webfont.674f50d287a8c48dc19b.eot": "d980c2ce873dc43af460d4d572d441304499f400",
+    "/fontawesome-webfont.912ec66d7572ff821749.svg": "98a8aa5cf7d62c2eff5f07ede8d844b874ef06ed",
+    "/fontawesome-webfont.af7ae505a9eed503f8b8.woff2": "d6f48cba7d076fb6f2fd6ba993a75b9dc1ecbf0c",
+    "/fontawesome-webfont.b06871f281fee6b241d6.ttf": "13b1eab65a983c7a73bc7997c479d66943f7c6cb",
+    "/fontawesome-webfont.fee66e712a8a08eef580.woff": "28b782240b3e76db824e12c02754a9731a167527",
+    "/glyphicons-halflings-regular.448c34a56d699c29117a.woff2": "ca35b697d99cae4d1b60f2d60fcd37771987eb07",
+    "/glyphicons-halflings-regular.89889688147bd7575d63.svg": "de51a8494180a6db074af2dee2383f0a363c5b08",
+    "/glyphicons-halflings-regular.e18bbf611f2a2e43afc0.ttf": "44bc1850f570972267b169ae18f1cb06b611ffa2",
+    "/glyphicons-halflings-regular.f4769f9bdb7466be6508.eot": "86b6f62b7853e67d3e635f6512a5a5efc58ea3c3",
+    "/glyphicons-halflings-regular.fa2772327f55d8198301.woff": "278e49a86e634da6f2a02f3b47dd9d2a8f26210f",
+    "/index.html": "7e2f14a9c84d095f2793db1cc1e4c91f48d4ae07",
+    "/main.ef75894d0d5d7d79c61a.js": "a2bc856c723deebb816a832c2e5ace0c18306c5d",
+    "/polyfills.8bbb231b43165d65d357.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
+    "/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
+    "/scripts.a6329b65c784e0d1323b.js": "f93f58869a2c0a72ab45ee09b2dd28d713810855",
+    "/styles.5c36ebd7504697d7b547.js": "b029f9a12bba41eb5a88886448be10442034112d",
+    "/styles.7e19a240ae299fd0bc30.css": "ca9353c4e632f75efda9b2524dfc04a11ab58f1d"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
 }
