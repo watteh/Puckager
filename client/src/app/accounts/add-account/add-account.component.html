@@ -5,36 +5,59 @@
             <div class="form-group row">
                 <label ID="lblUsername" for="txtUsername" CssClass="col-2 col-form-label">User Name:</label>
                 <div class="col-3">
-                    <input [(ngModel)]="user.username" value="{{user.username}}" name="username" ID="txtUsername" type="text" placeholder="userName" CssClass="form-control">
+                    <input [(ngModel)]="user.username" value="{{user.username}}" name="username" ID="txtUsername" type="text" placeholder="userName" required #username="ngModel" CssClass="form-control">
                 </div>
                 <div class="col-4">
+                    <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+                        <div *ngIf="username.errors.required">
+                            Username is required.
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="form-group row">
                 <Label ID="lblPassword" for="txtPassword" CssClass="col-2 col-form-label">Password:</Label>
                 <div class="col-3">
-                    <input [(ngModel)]="user.password" value="{{user.password}}" name="password" ID="txtPassword" type="password" placeholder="password" CssClass="form-control">
+                    <input [(ngModel)]="user.password" value="{{user.password}}" name="password" ID="txtPassword" type="password" placeholder="password" required #password="ngModel" CssClass="form-control">
                 </div>
                 <div class="col-4">
                     <!-- Password must contain one letter, one number and be longer than six characters -->
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                        <div *ngIf="password.errors.required">
+                            Password is required.
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="form-group row">
                 <Label ID="lblEmailAddress" for="txtEmailAddress" CssClass="col-2 col-form-label">Email Address:</Label>
                 <div class="col-3">
-                    <input [(ngModel)]="user.email" value="{{user.email}}" name="email" ID="txtEmailAddress" type="text" placeholder="email address" CssClass="form-control">
+                    <input [(ngModel)]="user.email" value="{{user.email}}" name="email" ID="txtEmailAddress" type="text" placeholder="email address" required email #email="ngModel" CssClass="form-control">
                 </div>
                 <div class="col-4">
                     <!-- REGEX to ensure format matches user@domain.com -->
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                        <div *ngIf="email.errors.required">
+                            Email is required.
+                        </div>
+                        <div *ngIf="email.errors.email">
+                            Email must be in email format "joe@gmail.com".
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="form-group row">
                 <Label ID="lblDisplayName" for="txtDisplayName" CssClass="col-2 col-form-label">Display Name:</Label>
                 <div class="col-3">
-                    <input [(ngModel)]="user.displayName" value="{{user.displayName}}" name="displayName" ID="txtDisplayName" type="text" placeholder="Display Name" CssClass="form-control">
+                    <input [(ngModel)]="user.displayName" value="{{user.displayName}}" name="displayName" ID="txtDisplayName" type="text" required #display="ngModel" placeholder="Display Name" CssClass="form-control">
                 </div>
                 <div class="col-4">
                     <!-- REGEX to ensure format matches user@domain.com -->
+                    <div *ngIf="display.invalid && (display.dirty || display.touched)" class="alert alert-danger">
+                        <div *ngIf="display.errors.required">
+                            Display name is required.
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="form-group row">
