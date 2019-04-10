@@ -103,6 +103,7 @@ export class RecruitService {
       };
     }))
     .subscribe(returnedTweetData => {
+      this.tweets = [];
       returnedTweetData.tweets.map(tweet => {
         this.tweets.push(tweet);
       });
