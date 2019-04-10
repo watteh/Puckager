@@ -9,7 +9,7 @@
       "urls": [
         "/es2015-polyfills.44b450db0b1006206bb5.js",
         "/index.html",
-        "/main.5d7da798d74d10bdbc06.js",
+        "/main.afb442483070acf36b3e.js",
         "/polyfills.8bbb231b43165d65d357.js",
         "/runtime.26209474bfa8dc87a77c.js",
         "/scripts.4b141884c8b3e85769cd.js",
@@ -25,6 +25,7 @@
       "urls": [
         "/assets/bg-masthead.jpg",
         "/assets/david_gwyn.jpeg",
+        "/assets/dennis_k.png",
         "/assets/developer_fill.png",
         "/assets/favicon.ico",
         "/assets/gabriele_hunte.png",
@@ -64,6 +65,7 @@
   "hashTable": {
     "/assets/bg-masthead.jpg": "09ce0aeb5f514d64e5e0cf2f44647cf682d9eaba",
     "/assets/david_gwyn.jpeg": "4a488273b9dbab22ed6cd47fbe6c366f8837c4d9",
+    "/assets/dennis_k.png": "3936bbc3b31c57b04e0abf1bffe19a6401770691",
     "/assets/developer_fill.png": "e7639566290f7960c7639b8fd1777a3788893c7c",
     "/assets/favicon.ico": "dab4075a08eb9ce17eb558b0836e391de17c9496",
     "/assets/gabriele_hunte.png": "875662facf274cbb9943c81d215670f97c0665e2",
@@ -96,8 +98,8 @@
     "/glyphicons-halflings-regular.e18bbf611f2a2e43afc0.ttf": "44bc1850f570972267b169ae18f1cb06b611ffa2",
     "/glyphicons-halflings-regular.f4769f9bdb7466be6508.eot": "86b6f62b7853e67d3e635f6512a5a5efc58ea3c3",
     "/glyphicons-halflings-regular.fa2772327f55d8198301.woff": "278e49a86e634da6f2a02f3b47dd9d2a8f26210f",
-    "/index.html": "577bbd110ca1f94f1a5bef5f3e175227a78a6ba9",
-    "/main.5d7da798d74d10bdbc06.js": "06ef6283576817bf497e8ae2b14751f68e3b9bfc",
+    "/index.html": "19ba89c23aaa91cf03c9eff15151eef9f82d8357",
+    "/main.afb442483070acf36b3e.js": "b405235d0809b7d0b150edf375567315ce1899e2",
     "/polyfills.8bbb231b43165d65d357.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
     "/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
     "/scripts.4b141884c8b3e85769cd.js": "ae85ace590676bd96c6d57b985a9663069c99d60",
