@@ -11,6 +11,7 @@
                     <th class="th-sm text-center align-middle">Creator</th>
                     <th class="th-sm text-center align-middle">Date</th>
                     <th class="th-sm text-center align-middle">Tweet</th>
+                    <th class="th-sm text-center align-middle">Source</th>
                 </tr>
             </thead>
             <tbody>
@@ -18,7 +19,8 @@
                     <td class="text-center align-middle">{{ i + 1}}</td>
                     <td class="text-center align-middle">{{ tweet.user.name }}</td>
                     <td class="text-center align-middle">{{ tweet.created_at | date: 'yyyy.MM.dd' }}</td>
-                    <td class="text-center align-middle">{{ tweet.text }}</td>
+                    <td>{{ tweet.text }}</td>
+                    <td>{{ removeURLs(tweet.text) }}</td>
                 </tr>
             </tbody>
         </table>

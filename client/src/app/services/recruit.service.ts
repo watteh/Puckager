@@ -97,6 +97,7 @@ export class RecruitService {
             user: tweet.user,
             created_at: tweet.created_at,
             text: tweet.text,
+            source: tweet.source
           };
         })
       };
