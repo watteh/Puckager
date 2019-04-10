@@ -1,42 +1,29 @@
-<div class="container my-5">
-    <div class="row">
-        <h1>Twitter Posts Found For Player</h1>
-        <div *ngIf='tweets.length > 0'>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Tweet #</th>
-                        <th scope="col">Creator</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Text</th>
-                        <th scope="col">Source</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let tweet of tweets; index as i">
-                        <th scope="row">{{ i + 1 }}</th>
-                        <td>
-                            {{ tweet.user.name }}
-                        </td>
-                        <td>{{ tweet.created_at | date }}</td>
-                        <td>{{ removeURLs(tweet.text) }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+<div class="container">
+  <h1 class="display-2 text-center">Twitter Post Found For Player</h1>
+  <div class="table-responsive-sm">
+    <div *ngIf="tweets.length === 0">
+      <h3 class="display-4 text-center">No Tweets to Display For Player</h3>
     </div>
+    <table *ngIf="tweets.length > 0"  class="table table-striped table-bordered table-sm">
+      <thead>
+        <tr>
+          <th class="th-sm text-center align-middle">Tweet #</th>
+          <th class="th-sm text-center align-middle">Creator</th>
+          <th class="th-sm text-center align-middle">Date</th>
+          <th class="th-sm text-center align-middle">Tweet</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let tweet of tweets; index as i'>
+          <td class="text-center align-middle">{{ i + 1}}</td>
+          <td class="text-center align-middle">{{ tweet.user.name }}</td>
+          <td class="text-center align-middle">{{ tweet.created_at | date: 'yyyy.MM.dd' }}</td>
+          <td class="text-center align-middle">{{ removeURLs(tweet.text) }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-<div *ngIf='tweets.length === 0' class="container my-5">
-    <div class="row">
-        <div class='text-center'>
-            <h3>No Tweets to display for player</h3>
-        </div>
-    </div>
-</div>
-<div class="container my-5">
-    <div class="row">
-        <div class='text-center'>
-            <a ID="BtnCancel" class="btn" routerLink="/recruits"><i class="fa fas fa-undo"></i> Back</a>
-        </div>
-    </div>
+<div class="btnContainer">
+    <a class="text-center" ID="BtnCancel" class="btn btn-outline-dark" routerLink="/recruits"><i class="fa fas fa-undo"></i> Back</a>
 </div>

@@ -1,180 +1,170 @@
-<div class="container my-5">
-    <div class="row">
-        <div class="formBody">
-            <div class="form-group row">
-                <Label ID="lblRecruitID" for="txtRecruitID" CssClass="col-2 col-form-label">Recruit ID:</Label>
-                <div class="col-3">
-                    <Label ID="lblRecruitIDData" for="txtRecruitIDData" CssClass="col-2 col-form-label">{{recruit._id}}</Label>
-                </div>
-            </div>
+<div class="container">
+  <h1 class="display-2 text-center">{{ title }}</h1>
+  <div>
+    <div class="form row">
 
-            <div class="form-group row">
-                <Label ID="lblFirstName" for="txtFirstName" CssClass="col-2 col-form-label">First Name:</Label>
-                <div class="col-3">
-                    <Label ID="lblFirstNameData" for="txtFirstNameData" CssClass="col-2 col-form-label">{{recruit.firstName}}</Label>
-                </div>
-            </div>
+      <div class="form-group col-md-3">
+        <label id="lblRecruitID" for="txtRecruitID">Recruit ID</label>
+        <input [(ngModel)]="recruit._id" value="{{recruit._id}}" name="recruitID" ID="txtBoxRecruitID"
+          class="form-control" readonly>
+      </div>
 
-            <div class="form-group row">
-                <Label ID="lblLastName" for="txtLastName" CssClass="col-2 col-form-label">Last Name:</Label>
-                <div class="col-3">
-                    <Label ID="lblLastNameData" for="txtLastNameData" CssClass="col-2 col-form-label">{{recruit.lastName}}</Label>
-                </div>
-            </div>
-            <div *ngIf="position">
-                <div class="form-group row">
-                    <Label ID="lblSkating" for="txtSkating" CssClass="col-2 col-form-label">Skating:</Label>
-                    <div class="col-3">
-                        <Label ID="lblSkatingData" for="txtSkatingData" CssClass="col-2 col-form-label">{{ goalieReport.skating }}</Label>
-                    </div>
-                </div>
+      <div class="form-group col-md-4">
+        <label id="lblFirstName" for="txtBoxFirstName">First Name</label>
+        <input [(ngModel)]="recruit.firstName" value="{{recruit.firstName}}" name="firstName" ID="txtBoxFirstName"
+          class="form-control" readonly>
+      </div>
 
-                <div class="form-group row">
-                    <Label ID="lblAgilitySpeed" for="txtAgilitySpeed" CssClass="col-2 col-form-label">Agility Speed:</Label>
-                    <div class="col-3">
-                        <Label ID="lblAgilitySpeedData" for="txtAgilitySpeedData" CssClass="col-2 col-form-label">{{ goalieReport.agilitySpeed }}</Label>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <Label ID="lblTrafficReboundControl" for="txtTrafficReboundControl" CssClass="col-2 col-form-label">Traffic Rebound Control:</Label>
-                    <div class="col-3">
-                        <Label ID="lblTrafficReboundControl" for="txtTrafficReboundControl" CssClass="col-2 col-form-label">{{ goalieReport.trafficReboundControl }}</Label>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <Label ID="lblHockeySense" for="txtHockeySense" CssClass="col-2 col-form-label">Hockey Sense:</Label>
-                    <div class="col-3">
-                        <Label ID="lblHockeySense" for="txtHockeySense" CssClass="col-2 col-form-label">{{ goalieReport.hockeySense }}</Label>
-
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <Label ID="lblStrengthFitness" for="txtStrengthFitness" CssClass="col-2 col-form-label">Strength Fitness:</Label>
-                    <div class="col-3">
-                        <Label ID="lblStrengthFitness" for="txtStrengthFitness" CssClass="col-2 col-form-label">{{ goalieReport.strengthFitness }}</Label>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <Label ID="lblMentalToughness" for="txtMentalToughness" CssClass="col-2 col-form-label">Mental Toughness:</Label>
-                    <div class="col-3">
-                        <Label ID="lblMentalToughnessData" for="txtMentalToughnessData" CssClass="col-2 col-form-label">{{ goalieReport.mentalToughness }}</Label>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <Label ID="lblBattle Mentality" for="txtBattle Mentality" CssClass="col-2 col-form-label">Battle Mentality:</Label>
-                    <div class="col-3">
-                        <Label ID="lblBattle MentalityData" for="txtBattle MentalityData" CssClass="col-2 col-form-label">{{ goalieReport.battleMentality }}</Label>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <Label ID="lblOverallRanking" for="txtOverallRanking" CssClass="col-2 col-form-label">Overall Ranking:</Label>
-                    <div class="col-3">
-                        <Label ID="lblOverallRankingData" for="txtOverallRankingData" CssClass="col-2 col-form-label">{{ goalieReport.overallRanking }}</Label>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <Label ID="lblNotes" for="txtNotes" CssClass="col-2 col-form-label">Notes:</Label>
-                    <div class="col-3">
-                        <Label ID="lblNotesData" TextMode="MultiLine" Width="500px">{{ goalieReport.notes }}</Label>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <Label ID="lblCreateDate" for="txtCreateDate" CssClass="col-2 col-form-label">Last Modified Date: </Label>
-                    <div class="col-3">
-                        <Label ID="lblCreateDateData" Width="500px">{{ goalieReport.reportDate }}</Label>
-                    </div>
-                </div>
-
-            </div>
-
-            <div *ngIf="!position">
-                <div class="form-group row">
-                    <Label ID="lblSkating" for="txtSkating" CssClass="col-2 col-form-label">Skating:</Label>
-                    <div class="col-3">
-                        <Label ID="lblSkatingData" for="txtSkatingData" CssClass="col-2 col-form-label">{{ playerReport.skating }}</Label>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <Label ID="lblIndividualOffesiveSkills" for="txtIndividualOffesiveSkills" CssClass="col-2 col-form-label">Individual Offensive Skills:</Label>
-                    <div class="col-3">
-                        <Label ID="lblIndividualOffesiveSkillsData" for="txtIndividualOffesiveSkillsData" CssClass="col-2 col-form-label">{{ playerReport.individualOffensiveSkills }}</Label>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <Label ID="lblIndividualDefensiveSkills" for="txtIndividualDefensiveSkills" CssClass="col-2 col-form-label">Individual Defensive Skills:</Label>
-                    <div class="col-3">
-                        <Label ID="lblIndividualDefensiveSkillsData" for="txtIndividualDefensiveSkillsData" CssClass="col-2 col-form-label">{{ playerReport.individualDefensiveSkills }}</Label>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <Label ID="lblOffensiveTeamPlay" for="txtOffensiveTeamPlay" CssClass="col-2 col-form-label">Offensive Team Play:</Label>
-                    <div class="col-3">
-                        <Label ID="lblOffensiveTeamPlayData" for="txtOffensiveTeamPlayData" CssClass="col-2 col-form-label">{{ playerReport.offensiveTeamPlay }}</Label>
-
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <Label ID="lblDefensiveTeamPlay" for="txtDefensiveTeamPlay" CssClass="col-2 col-form-label">Defensive Team Play:</Label>
-                    <div class="col-3">
-                        <Label ID="lblDefensiveTeamPlayData" for="txtDefensiveTeamPlayData" CssClass="col-2 col-form-label">{{ playerReport.defensiveTeamPlay }}</Label>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <Label ID="lblHockeySense" for="txtHockeySense" CssClass="col-2 col-form-label">Hockey Sense:</Label>
-                    <div class="col-3">
-                        <Label ID="lblHockeySenseData" for="txtHockeySenseData" CssClass="col-2 col-form-label">{{ playerReport.hockeySense }}</Label>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <Label ID="lblStrengthPower" for="txtStrengthPower" CssClass="col-2 col-form-label">Strength Power:</Label>
-                    <div class="col-3">
-                        <Label ID="lblStrengthPowerData" for="txtStrengthPowerData" CssClass="col-2 col-form-label">{{ playerReport.strengthPower }}</Label>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <Label ID="lblWorkEthic" for="txtWorkEthic" CssClass="col-2 col-form-label">Work Ethic:</Label>
-                    <div class="col-3">
-                        <Label ID="lblWorkEthicData" for="txtWorkEthicData" CssClass="col-2 col-form-label">{{ playerReport.workEthic }}</Label>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <Label ID="lblOverallRanking" for="txtOverallRanking" CssClass="col-2 col-form-label">Overall Ranking:</Label>
-                    <div class="col-3">
-                        <Label ID="lblOverallRankingData" for="txtOverallRankingData" CssClass="col-2 col-form-label">{{ playerReport.overallRanking }}</Label>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <Label ID="lblNotes" for="txtNotes" CssClass="col-2 col-form-label">Notes:</Label>
-                    <div class="col-3">
-                        <Label ID="lblNotesData" TextMode="MultiLine" Width="500px">{{ playerReport.notes }}</Label>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <Label ID="lblCreateDate" for="txtCreateDate" CssClass="col-2 col-form-label">Last Modified Date: </Label>
-                    <div class="col-3">
-                        <Label ID="lblCreateDateData" Width="500px">{{ playerReport.reportDate }}</Label>
-                    </div>
-                </div>
-            </div>
-            <a ID="BtnBack" class="btn btn-warning" routerLink="/recruits/detail/{{ recruit._id }}">Back</a>
-        </div>
+      <div class="form-group col-md-4">
+        <label id="lblLastName" for="txtBoxLastName">Last Name</label>
+        <input [(ngModel)]="recruit.lastName" value="{{recruit.lastName}}" name="lastName" ID="txtBoxLastName"
+          class="form-control" readonly>
+      </div>
     </div>
-</div>
+
+    <!-- Goalie Scouting Report Details -->
+    <div *ngIf="position">
+      <div class="form row">
+        <div class="form-group col-md-12">
+          <label id="lblReportDate" for="txtReportDate">Report Last Updated</label>
+          <input [ngModel]="goalieReport.reportDate | date: 'longDate'" (ngModelChange)="goalieReport.reportDate" value="{{ goalieReport.reportDate }}" name="reportDate"
+            ID="txtReportDate" class="form-control" datetime="yyy-MMM-dd" readonly>
+        </div>
+      </div>
+      <div class="form row">
+        <div class="form-group col-md-4">
+          <label id="lblSkating" for="txtSkating">Skating</label>
+          <input [(ngModel)]="goalieReport.skating" value="{{goalieReport.skating}}" name="skating" ID="txtSkating"
+            class="form-control" readonly>
+
+        </div>
+        <div class="form-group col-md-4">
+          <label id="lblAgilitySpeed" for="txtAgilitySpeed">Agility & Speed</label>
+          <input [(ngModel)]="goalieReport.agilitySpeed" value="{{goalieReport.agilitySpeed}}" name="agiltySpeed"
+            ID="txtAgilitySpeed" class="form-control" readonly>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label id="lblTrafficReboundControl" for="txtTrafficReboundControl">Traffic & Rebound Control</label>
+          <input [(ngModel)]="goalieReport.trafficReboundControl" value="{{goalieReport.trafficReboundControl}}"
+            name="trafficReboundControl" ID="txtTrafficReboundControl" class="form-control" readonly>
+        </div>
+      </div>
+
+      <div class="form row">
+        <div class="form-group col-md-4">
+          <label id="lblHockeySense" for="txtHockeySense">Hockey Sense</label>
+          <input [(ngModel)]="goalieReport.hockeySense" value="{{goalieReport.hockeySense}}" name="hockeySense"
+            ID="txtHockeySense" class="form-control" readonly>
+        </div>
+        <div class="form-group col-md-4">
+          <label id="lblStrengthFitness" for="lblStrengthPower">Strength & Fitness</label>
+          <input [(ngModel)]="goalieReport.strengthFitness" value="{{goalieReport.strengthFitness}}"
+            name="strengthFitness" ID="txtStrengthFitness" class="form-control" readonly>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label id="lblTrafficReboundControl" for="txtTrafficReboundControl">Mental Toughness</label>
+          <input [(ngModel)]="goalieReport.mentalToughness" value="{{goalieReport.mentalToughness}}"
+            name="mentalToughness" ID="txtMentalToughness" class="form-control" readonly>
+        </div>
+      </div>
+
+      <div class="form row">
+        <div class="form-group col-md-6">
+          <label id="lblBattleMentality" for="txtBattleMentality">Battle Mentality</label>
+          <input [(ngModel)]="goalieReport.battleMentality" value="{{goalieReport.battleMentality}}"
+            name="battleMentality" ID="battleMentality" class="form-control" readonly>
+        </div>
+        <div class="form-group col-md-6">
+          <label id="lblOverallRanking" for="txtOverallRanking">Overall Ranking</label>
+          <input [(ngModel)]="goalieReport.overallRanking" value="{{goalieReport.overallRanking}}" name="overallRanking"
+            ID="txtOverallRanking" class="form-control" readonly>
+        </div>
+
+      </div>
+      <div class="form row">
+        <div class="form-group col-md-12">
+          <label id="lblNotes" for="txtNotes">Notes</label>
+          <textarea [(ngModel)]="goalieReport.notes" value="{{goalieReport.notes}}" name="notes" ID="txtNotes" rows="5"
+            class="form-control" required #notes="ngModel" readonly></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Player Scouting Report Details -->
+    <div *ngIf="!position">
+      <div class="form row">
+        <div class="form-group col-md-12">
+          <label id="lblReportDate" for="txtReportDate">Report Last Updated</label>
+          <input [ngModel]="playerReport.reportDate | date: 'longDate'" (ngModelChange)="playerReport.reportDate" value="{{playerReport.reportDate}}" name="reportDate"
+            ID="txtReportDate" class="form-control" readonly>
+        </div>
+      </div>
+      <div class="form row">
+        <div class="form-group col-md-4">
+          <label id="lblSkating" for="txtSkating">Skating</label>
+          <input [(ngModel)]="playerReport.skating" value="{{playerReport.skating}}" name="skating" ID="txtSkating"
+            class="form-control" readonly>
+        </div>
+        <div class="form-group col-md-4">
+          <label id="lblIndividualOffensiveSkills" for="txtIndividualOffensiveSkills">Individual Offensive Skils</label>
+          <input [(ngModel)]="playerReport.individualOffensiveSkills" value="{{playerReport.individualOffensiveSkills}}"
+            name="individualOffensiveSkills" ID="txtIndividualOffensiveSkills" class="form-control" readonly>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label id="lblIndividualDefensiveSkills" for="txtIndividualDefensiveSkills">Individual Defensive
+            Skills</label>
+          <input [(ngModel)]="playerReport.individualDefensiveSkills" value="{{playerReport.individualDefensiveSkills}}"
+            name="individualDefensiveSkills" ID="txtIndividualDefensiveSkills" class="form-control" readonly>
+        </div>
+      </div>
+      <div class="form row">
+        <div class="form-group col-md-4">
+          <label id="lblOffensiveTeamPlay" for="txtOffensiveTeamPlay">Offensive Team Play</label>
+          <input [(ngModel)]="playerReport.offensiveTeamPlay" value="{{playerReport.offensiveTeamPlay}}"
+            name="offensiveTeamPlay" ID="txtOffensiveTeamPlay" class="form-control" readonly>
+        </div>
+        <div class="form-group col-md-4">
+          <label id="lblDefensiveTeamPlay" for="DefensiveTeamPlay">Defensive Team Play</label>
+          <input [(ngModel)]="playerReport.defensiveTeamPlay" value="{{playerReport.defensiveTeamPlay}}"
+            name="defensiveTeamPlay" ID="txtDefensiveTeamPlay" class="form-control" readonly>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label id="lblHockeySense" for="txtHockeySense">Hockey Sense</label>
+          <input [(ngModel)]="playerReport.hockeySense" value="{{playerReport.hockeySense}}" name="hockeySense"
+            ID="txtHockeySense" class="form-control" readonly>
+        </div>
+      </div>
+      <div class="form row">
+        <div class="form-group col-md-4">
+          <label id="lblStrengthPower" for="txtStrengthPower">Strength & Power</label>
+          <input [(ngModel)]="playerReport.strengthPower" value="{{playerReport.strengthPower}}" name="strengthPower"
+            ID="txtStrengthPower" class="form-control" readonly>
+        </div>
+        <div class="form-group col-md-4">
+          <label id="lblWorkEthic" for="txtWorkEthic">Work Ethic</label>
+          <input [(ngModel)]="playerReport.workEthic" value="{{playerReport.workEthic}}" name="workEthic"
+            ID="txtWorkEthic" class="form-control" readonly>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label id="lblOverallRanking" for="txtOverallRanking">Overall Ranking</label>
+          <input [(ngModel)]="playerReport.overallRanking" value="{{playerReport.overallRanking}}" name="overallRanking"
+            ID="txtOverallRanking" class="form-control" readonly>
+        </div>
+      </div>
+      <div class="form row">
+        <div class="form-group col-md-12">
+          <label id="lblNotes" for="txtNotes">Notes</label>
+          <textarea [(ngModel)]="playerReport.notes" value="{{playerReport.notes}}" name="notes" ID="txtNotes" rows="5"
+            class="form-control" required #notes="ngModel" readonly></textarea>
+        </div>
+      </div>
+
+    </div>
+    <a ID="BtnBack" class="btn btn-outline-dark" routerLink="/recruits/detail/{{ recruit._id }}"><i
+        class="fa fas fa-undo"></i> Back</a>
+  </div>

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
+import { FormGroup,  FormBuilder,  Validators, FormControl, ValidatorFn } from '@angular/forms';
 import { RecruitService } from '../../services/recruit.service';
 import { RecruitSchema } from '../../../models/recruit';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
-
 
 @Component({
   selector: 'app-add-recruit',
@@ -16,7 +15,7 @@ export class AddRecruitComponent implements OnInit {
   recruit: RecruitSchema;
 
   constructor(private activatedRoute: ActivatedRoute, private rs: RecruitService, private router: Router,
-              private flashMessage: FlashMessagesService) { }
+              private flashMessage: FlashMessagesService, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.title = this.activatedRoute.snapshot.data.title;
@@ -37,33 +36,32 @@ export class AddRecruitComponent implements OnInit {
     });
   }
 
-  onDetailsPageSubmit(): void {
-    switch (this.title) {
-      case 'Add Recruit':
-      this.rs.addRecruit(this.recruit).subscribe(data => {
-        if (data.success) {
-          this.flashMessage.show('Recruit has been added.', {cssClass: 'alert-success', timeOut: 3000});
-          this.router.navigate(['/recruits']);
-        } else {
-          this.flashMessage.show('Recruit was not added.', {cssClass: 'alert-danger', timeOut: 3000});
-          this.router.navigate(['/recruits']);
-        }
-      });
-      break;
+onDetailsPageSubmit(): void {
+      switch (this.title) {
+        case 'Add Recruit':
+        this.rs.addRecruit(this.recruit).subscribe(data => {
+          if (data.success) {
+            this.flashMessage.show('Recruit has been added.', {cssClass: 'alert-success', timeOut: 3000});
+            this.router.navigate(['/recruits']);
+          } else {
+            this.flashMessage.show('Recruit was not added.', {cssClass: 'alert-danger', timeOut: 3000});
+            this.router.navigate(['/recruits']);
+          }
+        });
+        break;
 
-      case 'Update Recruit':
-      console.log(this.recruit);
-      this.rs.editRecruit(this.recruit).subscribe(data => {
-        if (data.success) {
-          this.flashMessage.show(data.msg, {cssClass: 'alert-success', timeOut: 3000});
-          this.router.navigate(['/recruits']);
-        } else {
-          this.flashMessage.show('Recruit was not edited.', {cssClass: 'alert-danger', timeOut: 3000});
-          this.router.navigate(['/recruits']);
-        }
-      });
-      break;
-    }
+        case 'Update Recruit':
+        console.log(this.recruit);
+        this.rs.editRecruit(this.recruit).subscribe(data => {
+          if (data.success) {
+            this.flashMessage.show(data.msg, {cssClass: 'alert-success', timeOut: 3000});
+            this.router.navigate(['/recruits']);
+          } else {
+            this.flashMessage.show('Recruit was not edited.', {cssClass: 'alert-danger', timeOut: 3000});
+            this.router.navigate(['/recruits']);
+          }
+        });
+        break;
+      }
   }
-
 }

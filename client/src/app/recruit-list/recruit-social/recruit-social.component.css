@@ -1,8 +1,27 @@
 .btn {
-    width: 75px;
-    padding: 2px;
-    margin-right: 10px;
-    display: inline-block;
-    background: #b62b28;
-    color: white;
+  width: 75px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  background: #b62b28;
+  color: white;
+  margin: 0 auto;
+}
+
+.btnContainer{
+  width: 100%;
+  text-align: center;
+}
+
+thead {
+  color: #b62b28;
+}
+
+table {
+  margin-top: 10px;
+}
+
+.input-group {
+  margin-top: 10px;
+  width: 300px;
 }

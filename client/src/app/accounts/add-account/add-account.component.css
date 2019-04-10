@@ -1,0 +1,20 @@
+select {
+    height: 36px;
+}
+
+.btn {
+    width: 75px;
+    padding: 2px;
+    margin-right: 10px;
+    display: inline-block;
+    background: #b62b28;
+    color: white;
+}
+
+.control-label:after {
+    color: #d00;
+    content: "*";
+    position: absolute;
+    margin-left: 5px;
+    top: 1px;
+}

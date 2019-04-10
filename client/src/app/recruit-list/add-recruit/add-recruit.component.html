@@ -6,110 +6,172 @@
 -->
 
 <div class="container">
-  <h1 class="display-2 text-center">{{ title }}</h1>
-  <form class="form" (submit)="onDetailsPageSubmit()">
+    <h1 class="display-2 text-center">{{ title }}</h1>
+    <form class="form" (submit)="onDetailsPageSubmit()">
+        <div class="form row">
+            <div class="form-group col-md-6">
+                <label id="lblFirstName" for="txtBoxFirstName" class="control-label">First Name</label>
+                <input [(ngModel)]="recruit.firstName" value="{{recruit.firstName}}" name="firstName" ID="txtBoxFirstName" class="form-control" placeholder="Joseph" required pattern="[a-zA-Z ]*" #name="ngModel">
+                <!-- Validation to check the field is not null and that it only contains alpha characters -->
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                    <div *ngIf="name.errors.required">
+                        First name is required.
+                    </div>
+                    <div *ngIf="name.errors.pattern">
+                        First name must only contain letters.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label id="lblLastName" for="txtBoxLastName" class="control-label">Last Name</label>
+                <input [(ngModel)]="recruit.lastName" value="{{recruit.lastName}}" name="lastName" ID="txtBoxLastName" class="form-control" placeholder="Doe" pattern="[a-zA-Z ]*" required #last="ngModel">
+                <!-- Validation to check the field is not null and that it only contains alpha characters -->
+                <div *ngIf="last.invalid && (last.dirty || last.touched)" class="alert alert-danger">
+                    <div *ngIf="last.errors.required">
+                        Last name is required.
+                    </div>
+                    <div *ngIf="last.errors.pattern">
+                        Last name must only contain letters.
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <div class="form row">
-      <div class="form-group col-md-6">
-        <label id="lblFirstName" for="txtBoxFirstName">First Name</label>
-        <input [(ngModel)]="recruit.firstName" value="{{recruit.firstName}}" name="firstName" ID="txtBoxFirstName"
-          class="form-control" placeholder="Joseph">
-        <!-- Validation to check the field is not null and that it only contains alpha characters -->
-      </div>
-      <div class="form-group col-md-6">
-        <label id="lblLastName" for="txtBoxLastName">Last Name</label>
-        <input [(ngModel)]="recruit.lastName" value="{{recruit.lastName}}" name="lastName" ID="txtBoxLastName"
-          class="form-control" placeholder="Doe">
-        <!-- Validation to check the field is not null and that it only contains alpha characters -->
-      </div>
-    </div>
+        <div class="form row">
+            <div class="form-group col-md-6">
+                <label id="lblPhoneNumber" for="txtPhoneNumber" class="control-label">Contact Number</label>
+                <input [(ngModel)]="recruit.contactNumber" value="{{recruit.contactNumber}}" name="contactNumber" ID="txtBoxPhoneNumber" class="form-control" placeholder="(905) 999-1234" required pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$" #phone="ngModel">
+                <!-- REGEX validation to check format is (905) 999-9999 -->
+                <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+                    <div *ngIf="phone.errors.required">
+                        Phone number is required.
+                    </div>
+                    <div *ngIf="phone.errors.pattern">
+                        Phone number must be in the correct format.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label id="lblEmailAddress" for="txtEmailAddress" class="control-label">Email Address</label>
+                <input [(ngModel)]="recruit.emailAddress" value="{{recruit.emailAddress}}" name="emailAddress" ID="txtBoxEmailAddress" class="form-control" placeholder="joerecruit@recruit.com" required email #email="ngModel">
+                <!-- REGEX validation to check format is user@domain.com -->
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                    <div *ngIf="email.errors.required">
+                        Email is required.
+                    </div>
+                    <div *ngIf="email.errors.email">
+                        Email must be in email format "joe@gmail.com".
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form row">
+            <div class="form-group col-md-2">
+                <label id="lblBirthYear" for="txtBirthYear" class="control-label">Birth Year</label>
+                <input [(ngModel)]="recruit.birthYear" value="{{recruit.birthYear}}" name="birthYear" type="number" ID="txtBoxBirthYear" class="form-control" placeholder="2001" required [range]="[1990, 2019]" #birth="ngModel">
+                <!-- Validation to check the field is only contains number and range is between 1900 - 2099 -->
+                <div *ngIf="birth.invalid && (birth.dirty || birth.touched)" class="alert alert-danger">
+                    <div *ngIf="birth.errors.required">
+                        Birth year is required.
+                    </div>
+                    <div *ngIf="birth.errors.range">
+                        Birth year must be between 1990 and 2019.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+                <label id="lblGradYear" for="txtGradYear" class="control-label">Graduation Year</label>
+                <input [(ngModel)]="recruit.graduationYear" value="{{recruit.graduationYear}}" name="graduationYear" type="number" ID="txtBoxGradYear" class="form-control" placeholder="2020" required [range]="[1990, 2019]" #grad="ngModel">
+                <!-- Validation to check the field is only contains number and range is between 1900 - 2099 -->
+                <div *ngIf="grad.invalid && (grad.dirty || grad.touched)" class="alert alert-danger">
+                    <div *ngIf="grad.errors.required">
+                        Graduation year is required.
+                    </div>
+                    <div *ngIf="grad.errors.range">
+                        Graduation year must be between 1990 and 2019.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-8">
+                <label id="lblCurrentTeam" for="txtCurrentTeam" class="control-label">Current Team</label>
+                <input [(ngModel)]="recruit.currentTeam" value="{{recruit.currentTeam}}" name="currentTeam" ID="txtBoxCurrentTeam" class="form-control" placeholder="NYS Bantam AA" pattern="[a-zA-Z ]*" required #team="ngModel">
+                <!-- Validation to check the field only contains alpha characters -->
+                <div *ngIf="team.invalid && (team.dirty || team.touched)" class="alert alert-danger">
+                    <div *ngIf="team.errors.required">
+                        Team name is required.
+                    </div>
+                    <div *ngIf="team.errors.pattern">
+                        Team name must use letters.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form row">
+            <div class="form-group col-md-6">
+                <label id="lblMothersName" for="txtMothersName" class="control-label">Mother's Name</label>
+                <input [(ngModel)]="recruit.mothersName" value="{{recruit.mothersName}}" name="mothersName" ID="txtBoxMothersName" class="form-control" placeholder="Rita" pattern="[a-zA-Z ]*" required #mother="ngModel">
+                <!-- Validation to check the field only contains alpha characters -->
+                <div *ngIf="mother.invalid && (mother.dirty || mother.touched)" class="alert alert-danger">
+                    <div *ngIf="mother.errors.required">
+                        Mother's first name is required.
+                    </div>
+                    <div *ngIf="mother.errors.pattern">
+                        Mother's name must use letters.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label id="lblFathersName" for="txtFathersName" class="control-label">Father's Name</label>
+                <input [(ngModel)]="recruit.fathersName" value="{{recruit.fathersName}}" name="fathersName" ID="txtBoxFathersName" class="form-control" placeholder="John" pattern="[a-zA-Z ]*" required #father="ngModel">
+                <!-- Validation to check the field only contains alpha characters -->
+                <div *ngIf="father.invalid && (father.dirty || father.touched)" class="alert alert-danger">
+                    <div *ngIf="father.errors.required">
+                        Father's first name is required.
+                    </div>
+                    <div *ngIf="father.errors.pattern">
+                        Father's name must use letters.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form row">
+            <div class="form-group col-md-4">
+                <label id="lblJerseyNumber" for="txtJerseyNumber" class="control-label">Jersey Number</label>
+                <input [(ngModel)]="recruit.jerseyNumber" value="{{recruit.jerseyNumber}}" name="jerseyNumber" type="number" ID="txtBoxJerseyNumber" class="form-control" placeholder="19" required [range]="[0, 99]" #number="ngModel">
+                <!-- Validation to check the field is only contains number and range is between 00 - 99 -->
+                <div *ngIf="number.invalid && (number.dirty || number.touched)" class="alert alert-danger">
+                    <div *ngIf="number.errors.required">
+                        Jersey number is required.
+                    </div>
+                    <div *ngIf="number.errors.range">
+                        Jersey number must be between 0 and 99.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label id="lblPosition" for="txtPosition" class="control-label">Position</label>
+                <select [(ngModel)]="recruit.position" value="{{recruit.position}}" name="position" ID="dropdownPosition" type="text" class="form-control" style="height: 36px;">
+                  <option Selected="True" Value="Forward">Forward</option>
+                  <option Value="Defenceman">Defenceman</option>
+                  <option Value="Goalie">Goalie</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label id="lblStatus" for="txtStatus" class="control-label">Status</label>
+                <select [(ngModel)]="recruit.status" value="{{recruit.status}}" name="status" ID="dropdownStatus" type="text" class="form-control" style="height: 36px;">
+                  <option Selected="True" Value="Available">Available</option>
+                  <option Value="Unavailable">Unavailable</option>
+                  <option Value="Committed">Committed</option>
+                  <option Value="Not Interested">Not Interested</option>
+                </select>
+            </div>
+        </div>
 
-    <div class="form row">
-      <div class="form-group col-md-6">
-        <label id="lblPhoneNumber" for="txtPhoneNumber">Contact Number</label>
-        <input [(ngModel)]="recruit.contactNumber" value="{{recruit.contactNumber}}" name="contactNumber"
-          ID="txtBoxPhoneNumber" class="form-control" placeholder="(905) 999-1234">
-        <!-- REGEX validation to check format is (905) 999-9999 -->
-      </div>
-      <div class="form-group col-md-6">
-        <label id="lblEmailAddress" for="txtEmailAddress">Email Address</label>
-        <input [(ngModel)]="recruit.emailAddress" value="{{recruit.emailAddress}}" name="emailAddress"
-          ID="txtBoxEmailAddress" class="form-control" placeholder="joerecruit@recruit.com">
-        <!-- REGEX validation to check format is user@domain.com -->
-      </div>
-    </div>
-
-    <div class="form row">
-      <div class="form-group col-md-2">
-        <label id="lblBirthYear" for="txtBirthYear">Birth Year</label>
-        <input [(ngModel)]="recruit.birthYear" value="{{recruit.birthYear}}" name="birthYear" ID="txtBoxBirthYear"
-          class="form-control" placeholder="2001">
-        <!-- Validation to check the field is only contains number and range is between 1900 - 2099 -->
-      </div>
-      <div class="form-group col-md-2">
-        <label id="lblGradYear" for="txtGradYear">Graduation Year</label>
-        <input [(ngModel)]="recruit.graduationYear" value="{{recruit.graduationYear}}" name="graduationYear"
-          ID="txtBoxGradYear" class="form-control" placeholder="2020">
-        <!-- Validation to check the field is only contains number and range is between 1900 - 2099 -->
-      </div>
-      <div class="form-group col-md-8">
-        <label id="lblCurrentTeam" for="txtCurrentTeam">Current Team</label>
-        <input [(ngModel)]="recruit.currentTeam" value="{{recruit.currentTeam}}" name="currentTeam"
-          ID="txtBoxCurrentTeam" class="form-control" placeholder="NYS Bantam AA">
-        <!-- Validation to check the field only contains alpha characters -->
-      </div>
-    </div>
-
-    <div class="form row">
-      <div class="form-group col-md-6">
-        <label id="lblMothersName" for="txtMothersName">Mother's Name</label>
-        <input [(ngModel)]="recruit.mothersName" value="{{recruit.mothersName}}" name="mothersName"
-          ID="txtBoxMothersName" class="form-control" placeholder="Rita">
-        <!-- Validation to check the field only contains alpha characters -->
-      </div>
-      <div class="form-group col-md-6">
-        <label id="lblFathersName" for="txtFathersName">Father's Name</label>
-        <input [(ngModel)]="recruit.fathersName" value="{{recruit.fathersName}}" name="fathersName"
-          ID="txtBoxFathersName" class="form-control" placeholder="John">
-        <!-- Validation to check the field only contains alpha characters -->
-      </div>
-    </div>
-
-
-    <div class="form row">
-      <div class="form-group col-md-4">
-        <label id="lblJerseyNumber" for="txtJerseyNumber">Jersey Number</label>
-        <input [(ngModel)]="recruit.jerseyNumber" value="{{recruit.jerseyNumber}}" name="jerseyNumber"
-          ID="txtBoxJerseyNumber" class="form-control" placeholder="19">
-        <!-- Validation to check the field is only contains number and range is between 00 - 99 -->
-      </div>
-      <div class="form-group col-md-4">
-        <label id="lblPosition" for="txtPosition">Position</label>
-        <select [(ngModel)]="recruit.position" value="{{recruit.position}}" name="position" ID="dropdownPosition"
-          type="text" class="form-control" style="height: 36px;">
-          <option Selected="True" Value="Forward">Forward</option>
-          <option Value="Defenceman">Defenceman</option>
-          <option Value="Goalie">Goalie</option>
-        </select>
-      </div>
-
-      <div class="form-group col-md-4">
-        <label id="lblStatus" for="txtStatus">Status</label>
-        <select [(ngModel)]="recruit.status" value="{{recruit.status}}" name="status" ID="dropdownStatus" type="text"
-          class="form-control" style="height: 36px;">
-          <option Selected="True" Value="Available">Available</option>
-          <option Value="Unavailable">Unavailable</option>
-          <option Value="Committed">Committed</option>
-          <option Value="Not Interested">Not Interested</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="form row">
-      <div class="form-group col-md-6">
-        <button ID="BtnAddRecruit" type='submit' class="btn"><i class="fa fa-arrow-circle-right"></i> Submit</button>
-        <a ID="BtnCancel" class="btn" routerLink="/recruits"><i class="fa fas fa-undo"></i> Back</a>
-      </div>
-    </div>
-  </form>
+        <div class="form row">
+            <div class="form-group col-md-6">
+                <button ID="BtnAddRecruit" type='submit' class="btn"><i class="fa fa-arrow-circle-right"></i> Submit</button>
+                <a ID="BtnCancel" class="btn" routerLink="/recruits"><i class="fa fas fa-undo"></i> Back</a>
+            </div>
+        </div>
+    </form>
 </div>

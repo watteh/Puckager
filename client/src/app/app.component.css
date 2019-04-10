@@ -1,12 +1,31 @@
 nav {
-  margin: 0px;
+  overflow: auto;
+}
+
+.navbar-nav > li {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 img {
-  float: left;
-  margin: 0px 5px 5px 0px;
+  height: 40px;
+  align-self: center;
 }
 
-.text-DisplayName {
-  color: #b62b28;
+#displayName {
+  pointer-events: none;
+  cursor: default;
+  color: #E92E36;
+}
+
+.customFooter {
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.footerContainer {
+  width: 100%;
+  text-align: center;
 }

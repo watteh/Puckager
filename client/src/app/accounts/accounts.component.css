@@ -1,0 +1,24 @@
+a:hover {
+  color: #fff;
+}
+
+.btn {
+  width: 50px;
+  display: inline-block;
+  margin: 3px;
+  background: #b62b28;
+  color: white;
+}
+
+thead {
+  color: #b62b28;
+}
+
+table {
+  margin-top: 10px;
+}
+
+.input-group {
+  margin-top: 10px;
+  width: 300px;
+}
