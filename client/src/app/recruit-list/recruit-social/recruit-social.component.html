@@ -10,20 +10,20 @@
                     <th class="th-sm text-center align-middle">Tweet #</th>
                     <th class="th-sm text-center align-middle">Creator</th>
                     <th class="th-sm text-center align-middle">Date</th>
-                    <th class="th-sm text-center align-middle">Text</th>
+                    <th class="th-sm text-center align-middle">Tweet</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor='let tweet of tweets; index as i'>
                     <td class="text-center align-middle">{{ i + 1}}</td>
                     <td class="text-center align-middle">{{ tweet.user.name }}</td>
-                    <td class="text-center align-middle">{{ tweet.created_at | date }}</td>
+                    <td class="text-center align-middle">{{ tweet.created_at | date: 'yyyy.MM.dd' }}</td>
                     <td class="text-center align-middle">{{ tweet.text }}</td>
                 </tr>
             </tbody>
         </table>
-        <div class="row ">
-            <a ID="BtnCancel" class="btn btn-outline-dark" routerLink="/recruits"><i class="fa fas fa-undo"></i> Back</a>
-        </div>
     </div>
+</div>
+<div class="btnContainer">
+    <a class="text-center" ID="BtnCancel" class="btn btn-outline-dark" routerLink="/recruits"><i class="fa fas fa-undo"></i> Back</a>
 </div>

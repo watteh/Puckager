@@ -17,3 +17,15 @@ img {
     cursor: default;
     color: #E92E36;
 }
+
+.customFooter {
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.footerContainer {
+    width: 100%;
+    text-align: center;
+}
