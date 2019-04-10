@@ -20,7 +20,7 @@
                     <td class="text-center align-middle">{{ tweet.user.name }}</td>
                     <td class="text-center align-middle">{{ tweet.created_at | date: 'yyyy.MM.dd' }}</td>
                     <td>{{ tweet.text }}</td>
-                    <td>{{ removeURLs(tweet.text) }}</td>
+                    <td>{{ removeURLs(tweet.source) }}</td>
                 </tr>
             </tbody>
         </table>
